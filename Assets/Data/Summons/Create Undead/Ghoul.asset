@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4084876199302854845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 2
+  _advantageType: 0
+  _range: 5
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 6
+    _number: 2
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &-1378459167493138757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: If the target is a creature other than an elf or undead, it must succeed
+    on a Constitution saving throw or be paralyzed for 1 minute. The target can repeat
+    the saving throw at the end of each of its turns, ending the effect on itself
+    on a success.
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 4
+    _number: 2
+    _modifiers: 2
+  _damageType: 2048
+  _dc: 10
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _faces: 12
+      _number: 6
+      _modifiers: 12
+    _damageType: 0
+    _condition: 256
+    _outcomeNote: Paralyzed for 1 minute. The target can repeat the saving throw
+      at the end of each of its turns, ending the effect on itself on a success.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 12
+      _number: 6
+      _modifiers: 12
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Ghoul
+  m_EditorClassIdentifier: 
+  _name: Ghoul
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _faces: 8
+    _number: 5
+    _modifiers: 0
+  _ac: 12
+  _proficiency: 2
+  _strength: 13
+  _dexterity: 15
+  _constitution: 1
+  _intelligence: 7
+  _wisdom: 10
+  _charisma: 6
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1034
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 256
+  _actions:
+  - {fileID: -4084876199302854845}
+  - {fileID: -1378459167493138757}

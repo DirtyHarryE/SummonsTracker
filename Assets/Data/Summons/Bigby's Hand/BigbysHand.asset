@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4936954378701815048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Clenched Fist
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 0
+  _advantageType: 0
+  _range: 0
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 8
+    _number: 4
+    _modifiers: 0
+  _damageType: 16
+--- !u!114 &-787219182555718236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Interposing Hand
+  m_EditorClassIdentifier: 
+  _note: The hand interposes itself between you and a creature you choose until you
+    give the hand a different command. The hand moves to stay between you and the
+    target, providing you with half cover against the target. The target can't move
+    through the hand's space if its Strength score is less than or equal to the hand's
+    Strength score. If its Strength score is higher than the hand's Strength score,
+    the target can move toward you through the hand's space, but that space is difficult
+    terrain for the target.
+--- !u!114 &-573111293072058932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Forceful Hand
+  m_EditorClassIdentifier: 
+  _note: The hand attempts to push a creature within 5 feet of it in a direction
+    you choose. Make a check with the hand's Strength contested by the Strength (Athletics)
+    check of the target. If the target is Medium or smaller, you have advantage on
+    the check. If you succeed, the hand pushes the target up to 5 feet plus a number
+    of feet equal to five times your spellcasting ability modifier. The hand moves
+    with the target to remain within 5 feet of it.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: BigbysHand
+  m_EditorClassIdentifier: 
+  _name: Bigby's Hand
+  _creature: 3
+  _movement:
+  - Type: 0
+    Distance: 60
+  - Type: 3
+    Distance: 60
+  _maxHP:
+    _faces: 0
+    _number: 0
+    _modifiers: 0
+  _ac: 20
+  _proficiency: 1
+  _strength: 26
+  _dexterity: 0
+  _constitution: 0
+  _intelligence: 0
+  _wisdom: 0
+  _charisma: 0
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _actions:
+  - {fileID: -4936954378701815048}
+  - {fileID: -573111293072058932}
+  - {fileID: 2856758031632349826}
+  - {fileID: -787219182555718236}
+--- !u!114 &2856758031632349826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Grasping Hand
+  m_EditorClassIdentifier: 
+  _note: "Choose a target within 5 feet and use the hand\u2019s Strength score to
+    resolve a grapple. If the target is Medium or smaller, you have advantage on
+    the check. While the hand is grappling the target, you can use a bonus action
+    to have the hand crush it."
+  _attackType: 0
+  _attackMod: 1
+  _advantageType: 0
+  _range: 5
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 6
+    _number: 2
+    _modifiers: 4
+  _damageType: 2

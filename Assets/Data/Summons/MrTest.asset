@@ -1,0 +1,421 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8670100163310376186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8487373ab36b94694ef00ab5c7b726, type: 3}
+  m_Name: DblDamage and Saving Throw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 1
+  _advantageType: 0
+  _range: 5
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 8
+    _number: 1
+    _modifiers: 6
+  _damageType: 128
+  _secondaryDamage:
+    _faces: 10
+    _number: 1
+    _modifiers: 1
+  _secondaryDamageType: 16
+  _dc: 16
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _faces: 3
+      _number: 1
+      _modifiers: 7
+    _damageType: 4096
+    _condition: 0
+    _outcomeNote: 1d3+4 thunder
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-7924758923651617542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Save-SoS
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 11
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _faces: 10
+      _number: 1
+      _modifiers: 3
+    _damageType: 64
+    _condition: 0
+    _outcomeNote: 1d10+3 nectoric damage
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Half
+--- !u!114 &-6079975482168456938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Condition
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 14
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 256
+    _outcomeNote: Become Paralyzed
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-5070048012648001716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Damage and Condition
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 15
+  _savingThrow: 32
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _faces: 4
+      _number: 1
+      _modifiers: 6
+    _damageType: 1024
+    _condition: 2
+    _outcomeNote: 1d4+6 radiant damage
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-4655657430628069906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Save-DblDamg
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 12
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _faces: 8
+      _number: 1
+      _modifiers: 4
+    _damageType: 8
+    _condition: 0
+    _outcomeNote: 1d8+4 fire damage
+  _successOutcome:
+    _successSaveType: 2
+    _damage:
+      _faces: 8
+      _number: 1
+      _modifiers: 14
+    _damageType: 512
+    _condition: 0
+    _outcomeNote: 1d8+14 psychic damage
+--- !u!114 &-4153010378172865831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 
+  _attacks:
+  - _attackIndex: -1
+    _attackNumber: 20
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: MrTest
+  m_EditorClassIdentifier: 
+  _name: Mr. Test
+  _creature: 9
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _faces: 0
+    _number: 20
+    _modifiers: 0
+  _ac: 15
+  _proficiency: 2
+  _strength: 10
+  _dexterity: 10
+  _constitution: 10
+  _intelligence: 10
+  _wisdom: 10
+  _charisma: 10
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _actions:
+  - {fileID: 8936815415935099715}
+  - {fileID: -4153010378172865831}
+  - {fileID: 5558738484183210495}
+  - {fileID: -7924758923651617542}
+  - {fileID: -4655657430628069906}
+  - {fileID: 3621390911235972464}
+  - {fileID: -6079975482168456938}
+  - {fileID: -5070048012648001716}
+  - {fileID: -8670100163310376186}
+  - {fileID: 335366118650553465}
+  - {fileID: 7129033238308756641}
+--- !u!114 &335366118650553465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: SameA
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 11
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 1
+    _outcomeNote: For one minute
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &3621390911235972464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: SaveAndAttack
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 12
+    _number: 1
+    _modifiers: 0
+  _damageType: 2
+  _dc: 13
+  _savingThrow: 8
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _faces: 6
+      _number: 1
+      _modifiers: 5
+    _damageType: 4096
+    _condition: 0
+    _outcomeNote: 1d6+5 thunder damage
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 12
+      _number: 6
+      _modifiers: 12
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &5558738484183210495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Suck-SoS
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 10
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _faces: 12
+      _number: 1
+      _modifiers: 2
+    _damageType: 4
+    _condition: 0
+    _outcomeNote: 1d12+2 cold damage
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 12
+      _number: 6
+      _modifiers: 12
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &7129033238308756641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: SameB
+  m_EditorClassIdentifier: 
+  _note: 
+  _dc: 11
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 1
+    _outcomeNote: For two minutes
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _faces: 0
+      _number: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &8936815415935099715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 
+  _attacks:
+  - _attackIndex: 2
+    _attackNumber: 1
+  - _attackIndex: 3
+    _attackNumber: 1
+  - _attackIndex: 4
+    _attackNumber: 1
+  - _attackIndex: 5
+    _attackNumber: 1
+  - _attackIndex: 6
+    _attackNumber: 1
+  - _attackIndex: 7
+    _attackNumber: 1
+  - _attackIndex: 8
+    _attackNumber: 1
+  - _attackIndex: 9
+    _attackNumber: 1
+  - _attackIndex: 10
+    _attackNumber: 1

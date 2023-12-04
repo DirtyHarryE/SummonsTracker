@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199dfe7c15b8f084fbc492cdf7c38c57, type: 3}
+  m_Name: CreateUndead
+  m_EditorClassIdentifier: 
+  _concentration: 0
+  _level: 6
+  _ghoul: {fileID: 11400000, guid: 8b29bda3e46bba24384471ebd2e7c49f, type: 2}
+  _ghast: {fileID: 11400000, guid: 9fa79bca95d4fb04392a1e84e466e595, type: 2}
+  _wight: {fileID: 11400000, guid: 9377aae6d4a7a4d4eb4f12d2825212ec, type: 2}
+  _mummy: {fileID: 11400000, guid: eba81fe7f2eeb5346a13e70e4f105c4b, type: 2}

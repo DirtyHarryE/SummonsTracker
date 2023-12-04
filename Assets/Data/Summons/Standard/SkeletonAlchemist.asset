@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4501718653367585552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _maxRange: 5
+  _target: one target
+  _damage:
+    _faces: 6
+    _number: 1
+    _modifiers: 1
+  _damageType: 2048
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: SkeletonAlchemist
+  m_EditorClassIdentifier: 
+  _name: Skeletal Alchemist
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _faces: 8
+    _number: 5
+    _modifiers: 10
+  _ac: 11
+  _proficiency: 2
+  _strength: 9
+  _dexterity: 13
+  _constitution: 15
+  _intelligence: 14
+  _wisdom: 10
+  _charisma: 9
+  _skills: 16
+  _savingThrows: 0
+  _conditionImmunities: 1032
+  _damageVulnerabilities: 2
+  _damageResistances: 0
+  _damageImmunities: 256
+  _actions:
+  - {fileID: 3780670978700344863}
+  - {fileID: -4501718653367585552}
+  - {fileID: 2471448944874017851}
+--- !u!114 &2471448944874017851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Lob Acid
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 3
+  _advantageType: 0
+  _range: 30
+  _maxRange: 120
+  _target: one target
+  _damage:
+    _faces: 8
+    _number: 1
+    _modifiers: 1
+  _damageType: 1
+--- !u!114 &3780670978700344863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The skeletal alchemist makes two Lob Acid attacks.
+  _attacks:
+  - _attackIndex: 2
+    _attackNumber: 2

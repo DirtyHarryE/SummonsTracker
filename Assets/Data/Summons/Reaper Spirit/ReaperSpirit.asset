@@ -20,8 +20,8 @@ MonoBehaviour:
   _maxRange: 5
   _target: one target
   _damage:
-    _faces: 10
     _number: 1
+    _faces: 10
     _modifiers: 3
   _damageType: 64
 --- !u!114 &-1735521338215645384
@@ -61,8 +61,8 @@ MonoBehaviour:
   - Type: 3
     Distance: 30
   _maxHP:
-    _faces: 0
     _number: 0
+    _faces: 0
     _modifiers: 40
   _ac: 11
   _proficiency: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 2
     _damage:
-      _faces: 12
       _number: 6
+      _faces: 12
       _modifiers: 12
     _damageType: 0
     _condition: 16
@@ -113,8 +113,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 12
       _number: 6
+      _faces: 12
       _modifiers: 12
     _damageType: 0
     _condition: 0

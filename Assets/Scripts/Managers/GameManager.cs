@@ -1,4 +1,6 @@
 using SummonsTracker.Characters;
+using SummonsTracker.Loading;
+using SummonsTracker.Save;
 using SummonsTracker.UI;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,9 @@ namespace SummonsTracker.Manager
 
         public NumberInput ButtonInput;
 
+        [SerializeField]
+        private UniversalLoader _universalLoader;
+
         private void OnEnable()
         {
             Instance = this;
@@ -32,9 +37,12 @@ namespace SummonsTracker.Manager
 
         private void Awake()
         {
+            _universalLoader.DoLoad();
         }
+
         private void Start()
         {
+            SaveManager.Instance.Load();
             var panels = Object.FindObjectsOfType<Panel>(true);
             if (panels.Any())
             {

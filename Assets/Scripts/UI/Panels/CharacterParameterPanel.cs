@@ -23,6 +23,7 @@ namespace SummonsTracker.UI
         public virtual void Apply()
         {
             GameManager.Instance.MainScene.Open();
+            GameManager.Instance.MainScene.SaveCharacters();
         }
 
         [SerializeField]

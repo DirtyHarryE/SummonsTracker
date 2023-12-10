@@ -6,12 +6,9 @@ namespace SummonsTracker.Save
     public class SaveFile 
     {
         public Profile[] Profiles;
+        public int CurrentProfileIndex = 0;
 
-        public SaveFile()
-        {
-            Profiles = Array.Empty<Profile>();
-        }
-        public SaveFile(Profile[] profiles)
+        public SaveFile(params Profile[] profiles)
         {
             Profiles = profiles;
         }

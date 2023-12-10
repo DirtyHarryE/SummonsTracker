@@ -1,5 +1,6 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Manager;
+using SummonsTracker.Save;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +20,10 @@ namespace SummonsTracker.Spell
 
             var spellAtkMod = 10;
             var spellSaveDC = 18;
-            if (GameManager.Instance != null && GameManager.Instance.StatScene != null)
+            if (SaveManager.Instance != null && SaveManager.Instance.CurrentProfile != null)
             {
-                spellAtkMod = GameManager.Instance.StatScene.SpellAtkMod;
-                spellSaveDC = GameManager.Instance.StatScene.SpellSaveDC;
+                spellAtkMod = SaveManager.Instance.CurrentProfile.SpellAtkMod;
+                spellSaveDC = SaveManager.Instance.CurrentProfile.SpellSaveDC;
             }
 
             foreach (var a in character.Actions)

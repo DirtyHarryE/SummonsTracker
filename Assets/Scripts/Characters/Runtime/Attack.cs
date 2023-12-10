@@ -40,7 +40,7 @@ namespace SummonsTracker.Characters
             Range = attackData.Range;
             MaxRange = attackData.MaxRange;
             Target = attackData.Target;
-            Damages = new[] { new Damage(new Rolling.Dice(attackData.Damage.Faces, attackData.Damage.Number, attackData.Damage.Modifiers), attackData.DamageType) };
+            Damages = new[] { new Damage(new Rolling.Dice(attackData.Damage.Number, attackData.Damage.Faces, attackData.Damage.Modifiers), attackData.DamageType) };
         }
 
         public int Roll()

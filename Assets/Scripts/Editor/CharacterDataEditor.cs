@@ -33,7 +33,27 @@ namespace SummonsTracker.Characters
             }
             using (var hpSerializedProperty = serializedObject.FindProperty("_maxHP"))
             {
-                EditorGUILayout.PropertyField(hpSerializedProperty);
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    EditorGUILayout.PrefixLabel(hpSerializedProperty.displayName);
+
+                    var rect = EditorGUILayout.GetControlRect();
+
+                    using var numberProperty = hpSerializedProperty.FindPropertyRelative("_number");
+                    using var facesProperty = hpSerializedProperty.FindPropertyRelative("_faces");
+                    using var modifiersProperty = hpSerializedProperty.FindPropertyRelative("_modifiers");
+
+                    var average = DiceUtility.Average(numberProperty.intValue, facesProperty.intValue, modifiersProperty.intValue);
+                    var avgGUIContent = new GUIContent(average.ToString());
+
+                    var width = EditorGUIUtility.labelWidth;
+                    EditorGUIUtility.labelWidth = Mathf.Max(20, EditorStyles.label.CalcSize(avgGUIContent).x);
+
+                    DiceEditorUtility.DrawDice(rect, avgGUIContent, hpSerializedProperty);
+
+
+                    EditorGUIUtility.labelWidth = width;
+                }
             }
             DrawSpeed();
 
@@ -100,6 +120,7 @@ namespace SummonsTracker.Characters
             {
                 _actionDataEditor = new ActionListDrawer(serializedObject, (CharacterData)target);
             }
+            _actionDataEditor.UsePersistentData = EditorUtility.IsPersistent(target);
             _actionDataEditor.DrawLayout();
 
             if (EditorGUI.EndChangeCheck())

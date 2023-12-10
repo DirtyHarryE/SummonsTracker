@@ -18,7 +18,7 @@ namespace SummonsTracker.Rolling
 
         public virtual int Roll(AdvantageType advantageType = AdvantageType.None) => DiceUtility.Roll(this, advantageType);
 
-        public virtual int Average => Mathf.FloorToInt(((Faces + 1) * 0.5f * Number) + Modifiers);
+        public virtual int Average => DiceUtility.Average(this);
 
         public override string ToString()
         {

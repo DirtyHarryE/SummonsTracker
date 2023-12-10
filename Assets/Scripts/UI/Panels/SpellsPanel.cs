@@ -8,6 +8,12 @@ namespace SummonsTracker.UI
 {
     public class SpellsPanel : Panel
     {
+        protected override void Awake()
+        {
+            _spells = SpellData.AllSpells.OrderBy(s => s.Level).ThenBy(s => s.name).ToArray();
+            base.Awake();
+        }
+
         public void SelectSpell(int index)
         {
             _castSpellPanel.SelectSpell(_spells[index]);
@@ -24,28 +30,11 @@ namespace SummonsTracker.UI
             }
         }
 
-        private void Reset()
-        {
-            GetSpells();
-        }
+        private SpellData[] _spells;
 
-        [ContextMenu("Get Spells")]
-        private void GetSpells()
-        {
-#if UNITY_EDITOR
-            _spells = UnityEditor.AssetDatabase.FindAssets("t:SpellData")
-                .Select(UnityEditor.AssetDatabase.GUIDToAssetPath)
-                .SelectMany(UnityEditor.AssetDatabase.LoadAllAssetsAtPath)
-                .OfType<SpellData>()
-                .OrderBy(s => s.Level)
-                .ToArray();
-#endif
-        }
         [SerializeField]
         private CastSpellPanel _castSpellPanel;
 
-        [SerializeField]
-        private SpellData[] _spells;
         [SerializeField]
         private GameObject _spellEntryPrefab;
 

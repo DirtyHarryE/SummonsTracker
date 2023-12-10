@@ -1,3 +1,4 @@
+using SummonsTracker.Save;
 using UnityEngine;
 
 namespace SummonsTracker.Characters
@@ -43,6 +44,40 @@ namespace SummonsTracker.Characters
         public int CharismaMod => GetMod(Charisma);
 
         public ConditionTypes Conditions { get; private set; }
+
+        public Character(SaveCharacter saveCharacter, CharacterData characterData)
+        {
+            CharacterData = characterData;
+
+            Name = saveCharacter.Name;
+            Hitpoints = saveCharacter.HP;
+            MaxHP = saveCharacter.MaxHP;
+            TemporaryHitPoints = saveCharacter.TempHP;
+            Conditions = saveCharacter.Condition;
+
+            Creature = characterData.Creature;
+            Movement = characterData.Movement;
+            AC = characterData.AC;
+            Proficiency = characterData.Proficiency;
+            Strength = characterData.Strength;
+            Dexterity = characterData.Dexterity;
+            Constitution = characterData.Constitution;
+            Intelligence = characterData.Intelligence;
+            Wisdom = characterData.Wisdom;
+            Charisma = characterData.Charisma;
+            Skills = characterData.Skills;
+            SavingThrows = characterData.SavingThrows;
+            ConditionImmunities = characterData.ConditionImmunities;
+            DamageVulnerabilities = characterData.DamageVulnerabilities;
+            DamageResistances = characterData.DamageResistances;
+            DamageImmunities = characterData.DamageImmunities;
+
+            Actions = new Action[characterData.Actions.Length];
+            for (int i = 0; i < characterData.Actions.Length; i++)
+            {
+                Actions[i] = characterData.Actions[i].Instantiate();
+            }
+        }
 
         public Character(CharacterData characterData, bool useHPAverage = false)
         {

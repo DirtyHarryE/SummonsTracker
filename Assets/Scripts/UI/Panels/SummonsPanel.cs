@@ -1,11 +1,9 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Manager;
 using SummonsTracker.Text;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,7 +61,7 @@ namespace SummonsTracker.UI
             base.Awake();
 
 
-            foreach (var group in _summons.GroupBy(d => d.Creature).OrderByDescending(g => g.Any(gi => gi.Name.ToLower().Contains("test"))))
+            foreach (var group in CharacterData.AllCharacters.GroupBy(d => d.Creature).OrderByDescending(g => g.Any(gi => gi.Name.ToLower().Contains("test"))))
             {
                 var header = GameObject.Instantiate(_summonTypeText, _content);
                 header.GetComponent<TextMeshProUGUI>().text = TextUtils.DeCamelCase(group.Key.ToString());
@@ -86,11 +84,6 @@ namespace SummonsTracker.UI
         private void OnDisable()
         {
             _slider.onValueChanged.RemoveListener(OnSliderUpdate);
-        }
-
-        private void Reset()
-        {
-            GetSummons();
         }
 
         private SummonButton MakeButton(CharacterData characterData)
@@ -144,18 +137,6 @@ namespace SummonsTracker.UI
             return false;
         }
 
-        [ContextMenu("Get Summons")]
-        private void GetSummons()
-        {
-#if UNITY_EDITOR
-            _summons = UnityEditor.AssetDatabase.FindAssets("t:CharacterData")
-                .Select(UnityEditor.AssetDatabase.GUIDToAssetPath)
-                .SelectMany(UnityEditor.AssetDatabase.LoadAllAssetsAtPath)
-                .OfType<CharacterData>()
-                .ToArray();
-#endif
-        }
-
         private CharacterData _data;
         private int _summonNumber;
 
@@ -172,8 +153,5 @@ namespace SummonsTracker.UI
         private GameObject _summonTypeText;
         [SerializeField]
         private GameObject _summonButtonPrefab;
-        [Header("Data")]
-        [SerializeField]
-        private CharacterData[] _summons;
     }
 }

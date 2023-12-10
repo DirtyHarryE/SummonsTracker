@@ -1,5 +1,6 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Manager;
+using SummonsTracker.Save;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,11 +15,11 @@ namespace SummonsTracker.Spell
 
             var diff = spellLevel - Level;
 
-            var spellAttackMod = GameManager.Instance != null && GameManager.Instance.StatScene != null
-                ? GameManager.Instance.StatScene.SpellAtkMod
+            var spellAttackMod = SaveManager.Instance != null && SaveManager.Instance.CurrentProfile != null
+                ? SaveManager.Instance.CurrentProfile.SpellAtkMod
                 : 0;
-            var hpMax = GameManager.Instance != null && GameManager.Instance.StatScene != null
-                ? GameManager.Instance.StatScene.HpMax
+            var hpMax = SaveManager.Instance != null && SaveManager.Instance.CurrentProfile != null
+                ? SaveManager.Instance.CurrentProfile.HpMax
                 : 0;
 
             character.Hitpoints = hpMax;

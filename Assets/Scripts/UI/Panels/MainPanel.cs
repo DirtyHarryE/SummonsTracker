@@ -3,6 +3,7 @@ using SummonsTracker.Manager;
 using SummonsTracker.Save;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -12,6 +13,12 @@ namespace SummonsTracker.UI
     {
         public IReadOnlyList<Character> ConcentrationCharacters => _concentrationCharacters;
         public IReadOnlyList<Character> Characters => _characters;
+
+        public override void Open()
+        {
+            UpdateUI();
+            base.Open();
+        }
 
         public void SummonCharacters(IEnumerable<Character> characters, bool concentrate = false)
         {
@@ -62,10 +69,10 @@ namespace SummonsTracker.UI
             }
             var wizardLevel = 0;
             var proficiency = 0;
-            if (GameManager.Instance != null && GameManager.Instance.StatScene)
+            if (SaveManager.Instance != null && SaveManager.Instance.CurrentProfile!=null)
             {
-                wizardLevel = GameManager.Instance.StatScene.WizardLevel;
-                proficiency = GameManager.Instance.StatScene.Proficiency;
+                wizardLevel = SaveManager.Instance.CurrentProfile.WizardLevel;
+                proficiency = SaveManager.Instance.CurrentProfile.Proficiency;
             }
             for (int i = 0; i < charas.Length; i++)
             {
@@ -77,7 +84,9 @@ namespace SummonsTracker.UI
                     {
                         if (charas[i].Actions[j] is Attack atk && atk.Damages.Length > 0)
                         {
+                            var pre = atk.Damages[0].ToString();
                             atk.Damages[0].DamageDice = new Rolling.Dice(atk.Damages[0].DamageDice.Number, atk.Damages[0].DamageDice.Faces, atk.Damages[0].DamageDice.Modifiers + proficiency);
+                            Debug.Log($"{pre}\n{atk.Damages[0].DamageDice}");
                         }
                     }
                 }
@@ -87,17 +96,30 @@ namespace SummonsTracker.UI
             {
                 _entries.Add(InitEntry(character, concentrate));
             }
+            SaveCharacters();
             UpdateUI();
+        }
+
+        public void OnReload() => OnLoadProfile(SaveManager.Instance.CurrentProfile);
+
+        public void OnLoadProfile(Profile profile)
+        {
+            ClearEntries();
+            LoadEntries(profile);
+            UpdateUI();
+            _title.SetTextWithoutNotify(profile.Name);
         }
 
         public void RemoveCharacter(Character toDelete)
         {
             RemoveCharacters(_entries.Where(c => c.Character == toDelete));
         }
+
         public void RemoveCharacters(IEnumerable<Character> toDelete)
         {
             RemoveCharacters(_entries.Where(c => toDelete.Contains(c.Character)));
         }
+
         public void RemoveCharacters(IEnumerable<CharacterEntry> toDelete)
         {
             var d = toDelete.ToArray();
@@ -118,25 +140,44 @@ namespace SummonsTracker.UI
             UpdateUI();
         }
 
-        public override void Open()
-        {
-            ClearEntries();
-            UpdateUI();
-            base.Open();
-        }
-
-        public override void Close()
-        {
-            SaveManager.Instance.CurrentProfile.SaveCharacters = GetSaveCharacters().ToArray();
-            SaveManager.Instance.Save();
-            base.Close();
-        }
-
         public void Attack()
         {
             GameManager.Instance.AttackPanel.Initialise(GetCharacters());
         }
+        
+        public void SaveCharacters()
+        {
+            var charas = GetSaveCharacters().ToArray();
+            SaveManager.Instance.CurrentProfile.SaveCharacters = charas;
+            SaveManager.Instance.Save();
+        }
 
+
+        #region Unity Messages
+        protected override void Awake()
+        {
+            SaveManager.Instance.Load();
+            base.Awake();
+        }
+
+        private void OnEnable()
+        {
+            _title.onValueChanged.AddListener(ChangeName);
+        }
+
+        private void OnDisable()
+        {
+            _title.onValueChanged.RemoveListener(ChangeName);
+        }
+
+        private void Start()
+        {
+            LoadEntries(SaveManager.Instance.CurrentProfile);
+            UpdateUI();
+        }
+        #endregion
+
+        #region Private
         private IEnumerable<Character> GetCharacters()
         {
             foreach (var character in _concentrationCharacters.Concat(_characters))
@@ -185,20 +226,36 @@ namespace SummonsTracker.UI
             _entries.Clear();
         }
 
-        private void LoadEntries()
+        private void LoadEntries(Profile profile)
         {
-            for (int i = 0; i < SaveManager.Instance.CurrentProfile.SaveCharacters.Length; i++)
+            for (int i = 0; i < profile.SaveCharacters.Length; i++)
             {
-                var c = SaveManager.Instance.CurrentProfile.SaveCharacters[i];
-                if (c.Concentration)
+                var saveCharacter = profile.SaveCharacters[i];
+                var characterData = CharacterData.AllCharacters.FirstOrDefault(cData => cData.name == saveCharacter.DataName);
+                if (characterData != null)
                 {
-                    var character = new Character()
+                    var character = new Character(saveCharacter, characterData);
+                    if (saveCharacter.Concentration)
+                    {
+                        _concentrationCharacters.Add(character);
+                    }
+                    else
+                    {
+                        _characters.Add(character);
+                    }
+                    _entries.Add(InitEntry(character, saveCharacter.Concentration));
+                }
+                else
+                {
+                    Debug.LogWarning($"Couldn't find {saveCharacter.DataName}");
                 }
             }
         }
 
         private void UpdateUI()
         {
+            Debug.Log($"Setting Name\n{SaveManager.Instance.CurrentProfile.Name}");
+            _title.SetTextWithoutNotify(SaveManager.Instance.CurrentProfile.Name);
             var concentrationIndex = 0;
             var normalIndex = 0;
             var unconciousIndex = 0;
@@ -237,25 +294,21 @@ namespace SummonsTracker.UI
         {
             foreach (var character in _concentrationCharacters)
             {
-                yield return GetSaveCharacter(character, true);
+                yield return new SaveCharacter(character, true);
             }
             foreach (var character in _characters)
             {
-                yield return GetSaveCharacter(character, false);
+                yield return new SaveCharacter(character, false);
             }
         }
 
-        private SaveCharacter GetSaveCharacter(Character character, bool concentration)
+        private void ChangeName(string name)
         {
-            return new SaveCharacter(dataName: character.CharacterData.name,
-                                     name: character.Name,
-                                     hP: character.Hitpoints,
-                                     maxHP: character.MaxHP,
-                                     tempHP: character.TemporaryHitPoints,
-                                     condition: character.Conditions,
-                                     concentration: concentration);
+            SaveManager.Instance.CurrentProfile.Name = name;
         }
 
+        [SerializeField]
+        private TMP_InputField _title;
         [SerializeField]
         private GameObject _scrollView;
         [SerializeField]
@@ -276,5 +329,6 @@ namespace SummonsTracker.UI
         private List<Character> _concentrationCharacters = new List<Character>();
         private List<Character> _characters = new List<Character>();
         private List<CharacterEntry> _entries = new List<CharacterEntry>();
+        #endregion
     }
 }

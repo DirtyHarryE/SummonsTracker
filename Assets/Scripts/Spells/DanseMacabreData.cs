@@ -1,5 +1,6 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Manager;
+using SummonsTracker.Save;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,8 +11,8 @@ namespace SummonsTracker.Spell
     {
         public override IEnumerable<Characters.Character> GetCharacters(int spellLevel, int parameter, GetPerSummonParameterDelegate perSummonParameter, int number)
         {
-            var spellAtkMod = GameManager.Instance != null && GameManager.Instance.StatScene != null
-                ? GameManager.Instance.StatScene.SpellAtkMod
+            var spellAtkMod = SaveManager.Instance != null && SaveManager.Instance.CurrentProfile != null
+                ? SaveManager.Instance.CurrentProfile.SpellAtkMod
                 : 0;
 
             foreach (var c in base.GetCharacters(spellLevel, parameter, perSummonParameter, number))

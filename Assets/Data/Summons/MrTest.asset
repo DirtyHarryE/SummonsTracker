@@ -20,13 +20,13 @@ MonoBehaviour:
   _maxRange: 5
   _target: one target
   _damage:
-    _faces: 8
     _number: 1
+    _faces: 8
     _modifiers: 6
   _damageType: 128
   _secondaryDamage:
-    _faces: 10
     _number: 1
+    _faces: 10
     _modifiers: 1
   _secondaryDamageType: 16
   _dc: 16
@@ -34,8 +34,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 1
     _damage:
-      _faces: 3
       _number: 1
+      _faces: 3
       _modifiers: 7
     _damageType: 4096
     _condition: 0
@@ -43,12 +43,25 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 0
     _outcomeNote: 
+--- !u!114 &-8040947987534558731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  _note: Blah
 --- !u!114 &-7924758923651617542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,8 +80,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 1
     _damage:
-      _faces: 10
       _number: 1
+      _faces: 10
       _modifiers: 3
     _damageType: 64
     _condition: 0
@@ -76,8 +89,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 1
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 0
@@ -100,8 +113,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 2
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 256
@@ -109,8 +122,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 0
@@ -133,8 +146,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 3
     _damage:
-      _faces: 4
       _number: 1
+      _faces: 4
       _modifiers: 6
     _damageType: 1024
     _condition: 2
@@ -142,8 +155,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 0
@@ -166,8 +179,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 1
     _damage:
-      _faces: 8
       _number: 1
+      _faces: 8
       _modifiers: 4
     _damageType: 8
     _condition: 0
@@ -175,8 +188,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 2
     _damage:
-      _faces: 8
       _number: 1
+      _faces: 8
       _modifiers: 14
     _damageType: 512
     _condition: 0
@@ -215,8 +228,8 @@ MonoBehaviour:
   - Type: 0
     Distance: 30
   _maxHP:
-    _faces: 0
     _number: 20
+    _faces: 0
     _modifiers: 0
   _ac: 15
   _proficiency: 2
@@ -244,6 +257,7 @@ MonoBehaviour:
   - {fileID: -8670100163310376186}
   - {fileID: 335366118650553465}
   - {fileID: 7129033238308756641}
+  - {fileID: -8040947987534558731}
 --- !u!114 &335366118650553465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,8 +276,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 2
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 1
@@ -271,8 +285,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 0
@@ -297,8 +311,8 @@ MonoBehaviour:
   _maxRange: 5
   _target: one target
   _damage:
-    _faces: 12
     _number: 1
+    _faces: 12
     _modifiers: 0
   _damageType: 2
   _dc: 13
@@ -306,8 +320,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 1
     _damage:
-      _faces: 6
       _number: 1
+      _faces: 6
       _modifiers: 5
     _damageType: 4096
     _condition: 0
@@ -315,8 +329,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 12
       _number: 6
+      _faces: 12
       _modifiers: 12
     _damageType: 0
     _condition: 0
@@ -339,8 +353,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 1
     _damage:
-      _faces: 12
       _number: 1
+      _faces: 12
       _modifiers: 2
     _damageType: 4
     _condition: 0
@@ -348,8 +362,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 12
       _number: 6
+      _faces: 12
       _modifiers: 12
     _damageType: 0
     _condition: 0
@@ -372,8 +386,8 @@ MonoBehaviour:
   _failOutcome:
     _failSaveType: 2
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 1
@@ -381,8 +395,8 @@ MonoBehaviour:
   _successOutcome:
     _successSaveType: 0
     _damage:
-      _faces: 0
       _number: 0
+      _faces: 0
       _modifiers: 0
     _damageType: 0
     _condition: 0

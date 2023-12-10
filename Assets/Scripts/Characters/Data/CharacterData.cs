@@ -1,12 +1,17 @@
+using SummonsTracker.Loading;
 using SummonsTracker.Rolling;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SummonsTracker.Characters
 {
 
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CharacterData", order = 1)]
-    public class CharacterData : ScriptableObject, ICharacter
+    public class CharacterData : ScriptableObject, ICharacter, ILoadable<CharacterData>
     {
+        public static IReadOnlyList<CharacterData> AllCharacters => _allCharacters;
+        private static List<CharacterData> _allCharacters = new List<CharacterData>();
+
         public string Name => _name;
         public CreatureType Creature => _creature;
 
@@ -139,5 +144,12 @@ namespace SummonsTracker.Characters
         private DamageTypes _damageImmunities = DamageTypes.none;
         [SerializeField]
         private ActionData[] _actions;
+
+        void ILoadable.Load()
+        {
+            _allCharacters.Add(this);
+        }
+
+        int ILoadable.Priority => 0;
     }
 }

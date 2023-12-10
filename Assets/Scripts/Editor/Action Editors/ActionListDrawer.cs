@@ -10,8 +10,11 @@ namespace SummonsTracker.Characters
 {
     public class ActionListDrawer
     {
-        public ActionListDrawer(SerializedObject serializedObject, CharacterData characterData)
+        public bool UsePersistentData;
+
+        public ActionListDrawer(SerializedObject serializedObject, CharacterData characterData, bool usePersistentData = true)
         {
+            UsePersistentData = usePersistentData;
             _serializedObject = serializedObject;
             _characterData = characterData;
             var actionsProp = serializedObject.FindProperty("_actions");
@@ -68,9 +71,11 @@ namespace SummonsTracker.Characters
                     {
                         var instance = ScriptableObject.CreateInstance(t);
                         instance.name = t == typeof(MultiattackData) ? "Multiattack" : $"New {ObjectNames.NicifyVariableName(t.Name)}";
-                        AssetDatabase.AddObjectToAsset(instance, _characterData);
-                        AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(_characterData));
-
+                        if (UsePersistentData)
+                        {
+                            AssetDatabase.AddObjectToAsset(instance, _characterData);
+                            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(_characterData));
+                        }
                         var size = list.serializedProperty.arraySize;
                         list.serializedProperty.arraySize = size + 1;
                         using (var newProp = list.serializedProperty.GetArrayElementAtIndex(size))
@@ -78,7 +83,10 @@ namespace SummonsTracker.Characters
                             newProp.objectReferenceValue = instance;
                         }
                         list.serializedProperty.serializedObject.ApplyModifiedProperties();
-                        AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+                        if (UsePersistentData)
+                        {
+                            AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+                        }
                     });
             }
             menu.DropDown(buttonRect);
@@ -91,9 +99,15 @@ namespace SummonsTracker.Characters
                 UnityEngine.Object.DestroyImmediate(propToRemove.objectReferenceValue, true);
             }
             list.serializedProperty.DeleteArrayElementAtIndex(list.index);
-            AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(_characterData));
+            if (UsePersistentData)
+            {
+                AssetDatabase.ImportAsset(AssetDatabase.GetAssetPath(_characterData));
+            }
             list.serializedProperty.serializedObject.ApplyModifiedProperties();
-            AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+            if (UsePersistentData)
+            {
+                AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
+            }
         }
 
         private void OnReorderCallback(ReorderableList list, int oldIndex, int newIndex)

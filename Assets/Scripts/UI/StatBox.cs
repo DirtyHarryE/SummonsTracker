@@ -1,10 +1,12 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Text;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SummonsTracker.UI
@@ -12,20 +14,28 @@ namespace SummonsTracker.UI
     [ExecuteInEditMode]
     public class StatBox : MonoBehaviour
     {
+        [System.Serializable]
+        public class UnityFloatEvent : UnityEvent<float> { }
+
         public enum StatBoxType
         {
             ScoreOnly,
             ScoreAndMod,
             ModOnly
         }
+
         public int Score
         {
             get => _score;
             set
             {
                 var newScore = _positiveOnly ? Mathf.Max(0, value) : value;
-                _score = newScore;
-                UpdateUI();
+                if (_score != newScore)
+                {
+                    _score = newScore;
+                    UpdateUI();
+                    OnScoreChanged?.Invoke(newScore);
+                }
             }
         }
 
@@ -77,6 +87,9 @@ namespace SummonsTracker.UI
         private Button _upArrow;
         [SerializeField]
         private Button _downArrow;
+
+        public UnityFloatEvent OnScoreChanged;
+
 
         public static implicit operator int (StatBox statBox) => statBox.Score;
     }

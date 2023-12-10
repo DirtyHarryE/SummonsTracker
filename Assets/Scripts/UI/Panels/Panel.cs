@@ -24,6 +24,10 @@ namespace SummonsTracker.UI
                 {
                     panels[i].Close(false);
                 }
+                else
+                {
+                    panels[i].OnClose();
+                }
             }
             gameObject.SetActive(true);
             GetCanvasGroup().interactable = true;
@@ -36,15 +40,10 @@ namespace SummonsTracker.UI
 
         public virtual void Close()
         {
-            Close(true);
-        }
-
-        public virtual void Close(bool autoOpen)
-        {
             _closing = true;
             gameObject.SetActive(false);
             GetCanvasGroup().interactable = false;
-            if (autoOpen)
+            if (_autoOpen)
             {
                 if (_openedFrom != null)
                 {
@@ -74,7 +73,16 @@ namespace SummonsTracker.UI
                     }
                 }
             }
+            OnClose();
             _closing = false;
+        }
+
+        public virtual void Close(bool autoOpen)
+        {
+            var pre = _autoOpen;
+            _autoOpen = autoOpen;
+            Close();
+            _autoOpen = pre;
         }
 
         #region Unity Messages
@@ -87,6 +95,11 @@ namespace SummonsTracker.UI
         protected virtual void OnDestroy()
         {
             _activePanels.Remove(this);
+        }
+
+        protected virtual void OnClose()
+        {
+
         }
         #endregion
 
@@ -106,6 +119,7 @@ namespace SummonsTracker.UI
         private CanvasGroup _canvasGroup;
 
         private bool _closing;
+        private bool _autoOpen;
 
         [SerializeField, FormerlySerializedAs("_Layer")]
         private int _layer;

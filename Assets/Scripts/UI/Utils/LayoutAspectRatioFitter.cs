@@ -25,10 +25,10 @@ public class LayoutAspectRatioFitter : MonoBehaviour
             case AspectMode.None:
                 break;
             case AspectMode.WidthControlsHeight:
-                SetProperties(_rectTransform.sizeDelta.x, y => _layoutElement.preferredHeight = y);
+                SetProperties(_rectTransform.sizeDelta.x, GetDelegate(false));
                 break;
             case AspectMode.HeightControlsWidth:
-                SetProperties(_rectTransform.sizeDelta.y, x => _layoutElement.preferredWidth = x);
+                SetProperties(_rectTransform.sizeDelta.y, GetDelegate(true));
                 break;
         }
     }
@@ -38,10 +38,53 @@ public class LayoutAspectRatioFitter : MonoBehaviour
         setExtent(currentExtent * _aspectRatio);
     }
 
+    private Action<float> GetDelegate(bool width)
+    {
+        return delegate (float val)
+        {
+            if (width)
+            {
+                if (_applyToMin)
+                {
+                    _layoutElement.minWidth = val;
+                }
+                if (_applyToPreferred)
+                {
+                    _layoutElement.preferredWidth = val;
+                }
+                if (_applyToFlexible)
+                {
+                    _layoutElement.flexibleWidth = val;
+                }
+            }
+            else
+            {
+                if (_applyToMin)
+                {
+                    _layoutElement.minHeight = val;
+                }
+                if (_applyToPreferred)
+                {
+                    _layoutElement.preferredHeight = val;
+                }
+                if (_applyToFlexible)
+                {
+                    _layoutElement.flexibleHeight = val;
+                }
+            }
+        };
+    }
+
     [SerializeField]
     private AspectMode _aspectMode;
     [SerializeField]
     private float _aspectRatio;
+    [SerializeField]
+    private bool _applyToMin = false;
+    [SerializeField]
+    private bool _applyToPreferred = true;
+    [SerializeField]
+    private bool _applyToFlexible = false;
 
     private RectTransform _rectTransform;
     private LayoutElement _layoutElement;

@@ -14,6 +14,17 @@ namespace SummonsTracker.Save
         public ConditionTypes Condition;
         public bool Concentration;
 
+        public SaveCharacter(Character character, bool concentration) : this(dataName: character.CharacterData.name,
+                                                                             name: character.Name,
+                                                                             hP: character.Hitpoints,
+                                                                             maxHP: character.MaxHP,
+                                                                             tempHP: character.TemporaryHitPoints,
+                                                                             condition: character.Conditions,
+                                                                             concentration: concentration)
+        {
+
+        }
+
         public SaveCharacter(string dataName, string name, int hP, int maxHP, int tempHP, ConditionTypes condition, bool concentration)
         {
             DataName = dataName;

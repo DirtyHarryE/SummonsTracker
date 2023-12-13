@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
@@ -105,6 +106,7 @@ namespace SummonsTracker.Importer
                 using (var scroll = new EditorGUILayout.ScrollViewScope(_scroll))
                 {
                     DrawMonsterRaw(monster);
+                    GUILayout.FlexibleSpace();
                     _scroll = scroll.scrollPosition;
                 }
                 EditorGUILayout.Space();
@@ -187,7 +189,9 @@ namespace SummonsTracker.Importer
 
                 HTMLField("LegendaryActions", monster.LegendaryActions);
 
-                EditorGUILayout.LabelField("img_url", monster.img_url, _htmlContentStyle);
+                var urlRect = EditorGUILayout.GetControlRect();
+                urlRect = EditorGUI.PrefixLabel(urlRect, new GUIContent("img_url"));
+                EditorGUI.SelectableLabel(urlRect, monster.img_url);
 
                 EditorGUILayout.LabelField("DamageImmunities", monster.DamageImmunities, _htmlContentStyle);
 
@@ -203,9 +207,20 @@ namespace SummonsTracker.Importer
         private void InitialiseCharacterData(Monster monster)
         {
             using var serializedObject = new SerializedObject(_currentCharacterData);
+            var monsterName = monster.name.Trim('.');
+
+            var bOpenInd = monsterName.IndexOf('(');
+            var bCloseInd = monsterName.IndexOf(')');
+
+            if (bOpenInd != -1 && bCloseInd != -1)
+            {
+                monsterName = $"{monsterName.Substring(0, bOpenInd)}{monsterName.Substring(bCloseInd)}";
+            }
+
+
             using (var nameSerializedProperty = serializedObject.FindProperty("_name"))
             {
-                nameSerializedProperty.stringValue = monster.name;
+                nameSerializedProperty.stringValue = monsterName;
             }
             using (var creatureSerializedProperty = serializedObject.FindProperty("_creature"))
             {
@@ -217,7 +232,7 @@ namespace SummonsTracker.Importer
             }
             using (var hpSerializedProperty = serializedObject.FindProperty("_maxHP"))
             {
-                DiceUtility.FromString(monster.HitPoints, out int faces, out int number, out int modifiers);
+                DiceUtility.FromString(monster.HitPoints, out int number, out int faces, out int modifiers);
 
                 using var numberProperty = hpSerializedProperty.FindPropertyRelative("_number");
                 using var facesProperty = hpSerializedProperty.FindPropertyRelative("_faces");
@@ -232,34 +247,74 @@ namespace SummonsTracker.Importer
             {
                 SetMovement(movementSerializedProperty, monster.Speed);
             }
+
+
+            var strength = 10;
+            var dexterity = 10;
+            var constitution = 10;
+            var intelligence = 10;
+            var wisdom = 10;
+            var charisma = 10;
+
+            if (int.TryParse(monster.STR, out var strParsed))
+            {
+                strength = strParsed;
+            }
+            if (int.TryParse(monster.DEX, out var dexParsed))
+            {
+                dexterity = dexParsed;
+            }
+            if (int.TryParse(monster.CON, out var conParsed))
+            {
+                constitution = conParsed;
+            }
+            if (int.TryParse(monster.INT, out var intParsed))
+            {
+                intelligence = intParsed;
+            }
+            if (int.TryParse(monster.WIS, out var wisParsed))
+            {
+                wisdom = wisParsed;
+            }
+            if (int.TryParse(monster.CHA, out var chaParsed))
+            {
+                charisma = chaParsed;
+            }
+
+
+
             using (var strSerializedProperty = serializedObject.FindProperty("_strength"))
             {
-                strSerializedProperty.intValue = int.TryParse(monster.STR, out var value) ? value : 10;
+                strSerializedProperty.intValue = strength;
             }
             using (var dexSerializedProperty = serializedObject.FindProperty("_dexterity"))
             {
-                dexSerializedProperty.intValue = int.TryParse(monster.DEX, out var value) ? value : 10;
+                dexSerializedProperty.intValue = dexterity;
             }
             using (var conSerializedProperty = serializedObject.FindProperty("_constitution"))
             {
-                conSerializedProperty.intValue = int.TryParse(monster.CON, out var value) ? value : 10;
+                conSerializedProperty.intValue = constitution;
             }
             using (var intSerializedProperty = serializedObject.FindProperty("_intelligence"))
             {
-                intSerializedProperty.intValue = int.TryParse(monster.INT, out var value) ? value : 10;
+                intSerializedProperty.intValue = intelligence;
             }
             using (var wisSerializedProperty = serializedObject.FindProperty("_wisdom"))
             {
-                wisSerializedProperty.intValue = int.TryParse(monster.WIS, out var value) ? value : 10;
+                wisSerializedProperty.intValue = wisdom;
             }
             using (var chaSerializedProperty = serializedObject.FindProperty("_charisma"))
             {
-                chaSerializedProperty.intValue = int.TryParse(monster.CHA, out var value) ? value : 10;
+                chaSerializedProperty.intValue = charisma;
             }
+
+            var proficiencyBonus = 2;
             using (var savingThrowSerializedProperty = serializedObject.FindProperty("_savingThrows"))
             {
-                SetSavingThrows(savingThrowSerializedProperty, monster.SavingThrows);
+                SetSavingThrows(savingThrowSerializedProperty, monster.SavingThrows, strength, dexterity, constitution, intelligence, wisdom, charisma, ref proficiencyBonus);
             }
+
+
             using (var skillsSerializedProperty = serializedObject.FindProperty("_skills"))
             {
                 SetSkills(skillsSerializedProperty, monster.Skills);
@@ -282,11 +337,11 @@ namespace SummonsTracker.Importer
             }
             using (var profSerializedProperty = serializedObject.FindProperty("_proficiency"))
             {
-                profSerializedProperty.intValue = 2;
+                profSerializedProperty.intValue = proficiencyBonus;
             }
             using (var actionsSerializedProperty = serializedObject.FindProperty("_actions"))
             {
-                SetActions(actionsSerializedProperty, monster.Actions);
+                SetActions(monsterName, actionsSerializedProperty, monster.Actions);
             }
 
             serializedObject.ApplyModifiedProperties();
@@ -368,7 +423,7 @@ namespace SummonsTracker.Importer
             }
         }
 
-        private void SetSavingThrows(SerializedProperty savingThrowSerializedProperty, string savingThrows)
+        private void SetSavingThrows(SerializedProperty savingThrowSerializedProperty, string savingThrows, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, ref int proficiencyBonus)
         {
             if (string.IsNullOrEmpty(savingThrows))
             {
@@ -376,30 +431,54 @@ namespace SummonsTracker.Importer
             }
             var split = savingThrows.Split(',');
             var curVal = 0;
+            var list = new List<int>();
             for (int i = 0; i < split.Length; i++)
             {
-                var s = split[i].Trim();
-                var index = s.IndexOf('+');
+                var statStr = split[i].Trim();
+                var index = statStr.IndexOf('+');
                 if (index == -1)
                 {
-                    index = s.IndexOf('-');
+                    index = statStr.IndexOf('-');
                 }
+                var statType = string.Empty;
                 if (index != -1)
                 {
-                    s = s.Substring(0, index).Trim();
+                    statType = statStr.Substring(0, index).Trim();
                 }
-                curVal |= s switch
+                var stat = GetStat(statType);
+                curVal |= (int)stat;
+                var modStr = statStr.Substring(index + 1);
+                if (int.TryParse(modStr.Trim(), out var mod))
                 {
-                    "STR" => (int)StatType.Strength,
-                    "DEX" => (int)StatType.Dexterity,
-                    "CON" => (int)StatType.Constitution,
-                    "INT" => (int)StatType.Intelligence,
-                    "WIS" => (int)StatType.Wisdom,
-                    "CHA" => (int)StatType.Charisma,
-                    _ => 0
-                };
+                    var orig = stat switch
+                    {
+                        StatType.Strength => strength,
+                        StatType.Dexterity => dexterity,
+                        StatType.Constitution => constitution,
+                        StatType.Intelligence => intelligence,
+                        StatType.Wisdom => wisdom,
+                        StatType.Charisma => charisma,
+                        _ => 2,
+                    };
+                    list.Add(mod - CharacterData.GetMod(orig));
+                }
             }
             savingThrowSerializedProperty.intValue = curVal;
+            if (list.Any())
+            {
+                proficiencyBonus = Mathf.RoundToInt((float)list.Sum() / list.Count());
+            }
+
+            StatType GetStat(string s) => s switch
+            {
+                "STR" => StatType.Strength,
+                "DEX" => StatType.Dexterity,
+                "CON" => StatType.Constitution,
+                "INT" => StatType.Intelligence,
+                "WIS" => StatType.Wisdom,
+                "CHA" => StatType.Charisma,
+                _ => StatType.none,
+            };
         }
 
         private void SetSkills(SerializedProperty skillsSerializedProperty, string skills)
@@ -484,7 +563,7 @@ namespace SummonsTracker.Importer
             immunitiesSerializedProperty.intValue = curVal;
         }
 
-        private void SetActions(SerializedProperty actionsSerializedProperty, string actions)
+        private void SetActions(string characterName, SerializedProperty actionsSerializedProperty, string actions)
         {
             var rawEntries = GetEntries(actions);
             var entries = new List<(string, string)>();
@@ -506,16 +585,23 @@ namespace SummonsTracker.Importer
 
             actionsSerializedProperty.arraySize = entries.Count;
             MultiattackData multiattackData = null;
+            var hasMultiAttack = false;
             for (int i = 0; i < entries.Count; i++)
             {
                 UnityEngine.Object data;
-                if (TryMakeAttack(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var attackData))
+                if (AttackDataParser.TryMakeAttack(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var attackData))
                 {
                     data = attackData;
                 }
-                else if (TryMakeMultiattack(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out multiattackData))
+                else if (SavingThrowParser.TryMakeSavingThrow(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var savingThrowData))
                 {
-                    data = multiattackData;
+                    data = savingThrowData;
+                }
+                else if (MultiattackDataParser.TryMakeMultiattack(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var m))
+                {
+                    data = m;
+                    multiattackData = m;
+                    hasMultiAttack = true;
                 }
                 else if (TryMakeAction(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var actionData))
                 {
@@ -525,329 +611,26 @@ namespace SummonsTracker.Importer
                 {
                     continue;
                 }
-                data.name = entries[i].Item1;
+                var actionName = entries[i].Item1;
+
+                var bOpenInd = actionName.IndexOf('(');
+                var bCloseInd = actionName.IndexOf(')');
+
+                if (bOpenInd != -1 && bCloseInd != -1)
+                {
+                    actionName = $"{actionName.Substring(0, bOpenInd)}{actionName.Substring(bCloseInd + 1)}";
+                }
+
+                data.name = actionName;
                 using (var elementProperty = actionsSerializedProperty.GetArrayElementAtIndex(i))
                 {
                     elementProperty.objectReferenceValue = data;
                 }
             }
-            if (multiattackData != null)
+            if (hasMultiAttack)
             {
-
+                MultiattackDataParser.FillMultiattack(multiattackData, characterName, actionsSerializedProperty);
             }
-        }
-
-        private bool TryMakeMultiattack(SerializedProperty actionsSerializedProperty, int index, string title, string body, out MultiattackData multiattackData)
-        {
-            if (title.ToLower().Contains("multiattack"))
-            {
-                var inst = CreateInstance<MultiattackData>();
-                using (var serializedObject = new SerializedObject(inst))
-                {
-                    using (var noteProperty = serializedObject.FindProperty("_note"))
-                    {
-                        noteProperty.stringValue = body;
-                    }
-                    serializedObject.ApplyModifiedProperties();
-                }
-                multiattackData = inst;
-                return true;
-            }
-            multiattackData = null;
-            return false;
-        }
-
-        private bool TryMakeAttack(SerializedProperty actionsSerializedProperty, int index, string title, string body, out AttackData attackData)
-        {
-            var split = body.Split(new[] { "<em>", "</em>" }, StringSplitOptions.RemoveEmptyEntries);
-
-            if (split.Length < 4)
-            {
-                attackData = null;
-                return false;
-            }
-
-            if (!GetAttackType(split[0], out var attackType))
-            {
-                attackData = null;
-                return false;
-            }
-            if (!GetHitInfo(split[1], out var attackMod, out var range, out var maxRange, out var target))
-            {
-                attackData = null;
-                return false;
-            }
-            if (!GetDamage(split[3], out var number, out var faces, out var modifier, out var damageType))
-            {
-                attackData = null;
-                return false;
-            }
-
-            attackData = CreateInstance<AttackData>();
-
-            using (var serializedObject = new SerializedObject(attackData))
-            {
-                using (var atkProperty = serializedObject.FindProperty("_attackType"))
-                {
-                    var names = atkProperty.enumNames;
-                    for (int i = 0; i < names.Length; i++)
-                    {
-                        if (names[i] == attackType.ToString())
-                        {
-                            atkProperty.enumValueIndex = i;
-                            break;
-                        }
-                    }
-                }
-                using (var atkModProperty = serializedObject.FindProperty("_attackMod"))
-                {
-                    atkModProperty.intValue = attackMod;
-                }
-                using (var rangeProperty = serializedObject.FindProperty("_range"))
-                {
-                    rangeProperty.intValue = range;
-                }
-                using (var maxRangeProperty = serializedObject.FindProperty("_maxRange"))
-                {
-                    maxRangeProperty.intValue = maxRange;
-                }
-                using (var targetProperty = serializedObject.FindProperty("_target"))
-                {
-                    targetProperty.stringValue = target;
-                }
-                using (var damageDiceProperty = serializedObject.FindProperty("_damage"))
-                {
-                    using var numberProperty = damageDiceProperty.FindPropertyRelative("_number");
-                    using var facesProperty = damageDiceProperty.FindPropertyRelative("_faces");
-                    using var modifiersProperty = damageDiceProperty.FindPropertyRelative("_modifiers");
-
-                    numberProperty.intValue = number;
-                    facesProperty.intValue = faces;
-                    modifiersProperty.intValue = modifier;
-                }
-                using (var damageProperty = serializedObject.FindProperty("_damageType"))
-                {
-                    var names = damageProperty.enumNames;
-                    for (int i = 0; i < names.Length; i++)
-                    {
-                        if (names[i] == damageType.ToString())
-                        {
-                            damageProperty.enumValueIndex = i;
-                            break;
-                        }
-                    }
-                }
-                using (var noteProperty = serializedObject.FindProperty("_note"))
-                {
-                    noteProperty.stringValue = string.Join("\n", split.Skip(4).Select(s => s.Trim()).ToArray());
-                }
-                serializedObject.ApplyModifiedProperties();
-            }
-            return true;
-        }
-
-        private bool GetAttackType(string text, out AttackType type)
-        {
-            var attackTypeKey = text.Replace(" ", "").ToLower();
-            if (attackTypeKey.EndsWith(":"))
-            {
-                attackTypeKey = attackTypeKey.Substring(0, attackTypeKey.Length - 1);
-            }
-            var attackTypes = Enum.GetValues(typeof(AttackType));
-            foreach (var atk in attackTypes)
-            {
-                if (attackTypeKey == atk.ToString().ToLower())
-                {
-                    type = (AttackType)atk;
-                    return true;
-                }
-            }
-            type = default;
-            return true;
-        }
-
-        private bool GetHitInfo(string text, out int attackMod, out int range, out int maxRange, out string target)
-        {
-            attackMod = 0;
-            range = 0;
-            maxRange = 0;
-            target = string.Empty;
-            var split = text.Split(',');
-
-            if (split.Length < 3)
-            {
-                return false;
-            }
-
-            var attackModStr = split[0].Trim().ToLower();
-            const string toHitSuffix = "to hit";
-            if (!attackModStr.EndsWith(toHitSuffix))
-            {
-                return false;
-            }
-            attackModStr = attackModStr.Substring(0, attackModStr.Length - toHitSuffix.Length).Trim().TrimStart('+').Trim();
-            if (!int.TryParse(attackModStr, out attackMod))
-            {
-                return false;
-            }
-
-            var reachStr = split[1].Trim();
-            const string ftSuffix = "ft";
-            var startIndex = GetIndex(reachStr, out var reachPrefix);
-            var endIndex = reachStr.IndexOf(ftSuffix);
-
-            if (startIndex == -1)
-            {
-                startIndex = 0;
-            }
-            if (endIndex == -1)
-            {
-                endIndex = reachStr.Length - 1;
-            }
-            reachStr = reachStr.Substring(startIndex + reachPrefix.Length, endIndex - startIndex - reachPrefix.Length).Trim();
-
-            if (!TryGetRange(reachStr, out range, out maxRange))
-            {
-                var reachSplit = reachStr.Split(' ');
-                var reachFound = false;
-                for (int i = 0; i < reachSplit.Length; i++)
-                {
-                    if (TryGetRange(reachSplit[i], out range, out maxRange))
-                    {
-                        reachFound = true;
-                        break;
-                    }
-                }
-                if (!reachFound)
-                {
-                    return false;
-                }
-            }
-
-            target = split[2].Trim().TrimEnd('.').Trim();
-            return true;
-        }
-
-        private bool TryGetRange(string rangeString, out int range, out int maxRange)
-        {
-            if (int.TryParse(rangeString, out range))
-            {
-                maxRange = 0;
-                return true;
-            }
-            else
-            {
-                var reachSplit = rangeString.Split('/');
-                if (reachSplit.Length < 2)
-                {
-                    range = 0;
-                    maxRange = 0;
-                    return false;
-                }
-                if (!int.TryParse(reachSplit[0].Trim(), out range))
-                {
-                    range = 0;
-                    maxRange = 0;
-                    return false;
-                }
-                if (!int.TryParse(reachSplit[1].Trim(), out maxRange))
-                {
-                    range = 0;
-                    maxRange = 0;
-                    return false;
-                }
-                return true;
-            }
-        }
-
-        private int GetIndex(string reachString, out string prefix)
-        {
-            var prefixes = new[] { "range", "reach" };
-            for (int i = 0; i < prefixes.Length; i++)
-            {
-                var index = reachString.IndexOf(prefixes[i]);
-                if (index != -1)
-                {
-                    prefix = prefixes[i];
-                    return index;
-                }
-            }
-            prefix = string.Empty;
-            return 0;
-        }
-
-        private bool GetDamage(string text, out int number, out int faces, out int modifier, out DamageTypes damageType)
-        {
-            var bOpenInd = text.IndexOf('(');
-            var bCloseInd = text.IndexOf(')');
-
-            if (bOpenInd < 0 || bCloseInd < 0)
-            {
-                number = 0;
-                faces = 0;
-                modifier = 0;
-                damageType = DamageTypes.none;
-                return false;
-            }
-            var dice = text.Substring(bOpenInd + 1, bCloseInd - bOpenInd - 1);
-            DiceUtility.FromString(dice, out number, out faces, out modifier);
-            var remaining = text.Substring(bCloseInd + 1).Trim();
-
-            var damageTypes = Enum.GetValues(typeof(DamageTypes));
-            foreach (var dmg in damageTypes)
-            {
-                var dmgStr = dmg.ToString().ToLower();
-                if (remaining.StartsWith(dmgStr))
-                {
-                    damageType = (DamageTypes)dmg;
-                    return true;
-                }
-            }
-            damageType = DamageTypes.none;
-            return false;
-        }
-
-        private bool TryMakeSavingThrow(SerializedProperty actionsSerializedProperty, int index, string title, string body, out SavingThrowData savingThrowData)
-        {
-            if (TryMakeSavingThrow(body, out var savingThrow))
-            {
-                var inst = CreateInstance<SavingThrowData>();
-                using (var serializedObject = new SerializedObject(inst))
-                {
-                    using (var dcProperty = serializedObject.FindProperty("_dc"))
-                    {
-                        dcProperty.intValue = savingThrow.DC ;
-                    }
-                    using (var savingThrowProperty = serializedObject.FindProperty("_savingThrow"))
-                    {
-                        savingThrowProperty.stringValue = body;
-                    }
-                    using (var failProperty = serializedObject.FindProperty("_failOutcome"))
-                    {
-                        failProperty.stringValue = body;
-                    }
-                    using (var successProperty = serializedObject.FindProperty("_successOutcome"))
-                    {
-                        successProperty.stringValue = body;
-                    }
-                }
-                savingThrowData = inst;
-                return true;
-            }
-            savingThrowData = null;
-            return false;
-        }
-
-        private bool TryMakeSavingThrow(string body, out ISavingThrow savingThrow)
-        {
-            if (!body.ToLower().Contains("saving throw"))
-            {
-
-                savingThrow = null;
-                return false;
-            }
-            savingThrow = default;
-            return true;
         }
 
         private bool TryMakeAction(SerializedProperty actionsSerializedProperty, int index, string title, string body, out ActionData actionData)
@@ -857,7 +640,7 @@ namespace SummonsTracker.Importer
             {
                 using (var noteProperty = serializedObject.FindProperty("_note"))
                 {
-                    noteProperty.stringValue = body;
+                    noteProperty.stringValue = Regex.Replace(body, "<.*?>", String.Empty); ;
                 }
                 serializedObject.ApplyModifiedProperties();
             }
@@ -877,7 +660,7 @@ namespace SummonsTracker.Importer
                 if (!string.IsNullOrEmpty(html))
                 {
                     var body = GetEntries(html);
-                    using (new EditorGUILayout.VerticalScope())
+                    using (var vert = new EditorGUILayout.VerticalScope(GUILayout.ExpandHeight(true)))
                     {
                         foreach (var s in body)
                         {
@@ -890,7 +673,8 @@ namespace SummonsTracker.Importer
 
                             if (!string.IsNullOrEmpty(explanation))
                             {
-                                EditorGUILayout.LabelField(explanation, _htmlContentStyle);
+                                var e = _htmlContentStyle.CalcHeight(new GUIContent(explanation), Screen.width - EditorGUIUtility.labelWidth - 20);
+                                EditorGUILayout.SelectableLabel(explanation, _htmlContentStyle, GUILayout.Height(e));
                             }
                         }
                     }
@@ -907,7 +691,7 @@ namespace SummonsTracker.Importer
                 {
                     var b1 = ExtractFromTag("em", s, out var t1);
                     var b2 = ExtractFromTag("strong", t1, out var t2);
-                    yield return (t2, $"{b2}{b1}");
+                    yield return (t2.Trim('.'), $"{b2}{b1}");
                 }
             }
         }

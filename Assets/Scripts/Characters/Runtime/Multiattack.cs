@@ -1,7 +1,4 @@
 using SummonsTracker.Multiattacks;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace SummonsTracker.Characters
 {
@@ -16,6 +13,12 @@ namespace SummonsTracker.Characters
                 Attacks[i] = new MultiattackInfo(multiattackData.Attacks[i].AttackIndex, multiattackData.Attacks[i].AttackNumber);
             }
         }
+
+        public Multiattack(string name, string note, MultiattackInfo[] attacks) : base(name, note)
+        {
+            Attacks = attacks;
+        }
+
         public class MultiattackInfo : IMultiattack
         {
             public bool AnyAttack { get; private set; }

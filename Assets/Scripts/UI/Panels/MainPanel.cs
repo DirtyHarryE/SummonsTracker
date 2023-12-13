@@ -69,7 +69,7 @@ namespace SummonsTracker.UI
             }
             var wizardLevel = 0;
             var proficiency = 0;
-            if (SaveManager.Instance != null && SaveManager.Instance.CurrentProfile!=null)
+            if (SaveManager.Instance != null && SaveManager.Instance.CurrentProfile != null)
             {
                 wizardLevel = SaveManager.Instance.CurrentProfile.WizardLevel;
                 proficiency = SaveManager.Instance.CurrentProfile.Proficiency;
@@ -144,7 +144,7 @@ namespace SummonsTracker.UI
         {
             GameManager.Instance.AttackPanel.Initialise(GetCharacters());
         }
-        
+
         public void SaveCharacters()
         {
             var charas = GetSaveCharacters().ToArray();
@@ -231,24 +231,21 @@ namespace SummonsTracker.UI
             for (int i = 0; i < profile.SaveCharacters.Length; i++)
             {
                 var saveCharacter = profile.SaveCharacters[i];
-                var characterData = CharacterData.AllCharacters.FirstOrDefault(cData => cData.name == saveCharacter.DataName);
-                if (characterData != null)
+                ICharacterData characterData = CharacterData.AllCharacters.FirstOrDefault(cData => cData.Name == saveCharacter.DataName);
+                if (characterData == null)
                 {
-                    var character = new Character(saveCharacter, characterData);
-                    if (saveCharacter.Concentration)
-                    {
-                        _concentrationCharacters.Add(character);
-                    }
-                    else
-                    {
-                        _characters.Add(character);
-                    }
-                    _entries.Add(InitEntry(character, saveCharacter.Concentration));
+                    characterData = saveCharacter;
+                }
+                var character = new Character(saveCharacter, characterData);
+                if (saveCharacter.Concentration)
+                {
+                    _concentrationCharacters.Add(character);
                 }
                 else
                 {
-                    Debug.LogWarning($"Couldn't find {saveCharacter.DataName}");
+                    _characters.Add(character);
                 }
+                _entries.Add(InitEntry(character, saveCharacter.Concentration));
             }
         }
 

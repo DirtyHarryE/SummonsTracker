@@ -43,6 +43,18 @@ namespace SummonsTracker.Characters
             Damages = new[] { new Damage(new Rolling.Dice(attackData.Damage.Number, attackData.Damage.Faces, attackData.Damage.Modifiers), attackData.DamageType) };
         }
 
+        public Attack(string name, string note, AttackType attackType, int attackMod, AdvantageType advantageType, int range, int maxRange, string target, Damage[] damages, SavingThrow savingThrow) : base(name, note)
+        {
+            AttackType = attackType;
+            AttackMod = attackMod;
+            AdvantageType = advantageType;
+            Range = range;
+            MaxRange = maxRange;
+            Target = target;
+            Damages = damages;
+            SavingThrow = savingThrow;
+        }
+
         public int Roll()
         {
             return DiceUtility.Roll(1, 20, AttackMod, AdvantageType);

@@ -84,7 +84,7 @@ namespace SummonsTracker.Characters
                 var stats = (StatType)index;
                 var mod = character.GetStatMod(stats) + character.Proficiency;
                 var modStr = mod >= 0 ? $"+{mod}" : mod.ToString();
-                return $"{name} {modStr}";
+                return $"{name.Substring(0, 3).ToUpper()} {modStr}";
             });
             var prev = (StatType)1;
             EnumFlagsHelper.DrawEnumFlags(serializedObject, "_skills", onAddMenu: (menu, property, index) =>

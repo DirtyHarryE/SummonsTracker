@@ -17,6 +17,7 @@ namespace SummonsTracker.Characters
         public int AttackMod => _attackMod;
         public AdvantageType AdvantageType => _advantageType;
         public int Range => _range;
+        public int MinRange => _minRange;
         public int MaxRange => _maxRange;
         public string Target =>_target;
         public Rolling.Dice Damage => _damage;
@@ -30,6 +31,8 @@ namespace SummonsTracker.Characters
         public AdvantageType _advantageType;
         [SerializeField, FormerlySerializedAs("Range")]
         public int _range = 5;
+        [SerializeField, FormerlySerializedAs("Range")]
+        public int _minRange = 5;
         [SerializeField, FormerlySerializedAs("MaxRange")]
         public int _maxRange = 5;
         [SerializeField, FormerlySerializedAs("Target")]

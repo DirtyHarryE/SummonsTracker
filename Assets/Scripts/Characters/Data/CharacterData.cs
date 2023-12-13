@@ -7,7 +7,7 @@ namespace SummonsTracker.Characters
 {
 
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CharacterData", order = 1)]
-    public class CharacterData : ScriptableObject, ICharacter, ILoadable<CharacterData>
+    public class CharacterData : ScriptableObject, ICharacterData, ILoadable<CharacterData>
     {
         public static IReadOnlyList<CharacterData> AllCharacters => _allCharacters;
         private static List<CharacterData> _allCharacters = new List<CharacterData>();

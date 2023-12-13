@@ -14,7 +14,7 @@ namespace SummonsTracker.Characters
         Other
     }
     [System.Serializable]
-    public struct SuccessSaveOutome
+    public struct SuccessSaveOutcome
     {
         public SuccessSavingThrowOutcomes SuccessSaveType => _successSaveType;
         public Dice Damage => _successSaveType switch
@@ -54,7 +54,7 @@ namespace SummonsTracker.Characters
             _ => false,
         };
 
-        public SuccessSaveOutome(SuccessSavingThrowOutcomes SuccessSaveType, Dice damage, DamageTypes damageType, ConditionTypes condition, string outcomeNote)
+        public SuccessSaveOutcome(SuccessSavingThrowOutcomes SuccessSaveType, Dice damage, DamageTypes damageType, ConditionTypes condition, string outcomeNote)
         {
             _successSaveType = SuccessSaveType;
             _damage = damage;
@@ -63,7 +63,7 @@ namespace SummonsTracker.Characters
             _outcomeNote = outcomeNote;
         }
 
-        public static SuccessSaveOutome None => new SuccessSaveOutome(SuccessSavingThrowOutcomes.Nothing, Dice.None, DamageTypes.none, ConditionTypes.none, string.Empty);
+        public static SuccessSaveOutcome None => new SuccessSaveOutcome(SuccessSavingThrowOutcomes.Nothing, Dice.None, DamageTypes.none, ConditionTypes.none, string.Empty);
 
         [SerializeField, FormerlySerializedAs("_SuccessSaveType")]
         private SuccessSavingThrowOutcomes _successSaveType;

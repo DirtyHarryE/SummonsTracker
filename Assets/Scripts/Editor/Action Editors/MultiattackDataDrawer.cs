@@ -13,7 +13,7 @@ namespace SummonsTracker.Characters
             _baseSerializedObject = baseSerializedObject;
         }
 
-        protected override float NoteSize => EditorGUIUtility.singleLineHeight;
+        protected override float NoteSize => EditorGUIUtility.singleLineHeight * 2f;
 
         protected override void OnBeforeDrawNote()
         {

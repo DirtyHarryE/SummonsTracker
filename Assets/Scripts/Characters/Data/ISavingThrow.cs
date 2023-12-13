@@ -2,9 +2,10 @@ namespace SummonsTracker.Characters
 {
     public interface ISavingThrow
     {
+        bool IsGrapple { get; }
         StatType SavingThrow { get; }
         int DC { get; }
-        FailSaveOutome FailureSavingThrowOutcome { get; }
-        SuccessSaveOutome SuccessSavingThrowOutcome { get; }
+        FailSaveOutcome FailureSavingThrowOutcome { get; }
+        SuccessSaveOutcome SuccessSavingThrowOutcome { get; }
     }
 }

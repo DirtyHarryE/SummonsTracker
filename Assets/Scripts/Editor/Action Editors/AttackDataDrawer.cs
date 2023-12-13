@@ -1,6 +1,4 @@
 using SummonsTracker.Rolling;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -54,12 +52,12 @@ namespace SummonsTracker.Characters
             var reachPreW = GUI.skin.label.CalcSize(_reachLabel).x;
             EditorGUIUtility.labelWidth = reachPreW;
             var reachW = reachPreW + (fieldW * 1.5f);
-            if (attackTypeProp.enumNames[attackTypeProp.enumValueIndex] == AttackType.RangedSpellAttack.ToString())
+            if (IsAttackType(attackTypeProp, AttackType.RangedSpellAttack))
             {
                 reachW = reachPreW + (fieldW * 2f);
             }
             reachProp.intValue = EditorGUI.IntField(new Rect(position.x + modW + hitW, position.y, reachW, EditorGUIUtility.singleLineHeight), _reachLabel, reachProp.intValue);
-            if (attackTypeProp.enumNames[attackTypeProp.enumValueIndex] == AttackType.RangedWeaponAttack.ToString())
+            if (IsAttackType(attackTypeProp, AttackType.RangedWeaponAttack))
             {
                 var maxReachProp = SerializedObject.FindProperty("_maxRange");
                 var maxReachPreW = GUI.skin.label.CalcSize(_maxReachLabel).x - 2;
@@ -82,6 +80,12 @@ namespace SummonsTracker.Characters
 
         }
 
+        private bool IsAttackType(SerializedProperty serializedProperty, AttackType attackType)
+        {
+            return serializedProperty.enumNames[serializedProperty.enumValueIndex] == attackType.ToString();
+        }
+
+
         protected void DrawDamageDice(SerializedProperty damageProp, SerializedProperty damageTypeProp)
         {
             var position = GetRect();
@@ -93,7 +97,7 @@ namespace SummonsTracker.Characters
             var dmod = dmodProp.intValue;
             var hitPreW = GUI.skin.label.CalcSize(_hitLabel).x;
             EditorGUIUtility.labelWidth = hitPreW;
-            DiceEditorUtility.DrawDice(new Rect(position.x, position.y, position.width * 0.5f, EditorGUIUtility.singleLineHeight), "Hit", ref dnumber,ref dfaces,  ref dmod);
+            DiceEditorUtility.DrawDice(new Rect(position.x, position.y, position.width * 0.5f, EditorGUIUtility.singleLineHeight), "Hit", ref dnumber, ref dfaces, ref dmod);
             dfacesProp.intValue = dfaces;
             dnumberProp.intValue = dnumber;
             dmodProp.intValue = dmod;

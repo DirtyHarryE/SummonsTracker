@@ -7,22 +7,27 @@ namespace SummonsTracker.Characters
     {
         public StatType SavingThrow { get => _savingThrow; }
         public int DC => _dc;
-        public FailSaveOutome FailureSavingThrowOutcome => _failOutcome;
-        public SuccessSaveOutome SuccessSavingThrowOutcome => _successOutcome;
+        public bool IsGrapple => _isGrapple;
+        public FailSaveOutcome FailureSavingThrowOutcome => _failOutcome;
+        public SuccessSaveOutcome SuccessSavingThrowOutcome => _successOutcome;
 
         [SerializeField]
         private int _dc;
         [SerializeField]
+        private bool _isGrapple;
+        [SerializeField]
         private StatType _savingThrow;
         [SerializeField]
-        private FailSaveOutome _failOutcome = FailSaveOutome.None;
+        private FailSaveOutcome _failOutcome = FailSaveOutcome.None;
         [SerializeField]
-        private SuccessSaveOutome _successOutcome = SuccessSaveOutome.None;
+        private SuccessSaveOutcome _successOutcome = SuccessSaveOutcome.None;
 
         public override Action Instantiate()
         {
             var atk = (Attack) base.Instantiate();
-            atk.SavingThrow = new SavingThrow(name, _savingThrow, _dc, _failOutcome, _successOutcome);
+            atk.SavingThrow = IsGrapple
+                ? new SavingThrow(name, true, _dc, _failOutcome, _successOutcome)
+                : new SavingThrow(name, _savingThrow, _dc, _failOutcome, _successOutcome);
             return atk;
         }
     }

@@ -8,10 +8,11 @@ namespace SummonsTracker.Characters
         public string Name;
         public StatType SavingThrowType;
         public int DC;
-        public FailSaveOutome FailSavingThrowOutcome = FailSaveOutome.None;
-        public SuccessSaveOutome SuccessSavingThrowOutcome = SuccessSaveOutome.None;
+        public bool IsGrapple;
+        public FailSaveOutcome FailSavingThrowOutcome = FailSaveOutcome.None;
+        public SuccessSaveOutcome SuccessSavingThrowOutcome = SuccessSaveOutcome.None;
 
-        public SavingThrow(string name, StatType savingThrowType, int dC, FailSaveOutome failSavingThrowOutcome, SuccessSaveOutome successSavingThrowOutcome)
+        public SavingThrow(string name, StatType savingThrowType, int dC, FailSaveOutcome failSavingThrowOutcome, SuccessSaveOutcome successSavingThrowOutcome)
         {
             Name = name;
             SavingThrowType = savingThrowType;
@@ -20,10 +21,29 @@ namespace SummonsTracker.Characters
             SuccessSavingThrowOutcome = successSavingThrowOutcome;
         }
 
+        public SavingThrow(string name, bool isGrapple, int dC, FailSaveOutcome failSavingThrowOutcome, SuccessSaveOutcome successSavingThrowOutcome)
+        {
+            Name = name;
+            IsGrapple = isGrapple;
+            DC = dC;
+            FailSavingThrowOutcome = failSavingThrowOutcome;
+            SuccessSavingThrowOutcome = successSavingThrowOutcome;
+        }
+
+        public SavingThrow(ISavingThrow savingThrow, string name)
+        {
+            Name = name;
+            IsGrapple = savingThrow.IsGrapple;
+            DC = savingThrow.DC;
+            FailSavingThrowOutcome = savingThrow.FailureSavingThrowOutcome;
+            SuccessSavingThrowOutcome = savingThrow.SuccessSavingThrowOutcome;
+        }
+
         StatType ISavingThrow.SavingThrow => SavingThrowType;
         int ISavingThrow.DC => DC;
-        FailSaveOutome ISavingThrow.FailureSavingThrowOutcome => FailSavingThrowOutcome;
-        SuccessSaveOutome ISavingThrow.SuccessSavingThrowOutcome => SuccessSavingThrowOutcome;
+        FailSaveOutcome ISavingThrow.FailureSavingThrowOutcome => FailSavingThrowOutcome;
+        SuccessSaveOutcome ISavingThrow.SuccessSavingThrowOutcome => SuccessSavingThrowOutcome;
+        bool ISavingThrow.IsGrapple => IsGrapple;
 
         public override string ToString()
         {
@@ -70,7 +90,10 @@ namespace SummonsTracker.Characters
 
         public static SavingThrow Copy(SavingThrow savingThrow, int newDC)
         {
-            return new SavingThrow(savingThrow.Name, savingThrow.SavingThrowType, newDC, savingThrow.FailSavingThrowOutcome, savingThrow.SuccessSavingThrowOutcome);
+            return savingThrow.IsGrapple
+                ? new SavingThrow(savingThrow.Name, false, newDC, savingThrow.FailSavingThrowOutcome, savingThrow.SuccessSavingThrowOutcome)
+                : new SavingThrow(savingThrow.Name, savingThrow.SavingThrowType, newDC, savingThrow.FailSavingThrowOutcome, savingThrow.SuccessSavingThrowOutcome);
         }
+
     }
 }

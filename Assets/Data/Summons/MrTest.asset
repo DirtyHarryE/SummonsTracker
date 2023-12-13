@@ -17,6 +17,7 @@ MonoBehaviour:
   _attackMod: 1
   _advantageType: 0
   _range: 5
+  _minRange: 5
   _maxRange: 5
   _target: one target
   _damage:
@@ -30,6 +31,7 @@ MonoBehaviour:
     _modifiers: 1
   _secondaryDamageType: 16
   _dc: 16
+  _isGrapple: 0
   _savingThrow: 1
   _failOutcome:
     _failSaveType: 1
@@ -76,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 11
+  _isGrapple: 0
   _savingThrow: 2
   _failOutcome:
     _failSaveType: 1
@@ -109,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 14
+  _isGrapple: 0
   _savingThrow: 16
   _failOutcome:
     _failSaveType: 2
@@ -142,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 15
+  _isGrapple: 0
   _savingThrow: 32
   _failOutcome:
     _failSaveType: 3
@@ -175,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 12
+  _isGrapple: 0
   _savingThrow: 4
   _failOutcome:
     _failSaveType: 1
@@ -258,6 +264,7 @@ MonoBehaviour:
   - {fileID: 335366118650553465}
   - {fileID: 7129033238308756641}
   - {fileID: -8040947987534558731}
+  - {fileID: 3115503769672659052}
 --- !u!114 &335366118650553465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 11
+  _isGrapple: 0
   _savingThrow: 1
   _failOutcome:
     _failSaveType: 2
@@ -282,6 +290,40 @@ MonoBehaviour:
     _damageType: 0
     _condition: 1
     _outcomeNote: For one minute
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &3115503769672659052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Grapple
+  m_EditorClassIdentifier: 
+  _note: Do a thing
+  _dc: 12
+  _isGrapple: 1
+  _savingThrow: 0
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 32
+    _outcomeNote: Become Grappled
   _successOutcome:
     _successSaveType: 0
     _damage:
@@ -308,6 +350,7 @@ MonoBehaviour:
   _attackMod: 6
   _advantageType: 0
   _range: 5
+  _minRange: 5
   _maxRange: 5
   _target: one target
   _damage:
@@ -316,6 +359,7 @@ MonoBehaviour:
     _modifiers: 0
   _damageType: 2
   _dc: 13
+  _isGrapple: 0
   _savingThrow: 8
   _failOutcome:
     _failSaveType: 1
@@ -349,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 10
+  _isGrapple: 0
   _savingThrow: 1
   _failOutcome:
     _failSaveType: 1
@@ -382,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 11
+  _isGrapple: 0
   _savingThrow: 1
   _failOutcome:
     _failSaveType: 2
@@ -432,4 +478,6 @@ MonoBehaviour:
   - _attackIndex: 9
     _attackNumber: 1
   - _attackIndex: 10
+    _attackNumber: 1
+  - _attackIndex: 12
     _attackNumber: 1

@@ -18,7 +18,7 @@ namespace SummonsTracker.UI
 
         public SavingThrowSelector OnInitialiseSavingThrow(ISavingThrow savingThrow, string name, Character character, int actionIndex, string note)
         {
-            if (savingThrow.SavingThrow == StatType.none)
+            if (savingThrow.SavingThrow == StatType.none && !savingThrow.IsGrapple)
             {
                 return null;
             }
@@ -34,12 +34,10 @@ namespace SummonsTracker.UI
             if (savingThrow.FailureSavingThrowOutcome.IsDamage)
             {
                 failResult = savingThrow.FailureSavingThrowOutcome.Damage.Roll();
-                Debug.Log($"FAILURE: {name} => {failResult}");
             }
             if (savingThrow.SuccessSavingThrowOutcome.IsDamage)
             {
                 succResult = savingThrow.SuccessSavingThrowOutcome.Damage.Roll();
-                Debug.Log($"SUCCESS: {name} => {succResult}");
             }
             else if (savingThrow.SuccessSavingThrowOutcome.SuccessSaveType == SuccessSavingThrowOutcomes.Half)
             {
@@ -233,7 +231,7 @@ namespace SummonsTracker.UI
 
         public SavingThrowSelector CreateSavingThrowSelector(string attackGUID, ISavingThrow savingThrow)
         {
-            var parent = _getStatParent(savingThrow.SavingThrow);
+            var parent = _getStatParent(savingThrow.SavingThrow, savingThrow.IsGrapple);
             if (parent == null)
             {
                 return null;

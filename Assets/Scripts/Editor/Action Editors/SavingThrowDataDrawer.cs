@@ -20,6 +20,7 @@ namespace SummonsTracker.Characters
             var topLine = getRect();
             var dcSerializedProperty = serializedObject.FindProperty("_dc");
             var savingThrowSerializedProperty = serializedObject.FindProperty("_savingThrow");
+            var grappleSerializedProperty = serializedObject.FindProperty("_isGrapple");
             if (dcSerializedProperty == null || savingThrowSerializedProperty == null)
             {
                 EditorGUI.DrawRect(topLine, Color.red);
@@ -36,23 +37,73 @@ namespace SummonsTracker.Characters
 
             var ddX = topLine.x + dcRect.width + 2;
             var dropdownRect = new Rect(ddX, topLine.y, topLine.width - dcSavingThrowLabelWidth - dcRect.width - 4, EditorGUIUtility.singleLineHeight);
-            var savingThrowValue = 0 <= savingThrowSerializedProperty.enumValueIndex && savingThrowSerializedProperty.enumValueIndex <= savingThrowSerializedProperty.enumNames.Length - 1 ?
-                savingThrowSerializedProperty.enumDisplayNames[savingThrowSerializedProperty.enumValueIndex]
-                : "error";
-            if (GUI.Button(dropdownRect, savingThrowValue, EditorStyles.miniPullDown))
+
+            var currentFlags = savingThrowSerializedProperty.intValue;
+            var label = string.Empty;
+            if (grappleSerializedProperty.boolValue)
+            {
+                label = "Grapple";
+            }
+            else
+            {
+                for (int i = 1; i < savingThrowSerializedProperty.enumNames.Length; i++)
+                {
+                    var k = Mathf.FloorToInt(Mathf.Pow(2, i - 1));
+                    if ((k & currentFlags) != 0)
+                    {
+                        var current = savingThrowSerializedProperty.enumDisplayNames[i];
+                        label = string.IsNullOrEmpty(label) ? current : $"{label}, {current}";
+                    }
+                }
+            }
+
+            if (GUI.Button(dropdownRect, string.IsNullOrEmpty(label) ? "None" : label, EditorStyles.miniPullDown))
             {
                 var menu = new GenericMenu();
-                for (int i = 1; i < savingThrowSerializedProperty.enumDisplayNames.Length; i++)
-                {
-                    int k = Mathf.FloorToInt(Mathf.Pow(2, i - 1));
-                    menu.AddItem(new GUIContent(savingThrowSerializedProperty.enumDisplayNames[i]), k == savingThrowSerializedProperty.intValue, delegate
+                menu.AddItem(new GUIContent("None"),
+                    !grappleSerializedProperty.boolValue && currentFlags == 0,
+                    delegate
                     {
-                        savingThrowSerializedProperty.intValue = k;
-                        savingThrowSerializedProperty.serializedObject.ApplyModifiedProperties();
+                        savingThrowSerializedProperty.intValue = 0;
+                        serializedObject.ApplyModifiedProperties();
                     });
+                menu.AddSeparator(string.Empty);
+                for (int i = 1; i < savingThrowSerializedProperty.enumNames.Length; i++)
+                {
+                    var k = Mathf.FloorToInt(Mathf.Pow(2, i - 1));
+
+                    var current = savingThrowSerializedProperty.enumDisplayNames[i];
+
+                    menu.AddItem(new GUIContent(current),
+                        !grappleSerializedProperty.boolValue && (k & currentFlags) != 0,
+                        delegate
+                        {
+                            if ((k & currentFlags) != 0)
+                            {
+                                savingThrowSerializedProperty.intValue &= ~k;
+                            }
+                            else
+                            {
+                                savingThrowSerializedProperty.intValue |= k;
+                            }
+                            grappleSerializedProperty.boolValue = false;
+                            serializedObject.ApplyModifiedProperties();
+                        });
                 }
-                menu.DropDown(topLine);
+                menu.AddSeparator(string.Empty);
+                menu.AddItem(new GUIContent("Grapple"),
+                    grappleSerializedProperty.boolValue,
+                    delegate
+                    {
+                        grappleSerializedProperty.boolValue = !grappleSerializedProperty.boolValue;
+                        savingThrowSerializedProperty.intValue = 0;
+                        serializedObject.ApplyModifiedProperties();
+                    });
+                menu.DropDown(dropdownRect);
             }
+
+
+
             var onFailureLabelWidth = GUI.skin.label.CalcSize(_onFailureLabel).x;
             var onSuccessLabelWidth = GUI.skin.label.CalcSize(_onSuccessLabel).x;
             var onFailSuccLabelWidth = Mathf.Max(onSuccessLabelWidth, onFailureLabelWidth);

@@ -37,12 +37,18 @@ namespace SummonsTracker.Spell
                     }
                     if (atk.SavingThrow != null)
                     {
-                        atk.SavingThrow = SavingThrow.Copy(atk.SavingThrow, spellSaveDC);
+                        atk.SavingThrow = new SavingThrow(atk.SavingThrow, atk.Name)
+                        {
+                            DC = spellSaveDC
+                        };
                     }
                 }
                 if (a is SavingThrowAction savingThrowAction)
                 {
-                    savingThrowAction.SavingThrow = SavingThrow.Copy(savingThrowAction.SavingThrow, spellSaveDC);
+                    savingThrowAction.SavingThrow = new SavingThrow(savingThrowAction.SavingThrow, savingThrowAction.Name)
+                    {
+                        DC = spellSaveDC
+                    };
                 }
                 if (a is Multiattack multi)
                 {

@@ -1,11 +1,12 @@
 using SummonsTracker.Save;
+using System;
 using UnityEngine;
 
 namespace SummonsTracker.Characters
 {
     public class Character
     {
-        public CharacterData CharacterData;
+        public ICharacterData CharacterData;
         public string Name;
         public CreatureType Creature;
 
@@ -45,37 +46,45 @@ namespace SummonsTracker.Characters
 
         public ConditionTypes Conditions { get; private set; }
 
-        public Character(SaveCharacter saveCharacter, CharacterData characterData)
+        public Character(SaveCharacter saveCharacter, ICharacterData characterData)
         {
+            Debug.Log(saveCharacter);
             CharacterData = characterData;
 
             Name = saveCharacter.Name;
-            Hitpoints = saveCharacter.HP;
+            Hitpoints = saveCharacter.Hitpoints;
             MaxHP = saveCharacter.MaxHP;
-            TemporaryHitPoints = saveCharacter.TempHP;
-            Conditions = saveCharacter.Condition;
+            TemporaryHitPoints = saveCharacter.TemporaryHitPoints;
+            Conditions = saveCharacter.Conditions;
 
-            Creature = characterData.Creature;
-            Movement = characterData.Movement;
-            AC = characterData.AC;
-            Proficiency = characterData.Proficiency;
-            Strength = characterData.Strength;
-            Dexterity = characterData.Dexterity;
-            Constitution = characterData.Constitution;
-            Intelligence = characterData.Intelligence;
-            Wisdom = characterData.Wisdom;
-            Charisma = characterData.Charisma;
-            Skills = characterData.Skills;
-            SavingThrows = characterData.SavingThrows;
-            ConditionImmunities = characterData.ConditionImmunities;
-            DamageVulnerabilities = characterData.DamageVulnerabilities;
-            DamageResistances = characterData.DamageResistances;
-            DamageImmunities = characterData.DamageImmunities;
+            Creature = saveCharacter.Creature;
+            Movement = saveCharacter.Movement;
+            AC = saveCharacter.AC;
+            Proficiency = saveCharacter.Proficiency;
+            Strength = saveCharacter.Strength;
+            Dexterity = saveCharacter.Dexterity;
+            Constitution = saveCharacter.Constitution;
+            Intelligence = saveCharacter.Intelligence;
+            Wisdom = saveCharacter.Wisdom;
+            Charisma = saveCharacter.Charisma;
+            Skills = saveCharacter.Skills;
+            SavingThrows = saveCharacter.SavingThrows;
+            ConditionImmunities = saveCharacter.ConditionImmunities;
+            DamageVulnerabilities = saveCharacter.DamageVulnerabilities;
+            DamageResistances = saveCharacter.DamageResistances;
+            DamageImmunities = saveCharacter.DamageImmunities;
 
-            Actions = new Action[characterData.Actions.Length];
-            for (int i = 0; i < characterData.Actions.Length; i++)
+            if (saveCharacter.Actions == null || saveCharacter.Actions.Length == 0)
             {
-                Actions[i] = characterData.Actions[i].Instantiate();
+                Actions = Array.Empty<Action>();
+            }
+            else
+            {
+                Actions = new Action[saveCharacter.Actions.Length];
+                for (int i = 0; i < saveCharacter.Actions.Length; i++)
+                {
+                    Actions[i] = SaveManager.Convert(saveCharacter.Actions[i]);
+                }
             }
         }
 
@@ -191,7 +200,7 @@ namespace SummonsTracker.Characters
             {
                 amt *= 2;
             }
-            if (IsResistant(damageType ))
+            if (IsResistant(damageType))
             {
                 amt = Mathf.FloorToInt(amt * 0.5f);
             }
@@ -205,12 +214,12 @@ namespace SummonsTracker.Characters
                 if (TemporaryHitPoints >= damage)
                 {
                     TemporaryHitPoints -= damage;
-                    damage = 0; 
+                    damage = 0;
                 }
                 else
                 {
                     damage -= TemporaryHitPoints;
-                    TemporaryHitPoints = 0; 
+                    TemporaryHitPoints = 0;
                 }
             }
 
@@ -218,7 +227,7 @@ namespace SummonsTracker.Characters
 
             if (Hitpoints < 0)
             {
-                Hitpoints = 0; 
+                Hitpoints = 0;
             }
             return Hitpoints == 0;
         }
@@ -237,7 +246,6 @@ namespace SummonsTracker.Characters
         {
             return (damageType & DamageVulnerabilities) != 0;
         }
-
 
         public void SetCondition(ConditionTypes condition)
         {

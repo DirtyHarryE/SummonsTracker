@@ -31,6 +31,13 @@ namespace SummonsTracker.Rolling
 
         public static void FromString(string dice, out int number, out int faces, out int modifiers)
         {
+            if (int.TryParse(dice, out var single))
+            {
+                number = 0;
+                faces = 0;
+                modifiers = single;
+                return;
+            }
             var bOpenInd = dice.IndexOf('(');
             var bCloseInd = dice.IndexOf(')');
 

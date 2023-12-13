@@ -9,7 +9,7 @@ namespace SummonsTracker.UI
 {
     public class AttackRollPanel : Panel
     {
-        public delegate Transform GetStatParentDelegate(StatType statType);
+        public delegate Transform GetStatParentDelegate(StatType statType, bool isGrapple);
 
         public void Initialise(IEnumerable<CharacterActionInfo> selectedAttacks)
         {
@@ -323,6 +323,7 @@ namespace SummonsTracker.UI
             _intelligenceSavingThrows.gameObject.SetActive(false);
             _wisdomSavingThrows.gameObject.SetActive(false);
             _charismaSavingThrows.gameObject.SetActive(false);
+            _grappleSavingThrows.gameObject.SetActive(false);
 
             _targetAC = 0;
             _rollSelectors.Clear();
@@ -333,7 +334,7 @@ namespace SummonsTracker.UI
             _actionReadoutDict.Clear();
         }
 
-        private Transform GetStatParent(StatType statType) => statType switch
+        private Transform GetStatParent(StatType statType, bool isGrapple) => isGrapple ? _grappleSavingThrows : statType switch
         {
             StatType.Strength => _strengthSavingThrows,
             StatType.Dexterity => _dexteritySavingThrows,
@@ -374,6 +375,8 @@ namespace SummonsTracker.UI
         private RectTransform _wisdomSavingThrows;
         [SerializeField]
         private RectTransform _charismaSavingThrows;
+        [SerializeField]
+        private RectTransform _grappleSavingThrows;
         [Header("Readout")]
         [SerializeField]
         private RectTransform _readoutParent;

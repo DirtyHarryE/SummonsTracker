@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6730386978127922434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 'Melee Weapon Attack:
+
+    +5 to hit, reach 5 ft., one target.
+
+    Hit:
+
+    5
+    (1d4 + 3) piercing damage.'
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 3
+  _damageType: 2048
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Lamia
+  m_EditorClassIdentifier: 
+  _name: Lamia
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 13
+    _faces: 10
+    _modifiers: 26
+  _ac: 13
+  _proficiency: 2
+  _strength: 16
+  _dexterity: 13
+  _constitution: 15
+  _intelligence: 14
+  _wisdom: 15
+  _charisma: 16
+  _skills: 17416
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 12
+  _languages: Abyssal, Common
+  _challenge: 4
+  _actions:
+  - {fileID: 3833784296920894221}
+  - {fileID: -6730386978127922434}
+  - {fileID: 8668468539882264556}
+--- !u!114 &3833784296920894221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The lamia makes two attacks: one with its claws and one with its dagger
+    or Intoxicating Touch.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &8668468539882264556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Intoxicating Touch
+  m_EditorClassIdentifier: 
+  _note: 'Melee Spell Attack: +5 to hit, reach 5 ft., one creature. Hit: The target
+    is magically cursed for 1 hour. Until the curse ends, the target has disadvantage
+    on Wisdom saving throws and all ability checks.'

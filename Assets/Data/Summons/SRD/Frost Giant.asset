@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6071111188405188783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 9
+  _advantageType: 0
+  _range: 60
+  _minRange: 5
+  _maxRange: 240
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 10
+    _modifiers: 6
+  _damageType: 2
+--- !u!114 &-3886452884782707311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The giant makes two greataxe attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Frost Giant
+  m_EditorClassIdentifier: 
+  _name: Frost Giant
+  _creature: 8
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 12
+    _faces: 12
+    _modifiers: 60
+  _ac: 15
+  _proficiency: 3
+  _strength: 23
+  _dexterity: 9
+  _constitution: 21
+  _intelligence: 9
+  _wisdom: 10
+  _charisma: 12
+  _skills: 4097
+  _savingThrows: 52
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 4
+  _senses: Passive Perception 13
+  _languages: Giant
+  _challenge: 8
+  _actions:
+  - {fileID: -3886452884782707311}
+  - {fileID: 5445378343113444247}
+  - {fileID: -6071111188405188783}
+--- !u!114 &5445378343113444247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Greataxe
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 12
+    _modifiers: 6
+  _damageType: 2048

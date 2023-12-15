@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Flying Snake
+  m_EditorClassIdentifier: 
+  _name: Flying Snake
+  _creature: 1
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 3
+    Distance: 60
+  - Type: 4
+    Distance: 30
+  _maxHP:
+    _number: 2
+    _faces: 4
+    _modifiers: 0
+  _ac: 14
+  _proficiency: 2
+  _strength: 4
+  _dexterity: 18
+  _constitution: 11
+  _intelligence: 2
+  _wisdom: 12
+  _charisma: 5
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Blindsight 10 ft.,  Passive Perception 11
+  _languages: --
+  _challenge: 0.125
+  _actions:
+  - {fileID: 4283382065494004445}
+--- !u!114 &4283382065494004445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 0
+    _faces: 0
+    _modifiers: 1
+  _damageType: 128
+  _secondaryDamage:
+    _number: 3
+    _faces: 4
+    _modifiers: 0
+  _secondaryDamageType: 256

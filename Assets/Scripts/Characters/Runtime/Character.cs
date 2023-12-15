@@ -83,7 +83,7 @@ namespace SummonsTracker.Characters
                 Actions = new Action[saveCharacter.Actions.Length];
                 for (int i = 0; i < saveCharacter.Actions.Length; i++)
                 {
-                    Actions[i] = SaveManager.Convert(saveCharacter.Actions[i]);
+                    Actions[i] = SaveParser.Convert(saveCharacter.Actions[i]);
                 }
             }
         }

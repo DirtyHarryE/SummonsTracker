@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7561425200755902769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Third Roar
+  m_EditorClassIdentifier: 
+  _note: Each creature makes a saving throw. On a failed save, a creature.
+  _dc: 18
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _number: 8
+      _faces: 10
+      _modifiers: 0
+    _damageType: 4096
+    _condition: 2048
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-7286195773226118786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 12
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 6
+  _damageType: 2048
+--- !u!114 &-6063310745490516327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: First Roar
+  m_EditorClassIdentifier: 
+  _note: Each creature that fails a saving throw is frightened for 1 minute. A frightened
+    creature can repeat the saving throw at the end of each of its turns, ending
+    the effect on itself on a success.
+  _dc: 18
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 1 minute
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Androsphinx
+  m_EditorClassIdentifier: 
+  _name: Androsphinx
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 3
+    Distance: 60
+  _maxHP:
+    _number: 19
+    _faces: 10
+    _modifiers: 95
+  _ac: 17
+  _proficiency: 6
+  _strength: 22
+  _dexterity: 10
+  _constitution: 20
+  _intelligence: 16
+  _wisdom: 18
+  _charisma: 23
+  _skills: 4368
+  _savingThrows: 30
+  _conditionImmunities: 18
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 128
+  _senses: Truesight 120 ft.,  Passive Perception 20
+  _languages: Common, Sphinx
+  _challenge: 17
+  _actions:
+  - {fileID: 7842234760910111770}
+  - {fileID: -7286195773226118786}
+  - {fileID: 6000457590896424736}
+  - {fileID: -6063310745490516327}
+  - {fileID: 3844275474851295682}
+  - {fileID: -7561425200755902769}
+--- !u!114 &3844275474851295682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Second Roar
+  m_EditorClassIdentifier: 
+  _note: Each creature that fails a saving throw is deafened and frightened.
+  _dc: 18
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 16
+    _outcomeNote: For 1 minute. A frightened creature is paralyzed and can repeat
+      the saving throw at the end of each of its turns, ending the effect on itself
+      on a success.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &6000457590896424736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Roar
+  m_EditorClassIdentifier: 
+  _note: The sphinx emits a magical roar. Each time it roars before finishing a long
+    rest, the roar is louder and the effect is different, as detailed below. Each
+    creature within 500 feet of the sphinx and able to hear the roar must make a
+    saving throw.
+--- !u!114 &7842234760910111770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The sphinx makes two claw attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2

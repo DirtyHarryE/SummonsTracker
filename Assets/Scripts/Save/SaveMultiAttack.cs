@@ -15,5 +15,10 @@ namespace SummonsTracker.Save
             AttackIndex = attackIndex;
             AttackNumber = attackNumber;
         }
+
+        public override string ToString()
+        {
+            return $"{(AnyAttack ? "Any" : AttackIndex.ToString())} => {AttackNumber}";
+        }
     }
 }

@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  _name: Skeleton
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 2
+    _faces: 8
+    _modifiers: 4
+  _ac: 13
+  _proficiency: 2
+  _strength: 10
+  _dexterity: 14
+  _constitution: 15
+  _intelligence: 6
+  _wisdom: 8
+  _charisma: 5
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1032
+  _damageVulnerabilities: 2
+  _damageResistances: 0
+  _damageImmunities: 256
+  _senses: Darkvision 60 ft.,  Passive Perception 9
+  _languages: Understands all languages it knew in life but can't speak
+  _challenge: 0.25
+  _actions:
+  - {fileID: 4945952705722094938}
+  - {fileID: 2380308183857492766}
+--- !u!114 &2380308183857492766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Shortbow
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 4
+  _advantageType: 0
+  _range: 80
+  _minRange: 5
+  _maxRange: 320
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &4945952705722094938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Shortsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 2
+  _damageType: 128

@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-818433647222762892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: '. Melee Weapon Attack: +2 to hit, reach 5 ft., one creature. Hit: 17 (5d6)
+    piercing damage. If the target is Medium or smaller, it must succeed on a saving
+    throw or be knocked prone. If the target is killed by this damage, it is absorbed
+    into the mouther.'
+  _dc: 10
+  _isGrapple: 0
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 2048
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Gibbering Mouther
+  m_EditorClassIdentifier: 
+  _name: Gibbering Mouther
+  _creature: 0
+  _movement:
+  - Type: 0
+    Distance: 10
+  - Type: 4
+    Distance: 10
+  _maxHP:
+    _number: 9
+    _faces: 8
+    _modifiers: 27
+  _ac: 9
+  _proficiency: 2
+  _strength: 10
+  _dexterity: 8
+  _constitution: 16
+  _intelligence: 3
+  _wisdom: 10
+  _charisma: 6
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 2048
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 10
+  _languages: --
+  _challenge: 2
+  _actions:
+  - {fileID: 4307584448613985815}
+  - {fileID: -818433647222762892}
+  - {fileID: 1766012871191225257}
+--- !u!114 &1766012871191225257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Blinding Spittle
+  m_EditorClassIdentifier: 
+  _note: The mouther spits a chemical glob at a point it can see within 15 feet of
+    it. The glob explodes in a blinding flash of light on impact. Each creature within
+    5 feet of the flash must succeed on a saving throw or be blinded.
+  _dc: 13
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 1
+    _outcomeNote: Until the end of the mouther's next turn.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &4307584448613985815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The gibbering mouther makes one bite attack and, if it can, uses its Blinding
+    Spittle.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1

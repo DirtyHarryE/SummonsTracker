@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3905918489302920699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The roper makes four attacks with its tendrils, uses Reel, and makes one
+    attack with its bite.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 4
+  - _attackIndex: 3
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Roper
+  m_EditorClassIdentifier: 
+  _name: Roper
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 10
+  - Type: 2
+    Distance: 10
+  _maxHP:
+    _number: 11
+    _faces: 10
+    _modifiers: 33
+  _ac: 20
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 8
+  _constitution: 17
+  _intelligence: 7
+  _wisdom: 16
+  _charisma: 6
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 16
+  _languages: --
+  _challenge: 5
+  _actions:
+  - {fileID: -3905918489302920699}
+  - {fileID: 4227198540618485456}
+  - {fileID: 3634832685523349242}
+  - {fileID: 9180899891177712476}
+--- !u!114 &3634832685523349242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Tendril
+  m_EditorClassIdentifier: 
+  _note: 'Melee Weapon Attack: +7 to hit, reach 50 ft., one creature. Hit: The target
+    is grappled (escape DC 15). Until the grapple ends, the target is restrained
+    and has disadvantage on Strength checks and Strength saving throws, and the roper
+    can''t use the same tendril on another target.'
+--- !u!114 &4227198540618485456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 8
+    _modifiers: 4
+  _damageType: 128
+--- !u!114 &9180899891177712476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Reel
+  m_EditorClassIdentifier: 
+  _note: The roper pulls each creature grappled by it up to 25 feet straight toward
+    it.

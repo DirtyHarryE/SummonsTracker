@@ -1,9 +1,7 @@
+using SummonsTracker.EditorUtilities;
 using SummonsTracker.Rolling;
 using System;
-using System.Linq;
-using System.Reflection;
 using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace SummonsTracker.Characters
@@ -13,6 +11,12 @@ namespace SummonsTracker.Characters
     {
         public override void OnInspectorGUI()
         {
+            using (var licenseProperty = serializedObject.FindProperty("_license"))
+            {
+                EditorGUILayout.PropertyField(licenseProperty);
+            }
+            DrawHorizontalLine();
+
             var character = (CharacterData)target;
             EditorGUI.BeginChangeCheck();
 
@@ -113,16 +117,41 @@ namespace SummonsTracker.Characters
             {
                 profSerializedProperty.intValue = EditorGUILayout.IntField("Proficiency Bonus", profSerializedProperty.intValue);
             }
+            using (var sensesSerializedProperty = serializedObject.FindProperty("_senses"))
+            {
+                sensesSerializedProperty.stringValue = EditorGUILayout.TextField("Senses", sensesSerializedProperty.stringValue);
+            }
+            using (var sensesSerializedProperty = serializedObject.FindProperty("_languages"))
+            {
+                sensesSerializedProperty.stringValue = EditorGUILayout.TextField("Languages", sensesSerializedProperty.stringValue);
+            }
+            using (var challengeSerializedProperty = serializedObject.FindProperty("_challenge"))
+            {
+                var cs = ChallengeRatingHelper.Ratings;
+
+                var currentCR = ChallengeRatingHelper.FloatToCR(challengeSerializedProperty.floatValue);
+                var index = Array.IndexOf(ChallengeRatingHelper.Ratings, currentCR);
+
+                using (new GUILayout.HorizontalScope())
+                {
+                    var rect = EditorGUILayout.GetControlRect();
+                    rect = EditorGUI.PrefixLabel(rect, new GUIContent("Challenge"));
+                    var newIndex = Mathf.RoundToInt(GUI.HorizontalSlider(rect, index, 0, cs.Length - 1));
+                    EditorGUILayout.LabelField(cs[newIndex], new GUIStyle(EditorStyles.textField) { alignment = TextAnchor.MiddleCenter }, GUILayout.Width(75));
+                    if (index != newIndex)
+                    {
+                        challengeSerializedProperty.floatValue = ChallengeRatingHelper.CRToFloat(cs[newIndex]);
+                    }
+                }
+            }
 
             DrawHorizontalLine();
-
             if (_actionDataEditor == null)
             {
                 _actionDataEditor = new ActionListDrawer(serializedObject, (CharacterData)target);
             }
             _actionDataEditor.UsePersistentData = EditorUtility.IsPersistent(target);
             _actionDataEditor.DrawLayout();
-
             if (EditorGUI.EndChangeCheck())
             {
                 serializedObject.ApplyModifiedProperties();

@@ -21,7 +21,7 @@ namespace SummonsTracker.Importer
 
                     using (var noteProperty = serializedObject.FindProperty("_note"))
                     {
-                        noteProperty.stringValue = remaining;
+                        noteProperty.stringValue = ActionDataParser.GetNote(remaining);
                     }
                     serializedObject.ApplyModifiedProperties();
                 }
@@ -400,7 +400,7 @@ namespace SummonsTracker.Importer
                 }
                 using (var outcomeProperty = failProperty.FindPropertyRelative("_outcomeNote"))
                 {
-                    outcomeProperty.stringValue = savingThrow.FailureSavingThrowOutcome.OutcomeNote;
+                    outcomeProperty.stringValue = ActionDataParser.GetNote(savingThrow.FailureSavingThrowOutcome.OutcomeNote);
                 }
             }
             using (var successProperty = serializedObject.FindProperty(successPropertyName))
@@ -430,7 +430,7 @@ namespace SummonsTracker.Importer
                 }
                 using (var outcomeProperty = successProperty.FindPropertyRelative("_outcomeNote"))
                 {
-                    outcomeProperty.stringValue = savingThrow.SuccessSavingThrowOutcome.OutcomeNote;
+                    outcomeProperty.stringValue = ActionDataParser.GetNote( savingThrow.SuccessSavingThrowOutcome.OutcomeNote);
                 }
             }
         }

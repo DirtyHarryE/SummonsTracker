@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Shadow
+  m_EditorClassIdentifier: 
+  _name: Shadow
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 3
+    _faces: 8
+    _modifiers: 3
+  _ac: 12
+  _proficiency: 2
+  _strength: 6
+  _dexterity: 14
+  _constitution: 13
+  _intelligence: 6
+  _wisdom: 10
+  _charisma: 8
+  _skills: 8
+  _savingThrows: 0
+  _conditionImmunities: 7992
+  _damageVulnerabilities: 1024
+  _damageResistances: 173
+  _damageImmunities: 320
+  _senses: Darkvision 60 ft.,  Passive Perception 10
+  _languages: --
+  _challenge: 0.5
+  _actions:
+  - {fileID: 1743175572301827367}
+--- !u!114 &1743175572301827367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Strength Drain
+  m_EditorClassIdentifier: 
+  _note: '9 (2d6 + 2) necrotic damage, and the target''s Strength score is reduced
+    by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction
+    lasts until the target finishes a short or long rest.
+
+    If a non-evil humanoid
+    dies from this attack, a new shadow rises from the corpse 1d4 hours later.'
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 2
+  _damageType: 64

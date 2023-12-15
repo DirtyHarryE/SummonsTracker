@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8405616586896791861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Snake Hair
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 2
+  _damageType: 128
+  _secondaryDamage:
+    _number: 4
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 256
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Medusa
+  m_EditorClassIdentifier: 
+  _name: Medusa
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 17
+    _faces: 8
+    _modifiers: 51
+  _ac: 15
+  _proficiency: 2
+  _strength: 10
+  _dexterity: 15
+  _constitution: 16
+  _intelligence: 12
+  _wisdom: 13
+  _charisma: 15
+  _skills: 21512
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: Common
+  _challenge: 6
+  _actions:
+  - {fileID: 904953039202798003}
+  - {fileID: -8405616586896791861}
+  - {fileID: 3881856210696128262}
+  - {fileID: 7560381716690005544}
+--- !u!114 &904953039202798003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The medusa makes either three melee attacks--one with its snake hair and
+    two with its shortsword--or two ranged attacks with its longbow.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 3
+  - _attackIndex: 2
+    _attackNumber: 2
+  - _attackIndex: 3
+    _attackNumber: 2
+--- !u!114 &3881856210696128262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Shortsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &7560381716690005544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Longbow
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 5
+  _advantageType: 0
+  _range: 150
+  _minRange: 5
+  _maxRange: 600
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 2
+  _damageType: 128
+  _secondaryDamage:
+    _number: 2
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 256

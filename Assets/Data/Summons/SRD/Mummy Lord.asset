@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7593944441645798656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8487373ab36b94694ef00ab5c7b726, type: 3}
+  m_Name: Rotting Fist
+  m_EditorClassIdentifier: 
+  _note: Saving throw or be cursed with mummy rot. The cursed target can't regain
+    hit points, and its hit point maximum decreases by 10 (3d6) for every 24 hours
+    that elapse. If the curse reduces the target's hit point maximum to 0, the target
+    dies, and its body turns to dust. The curse lasts until removed by the remove
+    curse spell or other magic.
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2
+  _secondaryDamage:
+    _number: 6
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 64
+  _dc: 16
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Its hit point maximum decreases by 10 (3d6) for every 24 hours
+      that elapse
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-3928559729614740658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Dreadful Glare
+  m_EditorClassIdentifier: 
+  _note: The mummy lord targets one creature it can see within 60 feet of it. If
+    the target can see the mummy lord, it must succeed on a saving throw against
+    this magic or become frightened until the end of the mummy's next turn. If the
+    target fails the saving throw by 5 or more, it is also paralyzed for the same
+    duration. A target that succeeds on the saving throw is immune to the Dreadful
+    Glare of all mummies and mummy lords for the next 24 hours.
+  _dc: 16
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Mummy lords for the next 24 hours
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Mummy Lord
+  m_EditorClassIdentifier: 
+  _name: Mummy Lord
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 20
+  _maxHP:
+    _number: 13
+    _faces: 8
+    _modifiers: 39
+  _ac: 17
+  _proficiency: 5
+  _strength: 18
+  _dexterity: 10
+  _constitution: 17
+  _intelligence: 11
+  _wisdom: 18
+  _charisma: 16
+  _skills: 288
+  _savingThrows: 60
+  _conditionImmunities: 1306
+  _damageVulnerabilities: 8
+  _damageResistances: 0
+  _damageImmunities: 192
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: The languages it knew in life
+  _challenge: 15
+  _actions:
+  - {fileID: 8297345736897569272}
+  - {fileID: -7593944441645798656}
+  - {fileID: -3928559729614740658}
+--- !u!114 &8297345736897569272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The mummy can use its Dreadful Glare and makes one attack with its rotting
+    fist.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1

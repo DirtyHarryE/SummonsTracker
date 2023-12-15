@@ -1,0 +1,283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7328806111083747337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: If the target is a creature, it is grappled (escape DC 20). Until this grapple
+    ends, the target is restrained, and the tarrasque can't bite another target.
+  _attackType: 0
+  _attackMod: 19
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 12
+    _modifiers: 10
+  _damageType: 128
+--- !u!114 &-3759195789137121709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Swallow
+  m_EditorClassIdentifier: 
+  _note: 'The tarrasque makes one bite attack against a Large or smaller creature
+    it is grappling. If the attack hits, the target takes the bite''s damage, the
+    target is swallowed, and the grapple ends. While swallowed, the creature is blinded
+    and restrained, it has total cover against attacks and other effects outside
+    the tarrasque, and it takes 56 (16d6) acid damage at the start of each of the
+    tarrasque''s turns.
+
+    If the tarrasque takes 60 damage or more on a single
+    turn from a creature inside it, the tarrasque must succeed on a saving throw
+    at the end of that turn or regurgitate all swallowed creatures, which fall prone
+    in a space within 10 feet of the tarrasque. If the tarrasque dies, a swallowed
+    creature is no longer restrained by it and can escape from the corpse by using
+    30 feet of movement, exiting prone.'
+  _dc: 20
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 2048
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-2812869609225325364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The tarrasque can use its Frightful Presence. It then makes five attacks:
+    one with its bite, two with its claws, one with its horns, and one with its tail.
+    It can use its Swallow instead of its bite.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2
+  - _attackIndex: 3
+    _attackNumber: 1
+  - _attackIndex: 4
+    _attackNumber: 1
+  - _attackIndex: 5
+    _attackNumber: 1
+  - _attackIndex: 6
+    _attackNumber: 1
+--- !u!114 &-2018707844815421681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: Saving throw or be knocked prone.
+  _attackType: 0
+  _attackMod: 19
+  _advantageType: 0
+  _range: 20
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 6
+    _modifiers: 10
+  _damageType: 2
+  _dc: 20
+  _isGrapple: 0
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 2048
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-1638356984005574722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 19
+  _advantageType: 0
+  _range: 15
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 8
+    _modifiers: 10
+  _damageType: 2048
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Tarrasque
+  m_EditorClassIdentifier: 
+  _name: Tarrasque
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 33
+    _faces: 20
+    _modifiers: 330
+  _ac: 25
+  _proficiency: 9
+  _strength: 30
+  _dexterity: 11
+  _constitution: 30
+  _intelligence: 3
+  _wisdom: 11
+  _charisma: 11
+  _skills: 0
+  _savingThrows: 56
+  _conditionImmunities: 1298
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 136
+  _senses: Blindsight 120 ft.,  Passive Perception 10
+  _languages: --
+  _challenge: 30
+  _actions:
+  - {fileID: -2812869609225325364}
+  - {fileID: -7328806111083747337}
+  - {fileID: -1638356984005574722}
+  - {fileID: 2079985437718111488}
+  - {fileID: -2018707844815421681}
+  - {fileID: 1944532601641641281}
+  - {fileID: -3759195789137121709}
+--- !u!114 &1944532601641641281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Frightful Presence
+  m_EditorClassIdentifier: 
+  _note: Each creature of the tarrasque's choice within 120 feet of it and aware
+    of it must succeed on a saving throw or become frightened.
+  _dc: 17
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 16
+    _outcomeNote: For 1 minute. A creature can repeat the saving throw at the end
+      of each of its turns, with disadvantage if the tarrasque is within line of
+      sight, ending the effect on itself on a success. If a creature's saving throw
+      is successful or the effect ends for it, the creature is immune to the tarrasque's
+      Frightful Presence for the next 24 hours.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &2079985437718111488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Horns
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 19
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 10
+    _modifiers: 10
+  _damageType: 128

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8799101864557409570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: War Pick
+  m_EditorClassIdentifier: 
+  _note: 6 (1d8 + 2) piercing damage, or 11 (2d8 + 2) piercing damage while enlarged.
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &-6752834317597950062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Invisibility
+  m_EditorClassIdentifier: 
+  _note: The duergar magically turns invisible until it attacks, casts a spell, or
+    uses its Enlarge, or until its concentration is broken, up to 1 hour (as if concentrating
+    on a spell). Any equipment the duergar wears or carries is invisible with it.
+--- !u!114 &-6703260987211113796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Javelin
+  m_EditorClassIdentifier: 
+  _note: 'Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft.,
+    one target. Hit: 5 (1d6 + 2) piercing damage, or 9 (2d6 + 2) piercing damage
+    while enlarged.'
+--- !u!114 &-3092685632570177060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Enlarge
+  m_EditorClassIdentifier: 
+  _note: For 1 minute, the duergar magically increases in size, along with anything
+    it is wearing or carrying. While enlarged, the duergar is Large, doubles its
+    damage dice on Strength-based weapon attacks (included in the attacks), and makes
+    Strength checks and Strength saving throws with advantage. If the duergar lacks
+    the room to become Large, it attains the maximum size possible in the space available.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Duergar
+  m_EditorClassIdentifier: 
+  _name: Duergar
+  _creature: 9
+  _movement:
+  - Type: 0
+    Distance: 25
+  _maxHP:
+    _number: 4
+    _faces: 8
+    _modifiers: 8
+  _ac: 16
+  _proficiency: 2
+  _strength: 14
+  _dexterity: 11
+  _constitution: 14
+  _intelligence: 11
+  _wisdom: 10
+  _charisma: 9
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 256
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 10
+  _languages: Dwarvish, Undercommon
+  _challenge: 1
+  _actions:
+  - {fileID: -3092685632570177060}
+  - {fileID: -8799101864557409570}
+  - {fileID: -6703260987211113796}
+  - {fileID: -6752834317597950062}

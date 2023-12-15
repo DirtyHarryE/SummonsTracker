@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-643390693242923112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Engulf
+  m_EditorClassIdentifier: 
+  _note: The shambling mound engulfs a Medium or smaller creature grappled by it.
+    The engulfed target is blinded, restrained, and unable to breathe, and it must
+    succeed on a saving throw at the start of each of the mound's turns or.
+  _dc: 14
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 2
+      _faces: 8
+      _modifiers: 4
+    _damageType: 2
+    _condition: 0
+    _outcomeNote: Take 13 (2d8 + 4) bludgeoning damage
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Shambling Mound
+  m_EditorClassIdentifier: 
+  _name: Shambling Mound
+  _creature: 12
+  _movement:
+  - Type: 0
+    Distance: 20
+  - Type: 4
+    Distance: 20
+  _maxHP:
+    _number: 16
+    _faces: 10
+    _modifiers: 48
+  _ac: 15
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 8
+  _constitution: 16
+  _intelligence: 5
+  _wisdom: 10
+  _charisma: 5
+  _skills: 8
+  _savingThrows: 0
+  _conditionImmunities: 13
+  _damageVulnerabilities: 0
+  _damageResistances: 12
+  _damageImmunities: 32
+  _senses: Blindsight 60 ft.,  Passive Perception 10
+  _languages: --
+  _challenge: 5
+  _actions:
+  - {fileID: 2444882455954582209}
+  - {fileID: 4787478927381032924}
+  - {fileID: -643390693242923112}
+--- !u!114 &2444882455954582209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The shambling mound makes two slam attacks. If both attacks hit a Medium
+    or smaller target, the target is grappled (escape DC 14), and the shambling mound
+    uses its Engulf on it.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &4787478927381032924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 4
+  _damageType: 2

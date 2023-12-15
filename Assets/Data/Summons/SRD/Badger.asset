@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-316394688744327481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 2
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 0
+    _faces: 0
+    _modifiers: 1
+  _damageType: 128
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Badger
+  m_EditorClassIdentifier: 
+  _name: Badger
+  _creature: 1
+  _movement:
+  - Type: 0
+    Distance: 20
+  - Type: 1
+    Distance: 5
+  _maxHP:
+    _number: 1
+    _faces: 4
+    _modifiers: 1
+  _ac: 10
+  _proficiency: 2
+  _strength: 4
+  _dexterity: 11
+  _constitution: 12
+  _intelligence: 2
+  _wisdom: 12
+  _charisma: 5
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 30 ft.,  Passive Perception 11
+  _languages: --
+  _challenge: 0
+  _actions:
+  - {fileID: -316394688744327481}

@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1916493587869955145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Antennae
+  m_EditorClassIdentifier: 
+  _note: "The rust monster corrodes a nonmagical ferrous metal object it can see
+    within 5 feet of it. If the object isn't being worn or carried, the touch destroys
+    a 1-foot cube of it. If the object is being worn or carried by a creature, the
+    creature can make a saving throw to avoid the rust monster's touch.\nIf the object
+    touched is either metal armor or a metal shield being worn or carried, it takes
+    a permanent and cumulative \u22121 penalty to the AC it offers. Armor reduced
+    to an AC of 10 or a shield that drops to a +0 bonus is destroyed. If the object
+    touched is a held metal weapon, it rusts as described in the Rust Metal trait."
+  _dc: 11
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: "Cumulative \u22121 penalty to the AC it offers"
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Rust Monster
+  m_EditorClassIdentifier: 
+  _name: Rust Monster
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 5
+    _faces: 8
+    _modifiers: 5
+  _ac: 14
+  _proficiency: 2
+  _strength: 13
+  _dexterity: 12
+  _constitution: 13
+  _intelligence: 2
+  _wisdom: 13
+  _charisma: 6
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 11
+  _languages: --
+  _challenge: 0.5
+  _actions:
+  - {fileID: 3083928176644577805}
+  - {fileID: -1916493587869955145}
+--- !u!114 &3083928176644577805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 1
+  _damageType: 128

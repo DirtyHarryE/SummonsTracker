@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4288703102108855472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The elemental makes two slam attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &-502350597098718476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 8
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 5
+  _damageType: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Air Elemental
+  m_EditorClassIdentifier: 
+  _name: Air Elemental
+  _creature: 5
+  _movement:
+  - Type: 0
+    Distance: 0
+  - Type: 3
+    Distance: 90
+  _maxHP:
+    _number: 12
+    _faces: 10
+    _modifiers: 24
+  _ac: 15
+  _proficiency: 2
+  _strength: 14
+  _dexterity: 20
+  _constitution: 14
+  _intelligence: 6
+  _wisdom: 10
+  _charisma: 6
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 24360
+  _damageVulnerabilities: 0
+  _damageResistances: 160
+  _damageImmunities: 256
+  _senses: Darkvision 60 ft.,  Passive Perception 10
+  _languages: Auran
+  _challenge: 5
+  _actions:
+  - {fileID: -4288703102108855472}
+  - {fileID: -502350597098718476}
+  - {fileID: 6107650206767417706}
+--- !u!114 &6107650206767417706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Whirlwind
+  m_EditorClassIdentifier: 
+  _note: Each creature in the elemental's space must make a saving throw. On a failure,
+    a target.
+  _dc: 13
+  _isGrapple: 0
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _number: 3
+      _faces: 8
+      _modifiers: 2
+    _damageType: 2
+    _condition: 2048
+    _outcomeNote: "For every 10 feet it was thrown. If the target is thrown at another
+      creature, that creature must succeed on a DC 13 Dexterity saving throw or take
+      the same damage and be knocked prone. \nIf the saving throw is successful,
+      the target takes half the bludgeoning damage and isn't flung away or knocked
+      prone."
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

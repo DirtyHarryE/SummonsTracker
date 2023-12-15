@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2259741559909910956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Pseudopod
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _damageType: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Gelatinous Cube
+  m_EditorClassIdentifier: 
+  _name: Gelatinous Cube
+  _creature: 11
+  _movement:
+  - Type: 0
+    Distance: 15
+  _maxHP:
+    _number: 8
+    _faces: 10
+    _modifiers: 40
+  _ac: 6
+  _proficiency: 2
+  _strength: 14
+  _dexterity: 3
+  _constitution: 20
+  _intelligence: 1
+  _wisdom: 6
+  _charisma: 1
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 2079
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Blindsight 60 ft.,  Passive Perception 8
+  _languages: --
+  _challenge: 2
+  _actions:
+  - {fileID: -2259741559909910956}
+  - {fileID: 1931885279906371475}
+--- !u!114 &1931885279906371475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Engulf
+  m_EditorClassIdentifier: 
+  _note: 'The cube moves up to its speed. While doing so, it can enter Large or smaller
+    creatures'' spaces. Whenever the cube enters a creature''s space, the creature
+    must make a saving throw.
+
+    On a successful save, the creature can choose
+    to be pushed 5 feet back or to the side of the cube. A creature that chooses
+    not to be pushed suffers the consequences of a failed saving throw.
+
+    On a
+    failed save, the cube enters the creature''s space, and the creature takes 10
+    (3d6) acid damage and is engulfed. The engulfed creature can''t breathe, is restrained,
+    and takes 21 (6d6) acid damage at the start of each of the cube''s turns. When
+    the cube moves, the engulfed creature moves with it.
+
+    An engulfed creature
+    can try to escape by taking an action to make a DC 12 Strength check. On a success,
+    the creature escapes and enters a space of its choice within 5 feet of the cube.'
+  _dc: 12
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: The creature takes 10 (3d6) acid damage and is engulfed
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

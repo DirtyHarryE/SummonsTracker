@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4387720065920693399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 3
+  _damageType: 128
+--- !u!114 &-4348064412355258168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 3
+  _damageType: 128
+--- !u!114 &-504658917498668361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Hurl Flame
+  m_EditorClassIdentifier: 
+  _note: 'Ranged Spell Attack: +5 to hit, range 150 ft., one target. Hit: 10 (3d6)
+    fire damage. If the target is a flammable object that isn''t being worn or carried,
+    it also catches fire.'
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Barbed Devil
+  m_EditorClassIdentifier: 
+  _name: Barbed Devil
+  _creature: 7
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 13
+    _faces: 8
+    _modifiers: 52
+  _ac: 15
+  _proficiency: 3
+  _strength: 16
+  _dexterity: 17
+  _constitution: 18
+  _intelligence: 12
+  _wisdom: 14
+  _charisma: 14
+  _skills: 21504
+  _savingThrows: 53
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 128
+  _damageImmunities: 264
+  _senses: Darkvision 120 ft.,  Passive Perception 18
+  _languages: Infernal, Telepathy 120 ft.
+  _challenge: 5
+  _actions:
+  - {fileID: 9130548794077593196}
+  - {fileID: -4348064412355258168}
+  - {fileID: -4387720065920693399}
+  - {fileID: -504658917498668361}
+--- !u!114 &9130548794077593196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The devil makes three melee attacks: one with its tail and two with its
+    claws. Alternatively, it can use Hurl Flame twice.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1
+  - _attackIndex: 3
+    _attackNumber: 1

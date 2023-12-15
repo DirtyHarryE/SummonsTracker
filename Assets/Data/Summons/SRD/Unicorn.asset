@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8840976449059013013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Healing Touch
+  m_EditorClassIdentifier: 
+  _note: The unicorn touches another creature with its horn. The target magically
+    regains 11 (2d8 + 2) hit points. In addition, the touch removes all diseases
+    and neutralizes all poisons afflicting the target.
+--- !u!114 &-7131206449150745339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Teleport
+  m_EditorClassIdentifier: 
+  _note: The unicorn magically teleports itself and up to three willing creatures
+    it can see within 5 feet of it, along with any equipment they are wearing or
+    carrying, to a location the unicorn is familiar with, up to 1 mile away.
+--- !u!114 &-5300533355205989893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Horn
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 4
+  _damageType: 128
+--- !u!114 &-4156506239241171091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Hooves
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2
+--- !u!114 &-2641841478173782255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The unicorn makes two attacks: one with its hooves and one with its horn.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Unicorn
+  m_EditorClassIdentifier: 
+  _name: Unicorn
+  _creature: 2
+  _movement:
+  - Type: 0
+    Distance: 50
+  _maxHP:
+    _number: 9
+    _faces: 10
+    _modifiers: 18
+  _ac: 12
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 14
+  _constitution: 15
+  _intelligence: 11
+  _wisdom: 17
+  _charisma: 16
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1282
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 256
+  _senses: Darkvision 60 ft.,  Passive Perception 13
+  _languages: Celestial, Elvish, Sylvan, Telepathy 60 ft.
+  _challenge: 5
+  _actions:
+  - {fileID: -2641841478173782255}
+  - {fileID: -4156506239241171091}
+  - {fileID: -5300533355205989893}
+  - {fileID: -8840976449059013013}
+  - {fileID: -7131206449150745339}

@@ -17,6 +17,7 @@ MonoBehaviour:
   _attackMod: 1
   _advantageType: 1
   _range: 5
+  _minRange: 5
   _maxRange: 5
   _target: one target
   _damage:
@@ -78,6 +79,9 @@ MonoBehaviour:
   _damageVulnerabilities: 0
   _damageResistances: 0
   _damageImmunities: 320
+  _senses: 
+  _languages: 
+  _challenge: -1
   _actions:
   - {fileID: -1735521338215645384}
   - {fileID: -8640168982561730809}
@@ -96,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 
   _dc: 0
+  _isGrapple: 0
   _savingThrow: 16
   _failOutcome:
     _failSaveType: 2

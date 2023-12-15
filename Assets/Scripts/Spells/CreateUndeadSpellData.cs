@@ -1,7 +1,6 @@
 using SummonsTracker.Characters;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 namespace SummonsTracker.Spell
@@ -11,80 +10,60 @@ namespace SummonsTracker.Spell
     {
         public override IEnumerable<Character> GetCharacters(int spellLevel, int parameter, GetPerSummonParameterDelegate getPerSummonParameter, int maxNumber)
         {
+            var summons = GetSummons(spellLevel);
             var n = GetNumberOfSummons(spellLevel, parameter, maxNumber);
-            switch (spellLevel)
-            {
-                case 6:
-                    return GetCharacters(_ghoul, n);
-                case 7:
-                    return GetCharacters(_ghoul, n);
-                case 8:
-                    switch (parameter)
-                    {
-                        case 0: return GetCharacters(_ghoul, n);
-                        case 1: return GetCharacters(_ghast, n);
-                        case 2: return GetCharacters(_wight, n);
-                    }
-                    break;
-                case 9:
-                    switch (parameter)
-                    {
-                        case 0: return GetCharacters(_ghoul, n);
-                        case 1: return GetCharacters(_ghast, n);
-                        case 2: return GetCharacters(_wight, n);
-                        case 3: return GetCharacters(_mummy, n);
-                    }
-                    break;
-            }
-
-            return Enumerable.Empty<Character>();
+            return GetCharacters(summons.FirstOrDefault(s => s.Item1 == spellLevel).Item3, n);
         }
 
         public override IEnumerable<string> GetSpellParameter(int spellLevel)
         {
-            switch (spellLevel)
-            {
-                case 6:
-                    yield return "3 Ghouls";
-                    break;
-                case 7:
-                    yield return "4 Ghouls";
-                    break;
-                case 8:
-                    yield return "5 Ghouls";
-                    yield return "2 Ghasts";
-                    yield return "2 Wights";
-                    break;
-                case 9:
-                    yield return "6 Ghouls";
-                    yield return "3 Ghasts";
-                    yield return "3 Wights";
-                    yield return "2 Mummies";
-                    break;
-            }
+            return GetSummons(spellLevel).Select(s => $"{s.Item2} {s.Item3.name}s");
         }
 
         public override int MinimumLevel => 6;
 
         public override int GetNumberOfSummons(int spellLevel, int parameter, int maxNumber)
         {
-            var parameters = GetSpellParameter(spellLevel).ToArray();
+            var parameters = GetSummons(spellLevel).ToArray();
             var p = parameters[Mathf.Clamp(parameter, 0, parameters.Length - 1)];
 
-            var pNum = Regex.Match(p, @"\d+").Value;
+            var number = p.Item2;
 
-            if (int.TryParse(pNum, out int number))
-            {
-                return maxNumber == -1 ? number : Mathf.Min(maxNumber, number);
-            }
-            return base.GetNumberOfSummons(spellLevel, parameter, maxNumber);
+            return maxNumber == -1 ? number : Mathf.Min(maxNumber, number);
         }
 
         private IEnumerable<Character> GetCharacters(CharacterData characterData, int number)
         {
-            for (int i = 0; i < number; i++)
+            if (characterData != null)
             {
-                yield return new Character(characterData);
+                for (int i = 0; i < number; i++)
+                {
+                    yield return new Character(characterData);
+                }
+            }
+        }
+
+        private IEnumerable<(int, int, CharacterData)> GetSummons(int spellLevel)
+        {
+            switch (spellLevel)
+            {
+                case 6:
+                    yield return (6, 3, _ghoul);
+                    break;
+                case 7:
+                    yield return (7, 4, _ghoul);
+                    break;
+                case 8:
+                    yield return (8, 5, _ghoul);
+                    yield return (8, 2, _ghast);
+                    yield return (8, 2, _wight);
+                    break;
+                case 9:
+                    yield return (9, 6, _ghoul);
+                    yield return (9, 3, _ghast);
+                    yield return (9, 3, _wight);
+                    yield return (9, 2, _mummy);
+                    break;
             }
         }
         [SerializeField]

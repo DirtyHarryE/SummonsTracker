@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3644119255105725620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Fling
+  m_EditorClassIdentifier: 
+  _note: One Large or smaller object held or creature grappled by the kraken is thrown
+    up to 60 feet in a random direction and knocked prone. If a thrown target strikes
+    a solid surface, the target takes 3 (1d6) bludgeoning damage for every 10 feet
+    it was thrown. If the target is thrown at another creature, that creature must
+    succeed on a saving throw or take the same damage and be knocked prone.
+  _dc: 18
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 2048
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-2681071300280465788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: Saving throw at the end of that turn or regurgitate all swallowed creatures,
+    which fall prone in a space within 10 feet of the kraken. If the kraken dies,
+    a swallowed creature is no longer restrained by it and can escape from the corpse
+    using 15 feet of movement, exiting prone.
+  _attackType: 0
+  _attackMod: 17
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 8
+    _modifiers: 10
+  _damageType: 128
+  _dc: 25
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 2048
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-2644099662794585545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tentacle
+  m_EditorClassIdentifier: 
+  _note: 20 (3d6 + 10) bludgeoning damage, and the target is grappled (escape DC
+    18). Until this grapple ends, the target is restrained. The kraken has ten tentacles,
+    each of which can grapple one target.
+  _attackType: 0
+  _attackMod: 17
+  _advantageType: 0
+  _range: 30
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 10
+  _damageType: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Kraken
+  m_EditorClassIdentifier: 
+  _name: Kraken
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 20
+  - Type: 4
+    Distance: 60
+  _maxHP:
+    _number: 27
+    _faces: 20
+    _modifiers: 189
+  _ac: 18
+  _proficiency: 7
+  _strength: 30
+  _dexterity: 11
+  _constitution: 25
+  _intelligence: 22
+  _wisdom: 18
+  _charisma: 20
+  _skills: 0
+  _savingThrows: 31
+  _conditionImmunities: 272
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 128
+  _senses: Truesight 120 ft.,  Passive Perception 14
+  _languages: Abyssal, Celestial, Infernal, Primordial, Telepathy 120 ft. but can't
+    speak
+  _challenge: 23
+  _actions:
+  - {fileID: 1186197035566924282}
+  - {fileID: -2681071300280465788}
+  - {fileID: -2644099662794585545}
+  - {fileID: -3644119255105725620}
+  - {fileID: 2492289726484151987}
+--- !u!114 &1186197035566924282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The kraken makes three tentacle attacks, each of which it can replace with
+    one use of Fling.
+  _attacks:
+  - _attackIndex: 2
+    _attackNumber: 3
+  - _attackIndex: 3
+    _attackNumber: 1
+--- !u!114 &2492289726484151987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Lightning Storm
+  m_EditorClassIdentifier: 
+  _note: The kraken magically creates three bolts of lightning, each of which can
+    strike a target the kraken can see within 120 feet of it. A target must make
+    a saving throw.
+  _dc: 23
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 4
+      _faces: 10
+      _modifiers: 0
+    _damageType: 32
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

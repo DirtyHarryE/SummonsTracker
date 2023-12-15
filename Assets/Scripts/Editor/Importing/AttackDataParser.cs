@@ -134,14 +134,14 @@ namespace SummonsTracker.Importer
                     SavingThrowParser.AssignSavingThrow(serializedObject, savingThrow);
                     using (var noteProperty = serializedObject.FindProperty("_note"))
                     {
-                        noteProperty.stringValue = remainingFromSavingThrow;
+                        noteProperty.stringValue = ActionDataParser.GetNote(remainingFromSavingThrow);
                     }
                 }
                 else
                 {
                     using (var noteProperty = serializedObject.FindProperty("_note"))
                     {
-                        noteProperty.stringValue = remaining;
+                        noteProperty.stringValue = ActionDataParser.GetNote(remaining);
                     }
                 }
                 if (hasDoubleDamage)
@@ -323,7 +323,6 @@ namespace SummonsTracker.Importer
                         var dice = text.Substring(0, damageTypeIndex);
                         DiceUtility.FromString(dice, out number, out faces, out modifier);
                         damageType = dmg;
-                        Debug.Log(damageType);
                         return true;
                     }
                 }

@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Green Dragon Wyrmling
+  m_EditorClassIdentifier: 
+  _name: Green Dragon Wyrmling
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 3
+    Distance: 60
+  - Type: 4
+    Distance: 30
+  _maxHP:
+    _number: 7
+    _faces: 8
+    _modifiers: 7
+  _ac: 17
+  _proficiency: 2
+  _strength: 15
+  _dexterity: 12
+  _constitution: 13
+  _intelligence: 14
+  _wisdom: 11
+  _charisma: 13
+  _skills: 4104
+  _savingThrows: 54
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 256
+  _senses: Blindsight 10 ft., Darkvision 60 ft.,  Passive Perception 14
+  _languages: Draconic
+  _challenge: 2
+  _actions:
+  - {fileID: 5620631468472642821}
+  - {fileID: 9045545610972272705}
+--- !u!114 &5620631468472642821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 10
+    _modifiers: 2
+  _damageType: 128
+  _secondaryDamage:
+    _number: 1
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 256
+--- !u!114 &9045545610972272705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Poison Breath
+  m_EditorClassIdentifier: 
+  _note: The dragon exhales poisonous gas in a 15-foot cone. Each creature in that
+    area must make a saving throw.
+  _dc: 11
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 6
+      _faces: 6
+      _modifiers: 0
+    _damageType: 256
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

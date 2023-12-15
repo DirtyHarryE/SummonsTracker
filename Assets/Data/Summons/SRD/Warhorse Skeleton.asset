@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8309861987543990760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Hooves
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Warhorse Skeleton
+  m_EditorClassIdentifier: 
+  _name: Warhorse Skeleton
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 60
+  _maxHP:
+    _number: 3
+    _faces: 10
+    _modifiers: 6
+  _ac: 13
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 12
+  _constitution: 15
+  _intelligence: 2
+  _wisdom: 8
+  _charisma: 5
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1032
+  _damageVulnerabilities: 2
+  _damageResistances: 0
+  _damageImmunities: 256
+  _senses: Darkvision 60 ft.,  Passive Perception 9
+  _languages: --
+  _challenge: 0.5
+  _actions:
+  - {fileID: -8309861987543990760}

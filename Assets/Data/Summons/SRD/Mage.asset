@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Mage
+  m_EditorClassIdentifier: 
+  _name: Mage
+  _creature: 9
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 9
+    _faces: 8
+    _modifiers: 0
+  _ac: 12
+  _proficiency: 3
+  _strength: 9
+  _dexterity: 14
+  _constitution: 11
+  _intelligence: 17
+  _wisdom: 12
+  _charisma: 11
+  _skills: 48
+  _savingThrows: 24
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Passive Perception 11
+  _languages: Any four languages
+  _challenge: 6
+  _actions:
+  - {fileID: 6579952684027735392}
+--- !u!114 &6579952684027735392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Dagger
+  m_EditorClassIdentifier: 
+  _note: 'Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft.,
+    one target. Hit: 4 (1d4 + 2) piercing damage.'

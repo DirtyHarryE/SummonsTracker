@@ -67,7 +67,7 @@ namespace SummonsTracker.Save
                                                                              damageVulnerabilities: character.DamageVulnerabilities,
                                                                              damageResistances: character.DamageResistances,
                                                                              damageImmunities: character.DamageImmunities,
-                                                                             actions: character.Actions.Select(SaveManager.Convert).ToArray())
+                                                                             actions: character.Actions.Select(SaveParser.Convert).ToArray())
         {
 
         }
@@ -137,14 +137,7 @@ namespace SummonsTracker.Save
                 builder.Append("+").Append(TemporaryHitPoints);
             }
             builder.Append("/").Append(MaxHP).Append(", Speed = [");
-            for (int i = 0; i < Movement.Length; i++)
-            {
-                if (i != 0)
-                {
-                    builder.Append(", ");
-                }
-                builder.Append("(").Append(Movement[i].Distance).Append(" ").Append(Movement[i].Type).Append(")");
-            }
+            builder.Append(string.Join(", ", Movement.Select(m => $"({m})").ToArray()));
             builder.Append("], ");
             builder.Append("STR = ").Append(Strength).Append(", ");
             builder.Append("DEX = ").Append(Dexterity).Append(", ");
@@ -160,14 +153,7 @@ namespace SummonsTracker.Save
             if (ConditionImmunities != ConditionTypes.none) builder.Append("Condition Immunities = ").Append(ConditionImmunities).Append(", ");
             builder.Append("Proficiency Bonus = ").Append(Proficiency).Append(", ");
             builder.Append("Actions = [");
-            for (int i = 0; i < Actions.Length; i++)
-            {
-                if (i != 0)
-                {
-                    builder.Append(", ");
-                }
-                builder.Append("(").Append(Actions[i]).Append(")");
-            }
+            builder.Append(string.Join(", ", Actions.Select(a => $"({a})").ToArray()));
             builder.Append("]");
             return builder.ToString();
         }

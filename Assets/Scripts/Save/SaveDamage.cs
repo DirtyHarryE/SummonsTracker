@@ -20,6 +20,8 @@ namespace SummonsTracker.Save
             DamageType = damageType;
         }
 
+        public static SaveDamage None => new SaveDamage(0, 0, 0, DamageTypes.none);
+
         public override string ToString()
         {
             return $"{Number}d{Faces}{TextUtils.AddPlus(Modifiers)} {DamageType}";

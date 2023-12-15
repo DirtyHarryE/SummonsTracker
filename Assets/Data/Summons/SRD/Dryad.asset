@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5976944053207072744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Fey Charm
+  m_EditorClassIdentifier: 
+  _note: "The dryad targets one humanoid or beast that she can see within 30 feet
+    of her. If the target can see the dryad, it must succeed on a saving throw or
+    be magically charmed. The charmed creature regards the dryad as a trusted friend
+    to be heeded and protected. Although the target isn't under the dryad's control,
+    it takes the dryad's requests or actions in the most favorable way it can.\nEach
+    time the dryad or its allies do anything harmful to the target, it can repeat
+    the saving throw, ending the effect on itself on a success. Otherwise, the effect
+    lasts 24 hours or until the dryad dies, is on a different plane of existence
+    from the target, or ends the effect as a bonus action. If a target's saving throw
+    is successful, the target is immune to the dryad's Fey Charm for the next 24
+    hours. \nThe dryad can have no more than one humanoid and up to three beasts
+    charmed at a time."
+  _dc: 14
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Protected
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Dryad
+  m_EditorClassIdentifier: 
+  _name: Dryad
+  _creature: 6
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 5
+    _faces: 8
+    _modifiers: 0
+  _ac: 11
+  _proficiency: 2
+  _strength: 10
+  _dexterity: 12
+  _constitution: 11
+  _intelligence: 14
+  _wisdom: 15
+  _charisma: 18
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: Elvish, Sylvan
+  _challenge: 1
+  _actions:
+  - {fileID: 8668978678210896723}
+  - {fileID: -5976944053207072744}
+--- !u!114 &8668978678210896723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Club
+  m_EditorClassIdentifier: 
+  _note: 2 (1d4) bludgeoning damage, or 8 (1d8 + 4) bludgeoning damage with shillelagh.
+  _attackType: 0
+  _attackMod: 2
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 0
+  _damageType: 2

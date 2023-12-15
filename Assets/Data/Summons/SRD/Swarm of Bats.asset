@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5944326274015991862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: "Bite.\_"
+  m_EditorClassIdentifier: 
+  _note: 5 (2d4) piercing damage, or 2 (1d4) piercing damage if the swarm has half
+    of its hit points or fewer.
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 0
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 2
+    _faces: 4
+    _modifiers: 0
+  _damageType: 128
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Swarm of Bats
+  m_EditorClassIdentifier: 
+  _name: Swarm of Bats
+  _creature: 1
+  _movement:
+  - Type: 0
+    Distance: 0
+  - Type: 3
+    Distance: 30
+  _maxHP:
+    _number: 5
+    _faces: 8
+    _modifiers: 0
+  _ac: 12
+  _proficiency: 2
+  _strength: 5
+  _dexterity: 15
+  _constitution: 10
+  _intelligence: 2
+  _wisdom: 12
+  _charisma: 4
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 15154
+  _damageVulnerabilities: 0
+  _damageResistances: 2178
+  _damageImmunities: 0
+  _senses: Blindsight 60 ft.,  Passive Perception 11
+  _languages: --
+  _challenge: 0.25
+  _actions:
+  - {fileID: -5944326274015991862}

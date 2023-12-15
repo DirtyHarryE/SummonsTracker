@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _concentration: 1
   _level: 5
-  _zombie: {fileID: 11400000, guid: faaf54ba33a2f4c439cf8fda08eaef1d, type: 2}
-  _skeleton: {fileID: 11400000, guid: e77b1005a4fdb3a4cbf8d7f0603577a6, type: 2}
+  _zombie: {fileID: 11400000, guid: 2ba4d5a7fad1cb84db02a13d26bca9a4, type: 2}
+  _skeleton: {fileID: 11400000, guid: c9bf3c550c24f05418a51f46fd85d8fd, type: 2}

@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6975199877972096863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Corrupting Touch
+  m_EditorClassIdentifier: 
+  _note: 'Melee Spell Attack: +4 to hit, reach 5 ft., one target. Hit: 12 (3d6 +
+    2) necrotic damage.'
+--- !u!114 &-4609255059146938167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Wail
+  m_EditorClassIdentifier: 
+  _note: "The banshee releases a mournful wail, provided that she isn\u2019t in sunlight.
+    This wail has no effect on constructs and undead. All other creatures within
+    30 feet of her that can hear her must make a saving throw. On a failure, a creature
+    drops to 0 hit points. On a success, a creature."
+  _dc: 13
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 3
+      _faces: 6
+      _modifiers: 0
+    _damageType: 512
+    _condition: 0
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Banshee
+  m_EditorClassIdentifier: 
+  _name: Banshee
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 0
+    Distance: 30
+  - Type: 0
+    Distance: 0
+  _maxHP:
+    _number: 13
+    _faces: 8
+    _modifiers: 0
+  _ac: 12
+  _proficiency: 2
+  _strength: 1
+  _dexterity: 14
+  _constitution: 10
+  _intelligence: 12
+  _wisdom: 11
+  _charisma: 17
+  _skills: 0
+  _savingThrows: 48
+  _conditionImmunities: 7994
+  _damageVulnerabilities: 0
+  _damageResistances: 169
+  _damageImmunities: 324
+  _senses: Darkvision 60 ft.,  Passive Perception 10
+  _languages: Common, Elvish
+  _challenge: 4
+  _actions:
+  - {fileID: -6975199877972096863}
+  - {fileID: 312584857070719698}
+  - {fileID: -4609255059146938167}
+--- !u!114 &312584857070719698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Horrifying Visage
+  m_EditorClassIdentifier: 
+  _note: Each non-undead creature within 60 feet of the banshee that can see her
+    must succeed on a saving throw or be frightened.
+  _dc: 13
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 16
+    _outcomeNote: "For 1 minute. A frightened target can repeat the saving throw
+      at the end of each of its turns, with disadvantage if the banshee is within
+      line of sight, ending the effect on itself on a success. If a target\u2019s
+      saving throw is successful or the effect ends for it, the target is immune
+      to the banshee\u2019s Horrifying Visage for the next 24 hours."
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

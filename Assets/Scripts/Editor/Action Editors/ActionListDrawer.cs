@@ -31,12 +31,23 @@ namespace SummonsTracker.Characters
 
         public void DrawLayout()
         {
-            _reorderableList.DoLayoutList();
+            if (_reorderableList == null)
+            {
+                EditorGUILayout.HelpBox("List is null!", MessageType.Error, true);
+            }
+            else
+            {
+                _reorderableList.DoLayoutList();
+            }
         }
 
         private float ElementHeightCallback(int index)
         {
-            return GetActionDrawer(index).GetHeight();
+            if (GetActionDrawer(index, out var drawer))
+            {
+                return drawer.GetHeight();
+            }
+            return EditorStyles.label.CalcSize(EditorGUIUtility.IconContent("console.erroricon.sml")).y;
         }
 
         private void DrawElementCallback(Rect rect, int index, bool isActive, bool isFocused)
@@ -47,7 +58,18 @@ namespace SummonsTracker.Characters
                 EditorGUI.TextField(rect, "An error has occured");
                 return;
             }
-            GetActionDrawer(index).Draw(rect);
+            if (GetActionDrawer(index, out var drawer))
+            {
+                drawer.Draw(rect);
+            }
+            else
+            {
+                var content = new GUIContent(EditorGUIUtility.IconContent("console.erroricon.sml"))
+                {
+                    text = "Drawer not Found!"
+                };
+                EditorGUI.LabelField(rect, content);
+            }
         }
 
         private void OnAddDropdownCallback(Rect buttonRect, ReorderableList list)
@@ -130,53 +152,70 @@ namespace SummonsTracker.Characters
             }
         }
 
-        private ActionDrawer GetActionDrawer(int index)
+        private bool GetActionDrawer(int index, out ActionDrawer drawer)
         {
             var obj = _reorderableList.serializedProperty.GetArrayElementAtIndex(index).objectReferenceValue;
-            if (!_actionDrawers.TryGetValue(index, out var drawer) || drawer.Target != obj)
-            {
-                if (obj is AttackAndSavingThrowData attackAndSavingThrowData)
-                {
-                    CreateDrawer(index, () => new AttackAndSavingThrowDataDrawer(attackAndSavingThrowData));
-                }
-                else if (obj is DoubleDamageSavingThrowData doubleDamageSavingThrowData)
-                {
-                    CreateDrawer(index, () => new AttackDoubleDamageSavingThrowDataDrawer(doubleDamageSavingThrowData));
-                }
-                else if (obj is AttackSecondDamageData attackSecondDamageData)
-                {
-                    CreateDrawer(index, () => new AttackDoubleDamageDataDrawer(attackSecondDamageData));
-                }
-                else if (obj is AttackData attackData)
-                {
-                    CreateDrawer(index, () => new AttackDataDrawer(attackData));
-                }
-                else if (obj is MultiattackData multiattack)
-                {
-                    CreateDrawer(index, () => new MultiattackDataDrawer(multiattack, _serializedObject));
-                }
-                else if (obj is SavingThrowData savingThrowData)
-                {
-                    CreateDrawer(index, () => new SavingThrowDataDrawer(savingThrowData));
-                }
-                else if (obj is ActionData actionData)
-                {
-                    CreateDrawer(index, () => new ActionDataDrawer(actionData));
-                }
-            }
-            return _actionDrawers[index];
-        }
 
-        private void CreateDrawer(int index, Func<ActionDrawer> func)
-        {
-            if (_actionDrawers.ContainsKey(index))
+            if (_actionDrawers.TryGetValue(index, out var myDrawer) && myDrawer.Target == obj)
             {
-                _actionDrawers[index] = func();
+                drawer = myDrawer;
+                return true;
+            }
+            if (obj is AttackAndSavingThrowData attackAndSavingThrowData)
+            {
+                drawer = CreateDrawer(index, () => new AttackAndSavingThrowDataDrawer(attackAndSavingThrowData));
+                return true;
+            }
+            else if (obj is DoubleDamageSavingThrowData doubleDamageSavingThrowData)
+            {
+                drawer = CreateDrawer(index, () => new AttackDoubleDamageSavingThrowDataDrawer(doubleDamageSavingThrowData));
+                return true;
+            }
+            else if (obj is AttackSecondDamageData attackSecondDamageData)
+            {
+                drawer = CreateDrawer(index, () => new AttackDoubleDamageDataDrawer(attackSecondDamageData));
+                return true;
+            }
+            else if (obj is AttackData attackData)
+            {
+                drawer = CreateDrawer(index, () => new AttackDataDrawer(attackData));
+                return true;
+            }
+            else if (obj is MultiattackData multiattack)
+            {
+                drawer = CreateDrawer(index, () => new MultiattackDataDrawer(multiattack, _serializedObject));
+                return true;
+            }
+            else if (obj is SavingThrowData savingThrowData)
+            {
+                drawer = CreateDrawer(index, () => new SavingThrowDataDrawer(savingThrowData));
+                return true;
+            }
+            else if (obj is ActionData actionData)
+            {
+                drawer = CreateDrawer(index, () => new ActionDataDrawer(actionData));
+                return true;
             }
             else
             {
-                _actionDrawers.Add(index, func());
+                drawer = null;
+                return false;
             }
+            return true;
+        }
+
+        private ActionDrawer CreateDrawer(int index, Func<ActionDrawer> func)
+        {
+            var drawer = func();
+            if (_actionDrawers.ContainsKey(index))
+            {
+                _actionDrawers[index] = drawer;
+            }
+            else
+            {
+                _actionDrawers.Add(index, drawer);
+            }
+            return drawer;
         }
 
         private Dictionary<int, ActionDrawer> _actionDrawers = new Dictionary<int, ActionDrawer>();

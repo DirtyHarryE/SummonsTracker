@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5637186154857850506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Spear
+  m_EditorClassIdentifier: 
+  _note: 'Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft.,
+    one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage
+    if used with two hands to make a melee attack.'
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Tribal Warrior
+  m_EditorClassIdentifier: 
+  _name: Tribal Warrior
+  _creature: 9
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 2
+    _faces: 8
+    _modifiers: 2
+  _ac: 12
+  _proficiency: 2
+  _strength: 13
+  _dexterity: 11
+  _constitution: 12
+  _intelligence: 8
+  _wisdom: 11
+  _charisma: 8
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Passive Perception 10
+  _languages: Any one language
+  _challenge: 0.125
+  _actions:
+  - {fileID: -5637186154857850506}

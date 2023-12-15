@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3119416217344838596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Ink Cloud
+  m_EditorClassIdentifier: 
+  _note: A 20- foot-radius cloud of ink extends all around the octopus if it is underwater.
+    The area is heavily obscured for 1 minute, although a significant current can
+    disperse the ink. After releasing the ink, the octopus can use the Dash action
+    as a bonus action.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Giant Octopus
+  m_EditorClassIdentifier: 
+  _name: Giant Octopus
+  _creature: 1
+  _movement:
+  - Type: 0
+    Distance: 10
+  - Type: 4
+    Distance: 60
+  _maxHP:
+    _number: 8
+    _faces: 10
+    _modifiers: 8
+  _ac: 11
+  _proficiency: 2
+  _strength: 17
+  _dexterity: 13
+  _constitution: 13
+  _intelligence: 4
+  _wisdom: 10
+  _charisma: 4
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: --
+  _challenge: 1
+  _actions:
+  - {fileID: 1521191806353388935}
+  - {fileID: -3119416217344838596}
+--- !u!114 &1521191806353388935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tentacles
+  m_EditorClassIdentifier: 
+  _note: If the target is a creature, it is grappled (escape DC 16). Until this grapple
+    ends, the target is restrained, and the octopus can't use its tentacles on another
+    target.
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 15
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 3
+  _damageType: 2

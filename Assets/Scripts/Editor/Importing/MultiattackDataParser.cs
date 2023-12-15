@@ -15,7 +15,7 @@ namespace SummonsTracker.Importer
                 {
                     using (var noteProperty = serializedObject.FindProperty("_note"))
                     {
-                        noteProperty.stringValue = body;
+                        noteProperty.stringValue = ActionDataParser.GetNote(body);
                     }
                     serializedObject.ApplyModifiedProperties();
                 }
@@ -42,6 +42,10 @@ namespace SummonsTracker.Importer
                 using (var serializedProperty = actionsSerializedProperty.GetArrayElementAtIndex(i))
                 {
                     if (serializedProperty.objectReferenceValue is MultiattackData)
+                    {
+                        continue;
+                    }
+                    if (serializedProperty.objectReferenceValue == null)
                     {
                         continue;
                     }

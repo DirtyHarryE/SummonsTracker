@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8454992004505718546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Animate Trees
+  m_EditorClassIdentifier: 
+  _note: The treant magically animates one or two trees it can see within 60 feet
+    of it. These trees have the same statistics as a treant, except they have Intelligence
+    and Charisma scores of 1, they can't speak, and they have only the Slam action
+    option. An animated tree acts as an ally of the treant. The tree remains animate
+    for 1 day or until it dies; until the treant dies or is more than 120 feet from
+    the tree; or until the treant takes a bonus action to turn it back into an inanimate
+    tree. The tree then takes root if possible.
+--- !u!114 &-7442185167630541136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 10
+  _advantageType: 0
+  _range: 60
+  _minRange: 5
+  _maxRange: 180
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 10
+    _modifiers: 6
+  _damageType: 2
+--- !u!114 &-7287200252422268321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 6
+  _damageType: 2
+--- !u!114 &-1153445994850384138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The treant makes two slam attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Treant
+  m_EditorClassIdentifier: 
+  _name: Treant
+  _creature: 12
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 12
+    _faces: 12
+    _modifiers: 60
+  _ac: 16
+  _proficiency: 2
+  _strength: 23
+  _dexterity: 8
+  _constitution: 21
+  _intelligence: 12
+  _wisdom: 16
+  _charisma: 12
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 8
+  _damageResistances: 130
+  _damageImmunities: 0
+  _senses: Passive Perception 13
+  _languages: Common, Druidic, Elvish, Sylvan
+  _challenge: 9
+  _actions:
+  - {fileID: -1153445994850384138}
+  - {fileID: -7287200252422268321}
+  - {fileID: -7442185167630541136}
+  - {fileID: -8454992004505718546}

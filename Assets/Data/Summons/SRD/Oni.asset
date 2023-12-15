@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6798003045074345970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Change Shape
+  m_EditorClassIdentifier: 
+  _note: The oni magically polymorphs into a Small or Medium humanoid, into a Large
+    giant, or back into its true form. Other than its size, its statistics are the
+    same in each form. The only equipment that is transformed is its glaive, which
+    shrinks so that it can be wielded in humanoid form. If the oni dies, it reverts
+    to its true form, and its glaive reverts to its normal size.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Oni
+  m_EditorClassIdentifier: 
+  _name: Oni
+  _creature: 8
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 3
+    Distance: 30
+  _maxHP:
+    _number: 13
+    _faces: 10
+    _modifiers: 39
+  _ac: 16
+  _proficiency: 3
+  _strength: 19
+  _dexterity: 11
+  _constitution: 16
+  _intelligence: 14
+  _wisdom: 12
+  _charisma: 15
+  _skills: 20496
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: Common, Giant
+  _challenge: 7
+  _actions:
+  - {fileID: 1344295883368507253}
+  - {fileID: 7998303806457006045}
+  - {fileID: 4741556499100181486}
+  - {fileID: -6798003045074345970}
+--- !u!114 &1344295883368507253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The oni makes two attacks, either with its claws or its glaive.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &4741556499100181486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Glaive
+  m_EditorClassIdentifier: 
+  _note: 15 (2d10 + 4) slashing damage, or 9 (1d10 + 4) slashing damage in Small
+    or Medium form.
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 4
+  _damageType: 2048
+--- !u!114 &7998303806457006045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 4
+  _damageType: 2048

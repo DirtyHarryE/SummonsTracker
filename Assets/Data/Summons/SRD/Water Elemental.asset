@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7105239436422148028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 4
+  _damageType: 2
+--- !u!114 &-4824719270216561362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The elemental makes two slam attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &-1688875364453401213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Whelm
+  m_EditorClassIdentifier: 
+  _note: 'Each creature in the elemental''s space must make a saving throw. On a
+    failure, a target takes 13 (2d8 + 4) bludgeoning damage. If it is Large or smaller,
+    it is also grappled (escape DC 14). Until this grapple ends, the target is restrained
+    and unable to breathe unless it can breathe water. If the saving throw is successful,
+    the target is pushed out of the elemental''s space.
+
+    The elemental can grapple
+    one Large creature or up to two Medium or smaller creatures at one time. At the
+    start of each of the elemental''s turns, each target grappled by it takes 13
+    (2d8 + 4) bludgeoning damage. A creature within 5 feet of the elemental can pull
+    a creature or object out of it by taking an action to make a DC 14 Strength and
+    succeeding.'
+  _dc: 15
+  _isGrapple: 0
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Unable to breathe unless it can breathe water
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Water Elemental
+  m_EditorClassIdentifier: 
+  _name: Water Elemental
+  _creature: 5
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 4
+    Distance: 90
+  _maxHP:
+    _number: 12
+    _faces: 10
+    _modifiers: 48
+  _ac: 14
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 14
+  _constitution: 18
+  _intelligence: 5
+  _wisdom: 10
+  _charisma: 8
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 24360
+  _damageVulnerabilities: 0
+  _damageResistances: 128
+  _damageImmunities: 256
+  _senses: Darkvision 60 ft.,  Passive Perception 10
+  _languages: Aquan
+  _challenge: 5
+  _actions:
+  - {fileID: -4824719270216561362}
+  - {fileID: -7105239436422148028}
+  - {fileID: -1688875364453401213}

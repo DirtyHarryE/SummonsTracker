@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _concentration: 0
   _level: 6
-  _ghoul: {fileID: 11400000, guid: 8b29bda3e46bba24384471ebd2e7c49f, type: 2}
-  _ghast: {fileID: 11400000, guid: 9fa79bca95d4fb04392a1e84e466e595, type: 2}
-  _wight: {fileID: 11400000, guid: 9377aae6d4a7a4d4eb4f12d2825212ec, type: 2}
-  _mummy: {fileID: 11400000, guid: eba81fe7f2eeb5346a13e70e4f105c4b, type: 2}
+  _ghoul: {fileID: 11400000, guid: 010800b9b829fda4c90ebeb7154781af, type: 2}
+  _ghast: {fileID: 11400000, guid: f55e873b30dd93147b7d6cfdc1383241, type: 2}
+  _wight: {fileID: 11400000, guid: 43671c124a9b1ca44a4d9b0ecd7ecf8b, type: 2}
+  _mummy: {fileID: 11400000, guid: 7151f5d70d4816f479d1a1a4142e8850, type: 2}

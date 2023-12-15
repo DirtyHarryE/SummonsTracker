@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8585483887669070122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8487373ab36b94694ef00ab5c7b726, type: 3}
+  m_Name: Slaying Longbow
+  m_EditorClassIdentifier: 
+  _note: Saving throw or die.
+  _attackType: 1
+  _attackMod: 13
+  _advantageType: 0
+  _range: 150
+  _minRange: 5
+  _maxRange: 600
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 6
+  _damageType: 128
+  _secondaryDamage:
+    _number: 6
+    _faces: 8
+    _modifiers: 0
+  _secondaryDamageType: 1024
+  _dc: 15
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Die
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-4785436650400673118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Healing Touch
+  m_EditorClassIdentifier: 
+  _note: The solar touches another creature. The target magically regains 40 (8d8
+    + 4) hit points and is freed from any curse, disease, poison, blindness, or deafness.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Solar
+  m_EditorClassIdentifier: 
+  _name: Solar
+  _creature: 2
+  _movement:
+  - Type: 0
+    Distance: 50
+  - Type: 3
+    Distance: 150
+  _maxHP:
+    _number: 18
+    _faces: 10
+    _modifiers: 144
+  _ac: 21
+  _proficiency: 7
+  _strength: 26
+  _dexterity: 22
+  _constitution: 26
+  _intelligence: 25
+  _wisdom: 25
+  _charisma: 30
+  _skills: 4096
+  _savingThrows: 56
+  _conditionImmunities: 1050
+  _damageVulnerabilities: 0
+  _damageResistances: 128
+  _damageImmunities: 320
+  _senses: Truesight 120 ft.,  Passive Perception 24
+  _languages: All, Telepathy 120 ft.
+  _challenge: 21
+  _actions:
+  - {fileID: 4168192981544517599}
+  - {fileID: 2004293594055296964}
+  - {fileID: -8585483887669070122}
+  - {fileID: 893354747832865822}
+  - {fileID: -4785436650400673118}
+--- !u!114 &893354747832865822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Flying Sword
+  m_EditorClassIdentifier: 
+  _note: The solar releases its greatsword to hover magically in an unoccupied space
+    within 5 feet of it. If the solar can see the sword, the solar can mentally command
+    it as a bonus action to fly up to 50 feet and either make one attack against
+    a target or return to the solar's hands. If the hovering sword is targeted by
+    any effect, the solar is considered to be holding it. The hovering sword falls
+    if the solar dies.
+--- !u!114 &2004293594055296964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Greatsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 15
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 6
+    _modifiers: 8
+  _damageType: 2048
+  _secondaryDamage:
+    _number: 6
+    _faces: 8
+    _modifiers: 0
+  _secondaryDamageType: 1024
+--- !u!114 &4168192981544517599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The solar makes two greatsword attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2

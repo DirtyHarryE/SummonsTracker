@@ -10,6 +10,13 @@ namespace SummonsTracker.Rolling
         public static Dice D20 => new Dice(1, 20, 0);
         public static Dice D6 => new Dice(1, 6, 0);
 
+        public Dice (DiceBase dice)
+        {
+            _number = dice.Number;
+            _faces = dice.Faces;
+            _modifiers = dice.Modifiers;
+        }
+
         public Dice(int number, int faces, int modifiers)
         {
             _number = number;

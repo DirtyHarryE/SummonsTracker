@@ -1,10 +1,11 @@
+using SummonsTracker.Licensing;
 using SummonsTracker.Loading;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SummonsTracker.Spell
 {
-    public abstract class SpellData : ScriptableObject, ILoadable<SpellData>
+    public abstract class SpellData : LicensedScriptableObject, ILoadable<SpellData>
     {
         public static IReadOnlyList<SpellData> AllSpells => _allSpells;
         private static List<SpellData> _allSpells = new List<SpellData>();

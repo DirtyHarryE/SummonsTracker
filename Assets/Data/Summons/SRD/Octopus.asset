@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-398129849058835680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Tentacles
+  m_EditorClassIdentifier: 
+  _note: 'Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 bludgeoning
+    damage, and the target is grappled (escape DC 10). Until this grapple ends, the
+    octopus can''t use its tentacles on another target.'
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Octopus
+  m_EditorClassIdentifier: 
+  _name: Octopus
+  _creature: 1
+  _movement:
+  - Type: 0
+    Distance: 5
+  - Type: 4
+    Distance: 30
+  _maxHP:
+    _number: 1
+    _faces: 6
+    _modifiers: 0
+  _ac: 12
+  _proficiency: 2
+  _strength: 4
+  _dexterity: 15
+  _constitution: 11
+  _intelligence: 3
+  _wisdom: 10
+  _charisma: 4
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 30 ft.,  Passive Perception 12
+  _languages: --
+  _challenge: 0
+  _actions:
+  - {fileID: -398129849058835680}
+  - {fileID: 2792208075392333635}
+--- !u!114 &2792208075392333635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Ink Cloud
+  m_EditorClassIdentifier: 
+  _note: A 5-foot-radius cloud of ink extends all around the octopus if it is underwater.
+    The area is heavily obscured for 1 minute, although a significant current can
+    disperse the ink. After releasing the ink, the octopus can use the Dash action
+    as a bonus action.

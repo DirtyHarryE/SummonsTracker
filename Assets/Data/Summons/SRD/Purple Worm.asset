@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4050110244176666937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Tail Stinger
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 9
+  _damageType: 128
+  _dc: 19
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 12
+      _faces: 6
+      _modifiers: 0
+    _damageType: 256
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Purple Worm
+  m_EditorClassIdentifier: 
+  _name: Purple Worm
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 50
+  - Type: 1
+    Distance: 30
+  _maxHP:
+    _number: 15
+    _faces: 20
+    _modifiers: 90
+  _ac: 18
+  _proficiency: 5
+  _strength: 28
+  _dexterity: 7
+  _constitution: 22
+  _intelligence: 1
+  _wisdom: 8
+  _charisma: 4
+  _skills: 0
+  _savingThrows: 20
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Blindsight 30 ft., Tremorsense 60 ft.,  Passive Perception 9
+  _languages: --
+  _challenge: 15
+  _actions:
+  - {fileID: 1114013052369398973}
+  - {fileID: 4317950497024026077}
+  - {fileID: -4050110244176666937}
+--- !u!114 &1114013052369398973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The worm makes two attacks: one with its bite and one with its stinger.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+--- !u!114 &4317950497024026077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: Saving throw or be swallowed by the worm. A swallowed creature is blinded
+    and restrained, it has total cover against attacks and other effects outside
+    the worm, and it.
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 8
+    _modifiers: 9
+  _damageType: 128
+  _dc: 19
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _number: 6
+      _faces: 6
+      _modifiers: 0
+    _damageType: 1
+    _condition: 4096
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

@@ -1,3 +1,4 @@
+using SummonsTracker.Licensing;
 using SummonsTracker.Loading;
 using SummonsTracker.Rolling;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ namespace SummonsTracker.Characters
 {
 
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CharacterData", order = 1)]
-    public class CharacterData : ScriptableObject, ICharacterData, ILoadable<CharacterData>
+    public class CharacterData : LicensedScriptableObject, ICharacterData, ILoadable<CharacterData>
     {
         public static IReadOnlyList<CharacterData> AllCharacters => _allCharacters;
         private static List<CharacterData> _allCharacters = new List<CharacterData>();
@@ -34,6 +35,10 @@ namespace SummonsTracker.Characters
         public DamageTypes DamageVulnerabilities => _damageVulnerabilities;
         public DamageTypes DamageResistances => _damageResistances;
         public DamageTypes DamageImmunities => _damageImmunities;
+
+        public string Senses => _senses;
+        public string Languages => _languages;
+        public float Challenge => _challenge;
 
         public ActionData[] Actions => _actions;
 
@@ -142,6 +147,12 @@ namespace SummonsTracker.Characters
         private DamageTypes _damageResistances = DamageTypes.none;
         [SerializeField]
         private DamageTypes _damageImmunities = DamageTypes.none;
+        [SerializeField]
+        public string _senses;
+        [SerializeField]
+        public string _languages;
+        [SerializeField]
+        public float _challenge;
         [SerializeField]
         private ActionData[] _actions;
 

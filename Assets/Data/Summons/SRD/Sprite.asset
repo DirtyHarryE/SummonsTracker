@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8310240043844643678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Heart Sight
+  m_EditorClassIdentifier: 
+  _note: The sprite touches a creature and magically knows the creature's current
+    emotional state. If the target fails a saving throw, the sprite also knows the
+    creature's alignment. Celestials, fiends, and undead automatically fail the saving
+    throw.
+  _dc: 10
+  _isGrapple: 0
+  _savingThrow: 32
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Undead automatically fail the saving throw
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-1747587257950617875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Shortbow
+  m_EditorClassIdentifier: 
+  _note: Saving throw or become poisoned for 1 minute. If its saving throw result
+    is 5 or lower, the poisoned target falls unconscious for the same duration, or.
+  _attackType: 1
+  _attackMod: 6
+  _advantageType: 0
+  _range: 40
+  _minRange: 5
+  _maxRange: 160
+  _target: one target
+  _damage:
+    _number: 0
+    _faces: 0
+    _modifiers: 1
+  _damageType: 128
+  _dc: 10
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 1024
+    _outcomeNote: Until it takes damage or another creature takes an action to shake
+      it awake.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-1180568292803005148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Invisibility
+  m_EditorClassIdentifier: 
+  _note: The sprite magically turns invisible until it attacks or casts a spell,
+    or until its concentration ends (as if concentrating on a spell). Any equipment
+    the sprite wears or carries is invisible with it.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Sprite
+  m_EditorClassIdentifier: 
+  _name: Sprite
+  _creature: 6
+  _movement:
+  - Type: 0
+    Distance: 10
+  - Type: 3
+    Distance: 40
+  _maxHP:
+    _number: 1
+    _faces: 4
+    _modifiers: 0
+  _ac: 15
+  _proficiency: 2
+  _strength: 3
+  _dexterity: 18
+  _constitution: 10
+  _intelligence: 14
+  _wisdom: 13
+  _charisma: 11
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Passive Perception 13
+  _languages: Common, Elvish, Sylvan
+  _challenge: 0.25
+  _actions:
+  - {fileID: 6784660982496467924}
+  - {fileID: -1747587257950617875}
+  - {fileID: -8310240043844643678}
+  - {fileID: -1180568292803005148}
+--- !u!114 &6784660982496467924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Longsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 2
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 0
+    _faces: 0
+    _modifiers: 1
+  _damageType: 2048

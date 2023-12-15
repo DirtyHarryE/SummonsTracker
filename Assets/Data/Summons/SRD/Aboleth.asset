@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8524503057384675519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 5
+  _damageType: 2
+--- !u!114 &-7513625975202422579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The aboleth makes three tentacle attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 3
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Aboleth
+  m_EditorClassIdentifier: 
+  _name: Aboleth
+  _creature: 0
+  _movement:
+  - Type: 0
+    Distance: 10
+  - Type: 4
+    Distance: 40
+  _maxHP:
+    _number: 18
+    _faces: 10
+    _modifiers: 36
+  _ac: 17
+  _proficiency: 4
+  _strength: 21
+  _dexterity: 9
+  _constitution: 15
+  _intelligence: 18
+  _wisdom: 15
+  _charisma: 18
+  _skills: 4128
+  _savingThrows: 28
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 20
+  _languages: Deep Speech, Telepathy 120 ft.
+  _challenge: 10
+  _actions:
+  - {fileID: -7513625975202422579}
+  - {fileID: 9210303055692792589}
+  - {fileID: -8524503057384675519}
+  - {fileID: 8648010595302042482}
+--- !u!114 &8648010595302042482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Enslave
+  m_EditorClassIdentifier: 
+  _note: "The aboleth targets one creature it can see within 30 feet of it. The target
+    must succeed on a saving throw or be magically charmed by the aboleth until the
+    aboleth dies or until it is on a different plane of existence from the target.
+    The charmed target is under the aboleth's control and can't take reactions, and
+    the aboleth and the target can communicate telepathically with each other over
+    any distance. \nWhenever the charmed target takes damage, the target can repeat
+    the saving throw. On a success, the effect ends. No more than once every 24 hours,
+    the target can also repeat the saving throw when it is at least 1 mile away from
+    the aboleth."
+  _dc: 14
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: Can't take reactions, and the aboleth and the target can communicate
+      telepathically with each other over any distance
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &9210303055692792589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Name: Tentacle
+  m_EditorClassIdentifier: 
+  _note: Saving throw or become diseased. The disease has no effect for 1 minute
+    and can be removed by any magic that cures disease. After 1 minute, the diseased
+    creature's skin becomes translucent and slimy, the creature can't regain hit
+    points unless it is underwater, and the disease can be removed only by heal or
+    another disease-curing spell of 6th level or higher. When the creature is outside
+    a body of water, it.
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 5
+  _damageType: 2
+  _dc: 14
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 1
+      _faces: 12
+      _modifiers: 0
+    _damageType: 1
+    _condition: 0
+    _outcomeNote: Can be removed by any magic that cures disease
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

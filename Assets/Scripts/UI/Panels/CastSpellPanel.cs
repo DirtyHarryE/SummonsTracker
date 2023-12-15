@@ -116,7 +116,7 @@ namespace SummonsTracker.UI
                     number = Mathf.Min(number, NumberSelected);
                 }
 
-                var summonParameters = summonSpellData.GetPerSummonParameters(spellLevel);
+                var summonParameters = summonSpellData.GetPerSummonParameters(spellLevel, spellParameter);
                 if (summonParameters.Any())
                 {
                     var summonOptions = summonParameters.Select(s => new TMP_Dropdown.OptionData(s)).ToList();

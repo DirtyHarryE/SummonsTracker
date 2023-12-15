@@ -9,7 +9,7 @@ namespace SummonsTracker.Spell
     [CreateAssetMenu(fileName = "Danse Macabre", menuName = "ScriptableObjects/Spells/Danse Macabre", order = 1)]
     public class DanseMacabreData : StandardSummonUndeadSpellData
     {
-        public override IEnumerable<Characters.Character> GetCharacters(int spellLevel, int parameter, GetPerSummonParameterDelegate perSummonParameter, int number)
+        public override IEnumerable<Character> GetCharacters(int spellLevel, int parameter, GetPerSummonParameterDelegate perSummonParameter, int number)
         {
             var spellAtkMod = SaveManager.Instance != null && SaveManager.Instance.CurrentProfile != null
                 ? SaveManager.Instance.CurrentProfile.SpellAtkMod

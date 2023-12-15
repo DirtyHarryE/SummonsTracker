@@ -19,6 +19,8 @@ namespace SummonsTracker.Save
             OutcomeNote = outcomeNote;
         }
 
+        public static SaveThrowOutcome None = new SaveThrowOutcome("none", SaveDamage.None, ConditionTypes.none, string.Empty);
+
         public override string ToString()
         {
             return $"Save Type = {SaveType}, Damage = {Damage}, Condition = {Condition}, Outcome Note = {OutcomeNote}";

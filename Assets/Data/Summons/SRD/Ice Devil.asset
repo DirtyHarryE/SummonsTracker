@@ -1,0 +1,206 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3806364908524636609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 4
+    _modifiers: 5
+  _damageType: 2048
+  _secondaryDamage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 4
+--- !u!114 &-3423205303641360338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Wall of Ice
+  m_EditorClassIdentifier: 
+  _note: 'The devil magically forms an opaque wall of ice on a solid surface it can
+    see within 60 feet of it. The wall is 1 foot thick and up to 30 feet long and
+    10 feet high, or it''s a hemispherical dome up to 20 feet in diameter.
+
+    When
+    the wall appears, each creature in its space is pushed out of it by the shortest
+    route. The creature chooses which side of the wall to end up on, unless the creature
+    is incapacitated. The creature then makes a saving throw.'
+  _dc: 17
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _number: 10
+      _faces: 6
+      _modifiers: 0
+    _damageType: 4
+    _condition: 64
+    _outcomeNote: "Until the devil is incapacitated or dies. The wall can be damaged
+      and breached; each 10-\xADfoot section has AC 5, 30 hit points, vulnerability
+      to fire damage, and immunity to acid, cold, necrotic, poison, and psychic damage.
+      If a section is destroyed, it leaves behind a sheet of frigid air in the space
+      the wall occupied. Whenever a creature finishes moving through the frigid air
+      on a turn, willingly or otherwise, the creature must make a DC 17 Constitution
+      saving throw, taking 17 (5d6) cold damage on a failed save, or half as much
+      damage on a successful one. The frigid air dissipates when the rest of the
+      wall vanishes."
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-2325406970028902728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 5
+  _damageType: 2
+  _secondaryDamage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 4
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Ice Devil
+  m_EditorClassIdentifier: 
+  _name: Ice Devil
+  _creature: 7
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 19
+    _faces: 10
+    _modifiers: 76
+  _ac: 18
+  _proficiency: 5
+  _strength: 21
+  _dexterity: 14
+  _constitution: 18
+  _intelligence: 18
+  _wisdom: 15
+  _charisma: 18
+  _skills: 0
+  _savingThrows: 54
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 130
+  _damageImmunities: 268
+  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 12
+  _languages: Infernal, Telepathy 120 ft.
+  _challenge: 14
+  _actions:
+  - {fileID: 8308739816851094958}
+  - {fileID: 2328371721731750876}
+  - {fileID: -3806364908524636609}
+  - {fileID: -2325406970028902728}
+  - {fileID: -3423205303641360338}
+--- !u!114 &2328371721731750876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 5
+  _damageType: 128
+  _secondaryDamage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 4
+--- !u!114 &8308739816851094958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The devil makes three attacks: one with its bite, one with its claws, and
+    one with its tail.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+  - _attackIndex: 3
+    _attackNumber: 1

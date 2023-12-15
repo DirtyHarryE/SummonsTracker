@@ -234,8 +234,8 @@ MonoBehaviour:
   - Type: 0
     Distance: 30
   _maxHP:
-    _number: 20
-    _faces: 0
+    _number: 100
+    _faces: 2
     _modifiers: 0
   _ac: 15
   _proficiency: 2

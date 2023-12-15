@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9077631557787081862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Create Whirlwind
+  m_EditorClassIdentifier: 
+  _note: 'A 5-foot-radius, 30-foot-tall cylinder of swirling air magically forms
+    on a point the djinni can see within 120 feet of it. The whirlwind lasts as long
+    as the djinni maintains concentration (as if concentrating on a spell). Any creature
+    but the djinni that enters the whirlwind must succeed on a saving throw or be
+    restrained by it. The djinni can move the whirlwind up to 60 feet as an action,
+    and creatures restrained by the whirlwind move with it. The whirlwind ends if
+    the djinni loses sight of it.
+
+    A creature can use its action to free a creature
+    restrained by the whirlwind, including itself, by succeeding on a check. If the
+    check succeeds, the creature is no longer restrained and moves to the nearest
+    space outside the whirlwind.'
+  _dc: 18
+  _isGrapple: 0
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 4096
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-5504447562061413041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The djinni makes three scimitar attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 3
+--- !u!114 &-4001286492496510450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Scimitar
+  m_EditorClassIdentifier: 
+  _note: 12 (2d6 + 5) slashing damage plus 3 (1d6) lightning or thunder damage (djinni's
+    choice).
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 5
+  _damageType: 2048
+  _secondaryDamage:
+    _number: 1
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 32
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Djinni
+  m_EditorClassIdentifier: 
+  _name: Djinni
+  _creature: 5
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 3
+    Distance: 90
+  _maxHP:
+    _number: 14
+    _faces: 10
+    _modifiers: 84
+  _ac: 17
+  _proficiency: 4
+  _strength: 21
+  _dexterity: 15
+  _constitution: 22
+  _intelligence: 15
+  _wisdom: 16
+  _charisma: 20
+  _skills: 0
+  _savingThrows: 50
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 4128
+  _senses: Darkvision 120 ft.,  Passive Perception 13
+  _languages: Auran
+  _challenge: 11
+  _actions:
+  - {fileID: -5504447562061413041}
+  - {fileID: -4001286492496510450}
+  - {fileID: -9077631557787081862}

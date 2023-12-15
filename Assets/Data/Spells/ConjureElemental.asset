@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bd7750e182d5748850801a05a7d5e8, type: 3}
+  m_Name: ConjureElemental
+  m_EditorClassIdentifier: 
+  _license: 0
+  _concentration: 1
+  _level: 5
+  _hardCodedElementals:
+  - ElementalType: 0
+    Characters:
+    - {fileID: 11400000, guid: 9e6b9607b900a594fb5e583bc93ca392, type: 2}
+    - {fileID: 11400000, guid: c68b72f17092f5e4283700b6c21405bf, type: 2}
+    - {fileID: 11400000, guid: f572ce248c378224cb8339393d1ce65b, type: 2}
+  - ElementalType: 1
+    Characters:
+    - {fileID: 11400000, guid: 1e84b2bd0a25d3846b4d959450708080, type: 2}
+    - {fileID: 11400000, guid: c68b72f17092f5e4283700b6c21405bf, type: 2}
+    - {fileID: 11400000, guid: 7e792757358b47c4bac5cb80c5df0f14, type: 2}
+    - {fileID: 11400000, guid: b1846e5d7b502434c879e7d7d03956b4, type: 2}
+    - {fileID: 11400000, guid: 837fea6914349ee42ba04d1dd6f91c87, type: 2}
+  - ElementalType: 2
+    Characters:
+    - {fileID: 11400000, guid: 599166dda60fd1d4db2bbe7bb2fdcd77, type: 2}
+    - {fileID: 11400000, guid: cc08b9591d9297548a1a6540411bd090, type: 2}
+    - {fileID: 11400000, guid: b1846e5d7b502434c879e7d7d03956b4, type: 2}
+    - {fileID: 11400000, guid: 3b77b2d268ea30542b701b7362429195, type: 2}
+    - {fileID: 11400000, guid: 9550d67072e1d43479b0921a8591bdc8, type: 2}
+    - {fileID: 11400000, guid: 82deeb6cfc6976c40a4f3e6a63c744c5, type: 2}
+  - ElementalType: 3
+    Characters:
+    - {fileID: 11400000, guid: 9d975b515e8059748bb2cae791d2fccf, type: 2}
+    - {fileID: 11400000, guid: f572ce248c378224cb8339393d1ce65b, type: 2}
+    - {fileID: 11400000, guid: 82deeb6cfc6976c40a4f3e6a63c744c5, type: 2}

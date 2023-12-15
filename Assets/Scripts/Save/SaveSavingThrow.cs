@@ -9,6 +9,8 @@ namespace SummonsTracker.Save
     [Serializable]
     public class SaveSavingThrow
     {
+        public static SaveSavingThrow None => new SaveSavingThrow(false, StatType.none, 0, SaveThrowOutcome.None, SaveThrowOutcome.None);
+
         public SaveSavingThrow(bool isGrapple, StatType savingThrow, int dC, SaveThrowOutcome failureSavingThrowOutcome, SaveThrowOutcome successSavingThrowOutcome)
         {
             IsGrapple = isGrapple;

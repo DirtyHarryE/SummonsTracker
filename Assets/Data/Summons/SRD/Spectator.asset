@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7442423698744761193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Create Food and Water
+  m_EditorClassIdentifier: 
+  _note: The spectator magically creates enough food and water to sustain itself
+    for 24 hours.
+--- !u!114 &-16118940076098205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 1
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 0
+    _modifiers: 0
+  _damageType: 128
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Spectator
+  m_EditorClassIdentifier: 
+  _name: Spectator
+  _creature: 0
+  _movement:
+  - Type: 0
+    Distance: 0
+  - Type: 3
+    Distance: 30
+  _maxHP:
+    _number: 6
+    _faces: 8
+    _modifiers: 12
+  _ac: 14
+  _proficiency: 2
+  _strength: 8
+  _dexterity: 14
+  _constitution: 14
+  _intelligence: 13
+  _wisdom: 14
+  _charisma: 11
+  _skills: 4096
+  _savingThrows: 0
+  _conditionImmunities: 2048
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 16
+  _languages: Deep Speech, Telepathy 120 ft., Undercommon
+  _challenge: 3
+  _actions:
+  - {fileID: -16118940076098205}
+  - {fileID: 9071951175323592591}
+  - {fileID: -7442423698744761193}
+--- !u!114 &9071951175323592591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Eye Rays
+  m_EditorClassIdentifier: 
+  _note: "The spectator shoots up to two of the following magical eye rays at one
+    or two creatures it can see within 90 feet of it. It can use each ray only once
+    on a turn.\n\r\nConfusion Ray. The target must succeed on a saving throw, or
+    it can\u2019t take reactions until the end of its next turn. On its turn, the
+    target can\u2019t move, and it uses its action to make a melee or ranged attack
+    against a randomly determined creature within range. If the target can\u2019t
+    attack, it does nothing on its turn.\r\nParalyzing Ray. The target must succeed
+    on a DC 13 Constitution saving throw or be paralyzed for 1 minute. The target
+    can repeat the saving throw at the end of each of its turns, ending the effect
+    on itself on a success.\r\nFear Ray. The target must succeed on a saving throw
+    or be frightened for 1 minute. The target can repeat the saving throw at the
+    end of each of its turns, with disadvantage if the spectator is visible to the
+    target, ending the effect on itself on a success.\r\nWounding Ray. The target
+    must make a DC 13 Constitution saving throw."
+  _dc: 13
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _number: 3
+      _faces: 10
+      _modifiers: 0
+    _damageType: 64
+    _condition: 16
+    _outcomeNote: "Until the end of its next turn. On its turn, the target can\u2019t
+      move, and it uses its action to make a melee or ranged attack against a randomly
+      determined creature within range. If the target can\u2019t attack, it does
+      nothing on its turn.\r\nParalyzing Ray. The target must succeed on a DC 13
+      Constitution saving throw or be paralyzed for 1 minute. The target can repeat
+      the saving throw at the end of each of its turns, ending the effect on itself
+      on a success.\r\nFear Ray. The target must succeed on a DC 13 Wisdom saving
+      throw or be frightened for 1 minute. The target can repeat the saving throw
+      at the end of each of its turns, with disadvantage if the spectator is visible
+      to the target, ending the effect on itself on a success.\r\nWounding Ray. The
+      target must make a DC 13 Constitution saving throw, taking 16 (3d10) necrotic
+      damage on a failed save, or half as much damage on a successful one.\r"
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

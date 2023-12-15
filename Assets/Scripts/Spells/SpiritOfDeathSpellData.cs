@@ -1,5 +1,4 @@
 using SummonsTracker.Characters;
-using SummonsTracker.Manager;
 using SummonsTracker.Save;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,20 +35,25 @@ namespace SummonsTracker.Spell
                 }
                 if (a is Attack atk)
                 {
-                    atk.AttackMod = spellAtkMod; 
+                    atk.AttackMod = spellAtkMod;
                     foreach (var d in atk.Damages)
                     {
-                        Debug.Log($"Incr: {d.DamageDice.Modifiers} + {spellLevel} = {d.DamageDice.Modifiers + spellLevel}");
                         d.DamageDice = new Rolling.Dice(d.DamageDice.Number, d.DamageDice.Faces, d.DamageDice.Modifiers + spellLevel);
                     }
                     if (atk.SavingThrow != null)
                     {
-                        atk.SavingThrow = SavingThrow.Copy(atk.SavingThrow, spellSaveDC);
+                        atk.SavingThrow = new SavingThrow(atk.SavingThrow, atk.Name)
+                        {
+                            DC = spellSaveDC
+                        };
                     }
                 }
                 if (a is SavingThrowAction savingThrow)
                 {
-                    savingThrow.SavingThrow = SavingThrow.Copy(savingThrow.SavingThrow, spellSaveDC);
+                    savingThrow.SavingThrow = new SavingThrow(savingThrow.SavingThrow, savingThrow.Name)
+                    {
+                        DC = spellSaveDC
+                    };
                 }
             }
 

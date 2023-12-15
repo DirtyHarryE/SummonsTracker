@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-497093498472278975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 8
+    _modifiers: 6
+  _damageType: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Stone Golem
+  m_EditorClassIdentifier: 
+  _name: Stone Golem
+  _creature: 3
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 17
+    _faces: 10
+    _modifiers: 85
+  _ac: 17
+  _proficiency: 2
+  _strength: 22
+  _dexterity: 9
+  _constitution: 20
+  _intelligence: 3
+  _wisdom: 11
+  _charisma: 1
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1818
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 384
+  _senses: Darkvision 120 ft.,  Passive Perception 10
+  _languages: Understands the languages of its creator but can't speak
+  _challenge: 10
+  _actions:
+  - {fileID: 1563237195439974317}
+  - {fileID: -497093498472278975}
+  - {fileID: 3043994437417866065}
+--- !u!114 &1563237195439974317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The golem makes two slam attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &3043994437417866065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  _note: The golem targets one or more creatures it can see within 10 feet of it.
+    Each target must make a saving throw against this magic. On a failed save, a
+    target can't use reactions, its speed is halved, and it can't make more than
+    one attack on its turn. In addition, the target can take either an action or
+    a bonus action on its turn, not both. These effects last for 1 minute. A target
+    can repeat the saving throw at the end of each of its turns, ending the effect
+    on itself on a success.
+  _dc: 17
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 4
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: It can't make more than one attack on its turn
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

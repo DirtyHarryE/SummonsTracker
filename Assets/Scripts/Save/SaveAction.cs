@@ -2,6 +2,7 @@ using SummonsTracker.Characters;
 using SummonsTracker.Rolling;
 using SummonsTracker.Text;
 using System;
+using System.Linq;
 using System.Text;
 
 namespace SummonsTracker.Save
@@ -9,21 +10,20 @@ namespace SummonsTracker.Save
     [Serializable]
     public class SaveAction
     {
-        public string ActionType;
+        public string ActionType = "none";
 
-        public string Name;
-        public string Note;
+        public string Name = "name";
+        public string Note = "note";
 
-        public AttackType AttackType;
-        public int AttackMod;
-        public AdvantageType AdvantageType;
-        public int Range;
-        public int MaxRange;
-        public string Target;
-        public SaveDamage[] Damages;
-        public SaveSavingThrow SavingThrow;
-
-        public SaveMultiAttack[] MultiAttacks;
+        public AttackType AttackType = AttackType.MeleeWeaponAttack;
+        public int AttackMod = 0;
+        public AdvantageType AdvantageType = AdvantageType.None;
+        public int Range = 0;
+        public int MaxRange = 0;
+        public string Target = "none";
+        public SaveDamage[] Damages = Array.Empty<SaveDamage>();
+        public SaveSavingThrow SavingThrow = SaveSavingThrow.None;
+        public SaveMultiAttack[] MultiAttacks = Array.Empty<SaveMultiAttack>();
 
         public SaveAction(string actionType, string name, string note)
         {
@@ -57,12 +57,10 @@ namespace SummonsTracker.Save
         public override string ToString()
         {
             var builder = new StringBuilder();
-
-            builder.Append(TextUtils.DeCamelCase(ActionType)).Append(", ").Append(Name);
-
+            builder.Append("Type = ").Append(TextUtils.DeCamelCase(ActionType)).Append(", Name = ").Append(Name);
             switch (ActionType)
             {
-                case SaveManager.SaveAttackName:
+                case SaveParser.SaveAttackName:
                 {
                     builder.Append(", Attack Type = ").Append(AttackType);
                     builder.Append(", Attack Mod = ").Append(AttackMod);
@@ -72,45 +70,24 @@ namespace SummonsTracker.Save
                     builder.Append(", Max Range = ").Append(MaxRange);
                     builder.Append(", Target = ").Append(Target);
                     builder.Append(", Damage = [");
-                    for (int i = 0; i < Damages.Length; i++)
-                    {
-                        if (i != 0)
-                        {
-                            builder.Append(", ");
-                        }
-                        builder.Append("(");
-                        builder.Append(Damages[i].Number).Append("d").Append(Damages[i].Faces).Append(TextUtils.AddPlus(Damages[i].Modifiers)).Append(" ").Append(Damages[i].DamageType);
-                        builder.Append(")");
-                    }
+                    builder.Append(string.Join(", ", Damages.Select(d => $"({d})").ToArray()));
                     builder.Append("], Saving Throw = (").Append(SavingThrow).Append(")");
                     break;
                 }
-                case SaveManager.SaveMultiattackName:
+                case SaveParser.SaveMultiattackName:
                 {
                     builder.Append(", Multiattack = [");
-                    for (int i = 0; i < MultiAttacks.Length; i++)
-                    {
-                        if (i != 0)
-                        {
-                            builder.Append(", ");
-                        }
-                        builder.Append("(");
-                        builder.Append(MultiAttacks[i].AnyAttack ? "Any" : MultiAttacks[i].AttackIndex.ToString()).Append(" => ").Append(MultiAttacks[i].AttackNumber);
-                        builder.Append(")");
-                    }
+                    builder.Append(string.Join(", ", MultiAttacks.Select(m => $"({m})").ToArray()));
                     builder.Append("]");
                     break;
                 }
-                case SaveManager.SaveSavingThrowName:
+                case SaveParser.SaveSavingThrowName:
                 {
-
                     builder.Append(", Saving Throw = (").Append(SavingThrow).Append(")");
                     break;
                 }
             }
-
             builder.Append(", Note = ").Append(Note);
-
             return builder.ToString();
         }
     }

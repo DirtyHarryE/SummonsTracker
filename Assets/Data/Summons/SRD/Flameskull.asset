@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7226516007798649164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The flameskull uses Fire Ray twice.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Flameskull
+  m_EditorClassIdentifier: 
+  _name: Flameskull
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 0
+  - Type: 3
+    Distance: 40
+  _maxHP:
+    _number: 9
+    _faces: 4
+    _modifiers: 18
+  _ac: 13
+  _proficiency: 2
+  _strength: 1
+  _dexterity: 17
+  _constitution: 14
+  _intelligence: 16
+  _wisdom: 10
+  _charisma: 11
+  _skills: 4112
+  _savingThrows: 0
+  _conditionImmunities: 3346
+  _damageVulnerabilities: 0
+  _damageResistances: 224
+  _damageImmunities: 268
+  _senses: Darkvision 60 ft.,  Passive Perception 12
+  _languages: Common
+  _challenge: 4
+  _actions:
+  - {fileID: -7226516007798649164}
+  - {fileID: 4457022006645035391}
+--- !u!114 &4457022006645035391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Fire Ray
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 2
+  _attackMod: 5
+  _advantageType: 0
+  _range: 30
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _damageType: 8

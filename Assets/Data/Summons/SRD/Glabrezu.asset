@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8827489361412369292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The glabrezu makes four attacks: two with its pincers and two with its
+    fists. Alternatively, it makes two attacks with its pincers and casts one spell.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 2
+--- !u!114 &-2120770374338001085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Fist
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 4
+    _modifiers: 2
+  _damageType: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Glabrezu
+  m_EditorClassIdentifier: 
+  _name: Glabrezu
+  _creature: 7
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 15
+    _faces: 10
+    _modifiers: 75
+  _ac: 17
+  _proficiency: 4
+  _strength: 20
+  _dexterity: 15
+  _constitution: 21
+  _intelligence: 19
+  _wisdom: 17
+  _charisma: 16
+  _skills: 0
+  _savingThrows: 53
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 140
+  _damageImmunities: 256
+  _senses: Truesight 120 ft.,  Passive Perception 13
+  _languages: Abyssal, Telepathy 120 ft.
+  _challenge: 9
+  _actions:
+  - {fileID: -8827489361412369292}
+  - {fileID: 8002681691636901757}
+  - {fileID: -2120770374338001085}
+--- !u!114 &8002681691636901757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Pincer
+  m_EditorClassIdentifier: 
+  _note: If the target is a Medium or smaller creature, it is grappled (escape DC
+    15). The glabrezu has two pincers, each of which can grapple only one target.
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 5
+  _damageType: 2

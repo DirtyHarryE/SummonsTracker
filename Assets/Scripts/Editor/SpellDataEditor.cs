@@ -11,6 +11,10 @@ namespace SummonsTracker.Spell
     {
         public override void OnInspectorGUI()
         {
+            using (var licenseProperty = serializedObject.FindProperty("_license"))
+            {
+                EditorGUILayout.PropertyField(licenseProperty);
+            }
             EditorGUI.BeginChangeCheck();
             DrawPropertiesExcluding(serializedObject, "m_Script");
             if (EditorGUI.EndChangeCheck())
@@ -26,7 +30,7 @@ namespace SummonsTracker.Spell
                     _spellLevel = EditorGUILayout.IntSlider("Spell Level", _spellLevel, summonData.MinimumLevel, 9);
                     var spellParameters = summonData.GetSpellParameter(_spellLevel).ToArray();
 
-                    var parameter = Mathf.Clamp(_parameter, 0, spellParameters.Length - 1);
+                    var parameter = Mathf.Clamp(_spellParameter, 0, spellParameters.Length - 1);
                     using (new EditorGUILayout.HorizontalScope())
                     {
                         EditorGUILayout.PrefixLabel("Spell Parameter");
@@ -34,11 +38,21 @@ namespace SummonsTracker.Spell
 
                         GUI.enabled = spellParameters.Any();
 
-                        var pGUIContent = new GUIContent(_parameter.ToString());
+                        var pGUIContent = new GUIContent(_spellParameter.ToString());
                         EditorGUILayout.LabelField(pGUIContent, GUILayout.Width(GUI.skin.label.CalcSize(pGUIContent).x));
                         var rect = EditorGUILayout.GetControlRect();
                         rect.y += 1;
-                        if (GUI.Button(rect, spellParameters.Any() ? spellParameters[parameter] : "None", EditorStyles.miniPullDown))
+                        var spellParameterLabel = "None";
+                        if (spellParameters.Any())
+                        {
+                            spellParameterLabel = spellParameters[parameter];
+                            var slashIndex = spellParameterLabel.LastIndexOf('/');
+                            if (slashIndex != -1)
+                            {
+                                spellParameterLabel = spellParameterLabel.Substring(slashIndex + 1);
+                            }
+                        }
+                        if (GUI.Button(rect, spellParameterLabel, EditorStyles.miniPullDown))
                         {
                             var menu = new GenericMenu();
                             for (int i = 0; i < spellParameters.Length; i++)
@@ -46,25 +60,31 @@ namespace SummonsTracker.Spell
                                 int k = i;
                                 menu.AddItem(new GUIContent(spellParameters[i]),
                                     k == parameter,
-                                    () => _parameter = k);
+                                    () =>
+                                    {
+                                        _spellParameter = k;
+                                        var num = summonData.GetNumberOfSummons(_spellLevel, _spellParameter, -1);
+                                        ResetSpellParameterArray(num, summonData.GetPerSummonParameters(_spellLevel, _spellParameter).Count() - 1);
+                                    });
                             }
                             menu.DropDown(rect);
                         }
                         GUI.enabled = enabled;
                     }
-                    var numberOfSummons = summonData.GetNumberOfSummons(_spellLevel, _parameter, -1);
+                    _maxNumber = EditorGUILayout.IntSlider("Summon", _maxNumber, -1, summonData.GetNumberOfSummons(_spellLevel, _spellParameter));
+                    var numberOfSummons = summonData.GetNumberOfSummons(_spellLevel, _spellParameter, -1);
+                    if (_maxNumber != -1)
+                    {
+                        numberOfSummons = Mathf.Min(numberOfSummons, _maxNumber);
+                    }
+                    var summonParameters = summonData.GetPerSummonParameters(_spellLevel, _spellParameter).ToArray();
+
                     if (numberOfSummons != _summonParameters.Length)
                     {
-                        var newArr = new int[numberOfSummons];
-                        for (int i = 0; i < Mathf.Min(numberOfSummons, _summonParameters.Length); i++)
-                        {
-                            newArr[i] = _summonParameters[i];
-                        }
-                        _summonParameters = newArr;
+                        ResetSpellParameterArray(numberOfSummons, summonParameters.Length - 1);
                     }
                     for (int i = 0; i < numberOfSummons; i++)
                     {
-                        var summonParameters = summonData.GetPerSummonParameters(_spellLevel).ToArray();
 
                         using (new EditorGUILayout.HorizontalScope())
                         {
@@ -73,7 +93,23 @@ namespace SummonsTracker.Spell
                             GUI.enabled = summonParameters.Any();
                             var rect = EditorGUILayout.GetControlRect();
                             rect.y += 1;
-                            if (GUI.Button(rect, summonParameters.Any() ? summonParameters[_summonParameters[i]] : "None", EditorStyles.miniPullDown))
+
+                            var perSummonParameterLabel = "None";
+                            if (summonParameters.Any())
+                            {
+                                var spellParameterClampI = Mathf.Clamp(i, 0, _summonParameters.Length - 1);
+                                var summonParameterClampI = Mathf.Clamp(_summonParameters[spellParameterClampI], 0, summonParameters.Length - 1);
+                                perSummonParameterLabel = summonParameters[summonParameterClampI];
+
+
+                                var slashIndex = perSummonParameterLabel.LastIndexOf('/');
+                                if (slashIndex != -1)
+                                {
+                                    perSummonParameterLabel = perSummonParameterLabel.Substring(slashIndex + 1);
+                                }
+                            }
+
+                            if (GUI.Button(rect, perSummonParameterLabel, EditorStyles.miniPullDown))
                             {
                                 var menu = new GenericMenu();
                                 for (int j = 0; j < summonParameters.Length; j++)
@@ -91,10 +127,10 @@ namespace SummonsTracker.Spell
                     }
                     if (GUILayout.Button("Summon"))
                     {
-                        var c = summonData.GetCharacters(_spellLevel, _parameter, i => _summonParameters[i], -1);
+                        var c = summonData.GetCharacters(_spellLevel, _spellParameter, i => _summonParameters[i], _maxNumber);
                         _characters = c.ToArray();
 
-                        wrapLabel = new GUIStyle(GUI.skin.label) { wordWrap = true , alignment = TextAnchor.UpperLeft, richText = true};
+                        wrapLabel = new GUIStyle(GUI.skin.label) { wordWrap = true, alignment = TextAnchor.UpperLeft, richText = true };
                     }
                 }
                 EditorGUILayout.Space();
@@ -114,8 +150,8 @@ namespace SummonsTracker.Spell
                             {
                                 using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
                                 {
-                                    EditorGUILayout.LabelField(string.IsNullOrEmpty(_characters[i].Name) ? "no name" : _characters[i].Name);
-                                    EditorGUILayout.LabelField(_characters[i].Creature.ToString());
+                                    EditorGUILayout.LabelField(string.IsNullOrEmpty(_characters[i].Name) ? "no name" : _characters[i].Name, EditorStyles.boldLabel);
+                                    EditorGUILayout.LabelField(_characters[i].Creature.ToString(), new GUIStyle(EditorStyles.label) { fontStyle = FontStyle.Italic });
 
                                     EditorGUILayout.LabelField("Movement", string.Join(", ", _characters[i].Movement.Select(m => $"{m.Type} {m.Distance}ft.").ToArray()));
 
@@ -168,29 +204,27 @@ namespace SummonsTracker.Spell
                                     EditorGUILayout.LabelField("Actions", EditorStyles.boldLabel);
                                     for (int j = 0; j < _characters[i].Actions.Length; j++)
                                     {
-                                        using (var actionScope = new EditorGUILayout.HorizontalScope())
+                                        using var actionScope = new EditorGUILayout.HorizontalScope();
+                                        var prefixWidth = EditorGUIUtility.labelWidth;
+                                        var actionName = _characters[i].Actions[j].Name;
+                                        EditorGUILayout.PrefixLabel(actionName);
+                                        var desc = _characters[i].Actions[j].ToString();
+                                        if (desc.StartsWith(actionName))
                                         {
-                                            var prefixWidth = EditorGUIUtility.labelWidth;
-                                            var actionName = _characters[i].Actions[j].Name;
-                                            EditorGUILayout.PrefixLabel(actionName);
-                                            var desc = _characters[i].Actions[j].ToString();
-                                            if (desc.StartsWith(actionName))
+                                            desc = desc.Substring(actionName.Length);
+                                            while (!(char.IsLetter(desc[0]) || desc[0] == '<'))
                                             {
-                                                desc = desc.Substring(actionName.Length);
-                                                while (!(char.IsLetter(desc[0]) || desc[0] == '<'))
-                                                {
-                                                    desc = desc.Substring(1);
-                                                }
+                                                desc = desc.Substring(1);
                                             }
-                                            var action = new GUIContent(desc.Trim());
-                                            var actionRect = wrapLabel.CalcSize(action);
-                                            var actionHeight = wrapLabel.CalcHeight(action, Screen.width - prefixWidth - 70);
-                                            EditorGUILayout.LabelField(
-                                                label: action,
-                                                style: wrapLabel
-                                                //options: GUILayout.Height(Mathf.CeilToInt(actionHeight / EditorGUIUtility.singleLineHeight) * EditorGUIUtility.singleLineHeight));
-                                                );
                                         }
+                                        var action = new GUIContent(desc.Trim());
+                                        var actionRect = wrapLabel.CalcSize(action);
+                                        var actionHeight = wrapLabel.CalcHeight(action, Screen.width - prefixWidth - 70);
+                                        EditorGUILayout.LabelField(
+                                            label: action,
+                                            style: wrapLabel
+                                            //options: GUILayout.Height(Mathf.CeilToInt(actionHeight / EditorGUIUtility.singleLineHeight) * EditorGUIUtility.singleLineHeight));
+                                            );
                                     }
                                 }
                             }
@@ -198,6 +232,16 @@ namespace SummonsTracker.Spell
                     }
                 }
             }
+        }
+
+        private void ResetSpellParameterArray(int numberOfSummons, int numberOfSummonparameters)
+        {
+            var newArr = new int[numberOfSummons];
+            for (int i = 0; i < Mathf.Min(numberOfSummons, _summonParameters.Length); i++)
+            {
+                newArr[i] = Mathf.Clamp(_summonParameters[i], 0, numberOfSummonparameters);
+            }
+            _summonParameters = newArr;
         }
 
         private Rect GetSegment(Rect rect, int col, int row, int maxCols, int maxRows)
@@ -208,7 +252,8 @@ namespace SummonsTracker.Spell
         }
 
         private int _spellLevel;
-        private int _parameter;
+        private int _maxNumber = -1;
+        private int _spellParameter;
         private int[] _summonParameters = new int[0];
 
         private GUIStyle wrapLabel;

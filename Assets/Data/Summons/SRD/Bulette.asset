@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4558079133786901009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 12
+    _modifiers: 4
+  _damageType: 128
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Bulette
+  m_EditorClassIdentifier: 
+  _name: Bulette
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 1
+    Distance: 40
+  _maxHP:
+    _number: 9
+    _faces: 10
+    _modifiers: 45
+  _ac: 17
+  _proficiency: 2
+  _strength: 19
+  _dexterity: 11
+  _constitution: 21
+  _intelligence: 2
+  _wisdom: 10
+  _charisma: 5
+  _skills: 4096
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft., Tremorsense 60 ft.,  Passive Perception 16
+  _languages: --
+  _challenge: 5
+  _actions:
+  - {fileID: -4558079133786901009}
+  - {fileID: 7435095745469767651}
+--- !u!114 &7435095745469767651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Deadly Leap
+  m_EditorClassIdentifier: 
+  _note: If the bulette jumps at least 15 feet as part of its movement, it can then
+    use this action to land on its feet in a space that contains one or more other
+    creatures. Each of those creatures must succeed on a saving throw (target's choice)
+    or be knocked prone and.
+  _dc: 16
+  _isGrapple: 0
+  _savingThrow: 3
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 3
+      _faces: 6
+      _modifiers: 4
+    _damageType: 2
+    _condition: 0
+    _outcomeNote: Take 14 (3d6 + 4) bludgeoning damage plus 14 (3d6 + 4) slashing
+      damage
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

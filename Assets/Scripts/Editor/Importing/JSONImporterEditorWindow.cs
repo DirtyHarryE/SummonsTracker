@@ -1,6 +1,8 @@
 using SummonsTracker.Characters;
+using SummonsTracker.EditorUtilities;
 using SummonsTracker.Rolling;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +15,7 @@ namespace SummonsTracker.Importer
 {
     public class JSONImporterEditorWindow : EditorWindow
     {
-        [MenuItem("Summoner/JSON Importer")]
+        [MenuItem("Summoner/JSON/Import")]
         public static void ShowWindow()
         {
             var wnd = GetWindow(typeof(JSONImporterEditorWindow));
@@ -29,6 +31,7 @@ namespace SummonsTracker.Importer
         private void DrawHeader()
         {
             var pathPref = EditorPrefs.GetString(JSON_PATH, Application.dataPath);
+            var savePref = EditorPrefs.GetString(SAVE_PATH, Application.dataPath);
 
             using (new EditorGUILayout.VerticalScope(EditorStyles.helpBox))
             {
@@ -39,6 +42,14 @@ namespace SummonsTracker.Importer
                     if (GUILayout.Button("Open"))
                     {
                         pathPref = EditorUtility.OpenFilePanel("JSON", pathPref, "json");
+                    }
+                }
+                using (new EditorGUILayout.HorizontalScope())
+                {
+                    savePref = EditorGUILayout.TextField(savePref);
+                    if (GUILayout.Button("Save"))
+                    {
+                        savePref = EditorUtility.OpenFolderPanel("JSON Character", savePref, "Summons");
                     }
                 }
                 if (GUILayout.Button("Import"))
@@ -67,6 +78,10 @@ namespace SummonsTracker.Importer
             if (pathPref != EditorPrefs.GetString(JSON_PATH))
             {
                 EditorPrefs.SetString(JSON_PATH, pathPref);
+            }
+            if (savePref != EditorPrefs.GetString(SAVE_PATH))
+            {
+                EditorPrefs.SetString(SAVE_PATH, savePref);
             }
         }
 
@@ -116,7 +131,7 @@ namespace SummonsTracker.Importer
                     {
                         _currentCharacterData = ScriptableObject.CreateInstance<CharacterData>();
                         _currentCharacterEditor = Editor.CreateEditor(_currentCharacterData) as CharacterDataEditor;
-                        InitialiseCharacterData(monster);
+                        InitialiseCharacterData(monster, _currentCharacterData);
                     }
                 }
             }
@@ -135,7 +150,15 @@ namespace SummonsTracker.Importer
                         _currentCharacterData = null;
                         _currentCharacterEditor = null;
                     }
+                    if (GUILayout.Button("Save"))
+                    {
+                        Save(_currentCharacterData);
+                    }
                 }
+            }
+            if (GUILayout.Button("Save All"))
+            {
+                _coroutine = EditorCoroutine.StartCoroutine(SaveAll(), e => EditorUtility.ClearProgressBar());
             }
         }
 
@@ -204,9 +227,9 @@ namespace SummonsTracker.Importer
             }
         }
 
-        private void InitialiseCharacterData(Monster monster)
+        private void InitialiseCharacterData(Monster monster, CharacterData characterData)
         {
-            using var serializedObject = new SerializedObject(_currentCharacterData);
+            using var serializedObject = new SerializedObject(characterData);
             var monsterName = monster.name.Trim('.');
 
             var bOpenInd = monsterName.IndexOf('(');
@@ -339,11 +362,22 @@ namespace SummonsTracker.Importer
             {
                 profSerializedProperty.intValue = proficiencyBonus;
             }
+            using (var sensesSerializedProperty = serializedObject.FindProperty("_senses"))
+            {
+                sensesSerializedProperty.stringValue = monster.Senses;
+            }
+            using (var languagesSerializedProperty = serializedObject.FindProperty("_languages"))
+            {
+                languagesSerializedProperty.stringValue = monster.Languages;
+            }
+            using (var challengeSerializedProperty = serializedObject.FindProperty("_challenge"))
+            {
+                challengeSerializedProperty.floatValue = ChallengeRatingHelper.CRToFloat(monster.Challenge);
+            }
             using (var actionsSerializedProperty = serializedObject.FindProperty("_actions"))
             {
                 SetActions(monsterName, actionsSerializedProperty, monster.Actions);
             }
-
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -565,7 +599,7 @@ namespace SummonsTracker.Importer
 
         private void SetActions(string characterName, SerializedProperty actionsSerializedProperty, string actions)
         {
-            var rawEntries = GetEntries(actions);
+            var rawEntries = GetEntries(actions, false);
             var entries = new List<(string, string)>();
             var runningBody = string.Empty;
 
@@ -603,7 +637,7 @@ namespace SummonsTracker.Importer
                     multiattackData = m;
                     hasMultiAttack = true;
                 }
-                else if (TryMakeAction(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var actionData))
+                else if (ActionDataParser.TryMakeAction(actionsSerializedProperty, i, entries[i].Item1, entries[i].Item2, out var actionData))
                 {
                     data = actionData;
                 }
@@ -621,7 +655,7 @@ namespace SummonsTracker.Importer
                     actionName = $"{actionName.Substring(0, bOpenInd)}{actionName.Substring(bCloseInd + 1)}";
                 }
 
-                data.name = actionName;
+                data.name = actionName.Trim(' ', '.', ',');
                 using (var elementProperty = actionsSerializedProperty.GetArrayElementAtIndex(i))
                 {
                     elementProperty.objectReferenceValue = data;
@@ -631,21 +665,6 @@ namespace SummonsTracker.Importer
             {
                 MultiattackDataParser.FillMultiattack(multiattackData, characterName, actionsSerializedProperty);
             }
-        }
-
-        private bool TryMakeAction(SerializedProperty actionsSerializedProperty, int index, string title, string body, out ActionData actionData)
-        {
-            var inst = CreateInstance<ActionData>();
-            using (var serializedObject = new SerializedObject(inst))
-            {
-                using (var noteProperty = serializedObject.FindProperty("_note"))
-                {
-                    noteProperty.stringValue = Regex.Replace(body, "<.*?>", String.Empty); ;
-                }
-                serializedObject.ApplyModifiedProperties();
-            }
-            actionData = inst;
-            return true;
         }
 
         private void HTMLField(string prefix, string html)
@@ -659,13 +678,13 @@ namespace SummonsTracker.Importer
                 EditorGUILayout.PrefixLabel(prefix);
                 if (!string.IsNullOrEmpty(html))
                 {
-                    var body = GetEntries(html);
+                    var entries = GetEntries(html, false);
                     using (var vert = new EditorGUILayout.VerticalScope(GUILayout.ExpandHeight(true)))
                     {
-                        foreach (var s in body)
+                        foreach (var entry in entries)
                         {
-                            var title = s.Item1.Trim();
-                            var explanation = s.Item2.Trim().Replace("<em>", "<b>").Replace("</em>", "</b>");
+                            var title = entry.Item1.Trim();
+                            var explanation = entry.Item2.Trim().Replace("<em>", "<b>").Replace("</em>", "</b>");
                             if (!string.IsNullOrEmpty(title))
                             {
                                 EditorGUILayout.LabelField(title, EditorStyles.boldLabel);
@@ -682,37 +701,64 @@ namespace SummonsTracker.Importer
             }
         }
 
-        private IEnumerable<(string, string)> GetEntries(string html)
+        private IEnumerable<(string, string)> GetEntries(string html, bool removeHTMLTags = false)
         {
-            var split = html.Split(new[] { "<p>", "</p>" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (var s in split)
+            if (!string.IsNullOrEmpty(html))
             {
-                if (!string.IsNullOrEmpty(s))
+                var strongOpens = new[] { "<em><strong>", "<strong>" };
+                var strongCloses = new[] { "</strong></em>", "</strong>" };
+
+                var h = html;
+                for (int e = 0; e < 1000; e++)
                 {
-                    var b1 = ExtractFromTag("em", s, out var t1);
-                    var b2 = ExtractFromTag("strong", t1, out var t2);
-                    yield return (t2.Trim('.'), $"{b2}{b1}");
+                    var oIndex = IndexOf(h, strongOpens, out var o);
+                    var cIndex = IndexOf(h, strongCloses, out var c);
+                    if (oIndex == -1 || cIndex == -1)
+                    {
+                        break;
+                    }
+
+                    var title = h.Substring(oIndex + o.Length, cIndex - oIndex - o.Length);
+                    var endIndex = cIndex + c.Length;
+
+                    var b = h.Substring(endIndex);
+                    var nextOIndex = IndexOf(b, strongOpens, out var nextO);
+                    if (nextOIndex == -1)
+                    {
+                        var finalBody = ReplaceParagraphs(b, removeHTMLTags);
+                        yield return (title, finalBody);
+                        break;
+                    }
+                    var body = ReplaceParagraphs(b.Substring(0, nextOIndex), removeHTMLTags);
+                    yield return (title, body);
+                    h = b.Substring(nextOIndex);
                 }
             }
         }
 
-        private string ExtractFromTag(string tag, string body, out string withinTag)
+        private int IndexOf(string text, string[] strings, out string foundString)
         {
-            var start = $"<{tag}>";
-            var end = $"</{tag}>";
-
-            var startIndex = body.IndexOf(start);
-            var endIndex = body.IndexOf(end);
-
-            if (startIndex < 0 || endIndex < 0)
+            for (int i = 0; i < strings.Length; i++)
             {
-                withinTag = string.Empty;
-                return body;
+                var index = text.IndexOf(strings[i]);
+                if (index != -1)
+                {
+                    foundString = strings[i];
+                    return index;
+                }
             }
-            startIndex += start.Length;
+            foundString = string.Empty;
+            return -1;
+        }
 
-            withinTag = body.Substring(startIndex, endIndex - startIndex).Trim();
-            return body.Substring(endIndex + end.Length).Trim();
+        private string ReplaceParagraphs(string text, bool removeHTMLTags)
+        {
+            var body = string.Join("\n", text.Trim().Split(new[] { "<p>", "</p>" }, StringSplitOptions.RemoveEmptyEntries));
+            if (removeHTMLTags)
+            {
+                body = Regex.Replace(body.Trim(), "<.*?>", string.Empty); ;
+            }
+            return body;
         }
 
         private Rect GetSegment(Rect rect, int col, int row, int maxCols, int maxRows)
@@ -738,6 +784,95 @@ namespace SummonsTracker.Importer
             _indexReadout = new GUIStyle(EditorStyles.textField) { alignment = TextAnchor.MiddleCenter };
         }
 
+        private IEnumerator SaveAll()
+        {
+            for (int i = 0; i < _monsters.Length; i++)
+            {
+                if (_monsters[i].name.ToLower().Contains("wight"))
+                {
+                    continue;
+                }
+                var characterData = ScriptableObject.CreateInstance<CharacterData>();
+                yield return new WaitForSeconds(0.01f);
+                InitialiseCharacterData(_monsters[i], characterData);
+                Save(characterData);
+                if (_coroutine != null)
+                {
+                    if (EditorUtility.DisplayCancelableProgressBar("Importing", _monsters[i].name, ((float)i) / ((float)_monsters.Length)))
+                    {
+                        _coroutine.Stop();
+                    }
+                }
+            }
+            EditorUtility.ClearProgressBar();
+        }
+
+        private void RemoveAllActions(SerializedProperty serializedProperty, ref List<UnityEngine.Object> actions)
+        {
+            if (serializedProperty == null)
+            {
+                return;
+            }
+            for (int i = 0; i < serializedProperty.arraySize; i++)
+            {
+                using var elementProperty = serializedProperty.GetArrayElementAtIndex(i);
+                if (elementProperty.objectReferenceValue != null)
+                {
+                    actions.Add(elementProperty.objectReferenceValue);
+                }
+            }
+            serializedProperty.arraySize = 0;
+        }
+
+        private void Save(CharacterData characterData)
+        {
+            var savePref = EditorPrefs.GetString(SAVE_PATH, Application.dataPath).Trim();
+            var assetIndex = savePref.LastIndexOf("Assets");
+            if (assetIndex != -1)
+            {
+                savePref = savePref.Substring(assetIndex);
+            }
+            var pathName = $"{savePref}/{ValidFilename(characterData.Name)}.asset";
+            Debug.Log(pathName);
+
+            var existingAsset = AssetDatabase.LoadAssetAtPath<CharacterData>(pathName);
+            if (existingAsset == null)
+            {
+                AssetDatabase.CreateAsset(characterData, pathName);
+                for (int i = 0; i < characterData.Actions.Length; i++)
+                {
+                    AssetDatabase.AddObjectToAsset(characterData.Actions[i], characterData);
+                }
+                AssetDatabase.ImportAsset(pathName);
+            }
+            else
+            {
+                var existingSubAssets = AssetDatabase.LoadAllAssetsAtPath(pathName).Where(s => s != existingAsset);
+                var serializedObjFrom = new SerializedObject(characterData);
+                var serializedObjTo = new SerializedObject(existingAsset);
+
+                foreach (var subAsset in existingSubAssets)
+                {
+                    AssetDatabase.RemoveObjectFromAsset(subAsset);
+                }
+                for (int i = 0; i < characterData.Actions.Length; i++)
+                {
+                    AssetDatabase.AddObjectToAsset(characterData.Actions[i], existingAsset);
+                }
+                SerializedObjectHelper.Copy(serializedObjFrom, serializedObjTo);
+                AssetDatabase.ImportAsset(pathName);
+            }
+        }
+
+        private string ValidFilename(string fileName)
+        {
+            foreach (char c in System.IO.Path.GetInvalidFileNameChars())
+            {
+                fileName = fileName.Replace(c, '_');
+            }
+            return fileName;
+        }
+
         private GUIStyle _indexReadout;
         private GUIStyle _statStyle;
         private GUIStyle _htmlContentStyle;
@@ -746,6 +881,8 @@ namespace SummonsTracker.Importer
         private Vector2 _scroll;
         private CharacterData _currentCharacterData;
         private CharacterDataEditor _currentCharacterEditor;
+        private EditorCoroutine _coroutine;
         private const string JSON_PATH = "json_path";
+        private const string SAVE_PATH = "save_path";
     }
 }

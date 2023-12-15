@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9187582295463747997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Invisible Passage
+  m_EditorClassIdentifier: 
+  _note: The hag magically turns invisible until she attacks or casts a spell, or
+    until her concentration ends (as if concentrating on a spell). While invisible,
+    she leaves no physical evidence of her passage, so she can be tracked only by
+    magic. Any equipment she wears or carries is invisible with her.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Green Hag
+  m_EditorClassIdentifier: 
+  _name: Green Hag
+  _creature: 6
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 11
+    _faces: 8
+    _modifiers: 33
+  _ac: 17
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 12
+  _constitution: 16
+  _intelligence: 13
+  _wisdom: 14
+  _charisma: 14
+  _skills: 20504
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: Common, Draconic, Sylvan
+  _challenge: 3
+  _actions:
+  - {fileID: 1683092356188620452}
+  - {fileID: 5683755943624335019}
+  - {fileID: -9187582295463747997}
+--- !u!114 &1683092356188620452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 4
+  _damageType: 2048
+--- !u!114 &5683755943624335019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Illusory Appearance
+  m_EditorClassIdentifier: 
+  _note: 'The hag covers herself and anything she is wearing or carrying with a magical
+    illusion that makes her look like another creature of her general size and humanoid
+    shape. The illusion ends if the hag takes a bonus action to end it or if she
+    dies.
+
+    The changes wrought by this effect fail to hold up to physical inspection.
+    For example, the hag could appear to have smooth skin, but someone touching her
+    would feel her rough flesh. Otherwise, a creature must take an action to visually
+    inspect the illusion and succeed on a DC 20 Intelligence (Investigation) check
+    to discern that the hag is disguised.'

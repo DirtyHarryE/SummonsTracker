@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5758817624816171950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The yeti can use its Chilling Gaze and makes two claw attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Yeti
+  m_EditorClassIdentifier: 
+  _name: Yeti
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 2
+    Distance: 40
+  _maxHP:
+    _number: 6
+    _faces: 10
+    _modifiers: 18
+  _ac: 12
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 13
+  _constitution: 16
+  _intelligence: 8
+  _wisdom: 12
+  _charisma: 7
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 4
+  _senses: Darkvision 60 ft.,  Passive Perception 13
+  _languages: Yeti
+  _challenge: 3
+  _actions:
+  - {fileID: -5758817624816171950}
+  - {fileID: 6419536881770371255}
+  - {fileID: 3183501362189761192}
+--- !u!114 &3183501362189761192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Chilling Gaze
+  m_EditorClassIdentifier: 
+  _note: The yeti targets one creature it can see within 30 feet of it. If the target
+    can see the yeti, the target must succeed on a saving throw against this magic
+    or.
+  _dc: 13
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 3
+    _damage:
+      _number: 3
+      _faces: 6
+      _modifiers: 0
+    _damageType: 4
+    _condition: 256
+    _outcomeNote: "For 1 minute, unless it is immune to cold damage. The target can
+      repeat the saving throw at the end of each of its turns, ending the effect
+      on itself on a success. If the target\u2019s saving throw is successful, or
+      if the effect ends on it, the target is immune to the Chilling Gaze of all
+      yetis (but not abominable yetis) for 1 hour."
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &6419536881770371255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 'Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (1d6 +
+    4) slashing damage plus 3 (1d6) cold damage.'

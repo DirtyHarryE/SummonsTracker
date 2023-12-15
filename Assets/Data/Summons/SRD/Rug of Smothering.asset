@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Rug of Smothering
+  m_EditorClassIdentifier: 
+  _name: Rug of Smothering
+  _creature: 3
+  _movement:
+  - Type: 0
+    Distance: 10
+  _maxHP:
+    _number: 6
+    _faces: 10
+    _modifiers: 0
+  _ac: 12
+  _proficiency: 2
+  _strength: 17
+  _dexterity: 14
+  _constitution: 10
+  _intelligence: 1
+  _wisdom: 3
+  _charisma: 1
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1815
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 768
+  _senses: Blindsight 60 ft.,  Passive Perception 6
+  _languages: --
+  _challenge: 2
+  _actions:
+  - {fileID: 308225082354447101}
+--- !u!114 &308225082354447101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Smother
+  m_EditorClassIdentifier: 
+  _note: 'Melee Weapon Attack: +5 to hit, reach 5 ft., one Medium or smaller creature.
+    Hit: The creature is grappled . Until this grapple ends, the target is restrained,
+    blinded, and at risk of suffocating, and the rug can''t smother another target.
+    In addition, at the start of each of the target''s turns, the target.'
+  _dc: 10
+  _isGrapple: 1
+  _savingThrow: 0
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 2
+      _faces: 6
+      _modifiers: 3
+    _damageType: 2
+    _condition: 0
+    _outcomeNote: At risk of suffocating, and the rug can't smother another target
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

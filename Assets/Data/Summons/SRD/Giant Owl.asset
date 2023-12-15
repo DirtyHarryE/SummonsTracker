@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5225373901626786986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Talons
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 1
+  _damageType: 2048
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Giant Owl
+  m_EditorClassIdentifier: 
+  _name: Giant Owl
+  _creature: 1
+  _movement:
+  - Type: 0
+    Distance: 5
+  - Type: 3
+    Distance: 60
+  _maxHP:
+    _number: 3
+    _faces: 10
+    _modifiers: 3
+  _ac: 12
+  _proficiency: 2
+  _strength: 13
+  _dexterity: 15
+  _constitution: 12
+  _intelligence: 8
+  _wisdom: 13
+  _charisma: 10
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 15
+  _languages: Elvish, Giant Owl  and Sylvan but can't speak them
+  _challenge: 0.25
+  _actions:
+  - {fileID: -5225373901626786986}

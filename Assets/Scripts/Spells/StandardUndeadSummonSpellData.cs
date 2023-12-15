@@ -16,7 +16,7 @@ namespace SummonsTracker.Spell
             }
         }
 
-        public override IEnumerable<string> GetPerSummonParameters(int spellLevel)
+        public override IEnumerable<string> GetPerSummonParameters(int spellLevel, int spellParameter)
         {
             yield return _zombie.name;
             yield return _skeleton.name;

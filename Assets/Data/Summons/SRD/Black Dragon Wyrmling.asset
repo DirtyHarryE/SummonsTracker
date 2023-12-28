@@ -1,41 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8923982510038757381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Acid Breath
-  m_EditorClassIdentifier: 
-  _note: "The dragon exhales acid in a 15-\xADfoot line that is 5 feet wide. Each
-    creature in that line must make a saving throw."
-  _dc: 11
-  _isGrapple: 0
-  _savingThrow: 2
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 5
-      _faces: 8
-      _modifiers: 0
-    _damageType: 1
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-5299855208722660305
+--- !u!114 &-8542128026315573191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Black Dragon Wyrmling
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Black Dragon Wyrmling
   _creature: 4
   _movement:
@@ -108,5 +74,40 @@ MonoBehaviour:
   _languages: Draconic
   _challenge: 2
   _actions:
-  - {fileID: -5299855208722660305}
-  - {fileID: -8923982510038757381}
+  - {fileID: -8542128026315573191}
+  - {fileID: 7332528174627767004}
+--- !u!114 &7332528174627767004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Acid Breath
+  m_EditorClassIdentifier: 
+  _note: "The dragon exhales acid in a 15-\xADfoot line that is 5 feet wide. Each
+    creature in that line must make a saving throw."
+  _dc: 11
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 5
+      _faces: 8
+      _modifiers: 0
+    _damageType: 1
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

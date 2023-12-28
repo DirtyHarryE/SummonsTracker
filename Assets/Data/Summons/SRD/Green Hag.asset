@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9187582295463747997
+--- !u!114 &-1366243241835334170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,12 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Invisible Passage
+  m_Name: Illusory Appearance
   m_EditorClassIdentifier: 
-  _note: The hag magically turns invisible until she attacks or casts a spell, or
-    until her concentration ends (as if concentrating on a spell). While invisible,
-    she leaves no physical evidence of her passage, so she can be tracked only by
-    magic. Any equipment she wears or carries is invisible with her.
+  _note: 'The hag covers herself and anything she is wearing or carrying with a magical
+    illusion that makes her look like another creature of her general size and humanoid
+    shape. The illusion ends if the hag takes a bonus action to end it or if she
+    dies.
+
+    The changes wrought by this effect fail to hold up to physical inspection.
+    For example, the hag could appear to have smooth skin, but someone touching her
+    would feel her rough flesh. Otherwise, a creature must take an action to visually
+    inspect the illusion and succeed on a DC 20 Intelligence (Investigation) check
+    to discern that the hag is disguised.'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +34,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Green Hag
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Green Hag
   _creature: 6
   _movement:
@@ -55,10 +62,10 @@ MonoBehaviour:
   _languages: Common, Draconic, Sylvan
   _challenge: 3
   _actions:
-  - {fileID: 1683092356188620452}
-  - {fileID: 5683755943624335019}
-  - {fileID: -9187582295463747997}
---- !u!114 &1683092356188620452
+  - {fileID: 3001135998361868003}
+  - {fileID: -1366243241835334170}
+  - {fileID: 8972176603425186693}
+--- !u!114 &3001135998361868003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +90,7 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 4
   _damageType: 2048
---- !u!114 &5683755943624335019
+--- !u!114 &8972176603425186693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,15 +100,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Illusory Appearance
+  m_Name: Invisible Passage
   m_EditorClassIdentifier: 
-  _note: 'The hag covers herself and anything she is wearing or carrying with a magical
-    illusion that makes her look like another creature of her general size and humanoid
-    shape. The illusion ends if the hag takes a bonus action to end it or if she
-    dies.
-
-    The changes wrought by this effect fail to hold up to physical inspection.
-    For example, the hag could appear to have smooth skin, but someone touching her
-    would feel her rough flesh. Otherwise, a creature must take an action to visually
-    inspect the illusion and succeed on a DC 20 Intelligence (Investigation) check
-    to discern that the hag is disguised.'
+  _note: The hag magically turns invisible until she attacks or casts a spell, or
+    until her concentration ends (as if concentrating on a spell). While invisible,
+    she leaves no physical evidence of her passage, so she can be tracked only by
+    magic. Any equipment she wears or carries is invisible with her.

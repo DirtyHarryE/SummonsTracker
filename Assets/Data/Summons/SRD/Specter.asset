@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Specter
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Specter
   _creature: 13
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: Understands all languages it knew in life but can't speak
   _challenge: 1
   _actions:
-  - {fileID: 4611078523432612767}
---- !u!114 &4611078523432612767
+  - {fileID: 133986403465114777}
+--- !u!114 &133986403465114777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

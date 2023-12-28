@@ -1,49 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8946885286655883438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 7
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 6
-    _modifiers: 4
-  _damageType: 128
---- !u!114 &-8895024842258314819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The troll makes three attacks: one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
---- !u!114 &-1097500517527424821
+--- !u!114 &-3597701466275456667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Troll
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Troll
   _creature: 8
   _movement:
@@ -107,6 +65,49 @@ MonoBehaviour:
   _languages: Giant
   _challenge: 5
   _actions:
-  - {fileID: -8895024842258314819}
-  - {fileID: -8946885286655883438}
-  - {fileID: -1097500517527424821}
+  - {fileID: 5130024559062638860}
+  - {fileID: 351200968308343913}
+  - {fileID: -3597701466275456667}
+--- !u!114 &351200968308343913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 4
+  _damageType: 128
+--- !u!114 &5130024559062638860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The troll makes three attacks: one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2

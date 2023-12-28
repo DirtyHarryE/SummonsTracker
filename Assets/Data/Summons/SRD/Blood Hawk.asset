@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Blood Hawk
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Blood Hawk
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.125
   _actions:
-  - {fileID: 6636331532816203212}
---- !u!114 &6636331532816203212
+  - {fileID: 6638955289593357198}
+--- !u!114 &6638955289593357198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

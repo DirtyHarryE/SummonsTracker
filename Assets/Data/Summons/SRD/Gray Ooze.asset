@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5462035202224529088
+--- !u!114 &-450031129712983695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
   m_Name: Pseudopod
   m_EditorClassIdentifier: 
-  _note: "4 (1d6 + 1) bludgeoning damage plus 7 (2d6) acid damage, and if the target
-    is wearing nonmagical metal armor, its armor is partly corroded and takes a permanent
-    and cumulative \u22121 penalty to the AC it offers. The armor is destroyed if
-    the penalty reduces its AC to 10."
+  _note: 
   _attackType: 0
   _attackMod: 3
   _advantageType: 0
@@ -45,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Gray Ooze
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Gray Ooze
   _creature: 11
   _movement:
@@ -74,4 +72,4 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: -5462035202224529088}
+  - {fileID: -450031129712983695}

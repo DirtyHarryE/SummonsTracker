@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5721276332130712982
+--- !u!114 &-3399530740888779506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Lion
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Lion
   _creature: 1
   _movement:
@@ -64,9 +65,9 @@ MonoBehaviour:
   _languages: --
   _challenge: 1
   _actions:
-  - {fileID: 5362421896055669546}
-  - {fileID: -5721276332130712982}
---- !u!114 &5362421896055669546
+  - {fileID: 6156631168160775104}
+  - {fileID: -3399530740888779506}
+--- !u!114 &6156631168160775104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

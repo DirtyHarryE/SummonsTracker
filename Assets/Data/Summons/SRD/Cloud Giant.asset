@@ -1,22 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6142585289877141473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The giant makes two morningstar attacks.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
---- !u!114 &-184500917666528632
+--- !u!114 &-8678003468935790035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Cloud Giant
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Cloud Giant
   _creature: 8
   _movement:
@@ -80,10 +65,26 @@ MonoBehaviour:
   _languages: Common, Giant
   _challenge: 9
   _actions:
-  - {fileID: -6142585289877141473}
-  - {fileID: 1785451567294303590}
-  - {fileID: -184500917666528632}
---- !u!114 &1785451567294303590
+  - {fileID: 6842642785928657747}
+  - {fileID: 8143703398909987170}
+  - {fileID: -8678003468935790035}
+--- !u!114 &6842642785928657747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The giant makes two morningstar attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &8143703398909987170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

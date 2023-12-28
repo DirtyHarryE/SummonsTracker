@@ -1,55 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8963125746605637990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Gore
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 8
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 3
-    _faces: 8
-    _modifiers: 6
-  _damageType: 128
---- !u!114 &-4191102180146982299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Stomp
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 8
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one prone creature
-  _damage:
-    _number: 3
-    _faces: 10
-    _modifiers: 6
-  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Elephant
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Elephant
   _creature: 1
   _movement:
@@ -89,5 +40,55 @@ MonoBehaviour:
   _languages: --
   _challenge: 4
   _actions:
-  - {fileID: -8963125746605637990}
-  - {fileID: -4191102180146982299}
+  - {fileID: 9166328533044712287}
+  - {fileID: 6698119547786885118}
+--- !u!114 &6698119547786885118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Stomp
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 8
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one prone creature
+  _damage:
+    _number: 3
+    _faces: 10
+    _modifiers: 6
+  _damageType: 2
+--- !u!114 &9166328533044712287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Gore
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 8
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 8
+    _modifiers: 6
+  _damageType: 128

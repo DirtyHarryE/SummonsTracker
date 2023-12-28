@@ -1,6 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9118231224633875211
+--- !u!114 &-2484950164056788368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2048
+--- !u!114 &-1679812116686237004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,7 +55,7 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 256
---- !u!114 &-7381901274062071949
+--- !u!114 &-182569675257635672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,7 +73,55 @@ MonoBehaviour:
     _attackNumber: 1
   - _attackIndex: 2
     _attackNumber: 2
---- !u!114 &-175808213675671328
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Young Green Dragon
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Young Green Dragon
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 3
+    Distance: 80
+  - Type: 4
+    Distance: 40
+  _maxHP:
+    _number: 16
+    _faces: 10
+    _modifiers: 48
+  _ac: 18
+  _proficiency: 3
+  _strength: 19
+  _dexterity: 12
+  _constitution: 17
+  _intelligence: 16
+  _wisdom: 13
+  _charisma: 15
+  _skills: 20488
+  _savingThrows: 54
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 256
+  _senses: Blindsight 30 ft., Darkvision 120 ft.,  Passive Perception 17
+  _languages: Common, Draconic
+  _challenge: 8
+  _actions:
+  - {fileID: -182569675257635672}
+  - {fileID: -1679812116686237004}
+  - {fileID: -2484950164056788368}
+  - {fileID: 8599175178655099790}
+--- !u!114 &8599175178655099790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,75 +156,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Young Green Dragon
-  m_EditorClassIdentifier: 
-  _name: Young Green Dragon
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 3
-    Distance: 80
-  - Type: 4
-    Distance: 40
-  _maxHP:
-    _number: 16
-    _faces: 10
-    _modifiers: 48
-  _ac: 18
-  _proficiency: 3
-  _strength: 19
-  _dexterity: 12
-  _constitution: 17
-  _intelligence: 16
-  _wisdom: 13
-  _charisma: 15
-  _skills: 20488
-  _savingThrows: 54
-  _conditionImmunities: 1024
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 256
-  _senses: Blindsight 30 ft., Darkvision 120 ft.,  Passive Perception 17
-  _languages: Common, Draconic
-  _challenge: 8
-  _actions:
-  - {fileID: -7381901274062071949}
-  - {fileID: -9118231224633875211}
-  - {fileID: 9064795981692592251}
-  - {fileID: -175808213675671328}
---- !u!114 &9064795981692592251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 7
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 4
-  _damageType: 2048

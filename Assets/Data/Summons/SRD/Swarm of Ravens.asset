@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Swarm of Ravens
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Swarm of Ravens
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: 3403853434848400646}
---- !u!114 &3403853434848400646
+  - {fileID: 3626073298697528679}
+--- !u!114 &3626073298697528679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,8 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Beaks
   m_EditorClassIdentifier: 
-  _note: 7 (2d6) piercing damage, or 3 (1d6) piercing damage if the swarm has half
-    of its hit points or fewer.
+  _note: 
   _attackType: 0
   _attackMod: 4
   _advantageType: 0

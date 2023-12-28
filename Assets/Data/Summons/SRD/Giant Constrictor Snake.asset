@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9065240341760721749
+--- !u!114 &-4328180187252589170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,23 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Constrict
+  m_Name: Bite
   m_EditorClassIdentifier: 
-  _note: 13 (2d8 + 4) bludgeoning damage, and the target is grappled (escape DC 16).
-    Until this grapple ends, the creature is restrained, and the snake can't constrict
-    another target.
+  _note: 
   _attackType: 0
   _attackMod: 6
   _advantageType: 0
-  _range: 5
+  _range: 10
   _minRange: 5
   _maxRange: 0
   _target: one creature
   _damage:
     _number: 2
-    _faces: 8
+    _faces: 6
     _modifiers: 4
-  _damageType: 2
+  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Giant Constrictor Snake
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Giant Constrictor Snake
   _creature: 1
   _movement:
@@ -68,9 +67,9 @@ MonoBehaviour:
   _languages: --
   _challenge: 2
   _actions:
-  - {fileID: 6535419608820238043}
-  - {fileID: -9065240341760721749}
---- !u!114 &6535419608820238043
+  - {fileID: -4328180187252589170}
+  - {fileID: 447494985392447933}
+--- !u!114 &447494985392447933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,18 +79,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
+  m_Name: Constrict
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
   _attackMod: 6
   _advantageType: 0
-  _range: 10
+  _range: 5
   _minRange: 5
   _maxRange: 0
   _target: one creature
   _damage:
     _number: 2
-    _faces: 6
+    _faces: 8
     _modifiers: 4
-  _damageType: 128
+  _damageType: 2

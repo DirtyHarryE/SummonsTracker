@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Lemure
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Lemure
   _creature: 7
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: Understands Infernal but can't speak it
   _challenge: 0
   _actions:
-  - {fileID: 3085610949014440735}
---- !u!114 &3085610949014440735
+  - {fileID: 6137976708547396864}
+--- !u!114 &6137976708547396864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

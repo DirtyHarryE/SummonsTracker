@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8025923061355920257
+--- !u!114 &-9085377485997417364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -39,7 +39,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-7554071895719756579
+--- !u!114 &-9020595180055367032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,53 +48,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8487373ab36b94694ef00ab5c7b726, type: 3}
-  m_Name: Rotting Fist
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: Saving throw or be cursed with mummy rot. The cursed target can't regain
-    hit points, and its hit point maximum decreases by 10 (3d6) for every 24 hours
-    that elapse. If the curse reduces the target's hit point maximum to 0, the target
-    dies, and its body turns to dust. The curse lasts until removed by the remove
-    curse spell or other magic.
-  _attackType: 0
-  _attackMod: 5
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 3
-  _damageType: 2
-  _secondaryDamage:
-    _number: 3
-    _faces: 6
-    _modifiers: 0
-  _secondaryDamageType: 64
-  _dc: 12
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 4
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: Its hit point maximum decreases by 10 (3d6) for every 24 hours
-      that elapse
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
+  _note: The mummy can use its Dreadful Glare and makes one attack with its rotting
+    fist.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Mummy
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Mummy
   _creature: 13
   _movement:
@@ -134,10 +98,10 @@ MonoBehaviour:
   _languages: The languages it knew in life
   _challenge: 3
   _actions:
-  - {fileID: 4411850792496809082}
-  - {fileID: -7554071895719756579}
-  - {fileID: -8025923061355920257}
---- !u!114 &4411850792496809082
+  - {fileID: -9020595180055367032}
+  - {fileID: 400486658060312454}
+  - {fileID: -9085377485997417364}
+--- !u!114 &400486658060312454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,13 +110,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Rotting Fist
   m_EditorClassIdentifier: 
-  _note: The mummy can use its Dreadful Glare and makes one attack with its rotting
-    fist.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 3
+  _damageType: 2
+  _secondaryDamage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 64

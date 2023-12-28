@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5764001914891978835
+--- !u!114 &-8512068067684843998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,6 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Bandit Captain
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Bandit Captain
   _creature: 9
   _movement:
@@ -53,29 +54,10 @@ MonoBehaviour:
   _languages: Any two languages
   _challenge: 2
   _actions:
-  - {fileID: 4143714279483657006}
-  - {fileID: 7780980856544838749}
-  - {fileID: -5764001914891978835}
---- !u!114 &4143714279483657006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The captain makes three melee attacks: two with its scimitar and one with
-    its dagger. Or the captain makes two ranged attacks with its daggers.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &7780980856544838749
+  - {fileID: 7284479134048825995}
+  - {fileID: 3494469749904116507}
+  - {fileID: -8512068067684843998}
+--- !u!114 &3494469749904116507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,3 +82,22 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 3
   _damageType: 2048
+--- !u!114 &7284479134048825995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The captain makes three melee attacks: two with its scimitar and one with
+    its dagger. Or the captain makes two ranged attacks with its daggers.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1

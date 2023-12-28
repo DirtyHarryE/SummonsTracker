@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6002721571410438723
+--- !u!114 &-6740225275858904406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,6 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Ogre
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Ogre
   _creature: 8
   _movement:
@@ -53,9 +54,9 @@ MonoBehaviour:
   _languages: Common, Giant
   _challenge: 2
   _actions:
-  - {fileID: 3381196787918185567}
-  - {fileID: -6002721571410438723}
---- !u!114 &3381196787918185567
+  - {fileID: 7839001789084123653}
+  - {fileID: -6740225275858904406}
+--- !u!114 &7839001789084123653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

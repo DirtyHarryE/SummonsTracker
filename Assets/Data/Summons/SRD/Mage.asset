@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Mage
   _creature: 9
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: Any four languages
   _challenge: 6
   _actions:
-  - {fileID: 6579952684027735392}
---- !u!114 &6579952684027735392
+  - {fileID: 8279426159049199806}
+--- !u!114 &8279426159049199806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

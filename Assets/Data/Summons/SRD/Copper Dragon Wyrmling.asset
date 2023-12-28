@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4879075164822190549
+--- !u!114 &-8117594224109834955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,23 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Breath Weapons
   m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 10
-    _modifiers: 2
-  _damageType: 128
---- !u!114 &-73655019102221849
+  _note: The dragon uses one of the following breath weapons.
+--- !u!114 &-7552412170083174102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,67 +48,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Copper Dragon Wyrmling
-  m_EditorClassIdentifier: 
-  _name: Copper Dragon Wyrmling
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 30
-  - Type: 2
-    Distance: 30
-  - Type: 3
-    Distance: 60
-  _maxHP:
-    _number: 4
-    _faces: 8
-    _modifiers: 4
-  _ac: 16
-  _proficiency: 2
-  _strength: 15
-  _dexterity: 12
-  _constitution: 13
-  _intelligence: 14
-  _wisdom: 11
-  _charisma: 13
-  _skills: 4104
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 1
-  _senses: Blindsight 10 ft., Darkvision 60 ft.,  Passive Perception 14
-  _languages: Draconic
-  _challenge: 1
-  _actions:
-  - {fileID: -4879075164822190549}
-  - {fileID: 3395692017609497739}
-  - {fileID: -73655019102221849}
-  - {fileID: 4041729339118719738}
---- !u!114 &3395692017609497739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Breath Weapons
-  m_EditorClassIdentifier: 
-  _note: The dragon uses one of the following breath weapons.
---- !u!114 &4041729339118719738
+--- !u!114 &-2465394718680954047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,3 +88,76 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Copper Dragon Wyrmling
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Copper Dragon Wyrmling
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 2
+    Distance: 30
+  - Type: 3
+    Distance: 60
+  _maxHP:
+    _number: 4
+    _faces: 8
+    _modifiers: 4
+  _ac: 16
+  _proficiency: 2
+  _strength: 15
+  _dexterity: 12
+  _constitution: 13
+  _intelligence: 14
+  _wisdom: 11
+  _charisma: 13
+  _skills: 4104
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 1
+  _senses: Blindsight 10 ft., Darkvision 60 ft.,  Passive Perception 14
+  _languages: Draconic
+  _challenge: 1
+  _actions:
+  - {fileID: 5965401242825351278}
+  - {fileID: -8117594224109834955}
+  - {fileID: -7552412170083174102}
+  - {fileID: -2465394718680954047}
+--- !u!114 &5965401242825351278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 10
+    _modifiers: 2
+  _damageType: 128

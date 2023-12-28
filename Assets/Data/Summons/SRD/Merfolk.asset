@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4951096203508622583
+--- !u!114 &-165048193374559531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27,6 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Merfolk
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Merfolk
   _creature: 9
   _movement:
@@ -56,4 +57,4 @@ MonoBehaviour:
   _languages: Aquan, Common
   _challenge: 0.125
   _actions:
-  - {fileID: -4951096203508622583}
+  - {fileID: -165048193374559531}

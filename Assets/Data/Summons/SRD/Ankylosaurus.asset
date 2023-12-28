@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Ankylosaurus
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Ankylosaurus
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 3
   _actions:
-  - {fileID: 6428020706329567003}
---- !u!114 &6428020706329567003
+  - {fileID: 9091924300510906522}
+--- !u!114 &9091924300510906522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,10 +50,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Tail
   m_EditorClassIdentifier: 
-  _note: Saving throw or be knocked prone.
+  _note: 
   _attackType: 0
   _attackMod: 7
   _advantageType: 0
@@ -65,24 +66,3 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 4
   _damageType: 2
-  _dc: 14
-  _isGrapple: 0
-  _savingThrow: 1
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 2048
-    _outcomeNote: 
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 

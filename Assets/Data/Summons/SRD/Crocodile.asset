@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Crocodile
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Crocodile
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: 3979761854703847978}
---- !u!114 &3979761854703847978
+  - {fileID: 901124863508052589}
+--- !u!114 &901124863508052589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,9 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Bite
   m_EditorClassIdentifier: 
-  _note: 7 (1d10 + 2) piercing damage, and the target is grappled (escape DC 12).
-    Until this grapple ends, the target is restrained, and the crocodile can't bite
-    another target.
+  _note: 
   _attackType: 0
   _attackMod: 4
   _advantageType: 0

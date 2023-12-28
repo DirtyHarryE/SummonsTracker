@@ -1,6 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1268585259023473235
+--- !u!114 &-5703784991924818130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Dagger
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &-2939460775556373016
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Kobold
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Kobold
   _creature: 9
   _movement:
@@ -64,30 +90,5 @@ MonoBehaviour:
   _languages: Common, Draconic
   _challenge: 0.125
   _actions:
-  - {fileID: 364764825487221702}
-  - {fileID: -1268585259023473235}
---- !u!114 &364764825487221702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Dagger
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 4
-    _modifiers: 2
-  _damageType: 128
+  - {fileID: -5703784991924818130}
+  - {fileID: -2939460775556373016}

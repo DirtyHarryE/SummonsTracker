@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8936585301980613469
+--- !u!114 &-5821099419782602200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,52 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Bite
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 9
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 10
-    _modifiers: 5
-  _damageType: 128
-  _secondaryDamage:
-    _number: 1
-    _faces: 10
-    _modifiers: 0
-  _secondaryDamageType: 32
---- !u!114 &-3130859283449399828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 9
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 5
-  _damageType: 2048
+  _note: 'The dragon makes three attacks: one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +30,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Young Blue Dragon
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Young Blue Dragon
   _creature: 4
   _movement:
@@ -98,11 +62,41 @@ MonoBehaviour:
   _languages: Common, Draconic
   _challenge: 9
   _actions:
-  - {fileID: 5863638270040796660}
-  - {fileID: -8936585301980613469}
-  - {fileID: -3130859283449399828}
-  - {fileID: 2198351506288190828}
---- !u!114 &2198351506288190828
+  - {fileID: -5821099419782602200}
+  - {fileID: 3226231144161594498}
+  - {fileID: 6636320023302641726}
+  - {fileID: 5235412630776501248}
+--- !u!114 &3226231144161594498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 5
+  _damageType: 128
+  _secondaryDamage:
+    _number: 1
+    _faces: 10
+    _modifiers: 0
+  _secondaryDamageType: 32
+--- !u!114 &5235412630776501248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +131,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &5863638270040796660
+--- !u!114 &6636320023302641726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,12 +140,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
   m_EditorClassIdentifier: 
-  _note: 'The dragon makes three attacks: one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 5
+  _damageType: 2048

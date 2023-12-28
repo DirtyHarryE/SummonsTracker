@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6596221018137036641
+--- !u!114 &-8588618689209094881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,12 +10,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Change Shape
+  m_Name: Etherealness
   m_EditorClassIdentifier: 
-  _note: The hag magically polymorphs into a Small or Medium female humanoid, or
-    back into her true form. Her statistics are the same in each form. Any equipment
-    she is wearing or carrying isn't transformed. She reverts to her true form if
-    she dies.
+  _note: The hag magically enters the Ethereal Plane from the Material Plane, or
+    vice versa. To do so, the hag must have a heartstone in her possession.
+--- !u!114 &-4891237182321992139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: '(Hag Form Only). Melee Weapon Attack: +7 to hit, reach 5 ft., one target.
+    Hit: 13 (2d8 + 4) slashing damage.'
+--- !u!114 &-348914346744106463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Nightmare Haunting
+  m_EditorClassIdentifier: 
+  _note: While on the Ethereal Plane, the hag magically touches a sleeping humanoid
+    on the Material Plane. A protection from evil and good spell cast on the target
+    prevents this contact, as does a magic circle. As long as the contact persists,
+    the target has dreadful visions. If these visions last for at least 1 hour, the
+    target gains no benefit from its rest, and its hit point maximum is reduced by
+    5 (1d10). If this effect reduces the target's hit point maximum to 0, the target
+    dies, and if the target was evil, its soul is trapped in the hag's soul bag.
+    The reduction to the target's hit point maximum lasts until removed by the greater
+    restoration spell or similar magic.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Night Hag
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Night Hag
   _creature: 7
   _movement:
@@ -55,11 +89,11 @@ MonoBehaviour:
   _languages: Abyssal, Common, Infernal, Primordial
   _challenge: 5
   _actions:
-  - {fileID: 4908436369133230794}
-  - {fileID: -6596221018137036641}
-  - {fileID: 3082982970692239575}
-  - {fileID: 1820316986516867459}
---- !u!114 &1820316986516867459
+  - {fileID: -4891237182321992139}
+  - {fileID: 1687784188276842937}
+  - {fileID: -8588618689209094881}
+  - {fileID: -348914346744106463}
+--- !u!114 &1687784188276842937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,42 +103,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Nightmare Haunting
+  m_Name: Change Shape
   m_EditorClassIdentifier: 
-  _note: While on the Ethereal Plane, the hag magically touches a sleeping humanoid
-    on the Material Plane. A protection from evil and good spell cast on the target
-    prevents this contact, as does a magic circle. As long as the contact persists,
-    the target has dreadful visions. If these visions last for at least 1 hour, the
-    target gains no benefit from its rest, and its hit point maximum is reduced by
-    5 (1d10). If this effect reduces the target's hit point maximum to 0, the target
-    dies, and if the target was evil, its soul is trapped in the hag's soul bag.
-    The reduction to the target's hit point maximum lasts until removed by the greater
-    restoration spell or similar magic.
---- !u!114 &3082982970692239575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Etherealness
-  m_EditorClassIdentifier: 
-  _note: The hag magically enters the Ethereal Plane from the Material Plane, or
-    vice versa. To do so, the hag must have a heartstone in her possession.
---- !u!114 &4908436369133230794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Claws
-  m_EditorClassIdentifier: 
-  _note: '(Hag Form Only). Melee Weapon Attack: +7 to hit, reach 5 ft., one target.
-    Hit: 13 (2d8 + 4) slashing damage.'
+  _note: The hag magically polymorphs into a Small or Medium female humanoid, or
+    back into her true form. Her statistics are the same in each form. Any equipment
+    she is wearing or carrying isn't transformed. She reverts to her true form if
+    she dies.

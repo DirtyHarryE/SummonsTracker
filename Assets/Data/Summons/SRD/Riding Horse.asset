@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Riding Horse
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Riding Horse
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: 8164826351791013947}
---- !u!114 &8164826351791013947
+  - {fileID: 8673202772645955290}
+--- !u!114 &8673202772645955290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

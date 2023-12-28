@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Giant Hyena
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Giant Hyena
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 1
   _actions:
-  - {fileID: 1692593138975975383}
---- !u!114 &1692593138975975383
+  - {fileID: 5042854788683046596}
+--- !u!114 &5042854788683046596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

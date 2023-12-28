@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6851487647069279169
+--- !u!114 &-6777369857749810125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,7 +15,7 @@ MonoBehaviour:
   _note: 'Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft.,
     one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage
     if used with two hands to make a melee attack.'
---- !u!114 &-6747471053800128646
+--- !u!114 &-4892284220294650935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,27 +40,6 @@ MonoBehaviour:
     _faces: 4
     _modifiers: 1
   _damageType: 2048
---- !u!114 &-939107263514695195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The sahuagin makes two melee attacks: one with its bite and one with its
-    claws or spear.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
-  - _attackIndex: 3
-    _attackNumber: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Sahuagin
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Sahuagin
   _creature: 9
   _movement:
@@ -102,11 +82,32 @@ MonoBehaviour:
   _languages: Sahuagin
   _challenge: 0.5
   _actions:
-  - {fileID: -939107263514695195}
-  - {fileID: 7071721968199148602}
-  - {fileID: -6747471053800128646}
-  - {fileID: -6851487647069279169}
---- !u!114 &7071721968199148602
+  - {fileID: 1395640427271110546}
+  - {fileID: 7363621862011539826}
+  - {fileID: -4892284220294650935}
+  - {fileID: -6777369857749810125}
+--- !u!114 &1395640427271110546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The sahuagin makes two melee attacks: one with its bite and one with its
+    claws or spear.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+  - _attackIndex: 3
+    _attackNumber: 1
+--- !u!114 &7363621862011539826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

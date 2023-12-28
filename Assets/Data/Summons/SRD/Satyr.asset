@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8883175774632082167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Shortbow
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 5
+  _advantageType: 0
+  _range: 80
+  _minRange: 5
+  _maxRange: 320
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 3
+  _damageType: 128
+--- !u!114 &-8877225215029077226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Ram
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 4
+    _modifiers: 1
+  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Satyr
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Satyr
   _creature: 6
   _movement:
@@ -39,35 +90,10 @@ MonoBehaviour:
   _languages: Common, Elvish, Sylvan
   _challenge: 0.5
   _actions:
-  - {fileID: 4831212326087030231}
-  - {fileID: 5670841355623663717}
-  - {fileID: 9006345345495254434}
---- !u!114 &4831212326087030231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Ram
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 3
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 4
-    _modifiers: 1
-  _damageType: 2
---- !u!114 &5670841355623663717
+  - {fileID: -8877225215029077226}
+  - {fileID: 1884088760206394534}
+  - {fileID: -8883175774632082167}
+--- !u!114 &1884088760206394534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,31 +112,6 @@ MonoBehaviour:
   _range: 5
   _minRange: 5
   _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 6
-    _modifiers: 3
-  _damageType: 128
---- !u!114 &9006345345495254434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Shortbow
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 1
-  _attackMod: 5
-  _advantageType: 0
-  _range: 80
-  _minRange: 5
-  _maxRange: 320
   _target: one target
   _damage:
     _number: 1

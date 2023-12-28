@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Swarm of Rats
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Swarm of Rats
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: 5227019204184469970}
---- !u!114 &5227019204184469970
+  - {fileID: 4976391592335675913}
+--- !u!114 &4976391592335675913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,5 +1,20 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4990462407697296764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Invisibility
+  m_EditorClassIdentifier: 
+  _note: The imp magically turns invisible until it attacks or until its concentration
+    ends (as if concentrating on a spell). Any equipment the imp wears or carries
+    is invisible with it.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Imp
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Imp
   _creature: 7
   _movement:
@@ -41,9 +57,9 @@ MonoBehaviour:
   _languages: Common, Infernal
   _challenge: 1
   _actions:
-  - {fileID: 2523053222864426346}
-  - {fileID: 1179416904423950193}
---- !u!114 &1179416904423950193
+  - {fileID: 6772093568942528918}
+  - {fileID: -4990462407697296764}
+--- !u!114 &6772093568942528918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,22 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Invisibility
-  m_EditorClassIdentifier: 
-  _note: The imp magically turns invisible until it attacks or until its concentration
-    ends (as if concentrating on a spell). Any equipment the imp wears or carries
-    is invisible with it.
---- !u!114 &2523053222864426346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Sting
   m_EditorClassIdentifier: 
   _note: 
@@ -83,24 +84,3 @@ MonoBehaviour:
     _faces: 4
     _modifiers: 3
   _damageType: 128
-  _dc: 11
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 3
-      _faces: 6
-      _modifiers: 0
-    _damageType: 256
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 

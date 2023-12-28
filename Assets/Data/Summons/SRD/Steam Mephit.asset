@@ -1,49 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Steam Mephit
-  m_EditorClassIdentifier: 
-  _name: Steam Mephit
-  _creature: 5
-  _movement:
-  - Type: 0
-    Distance: 30
-  - Type: 3
-    Distance: 30
-  _maxHP:
-    _number: 6
-    _faces: 6
-    _modifiers: 0
-  _ac: 10
-  _proficiency: 2
-  _strength: 5
-  _dexterity: 11
-  _constitution: 10
-  _intelligence: 11
-  _wisdom: 10
-  _charisma: 12
-  _skills: 0
-  _savingThrows: 0
-  _conditionImmunities: 1024
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 264
-  _senses: Darkvision 60 ft.,  Passive Perception 10
-  _languages: Aquan, Ignan
-  _challenge: 0.25
-  _actions:
-  - {fileID: 4391237740577944645}
-  - {fileID: 4187725544767449351}
---- !u!114 &4187725544767449351
+--- !u!114 &-3972050059685815842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,7 +35,51 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &4391237740577944645
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Steam Mephit
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Steam Mephit
+  _creature: 5
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 3
+    Distance: 30
+  _maxHP:
+    _number: 6
+    _faces: 6
+    _modifiers: 0
+  _ac: 10
+  _proficiency: 2
+  _strength: 5
+  _dexterity: 11
+  _constitution: 10
+  _intelligence: 11
+  _wisdom: 10
+  _charisma: 12
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 264
+  _senses: Darkvision 60 ft.,  Passive Perception 10
+  _languages: Aquan, Ignan
+  _challenge: 0.25
+  _actions:
+  - {fileID: 7759522737419325192}
+  - {fileID: -3972050059685815842}
+--- !u!114 &7759522737419325192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

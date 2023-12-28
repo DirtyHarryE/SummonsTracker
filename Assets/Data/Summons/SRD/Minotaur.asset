@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5835922132399529113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Greataxe
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 12
+    _modifiers: 4
+  _damageType: 2048
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Minotaur
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Minotaur
   _creature: 10
   _movement:
@@ -39,9 +65,9 @@ MonoBehaviour:
   _languages: Abyssal
   _challenge: 3
   _actions:
-  - {fileID: 8929153954738081805}
-  - {fileID: 1272781533782641729}
---- !u!114 &1272781533782641729
+  - {fileID: -5835922132399529113}
+  - {fileID: 8273407381948728520}
+--- !u!114 &8273407381948728520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,28 +92,3 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 4
   _damageType: 128
---- !u!114 &8929153954738081805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Greataxe
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 6
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 12
-    _modifiers: 4
-  _damageType: 2048

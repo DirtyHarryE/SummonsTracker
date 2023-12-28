@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2103095956144440330
+--- !u!114 &-1996136121266402336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,6 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Cult Fanatic
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Cult Fanatic
   _creature: 9
   _movement:
@@ -55,9 +56,9 @@ MonoBehaviour:
   _languages: Any one language (usually Common)
   _challenge: 2
   _actions:
-  - {fileID: -2103095956144440330}
-  - {fileID: 9049149518443472769}
---- !u!114 &9049149518443472769
+  - {fileID: -1996136121266402336}
+  - {fileID: 3969973832585475410}
+--- !u!114 &3969973832585475410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

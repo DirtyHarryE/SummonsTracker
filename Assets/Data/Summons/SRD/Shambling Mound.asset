@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-643390693242923112
+--- !u!114 &-1591777588159717699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Shambling Mound
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Shambling Mound
   _creature: 12
   _movement:
@@ -77,30 +78,10 @@ MonoBehaviour:
   _languages: --
   _challenge: 5
   _actions:
-  - {fileID: 2444882455954582209}
-  - {fileID: 4787478927381032924}
-  - {fileID: -643390693242923112}
---- !u!114 &2444882455954582209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The shambling mound makes two slam attacks. If both attacks hit a Medium
-    or smaller target, the target is grappled (escape DC 14), and the shambling mound
-    uses its Engulf on it.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &4787478927381032924
+  - {fileID: 7315663565155783099}
+  - {fileID: 658216442896011306}
+  - {fileID: -1591777588159717699}
+--- !u!114 &658216442896011306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,3 +106,23 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 4
   _damageType: 2
+--- !u!114 &7315663565155783099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The shambling mound makes two slam attacks. If both attacks hit a Medium
+    or smaller target, the target is grappled (escape DC 14), and the shambling mound
+    uses its Engulf on it.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1

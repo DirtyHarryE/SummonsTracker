@@ -1,22 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8982590282810282248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Harpoon
-  m_EditorClassIdentifier: 
-  _note: 'Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft.,
-    one target. Hit: 11 (2d6 + 4) piercing damage. If the target is a Huge or smaller
-    creature, it must succeed on a Strength contest against the merrow or be pulled
-    up to 20 feet toward the merrow.'
---- !u!114 &-8380849546095289368
+--- !u!114 &-889921280051166140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claws
+  m_Name: Bite
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
@@ -37,10 +21,10 @@ MonoBehaviour:
   _maxRange: 0
   _target: one target
   _damage:
-    _number: 2
-    _faces: 4
+    _number: 1
+    _faces: 8
     _modifiers: 4
-  _damageType: 2048
+  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Merrow
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Merrow
   _creature: 10
   _movement:
@@ -82,11 +67,11 @@ MonoBehaviour:
   _languages: Abyssal, Aquan
   _challenge: 2
   _actions:
-  - {fileID: 1303164731122740007}
-  - {fileID: 2709869552301271457}
-  - {fileID: -8380849546095289368}
-  - {fileID: -8982590282810282248}
---- !u!114 &1303164731122740007
+  - {fileID: 2607183937802358690}
+  - {fileID: -889921280051166140}
+  - {fileID: 2882011143876712188}
+  - {fileID: 6285932747842986089}
+--- !u!114 &2607183937802358690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +92,7 @@ MonoBehaviour:
     _attackNumber: 1
   - _attackIndex: 3
     _attackNumber: 1
---- !u!114 &2709869552301271457
+--- !u!114 &2882011143876712188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +102,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
+  m_Name: Claws
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
@@ -128,7 +113,23 @@ MonoBehaviour:
   _maxRange: 0
   _target: one target
   _damage:
-    _number: 1
-    _faces: 8
+    _number: 2
+    _faces: 4
     _modifiers: 4
-  _damageType: 128
+  _damageType: 2048
+--- !u!114 &6285932747842986089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Harpoon
+  m_EditorClassIdentifier: 
+  _note: 'Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft.,
+    one target. Hit: 11 (2d6 + 4) piercing damage. If the target is a Huge or smaller
+    creature, it must succeed on a Strength contest against the merrow or be pulled
+    up to 20 feet toward the merrow.'

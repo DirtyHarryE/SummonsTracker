@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6975199877972096863
+--- !u!114 &-4512298379599119884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: 'Melee Spell Attack: +4 to hit, reach 5 ft., one target. Hit: 12 (3d6 +
     2) necrotic damage.'
---- !u!114 &-4609255059146938167
+--- !u!114 &-2820338418815991607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Banshee
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Banshee
   _creature: 13
   _movement:
@@ -94,10 +95,10 @@ MonoBehaviour:
   _languages: Common, Elvish
   _challenge: 4
   _actions:
-  - {fileID: -6975199877972096863}
-  - {fileID: 312584857070719698}
-  - {fileID: -4609255059146938167}
---- !u!114 &312584857070719698
+  - {fileID: -4512298379599119884}
+  - {fileID: 7374268457340237105}
+  - {fileID: -2820338418815991607}
+--- !u!114 &7374268457340237105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

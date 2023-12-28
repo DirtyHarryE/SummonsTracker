@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Black Pudding
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Black Pudding
   _creature: 11
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 4
   _actions:
-  - {fileID: 3987905146797798628}
---- !u!114 &3987905146797798628
+  - {fileID: 4816235548128404632}
+--- !u!114 &4816235548128404632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,9 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
   m_Name: Pseudopod
   m_EditorClassIdentifier: 
-  _note: "In addition, nonmagical armor worn by the target is partly dissolved and
-    takes a permanent and cumulative \u22121 penalty to the AC it offers. The armor
-    is destroyed if the penalty reduces its AC to 10."
+  _note: 
   _attackType: 0
   _attackMod: 5
   _advantageType: 0

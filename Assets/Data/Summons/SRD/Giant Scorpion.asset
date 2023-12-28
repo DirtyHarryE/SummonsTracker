@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4399201695174676806
+--- !u!114 &-3873621527076737483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18,78 +18,6 @@ MonoBehaviour:
     _attackNumber: 2
   - _attackIndex: 2
     _attackNumber: 1
---- !u!114 &-2887274795213964924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 12).
-    The scorpion has two claws, each of which can grapple only one target.
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 2
-  _damageType: 2
---- !u!114 &-1041368870937499220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Sting
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 10
-    _modifiers: 2
-  _damageType: 128
-  _dc: 12
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 4
-      _faces: 10
-      _modifiers: 0
-    _damageType: 256
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +30,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Giant Scorpion
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Giant Scorpion
   _creature: 1
   _movement:
@@ -129,6 +58,56 @@ MonoBehaviour:
   _languages: --
   _challenge: 3
   _actions:
-  - {fileID: -4399201695174676806}
-  - {fileID: -2887274795213964924}
-  - {fileID: -1041368870937499220}
+  - {fileID: -3873621527076737483}
+  - {fileID: 4649001315343705255}
+  - {fileID: 6104744943690312351}
+--- !u!114 &4649001315343705255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 2
+  _damageType: 2
+--- !u!114 &6104744943690312351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Sting
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 10
+    _modifiers: 2
+  _damageType: 128

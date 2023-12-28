@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-497093498472278975
+--- !u!114 &-1384242098818957256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Stone Golem
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Stone Golem
   _creature: 3
   _movement:
@@ -64,10 +65,10 @@ MonoBehaviour:
   _languages: Understands the languages of its creator but can't speak
   _challenge: 10
   _actions:
-  - {fileID: 1563237195439974317}
-  - {fileID: -497093498472278975}
-  - {fileID: 3043994437417866065}
---- !u!114 &1563237195439974317
+  - {fileID: 8223604900113231444}
+  - {fileID: -1384242098818957256}
+  - {fileID: 8600586124951893138}
+--- !u!114 &8223604900113231444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,7 +84,7 @@ MonoBehaviour:
   _attacks:
   - _attackIndex: 1
     _attackNumber: 2
---- !u!114 &3043994437417866065
+--- !u!114 &8600586124951893138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

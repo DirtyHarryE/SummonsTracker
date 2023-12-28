@@ -1,6 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8945205301483638599
+--- !u!114 &-2322552750960526590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 5
+    _faces: 10
+    _modifiers: 5
+  _damageType: 128
+--- !u!114 &-1754500390004772965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,7 +46,93 @@ MonoBehaviour:
     _attackNumber: 2
   - _attackIndex: 3
     _attackNumber: 1
---- !u!114 &-7294284560591209076
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Nalfeshnee
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Nalfeshnee
+  _creature: 7
+  _movement:
+  - Type: 0
+    Distance: 20
+  - Type: 3
+    Distance: 30
+  _maxHP:
+    _number: 16
+    _faces: 10
+    _modifiers: 96
+  _ac: 18
+  _proficiency: 5
+  _strength: 21
+  _dexterity: 10
+  _constitution: 22
+  _intelligence: 19
+  _wisdom: 12
+  _charisma: 15
+  _skills: 0
+  _savingThrows: 60
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 140
+  _damageImmunities: 256
+  _senses: Truesight 120 ft.,  Passive Perception 11
+  _languages: Abyssal, Telepathy 120 ft.
+  _challenge: 13
+  _actions:
+  - {fileID: -1754500390004772965}
+  - {fileID: -2322552750960526590}
+  - {fileID: 2375411340256154925}
+  - {fileID: 4034063323687162646}
+  - {fileID: 1321708946576627641}
+--- !u!114 &1321708946576627641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Teleport
+  m_EditorClassIdentifier: 
+  _note: The nalfeshnee magically teleports, along with any equipment it is wearing
+    or carrying, up to 120 feet to an unoccupied space it can see.
+--- !u!114 &2375411340256154925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 6
+    _modifiers: 5
+  _damageType: 2048
+--- !u!114 &4034063323687162646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,113 +171,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Nalfeshnee
-  m_EditorClassIdentifier: 
-  _name: Nalfeshnee
-  _creature: 7
-  _movement:
-  - Type: 0
-    Distance: 20
-  - Type: 3
-    Distance: 30
-  _maxHP:
-    _number: 16
-    _faces: 10
-    _modifiers: 96
-  _ac: 18
-  _proficiency: 5
-  _strength: 21
-  _dexterity: 10
-  _constitution: 22
-  _intelligence: 19
-  _wisdom: 12
-  _charisma: 15
-  _skills: 0
-  _savingThrows: 60
-  _conditionImmunities: 1024
-  _damageVulnerabilities: 0
-  _damageResistances: 140
-  _damageImmunities: 256
-  _senses: Truesight 120 ft.,  Passive Perception 11
-  _languages: Abyssal, Telepathy 120 ft.
-  _challenge: 13
-  _actions:
-  - {fileID: -8945205301483638599}
-  - {fileID: 7205073566923391811}
-  - {fileID: 8596454453872985872}
-  - {fileID: -7294284560591209076}
-  - {fileID: 7350154061988788496}
---- !u!114 &7205073566923391811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 10
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 5
-    _faces: 10
-    _modifiers: 5
-  _damageType: 128
---- !u!114 &7350154061988788496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Teleport
-  m_EditorClassIdentifier: 
-  _note: The nalfeshnee magically teleports, along with any equipment it is wearing
-    or carrying, up to 120 feet to an unoccupied space it can see.
---- !u!114 &8596454453872985872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 10
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 3
-    _faces: 6
-    _modifiers: 5
-  _damageType: 2048

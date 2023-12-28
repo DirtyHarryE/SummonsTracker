@@ -1,6 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5634280935490599431
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Basilisk
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Basilisk
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 20
+  _maxHP:
+    _number: 8
+    _faces: 8
+    _modifiers: 16
+  _ac: 15
+  _proficiency: 2
+  _strength: 16
+  _dexterity: 8
+  _constitution: 15
+  _intelligence: 2
+  _wisdom: 8
+  _charisma: 7
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 60 ft.,  Passive Perception 9
+  _languages: --
+  _challenge: 3
+  _actions:
+  - {fileID: 8084215279970811030}
+--- !u!114 &8084215279970811030
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,43 +71,3 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 256
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Basilisk
-  m_EditorClassIdentifier: 
-  _name: Basilisk
-  _creature: 10
-  _movement:
-  - Type: 0
-    Distance: 20
-  _maxHP:
-    _number: 8
-    _faces: 8
-    _modifiers: 16
-  _ac: 15
-  _proficiency: 2
-  _strength: 16
-  _dexterity: 8
-  _constitution: 15
-  _intelligence: 2
-  _wisdom: 8
-  _charisma: 7
-  _skills: 0
-  _savingThrows: 0
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 0
-  _senses: Darkvision 60 ft.,  Passive Perception 9
-  _languages: --
-  _challenge: 3
-  _actions:
-  - {fileID: -5634280935490599431}

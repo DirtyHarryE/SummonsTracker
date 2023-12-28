@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9011868735367710157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 1
+  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Giant Badger
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Giant Badger
   _creature: 1
   _movement:
@@ -41,28 +67,10 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: 3676990542354108911}
-  - {fileID: 7418599451890906764}
-  - {fileID: 7199053289334979512}
---- !u!114 &3676990542354108911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The badger makes two attacks: one with its bite and one with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &7199053289334979512
+  - {fileID: 7474471008893644552}
+  - {fileID: -9011868735367710157}
+  - {fileID: 7444166833474062057}
+--- !u!114 &7444166833474062057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +95,7 @@ MonoBehaviour:
     _faces: 4
     _modifiers: 1
   _damageType: 2048
---- !u!114 &7418599451890906764
+--- !u!114 &7474471008893644552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,19 +104,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 3
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 6
-    _modifiers: 1
-  _damageType: 128
+  _note: 'The badger makes two attacks: one with its bite and one with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1

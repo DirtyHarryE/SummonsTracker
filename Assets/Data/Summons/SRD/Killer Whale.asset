@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Killer Whale
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Killer Whale
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 3
   _actions:
-  - {fileID: 4539160714668673775}
---- !u!114 &4539160714668673775
+  - {fileID: 6030015430647954674}
+--- !u!114 &6030015430647954674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,49 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2409405589393687446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 7
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 4
-  _damageType: 2048
---- !u!114 &-1841336062344058949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The dragon makes three attacks: one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
---- !u!114 &-240467587558800053
+--- !u!114 &-3039844273730075498
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,6 +30,31 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 0
   _secondaryDamageType: 1
+--- !u!114 &-2888805331011662980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2048
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Young Black Dragon
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Young Black Dragon
   _creature: 4
   _movement:
@@ -116,11 +99,11 @@ MonoBehaviour:
   _languages: Common, Draconic
   _challenge: 7
   _actions:
-  - {fileID: -1841336062344058949}
-  - {fileID: -240467587558800053}
-  - {fileID: -2409405589393687446}
-  - {fileID: 3279329390441560616}
---- !u!114 &3279329390441560616
+  - {fileID: 3573423329732029928}
+  - {fileID: -3039844273730075498}
+  - {fileID: -2888805331011662980}
+  - {fileID: 1334413132187036488}
+--- !u!114 &1334413132187036488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,3 +138,21 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
+--- !u!114 &3573423329732029928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The dragon makes three attacks: one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2

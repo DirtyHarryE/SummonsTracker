@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1332351543589221877
+--- !u!114 &-3322532785612989147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,44 +9,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Chain
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Animate Chains
   m_EditorClassIdentifier: 
-  _note: The target is grappled if the devil isn't already grappling a creature.
-    Until this grapple ends, the target is restrained and.
-  _attackType: 0
-  _attackMod: 8
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 4
-  _damageType: 2048
-  _dc: 14
-  _isGrapple: 1
-  _savingThrow: 0
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 2
-      _faces: 6
-      _modifiers: 0
-    _damageType: 128
-    _condition: 0
-    _outcomeNote: Takes 7 (2d6) piercing damage at the start of each of its turns
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
+  _note: "Up to four chains the devil can see within 60 feet of it magically sprout
+    razor-\xADedged barbs and animate under the devil's control, provided that the
+    chains aren't being worn or carried. \nEach animated chain is an object with
+    AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic
+    and thunder damage. When the devil uses multiattack on its turn, it can use each
+    animated chain to make one additional chain attack. An animated chain can grapple
+    one creature of its own but can't make attacks while grappling. An animated chain
+    reverts to its inanimate state if reduced to 0 hit points or if the devil is
+    incapacitated or dies."
+--- !u!114 &-89201084805009300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The devil makes two attacks with its chains.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Chain Devil
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Chain Devil
   _creature: 7
   _movement:
@@ -86,10 +77,10 @@ MonoBehaviour:
   _languages: Infernal, Telepathy 120 ft.
   _challenge: 8
   _actions:
-  - {fileID: 8834402948823895545}
-  - {fileID: -1332351543589221877}
-  - {fileID: 2303976809331450551}
---- !u!114 &2303976809331450551
+  - {fileID: -89201084805009300}
+  - {fileID: 7050899734980823496}
+  - {fileID: -3322532785612989147}
+--- !u!114 &7050899734980823496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,31 +89,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Animate Chains
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Chain
   m_EditorClassIdentifier: 
-  _note: "Up to four chains the devil can see within 60 feet of it magically sprout
-    razor-\xADedged barbs and animate under the devil's control, provided that the
-    chains aren't being worn or carried. \nEach animated chain is an object with
-    AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic
-    and thunder damage. When the devil uses multiattack on its turn, it can use each
-    animated chain to make one additional chain attack. An animated chain can grapple
-    one creature of its own but can't make attacks while grappling. An animated chain
-    reverts to its inanimate state if reduced to 0 hit points or if the devil is
-    incapacitated or dies."
---- !u!114 &8834402948823895545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The devil makes two attacks with its chains.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
+  _note: 
+  _attackType: 0
+  _attackMod: 8
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2048

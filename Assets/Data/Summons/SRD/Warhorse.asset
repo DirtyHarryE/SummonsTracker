@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Warhorse
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Warhorse
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: 7066490023027026885}
---- !u!114 &7066490023027026885
+  - {fileID: 4727358845007177149}
+--- !u!114 &4727358845007177149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

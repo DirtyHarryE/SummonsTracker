@@ -1,6 +1,120 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4499483558257379200
+--- !u!114 &-8387089917855435636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 4
+    _modifiers: 1
+  _damageType: 2048
+--- !u!114 &-3572459420031801693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Club
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 1
+  _damageType: 2
+--- !u!114 &-2509081881162315643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The harpy makes two attacks: one with its claws and one with its club.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Harpy
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Harpy
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 20
+  - Type: 3
+    Distance: 40
+  _maxHP:
+    _number: 7
+    _faces: 8
+    _modifiers: 7
+  _ac: 11
+  _proficiency: 2
+  _strength: 12
+  _dexterity: 13
+  _constitution: 12
+  _intelligence: 7
+  _wisdom: 10
+  _charisma: 13
+  _skills: 0
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Passive Perception 10
+  _languages: Common
+  _challenge: 1
+  _actions:
+  - {fileID: -2509081881162315643}
+  - {fileID: -8387089917855435636}
+  - {fileID: -3572459420031801693}
+  - {fileID: 3082709154203256400}
+--- !u!114 &3082709154203256400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,116 +165,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Harpy
-  m_EditorClassIdentifier: 
-  _name: Harpy
-  _creature: 10
-  _movement:
-  - Type: 0
-    Distance: 20
-  - Type: 3
-    Distance: 40
-  _maxHP:
-    _number: 7
-    _faces: 8
-    _modifiers: 7
-  _ac: 11
-  _proficiency: 2
-  _strength: 12
-  _dexterity: 13
-  _constitution: 12
-  _intelligence: 7
-  _wisdom: 10
-  _charisma: 13
-  _skills: 0
-  _savingThrows: 0
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 0
-  _senses: Passive Perception 10
-  _languages: Common
-  _challenge: 1
-  _actions:
-  - {fileID: 3050283517151691}
-  - {fileID: 7068055049651323627}
-  - {fileID: 7727730935875119299}
-  - {fileID: -4499483558257379200}
---- !u!114 &3050283517151691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The harpy makes two attacks: one with its claws and one with its club.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &7068055049651323627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claws
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 3
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 4
-    _modifiers: 1
-  _damageType: 2048
---- !u!114 &7727730935875119299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Club
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 3
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 4
-    _modifiers: 1
-  _damageType: 2

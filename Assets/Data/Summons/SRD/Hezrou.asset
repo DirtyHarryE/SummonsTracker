@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8008788687175531324
+--- !u!114 &-2529253169168349050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
+  m_Name: Claw
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
@@ -22,27 +22,9 @@ MonoBehaviour:
   _target: one target
   _damage:
     _number: 2
-    _faces: 10
+    _faces: 6
     _modifiers: 4
-  _damageType: 128
---- !u!114 &-2385455452752121834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The hezrou makes three attacks: one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
+  _damageType: 2048
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Hezrou
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Hezrou
   _creature: 7
   _movement:
@@ -82,10 +65,10 @@ MonoBehaviour:
   _languages: Abyssal, Telepathy 120 ft.
   _challenge: 8
   _actions:
-  - {fileID: -2385455452752121834}
-  - {fileID: -8008788687175531324}
-  - {fileID: 7207018140880486721}
---- !u!114 &7207018140880486721
+  - {fileID: 2826231669457781697}
+  - {fileID: 2592522771822068921}
+  - {fileID: -2529253169168349050}
+--- !u!114 &2592522771822068921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +78,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
+  m_Name: Bite
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
@@ -107,6 +90,24 @@ MonoBehaviour:
   _target: one target
   _damage:
     _number: 2
-    _faces: 6
+    _faces: 10
     _modifiers: 4
-  _damageType: 2048
+  _damageType: 128
+--- !u!114 &2826231669457781697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The hezrou makes three attacks: one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2

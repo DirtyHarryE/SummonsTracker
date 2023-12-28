@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Lich
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Lich
   _creature: 13
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: Common plus up to five other languages
   _challenge: 21
   _actions:
-  - {fileID: 1083749062730741446}
---- !u!114 &1083749062730741446
+  - {fileID: 2598213195530821744}
+--- !u!114 &2598213195530821744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

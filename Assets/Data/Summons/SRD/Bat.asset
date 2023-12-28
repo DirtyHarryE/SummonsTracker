@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Bat
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0
   _actions:
-  - {fileID: 6118889959856296765}
---- !u!114 &6118889959856296765
+  - {fileID: 2505266396391866692}
+--- !u!114 &2505266396391866692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

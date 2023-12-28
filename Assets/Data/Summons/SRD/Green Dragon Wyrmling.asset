@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8200910189488271794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 10
+    _modifiers: 2
+  _damageType: 128
+  _secondaryDamage:
+    _number: 1
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 256
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Green Dragon Wyrmling
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Green Dragon Wyrmling
   _creature: 4
   _movement:
@@ -43,39 +74,9 @@ MonoBehaviour:
   _languages: Draconic
   _challenge: 2
   _actions:
-  - {fileID: 5620631468472642821}
-  - {fileID: 9045545610972272705}
---- !u!114 &5620631468472642821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 10
-    _modifiers: 2
-  _damageType: 128
-  _secondaryDamage:
-    _number: 1
-    _faces: 6
-    _modifiers: 0
-  _secondaryDamageType: 256
---- !u!114 &9045545610972272705
+  - {fileID: -8200910189488271794}
+  - {fileID: 6300834498810483890}
+--- !u!114 &6300834498810483890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

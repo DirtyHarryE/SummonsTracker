@@ -1,54 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4714233641384650859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: Saving throw against being magically petrified. On a failed save, the creature
-    begins to turn to stone and is restrained. It must repeat the saving throw at
-    the end of its next turn. On a success, the effect ends. On a failure, the creature
-    is petrified.
-  _attackType: 0
-  _attackMod: 3
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 4
-    _modifiers: 1
-  _damageType: 128
-  _dc: 11
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 4096
-    _outcomeNote: For 24 hours.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Cockatrice
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Cockatrice
   _creature: 10
   _movement:
@@ -90,4 +42,29 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: -4714233641384650859}
+  - {fileID: 5983343857504357802}
+--- !u!114 &5983343857504357802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 3
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 1
+  _damageType: 128

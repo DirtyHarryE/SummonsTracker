@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Zombie
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Zombie
   _creature: 13
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: Understands the languages of its creator but can't speak
   _challenge: 0.25
   _actions:
-  - {fileID: 7148664233314086368}
---- !u!114 &7148664233314086368
+  - {fileID: 9210515990433611936}
+--- !u!114 &9210515990433611936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7324955246223864655
+--- !u!114 &-2981631041894565083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36,7 +36,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-5535309131943933065
+--- !u!114 &-2204211206421278217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,31 +71,6 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-5143853609966431743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 10
-    _modifiers: 2
-  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Brass Dragon Wyrmling
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Brass Dragon Wyrmling
   _creature: 4
   _movement:
@@ -139,11 +115,36 @@ MonoBehaviour:
   _languages: Draconic
   _challenge: 1
   _actions:
-  - {fileID: -5143853609966431743}
-  - {fileID: 4649529395785529340}
-  - {fileID: -5535309131943933065}
-  - {fileID: -7324955246223864655}
---- !u!114 &4649529395785529340
+  - {fileID: 5149672502780583871}
+  - {fileID: 6267086080571366256}
+  - {fileID: -2204211206421278217}
+  - {fileID: -2981631041894565083}
+--- !u!114 &5149672502780583871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 10
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &6267086080571366256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

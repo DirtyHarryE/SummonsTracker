@@ -1,45 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4580051085867364040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Morningstar
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 2
-  _damageType: 128
---- !u!114 &-4279513857391906851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Javelin
-  m_EditorClassIdentifier: 
-  _note: 'Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft.,
-    one target. Hit: 9 (2d6 + 2) piercing damage in melee or 5 (1d6 + 2) piercing
-    damage at range.'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Bugbear
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Bugbear
   _creature: 9
   _movement:
@@ -79,5 +40,45 @@ MonoBehaviour:
   _languages: Common, Goblin
   _challenge: 1
   _actions:
-  - {fileID: -4580051085867364040}
-  - {fileID: -4279513857391906851}
+  - {fileID: 4744029229013092534}
+  - {fileID: 3334859857173363243}
+--- !u!114 &3334859857173363243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Javelin
+  m_EditorClassIdentifier: 
+  _note: 'Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft.,
+    one target. Hit: 9 (2d6 + 2) piercing damage in melee or 5 (1d6 + 2) piercing
+    damage at range.'
+--- !u!114 &4744029229013092534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Morningstar
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 2
+  _damageType: 128

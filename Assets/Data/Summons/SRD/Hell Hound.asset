@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Hell Hound
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Hell Hound
   _creature: 7
   _movement:
@@ -39,39 +40,9 @@ MonoBehaviour:
   _languages: Understands Infernal but can't speak it
   _challenge: 3
   _actions:
-  - {fileID: 912951194100996870}
-  - {fileID: 1809757870961356463}
---- !u!114 &912951194100996870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 5
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 3
-  _damageType: 128
-  _secondaryDamage:
-    _number: 2
-    _faces: 6
-    _modifiers: 0
-  _secondaryDamageType: 8
---- !u!114 &1809757870961356463
+  - {fileID: 4283650905869731588}
+  - {fileID: 2298115126827395345}
+--- !u!114 &2298115126827395345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,3 +77,33 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
+--- !u!114 &4283650905869731588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 3
+  _damageType: 128
+  _secondaryDamage:
+    _number: 2
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 8

@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3227569197992562387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Longbow
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 4
+  _advantageType: 0
+  _range: 150
+  _minRange: 5
+  _maxRange: 600
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 2
+  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Centaur
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Centaur
   _creature: 10
   _movement:
@@ -39,32 +65,11 @@ MonoBehaviour:
   _languages: Elvish, Sylvan
   _challenge: 2
   _actions:
-  - {fileID: 1462351910507609329}
-  - {fileID: 1823353856009705895}
-  - {fileID: 6922675917910447776}
-  - {fileID: 1897780951581250086}
---- !u!114 &1462351910507609329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The centaur makes two attacks: one with its pike and one with its hooves
-    or two with its longbow.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
-  - _attackIndex: 3
-    _attackNumber: 2
---- !u!114 &1823353856009705895
+  - {fileID: 8906490917762183462}
+  - {fileID: 6185130570006703271}
+  - {fileID: 7212162835907960725}
+  - {fileID: -3227569197992562387}
+--- !u!114 &6185130570006703271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,32 +94,7 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 4
   _damageType: 128
---- !u!114 &1897780951581250086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Longbow
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 1
-  _attackMod: 4
-  _advantageType: 0
-  _range: 150
-  _minRange: 5
-  _maxRange: 600
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 2
-  _damageType: 128
---- !u!114 &6922675917910447776
+--- !u!114 &7212162835907960725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,3 +119,24 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 4
   _damageType: 2
+--- !u!114 &8906490917762183462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The centaur makes two attacks: one with its pike and one with its hooves
+    or two with its longbow.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+  - _attackIndex: 3
+    _attackNumber: 2

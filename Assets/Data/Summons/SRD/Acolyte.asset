@@ -40,8 +40,8 @@ MonoBehaviour:
   _languages: Any one language (usually Common)
   _challenge: 0.25
   _actions:
-  - {fileID: 6375662399468423643}
---- !u!114 &6375662399468423643
+  - {fileID: 6543434082413127839}
+--- !u!114 &6543434082413127839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

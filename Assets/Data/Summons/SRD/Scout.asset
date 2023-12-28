@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7675111010457810373
+--- !u!114 &-5604431777894787224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,7 +16,7 @@ MonoBehaviour:
   _attacks:
   - _attackIndex: -1
     _attackNumber: 2
---- !u!114 &-1789908911099155845
+--- !u!114 &-5376885042253385253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,19 +26,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Longbow
+  m_Name: Shortsword
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 1
+  _attackType: 0
   _attackMod: 4
   _advantageType: 0
-  _range: 150
+  _range: 5
   _minRange: 5
-  _maxRange: 600
+  _maxRange: 0
   _target: one target
   _damage:
     _number: 1
-    _faces: 8
+    _faces: 6
     _modifiers: 2
   _damageType: 128
 --- !u!114 &11400000
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Scout
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Scout
   _creature: 9
   _movement:
@@ -80,10 +81,10 @@ MonoBehaviour:
   _languages: Any one language (usually Common)
   _challenge: 0.5
   _actions:
-  - {fileID: -7675111010457810373}
-  - {fileID: 7958470196167101102}
-  - {fileID: -1789908911099155845}
---- !u!114 &7958470196167101102
+  - {fileID: -5604431777894787224}
+  - {fileID: -5376885042253385253}
+  - {fileID: 8902654793871808813}
+--- !u!114 &8902654793871808813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,18 +94,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Shortsword
+  m_Name: Longbow
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 0
+  _attackType: 1
   _attackMod: 4
   _advantageType: 0
-  _range: 5
+  _range: 150
   _minRange: 5
-  _maxRange: 0
+  _maxRange: 600
   _target: one target
   _damage:
     _number: 1
-    _faces: 6
+    _faces: 8
     _modifiers: 2
   _damageType: 128

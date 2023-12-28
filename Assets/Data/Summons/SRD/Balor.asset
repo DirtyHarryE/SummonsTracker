@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8127458187405170411
+--- !u!114 &-6431184644788129424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,16 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Teleport
   m_EditorClassIdentifier: 
-  _note: 'The balor makes two attacks: one with its longsword and one with its whip.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &-4299130514678569186
+  _note: The balor magically teleports, along with any equipment it is wearing or
+    carrying, up to 120 feet to an unoccupied space it can see.
+--- !u!114 &-1245921352212051138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30,8 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
   m_Name: Longsword
   m_EditorClassIdentifier: 
-  _note: If the balor scores a critical hit, it rolls damage dice three times, instead
-    of twice.
+  _note: 
   _attackType: 0
   _attackMod: 14
   _advantageType: 0
@@ -61,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Balor
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Balor
   _creature: 7
   _movement:
@@ -90,11 +86,11 @@ MonoBehaviour:
   _languages: Abyssal, Telepathy 120 ft.
   _challenge: 19
   _actions:
-  - {fileID: -8127458187405170411}
-  - {fileID: -4299130514678569186}
-  - {fileID: 5073506875366626976}
-  - {fileID: 7566951094476831038}
---- !u!114 &5073506875366626976
+  - {fileID: 864661275548604504}
+  - {fileID: -1245921352212051138}
+  - {fileID: 5389437474656730940}
+  - {fileID: -6431184644788129424}
+--- !u!114 &864661275548604504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,10 +99,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8487373ab36b94694ef00ab5c7b726, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The balor makes two attacks: one with its longsword and one with its whip.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &5389437474656730940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
   m_Name: Whip
   m_EditorClassIdentifier: 
-  _note: Saving throw or be pulled up to 25 feet toward the balor.
+  _note: 
   _attackType: 0
   _attackMod: 14
   _advantageType: 0
@@ -124,38 +138,3 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 8
-  _dc: 20
-  _isGrapple: 0
-  _savingThrow: 1
-  _failOutcome:
-    _failSaveType: 4
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: Be pulled up to 25 feet toward the balor
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &7566951094476831038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Teleport
-  m_EditorClassIdentifier: 
-  _note: The balor magically teleports, along with any equipment it is wearing or
-    carrying, up to 120 feet to an unoccupied space it can see.

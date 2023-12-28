@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8880619788709257181
+--- !u!114 &-7820008957941267329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Breath Weapons
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: The dragon uses one of the following breath weapons.
---- !u!114 &-6418063462977393720
+  _note: 'The dragon makes three attacks: one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2
+--- !u!114 &-4140395349094716749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 6
+  _damageType: 128
+--- !u!114 &-2504101637836643046
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,7 +68,68 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 6
   _damageType: 2048
---- !u!114 &-4099295037566108578
+--- !u!114 &-1807799936011855937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Breath Weapons
+  m_EditorClassIdentifier: 
+  _note: The dragon uses one of the following breath weapons.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Young Silver Dragon
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Young Silver Dragon
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 3
+    Distance: 80
+  _maxHP:
+    _number: 16
+    _faces: 10
+    _modifiers: 80
+  _ac: 18
+  _proficiency: 4
+  _strength: 23
+  _dexterity: 10
+  _constitution: 21
+  _intelligence: 14
+  _wisdom: 11
+  _charisma: 19
+  _skills: 4152
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 4
+  _senses: Blindsight 30 ft., Darkvision 120 ft.,  Passive Perception 18
+  _languages: Common, Draconic
+  _challenge: 9
+  _actions:
+  - {fileID: -7820008957941267329}
+  - {fileID: -4140395349094716749}
+  - {fileID: -2504101637836643046}
+  - {fileID: -1807799936011855937}
+  - {fileID: 67475204253683799}
+  - {fileID: 4198032290406855164}
+--- !u!114 &67475204253683799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,7 +164,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-2208637196763567412
+--- !u!114 &4198032290406855164
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,93 +200,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Young Silver Dragon
-  m_EditorClassIdentifier: 
-  _name: Young Silver Dragon
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 3
-    Distance: 80
-  _maxHP:
-    _number: 16
-    _faces: 10
-    _modifiers: 80
-  _ac: 18
-  _proficiency: 4
-  _strength: 23
-  _dexterity: 10
-  _constitution: 21
-  _intelligence: 14
-  _wisdom: 11
-  _charisma: 19
-  _skills: 4152
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 4
-  _senses: Blindsight 30 ft., Darkvision 120 ft.,  Passive Perception 18
-  _languages: Common, Draconic
-  _challenge: 9
-  _actions:
-  - {fileID: 6389586341226413893}
-  - {fileID: 2759831884631195005}
-  - {fileID: -6418063462977393720}
-  - {fileID: -8880619788709257181}
-  - {fileID: -4099295037566108578}
-  - {fileID: -2208637196763567412}
---- !u!114 &2759831884631195005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 10
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 10
-    _modifiers: 6
-  _damageType: 128
---- !u!114 &6389586341226413893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The dragon makes three attacks: one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2

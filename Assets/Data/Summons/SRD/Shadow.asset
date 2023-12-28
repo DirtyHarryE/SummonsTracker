@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Shadow
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Shadow
   _creature: 13
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: 1743175572301827367}
---- !u!114 &1743175572301827367
+  - {fileID: 968499714848673662}
+--- !u!114 &968499714848673662
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,12 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Strength Drain
   m_EditorClassIdentifier: 
-  _note: '9 (2d6 + 2) necrotic damage, and the target''s Strength score is reduced
-    by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction
-    lasts until the target finishes a short or long rest.
-
-    If a non-evil humanoid
-    dies from this attack, a new shadow rises from the corpse 1d4 hours later.'
+  _note: 
   _attackType: 0
   _attackMod: 4
   _advantageType: 0

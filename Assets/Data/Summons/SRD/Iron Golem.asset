@@ -1,6 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3889000672359727074
+--- !u!114 &-8240691808996095974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Slam
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 13
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 8
+    _modifiers: 7
+  _damageType: 2
+--- !u!114 &-4880908267100516468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,7 +60,32 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-2798438301343050331
+--- !u!114 &-4001724742257859975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 13
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 10
+    _modifiers: 7
+  _damageType: 2048
+--- !u!114 &-3556534665001595163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Iron Golem
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Iron Golem
   _creature: 3
   _movement:
@@ -90,57 +141,7 @@ MonoBehaviour:
   _languages: Understands the languages of its creator but can't speak
   _challenge: 16
   _actions:
-  - {fileID: -2798438301343050331}
-  - {fileID: 7824725675468473415}
-  - {fileID: 6829010559280934455}
-  - {fileID: -3889000672359727074}
---- !u!114 &6829010559280934455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Sword
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 13
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 3
-    _faces: 10
-    _modifiers: 7
-  _damageType: 2048
---- !u!114 &7824725675468473415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Slam
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 13
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 3
-    _faces: 8
-    _modifiers: 7
-  _damageType: 2
+  - {fileID: -3556534665001595163}
+  - {fileID: -8240691808996095974}
+  - {fileID: -4001724742257859975}
+  - {fileID: -4880908267100516468}

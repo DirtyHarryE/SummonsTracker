@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7442423698744761193
+--- !u!114 &-8133547744069827942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,76 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: The spectator magically creates enough food and water to sustain itself
     for 24 hours.
---- !u!114 &-16118940076098205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 1
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 0
-    _modifiers: 0
-  _damageType: 128
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Spectator
-  m_EditorClassIdentifier: 
-  _name: Spectator
-  _creature: 0
-  _movement:
-  - Type: 0
-    Distance: 0
-  - Type: 3
-    Distance: 30
-  _maxHP:
-    _number: 6
-    _faces: 8
-    _modifiers: 12
-  _ac: 14
-  _proficiency: 2
-  _strength: 8
-  _dexterity: 14
-  _constitution: 14
-  _intelligence: 13
-  _wisdom: 14
-  _charisma: 11
-  _skills: 4096
-  _savingThrows: 0
-  _conditionImmunities: 2048
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 0
-  _senses: Darkvision 120 ft.,  Passive Perception 16
-  _languages: Deep Speech, Telepathy 120 ft., Undercommon
-  _challenge: 3
-  _actions:
-  - {fileID: -16118940076098205}
-  - {fileID: 9071951175323592591}
-  - {fileID: -7442423698744761193}
---- !u!114 &9071951175323592591
+--- !u!114 &-5917127682664520174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,3 +72,73 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Spectator
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Spectator
+  _creature: 0
+  _movement:
+  - Type: 0
+    Distance: 0
+  - Type: 3
+    Distance: 30
+  _maxHP:
+    _number: 6
+    _faces: 8
+    _modifiers: 12
+  _ac: 14
+  _proficiency: 2
+  _strength: 8
+  _dexterity: 14
+  _constitution: 14
+  _intelligence: 13
+  _wisdom: 14
+  _charisma: 11
+  _skills: 4096
+  _savingThrows: 0
+  _conditionImmunities: 2048
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 16
+  _languages: Deep Speech, Telepathy 120 ft., Undercommon
+  _challenge: 3
+  _actions:
+  - {fileID: 3403738266840661638}
+  - {fileID: -5917127682664520174}
+  - {fileID: -8133547744069827942}
+--- !u!114 &3403738266840661638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 1
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 0
+    _modifiers: 0
+  _damageType: 128

@@ -1,6 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7013264623918562238
+--- !u!114 &-3991630607606459285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Fire Breath
+  m_EditorClassIdentifier: 
+  _note: The dragon exhales fire in a 60-foot cone. Each creature in that area must
+    make a saving throw.
+  _dc: 21
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 18
+      _faces: 6
+      _modifiers: 0
+    _damageType: 8
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-2451731035039250727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 14
+  _advantageType: 0
+  _range: 15
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 8
+  _damageType: 2
+--- !u!114 &-638125542718171897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Adult Red Dragon
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Adult Red Dragon
   _creature: 4
   _movement:
@@ -68,48 +129,13 @@ MonoBehaviour:
   _languages: Common, Draconic
   _challenge: 17
   _actions:
-  - {fileID: 2071881763170954723}
-  - {fileID: 5911492344481116458}
-  - {fileID: -7013264623918562238}
-  - {fileID: 4039353782141709221}
-  - {fileID: 2004584790607269641}
-  - {fileID: 1434298415968861047}
---- !u!114 &1434298415968861047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Fire Breath
-  m_EditorClassIdentifier: 
-  _note: The dragon exhales fire in a 60-foot cone. Each creature in that area must
-    make a saving throw.
-  _dc: 21
-  _isGrapple: 0
-  _savingThrow: 2
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 18
-      _faces: 6
-      _modifiers: 0
-    _damageType: 8
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &2004584790607269641
+  - {fileID: 6456032155154962010}
+  - {fileID: 6670603938856242475}
+  - {fileID: -638125542718171897}
+  - {fileID: -2451731035039250727}
+  - {fileID: 5160315236684309434}
+  - {fileID: -3991630607606459285}
+--- !u!114 &5160315236684309434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +173,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &2071881763170954723
+--- !u!114 &6456032155154962010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,32 +194,7 @@ MonoBehaviour:
     _attackNumber: 2
   - _attackIndex: 4
     _attackNumber: 1
---- !u!114 &4039353782141709221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 14
-  _advantageType: 0
-  _range: 15
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 8
-  _damageType: 2
---- !u!114 &5911492344481116458
+--- !u!114 &6670603938856242475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

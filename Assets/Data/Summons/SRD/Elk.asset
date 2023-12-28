@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Elk
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Elk
   _creature: 1
   _movement:
@@ -39,34 +40,9 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: 1087646657590999447}
-  - {fileID: 310763569081502796}
---- !u!114 &310763569081502796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Hooves
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 5
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one prone creature
-  _damage:
-    _number: 2
-    _faces: 4
-    _modifiers: 3
-  _damageType: 2
---- !u!114 &1087646657590999447
+  - {fileID: 4022921932604043491}
+  - {fileID: 4121689915006030283}
+--- !u!114 &4022921932604043491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,5 +65,30 @@ MonoBehaviour:
   _damage:
     _number: 1
     _faces: 6
+    _modifiers: 3
+  _damageType: 2
+--- !u!114 &4121689915006030283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Hooves
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one prone creature
+  _damage:
+    _number: 2
+    _faces: 4
     _modifiers: 3
   _damageType: 2

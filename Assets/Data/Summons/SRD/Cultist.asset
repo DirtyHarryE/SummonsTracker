@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Cultist
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Cultist
   _creature: 9
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: Any one language (usually Common)
   _challenge: 0.125
   _actions:
-  - {fileID: 3604146536344170895}
---- !u!114 &3604146536344170895
+  - {fileID: 6715652654398696776}
+--- !u!114 &6715652654398696776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

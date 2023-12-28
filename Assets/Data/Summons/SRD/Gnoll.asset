@@ -1,31 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7322353887470644334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 4
-    _modifiers: 2
-  _damageType: 128
---- !u!114 &-1205421803581778861
+--- !u!114 &-1887343734531284873
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +15,31 @@ MonoBehaviour:
   _note: 'Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft.,
     one target. Hit: 5 (1d6 + 2) piercing damage, or 6 (1d8 + 2) piercing damage
     if used with two hands to make a melee attack.'
+--- !u!114 &-1017473413342341244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Longbow
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 3
+  _advantageType: 0
+  _range: 150
+  _minRange: 5
+  _maxRange: 600
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 1
+  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Gnoll
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Gnoll
   _creature: 9
   _movement:
@@ -79,10 +80,10 @@ MonoBehaviour:
   _languages: Gnoll
   _challenge: 0.5
   _actions:
-  - {fileID: -7322353887470644334}
-  - {fileID: -1205421803581778861}
-  - {fileID: 4868227089342005175}
---- !u!114 &4868227089342005175
+  - {fileID: 325148889382832334}
+  - {fileID: -1887343734531284873}
+  - {fileID: -1017473413342341244}
+--- !u!114 &325148889382832334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,18 +93,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Longbow
+  m_Name: Bite
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 1
-  _attackMod: 3
+  _attackType: 0
+  _attackMod: 4
   _advantageType: 0
-  _range: 150
+  _range: 5
   _minRange: 5
-  _maxRange: 600
-  _target: one target
+  _maxRange: 0
+  _target: one creature
   _damage:
     _number: 1
-    _faces: 8
-    _modifiers: 1
+    _faces: 4
+    _modifiers: 2
   _damageType: 128

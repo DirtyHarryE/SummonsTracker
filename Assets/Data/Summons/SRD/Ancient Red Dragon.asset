@@ -1,6 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9081604458286841094
+--- !u!114 &-4354932490128081964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 17
+  _advantageType: 0
+  _range: 15
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 10
+  _damageType: 128
+  _secondaryDamage:
+    _number: 4
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 8
+--- !u!114 &-4269162067070386374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -35,7 +65,128 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-5705474311814443870
+--- !u!114 &-4149339076616265874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 17
+  _advantageType: 0
+  _range: 20
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 10
+  _damageType: 2
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Ancient Red Dragon
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Ancient Red Dragon
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 2
+    Distance: 40
+  - Type: 3
+    Distance: 80
+  _maxHP:
+    _number: 28
+    _faces: 20
+    _modifiers: 252
+  _ac: 22
+  _proficiency: 7
+  _strength: 30
+  _dexterity: 10
+  _constitution: 29
+  _intelligence: 18
+  _wisdom: 15
+  _charisma: 23
+  _skills: 4104
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 8
+  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 26
+  _languages: Common, Draconic
+  _challenge: 24
+  _actions:
+  - {fileID: 300304024611660816}
+  - {fileID: -4354932490128081964}
+  - {fileID: 275209256193418418}
+  - {fileID: -4149339076616265874}
+  - {fileID: 8063779957369696014}
+  - {fileID: -4269162067070386374}
+--- !u!114 &275209256193418418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 17
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 10
+  _damageType: 2048
+--- !u!114 &300304024611660816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The dragon can use its Frightful Presence. It then makes three attacks:
+    one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2
+  - _attackIndex: 4
+    _attackNumber: 1
+--- !u!114 &8063779957369696014
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,153 +224,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-4841385904112552972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 17
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 10
-  _damageType: 2048
---- !u!114 &-4470298270749963720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The dragon can use its Frightful Presence. It then makes three attacks:
-    one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
-  - _attackIndex: 4
-    _attackNumber: 1
---- !u!114 &-2652506306570933594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 17
-  _advantageType: 0
-  _range: 20
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 10
-  _damageType: 2
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Ancient Red Dragon
-  m_EditorClassIdentifier: 
-  _name: Ancient Red Dragon
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 2
-    Distance: 40
-  - Type: 3
-    Distance: 80
-  _maxHP:
-    _number: 28
-    _faces: 20
-    _modifiers: 252
-  _ac: 22
-  _proficiency: 7
-  _strength: 30
-  _dexterity: 10
-  _constitution: 29
-  _intelligence: 18
-  _wisdom: 15
-  _charisma: 23
-  _skills: 4104
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 8
-  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 26
-  _languages: Common, Draconic
-  _challenge: 24
-  _actions:
-  - {fileID: -4470298270749963720}
-  - {fileID: 8159213466994591186}
-  - {fileID: -4841385904112552972}
-  - {fileID: -2652506306570933594}
-  - {fileID: -5705474311814443870}
-  - {fileID: -9081604458286841094}
---- !u!114 &8159213466994591186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 17
-  _advantageType: 0
-  _range: 15
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 10
-    _modifiers: 10
-  _damageType: 128
-  _secondaryDamage:
-    _number: 4
-    _faces: 6
-    _modifiers: 0
-  _secondaryDamageType: 8

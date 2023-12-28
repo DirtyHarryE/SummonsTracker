@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Homunculus
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Homunculus
   _creature: 3
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: Understands the languages of its creator but can't speak
   _challenge: 0
   _actions:
-  - {fileID: 7508899920719552248}
---- !u!114 &7508899920719552248
+  - {fileID: 419414811053136789}
+--- !u!114 &419414811053136789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

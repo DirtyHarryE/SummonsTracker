@@ -1,6 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3142622660564286740
+--- !u!114 &-4887126459572146112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Draining Kiss
+  m_EditorClassIdentifier: 
+  _note: The fiend kisses a creature charmed by it or a willing creature. The target
+    must make a saving throw against this magic.
+  _dc: 15
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 5
+      _faces: 10
+      _modifiers: 5
+    _damageType: 512
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one. The target's hit point
+      maximum is reduced by an amount equal to the damage taken. This reduction lasts
+      until the target finishes a long rest. The target dies if this effect reduces
+      its hit point maximum to 0.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-1607371358715245310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Succubus_Incubus
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Succubus/Incubus
   _creature: 7
   _movement:
@@ -84,11 +123,11 @@ MonoBehaviour:
   _languages: Abyssal, Common, Infernal, Telepathy 60 ft.
   _challenge: 4
   _actions:
-  - {fileID: 5165584185908075171}
-  - {fileID: -3142622660564286740}
-  - {fileID: 2073326261600502126}
-  - {fileID: 797642122927265983}
---- !u!114 &797642122927265983
+  - {fileID: 3155746557759240653}
+  - {fileID: -1607371358715245310}
+  - {fileID: -4887126459572146112}
+  - {fileID: 1088234930329561909}
+--- !u!114 &1088234930329561909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,45 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _note: The fiend magically enters the Ethereal Plane from the Material Plane, or
     vice versa.
---- !u!114 &2073326261600502126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Draining Kiss
-  m_EditorClassIdentifier: 
-  _note: The fiend kisses a creature charmed by it or a willing creature. The target
-    must make a saving throw against this magic.
-  _dc: 15
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 5
-      _faces: 10
-      _modifiers: 5
-    _damageType: 512
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one. The target's hit point
-      maximum is reduced by an amount equal to the damage taken. This reduction lasts
-      until the target finishes a long rest. The target dies if this effect reduces
-      its hit point maximum to 0.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &5165584185908075171
+--- !u!114 &3155746557759240653
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1613868169016957642
+--- !u!114 &-4325248766262306623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Greataxe
+  m_Name: Gore
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
@@ -22,9 +22,9 @@ MonoBehaviour:
   _target: one target
   _damage:
     _number: 2
-    _faces: 12
+    _faces: 8
     _modifiers: 4
-  _damageType: 2048
+  _damageType: 128
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Minotaur Skeleton
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Minotaur Skeleton
   _creature: 13
   _movement:
@@ -64,9 +65,9 @@ MonoBehaviour:
   _languages: Understands Abyssal but can't speak  it
   _challenge: 2
   _actions:
-  - {fileID: -1613868169016957642}
-  - {fileID: 1314019970845058044}
---- !u!114 &1314019970845058044
+  - {fileID: 2344262293184205853}
+  - {fileID: -4325248766262306623}
+--- !u!114 &2344262293184205853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Gore
+  m_Name: Greataxe
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
@@ -88,6 +89,6 @@ MonoBehaviour:
   _target: one target
   _damage:
     _number: 2
-    _faces: 8
+    _faces: 12
     _modifiers: 4
-  _damageType: 128
+  _damageType: 2048

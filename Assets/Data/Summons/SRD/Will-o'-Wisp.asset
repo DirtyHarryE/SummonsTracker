@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7416148805110663369
+--- !u!114 &-1854317041459734765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,20 +15,6 @@ MonoBehaviour:
   _note: The will-o'-wisp and its light magically become invisible until it attacks
     or uses its Consume Life, or until its concentration ends (as if concentrating
     on a spell).
---- !u!114 &-3422055189541683534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Shock
-  m_EditorClassIdentifier: 
-  _note: 'Melee Spell Attack: +4 to hit, reach 5 ft., one creature. Hit: 9 (2d8)
-    lightning damage.'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,6 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Will-o'-Wisp
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Will-o'-Wisp
   _creature: 13
   _movement:
@@ -70,5 +57,19 @@ MonoBehaviour:
   _languages: The languages it knew in life
   _challenge: 2
   _actions:
-  - {fileID: -3422055189541683534}
-  - {fileID: -7416148805110663369}
+  - {fileID: 9203825723298392753}
+  - {fileID: -1854317041459734765}
+--- !u!114 &9203825723298392753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Shock
+  m_EditorClassIdentifier: 
+  _note: 'Melee Spell Attack: +4 to hit, reach 5 ft., one creature. Hit: 9 (2d8)
+    lightning damage.'

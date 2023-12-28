@@ -1,6 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5422098819665099534
+--- !u!114 &-6843732380120964562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The ape makes two fist attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &-2233903082051062237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 9
+  _advantageType: 0
+  _range: 50
+  _minRange: 5
+  _maxRange: 100
+  _target: one target
+  _damage:
+    _number: 7
+    _faces: 6
+    _modifiers: 6
+  _damageType: 2
+--- !u!114 &-422024443102258045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,22 +66,6 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 6
   _damageType: 2
---- !u!114 &-4529629570240537813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The ape makes two fist attacks.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Giant Ape
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Giant Ape
   _creature: 1
   _movement:
@@ -82,31 +108,6 @@ MonoBehaviour:
   _languages: --
   _challenge: 7
   _actions:
-  - {fileID: -4529629570240537813}
-  - {fileID: -5422098819665099534}
-  - {fileID: 6711669032975844607}
---- !u!114 &6711669032975844607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Rock
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 1
-  _attackMod: 9
-  _advantageType: 0
-  _range: 50
-  _minRange: 5
-  _maxRange: 100
-  _target: one target
-  _damage:
-    _number: 7
-    _faces: 6
-    _modifiers: 6
-  _damageType: 2
+  - {fileID: -6843732380120964562}
+  - {fileID: -422024443102258045}
+  - {fileID: -2233903082051062237}

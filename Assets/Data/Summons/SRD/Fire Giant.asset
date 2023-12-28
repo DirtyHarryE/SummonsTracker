@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3218260623644831343
+--- !u!114 &-754298046841661939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,37 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Rock
+  m_Name: Greatsword
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 1
+  _attackType: 0
   _attackMod: 11
   _advantageType: 0
-  _range: 60
+  _range: 10
   _minRange: 5
-  _maxRange: 240
+  _maxRange: 0
   _target: one target
   _damage:
-    _number: 4
-    _faces: 10
+    _number: 6
+    _faces: 6
     _modifiers: 7
-  _damageType: 2
---- !u!114 &-2820797463631668171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The giant makes two greatsword attacks.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
+  _damageType: 2048
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Fire Giant
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Fire Giant
   _creature: 8
   _movement:
@@ -80,10 +65,26 @@ MonoBehaviour:
   _languages: Giant
   _challenge: 9
   _actions:
-  - {fileID: -2820797463631668171}
-  - {fileID: 2884281763958288801}
-  - {fileID: -3218260623644831343}
---- !u!114 &2884281763958288801
+  - {fileID: 1022514057628512496}
+  - {fileID: -754298046841661939}
+  - {fileID: 6413468734363096646}
+--- !u!114 &1022514057628512496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The giant makes two greatsword attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+--- !u!114 &6413468734363096646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,18 +94,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Greatsword
+  m_Name: Rock
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 0
+  _attackType: 1
   _attackMod: 11
   _advantageType: 0
-  _range: 10
+  _range: 60
   _minRange: 5
-  _maxRange: 0
+  _maxRange: 240
   _target: one target
   _damage:
-    _number: 6
-    _faces: 6
+    _number: 4
+    _faces: 10
     _modifiers: 7
-  _damageType: 2048
+  _damageType: 2

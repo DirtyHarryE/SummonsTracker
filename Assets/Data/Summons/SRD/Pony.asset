@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8684209663431737163
+--- !u!114 &-8264268246830966043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Pony
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Pony
   _creature: 1
   _movement:
@@ -64,4 +65,4 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.125
   _actions:
-  - {fileID: -8684209663431737163}
+  - {fileID: -8264268246830966043}

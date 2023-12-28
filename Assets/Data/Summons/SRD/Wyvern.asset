@@ -1,73 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5903390387943545623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The wyvern makes two attacks: one with its bite and one with its stinger.
-    While flying, it can use its claws in place of one other attack.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
-  - _attackIndex: 3
-    _attackNumber: 1
---- !u!114 &-4849126723942261001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Stinger
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 7
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 4
-  _damageType: 128
-  _dc: 15
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 7
-      _faces: 6
-      _modifiers: 0
-    _damageType: 256
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-3957298161992115721
+--- !u!114 &-8785230900230086694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,6 +25,52 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 4
   _damageType: 128
+--- !u!114 &-8638561636060604825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Stinger
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 7
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 128
+--- !u!114 &-2821512360101348476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The wyvern makes two attacks: one with its bite and one with its stinger.
+    While flying, it can use its claws in place of one other attack.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
+  - _attackIndex: 3
+    _attackNumber: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Wyvern
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Wyvern
   _creature: 4
   _movement:
@@ -133,11 +113,11 @@ MonoBehaviour:
   _languages: --
   _challenge: 6
   _actions:
-  - {fileID: -5903390387943545623}
-  - {fileID: -3957298161992115721}
-  - {fileID: 5896991024868754004}
-  - {fileID: -4849126723942261001}
---- !u!114 &5896991024868754004
+  - {fileID: -2821512360101348476}
+  - {fileID: -8785230900230086694}
+  - {fileID: 3957581778393326561}
+  - {fileID: -8638561636060604825}
+--- !u!114 &3957581778393326561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

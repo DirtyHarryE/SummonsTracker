@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Giant Centipede
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Giant Centipede
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: 1230241856188724693}
---- !u!114 &1230241856188724693
+  - {fileID: 5222553148848394789}
+--- !u!114 &5222553148848394789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -54,9 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Bite
   m_EditorClassIdentifier: 
-  _note: If the poison damage reduces the target to 0 hit points, the target is stable
-    but poisoned for 1 hour, even after regaining hit points, and is paralyzed while
-    poisoned in this way.
+  _note: 
   _attackType: 0
   _attackMod: 4
   _advantageType: 0

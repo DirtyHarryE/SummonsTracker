@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2368586729145666841
+--- !u!114 &-6221790108660017362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29,6 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Wraith
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Wraith
   _creature: 13
   _movement:
@@ -58,9 +59,9 @@ MonoBehaviour:
   _languages: The languages it knew in life
   _challenge: 5
   _actions:
-  - {fileID: 3880024758733025462}
-  - {fileID: -2368586729145666841}
---- !u!114 &3880024758733025462
+  - {fileID: 7187791055584083130}
+  - {fileID: -6221790108660017362}
+--- !u!114 &7187791055584083130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,12 +70,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Life Drain
   m_EditorClassIdentifier: 
-  _note: Saving throw or its hit point maximum is reduced by an amount equal to the
-    damage taken. This reduction lasts until the target finishes a long rest. The
-    target dies if this effect reduces its hit point maximum to 0.
+  _note: 
   _attackType: 0
   _attackMod: 6
   _advantageType: 0
@@ -87,25 +86,3 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 3
   _damageType: 64
-  _dc: 14
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 4
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: Its hit point maximum is reduced by an amount equal to the damage
-      taken
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 

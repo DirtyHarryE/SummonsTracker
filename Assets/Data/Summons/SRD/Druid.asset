@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5412991120573255507
+--- !u!114 &-4035207336148885266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Quarterstaff
   m_EditorClassIdentifier: 
-  _note: 3 (1d6) bludgeoning damage, 4 (1d8) bludgeoning damage if wielded with two
-    hands, or 6 (1d8 + 2) bludgeoning damage with shillelagh.
+  _note: 
   _attackType: 0
   _attackMod: 2
   _advantageType: 0
@@ -38,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Druid
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Druid
   _creature: 9
   _movement:
@@ -65,4 +65,4 @@ MonoBehaviour:
   _languages: Druidic plus any two languages
   _challenge: 2
   _actions:
-  - {fileID: -5412991120573255507}
+  - {fileID: -4035207336148885266}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1916493587869955145
+--- !u!114 &-3524783815782495334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Rust Monster
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Rust Monster
   _creature: 10
   _movement:
@@ -80,9 +81,9 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: 3083928176644577805}
-  - {fileID: -1916493587869955145}
---- !u!114 &3083928176644577805
+  - {fileID: 3432530999854634671}
+  - {fileID: -3524783815782495334}
+--- !u!114 &3432530999854634671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

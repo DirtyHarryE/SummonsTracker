@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6305469857615093313
+--- !u!114 &-4973874635942317494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,156 +25,7 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 7
   _damageType: 2048
---- !u!114 &-3488854376445085168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Repulsion Breath
-  m_EditorClassIdentifier: 
-  _note: The dragon exhales repulsion energy in a 30-foot cone. Each creature in
-    that area must succeed on a saving throw. On a failed save, the creature is pushed
-    60 feet away from the dragon.
-  _dc: 19
-  _isGrapple: 0
-  _savingThrow: 1
-  _failOutcome:
-    _failSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-3047303999637719327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Breath Weapons
-  m_EditorClassIdentifier: 
-  _note: The dragon uses one of the following breath weapons.
---- !u!114 &-645884066769346541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Change Shape
-  m_EditorClassIdentifier: 
-  _note: 'The dragon magically polymorphs into a humanoid or beast that has a challenge
-    rating no higher than its own, or back into its true form. It reverts to its
-    true form if it dies. Any equipment it is wearing or carrying is absorbed or
-    borne by the new form (the dragon''s choice).
-
-    In a new form, the dragon
-    retains its alignment, hit points, Hit Dice, ability to speak, proficiencies,
-    Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores,
-    as well as this action. Its statistics and capabilities are otherwise replaced
-    by those of the new form, except any class features or legendary actions of that
-    form.'
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Adult Bronze Dragon
-  m_EditorClassIdentifier: 
-  _name: Adult Bronze Dragon
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 3
-    Distance: 80
-  - Type: 4
-    Distance: 40
-  _maxHP:
-    _number: 17
-    _faces: 12
-    _modifiers: 102
-  _ac: 19
-  _proficiency: 5
-  _strength: 25
-  _dexterity: 10
-  _constitution: 23
-  _intelligence: 16
-  _wisdom: 15
-  _charisma: 19
-  _skills: 5128
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 32
-  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 22
-  _languages: Common, Draconic
-  _challenge: 15
-  _actions:
-  - {fileID: 8837970211534682226}
-  - {fileID: 7459921272172037843}
-  - {fileID: -6305469857615093313}
-  - {fileID: 2463372836162708699}
-  - {fileID: 4999420231260528451}
-  - {fileID: -3047303999637719327}
-  - {fileID: 5477942557446151124}
-  - {fileID: -3488854376445085168}
-  - {fileID: -645884066769346541}
---- !u!114 &2463372836162708699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 12
-  _advantageType: 0
-  _range: 15
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 7
-  _damageType: 2
---- !u!114 &4999420231260528451
+--- !u!114 &-3516320194943037531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,7 +63,203 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &5477942557446151124
+--- !u!114 &-2516123845882429674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Breath Weapons
+  m_EditorClassIdentifier: 
+  _note: The dragon uses one of the following breath weapons.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Adult Bronze Dragon
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Adult Bronze Dragon
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 3
+    Distance: 80
+  - Type: 4
+    Distance: 40
+  _maxHP:
+    _number: 17
+    _faces: 12
+    _modifiers: 102
+  _ac: 19
+  _proficiency: 5
+  _strength: 25
+  _dexterity: 10
+  _constitution: 23
+  _intelligence: 16
+  _wisdom: 15
+  _charisma: 19
+  _skills: 5128
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 32
+  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 22
+  _languages: Common, Draconic
+  _challenge: 15
+  _actions:
+  - {fileID: 8153805266904574796}
+  - {fileID: 2663266509943386908}
+  - {fileID: -4973874635942317494}
+  - {fileID: 352944828838906820}
+  - {fileID: -3516320194943037531}
+  - {fileID: -2516123845882429674}
+  - {fileID: 8867663304107450847}
+  - {fileID: 461504760804798823}
+  - {fileID: 2020479429899697132}
+--- !u!114 &352944828838906820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 12
+  _advantageType: 0
+  _range: 15
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 7
+  _damageType: 2
+--- !u!114 &461504760804798823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Repulsion Breath
+  m_EditorClassIdentifier: 
+  _note: The dragon exhales repulsion energy in a 30-foot cone. Each creature in
+    that area must succeed on a saving throw. On a failed save, the creature is pushed
+    60 feet away from the dragon.
+  _dc: 19
+  _isGrapple: 0
+  _savingThrow: 1
+  _failOutcome:
+    _failSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &2020479429899697132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Change Shape
+  m_EditorClassIdentifier: 
+  _note: 'The dragon magically polymorphs into a humanoid or beast that has a challenge
+    rating no higher than its own, or back into its true form. It reverts to its
+    true form if it dies. Any equipment it is wearing or carrying is absorbed or
+    borne by the new form (the dragon''s choice).
+
+    In a new form, the dragon
+    retains its alignment, hit points, Hit Dice, ability to speak, proficiencies,
+    Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores,
+    as well as this action. Its statistics and capabilities are otherwise replaced
+    by those of the new form, except any class features or legendary actions of that
+    form.'
+--- !u!114 &2663266509943386908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 12
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 7
+  _damageType: 128
+--- !u!114 &8153805266904574796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: 'The dragon can use its Frightful Presence. It then makes three attacks:
+    one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2
+  - _attackIndex: 4
+    _attackNumber: 1
+--- !u!114 &8867663304107450847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,49 +294,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &7459921272172037843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 12
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 10
-    _modifiers: 7
-  _damageType: 128
---- !u!114 &8837970211534682226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The dragon can use its Frightful Presence. It then makes three attacks:
-    one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
-  - _attackIndex: 4
-    _attackNumber: 1

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Deep Gnome )
+  m_Name: 'Deep Gnome '
   m_EditorClassIdentifier: 
-  _name: Deep Gnome )
+  _license: 0
+  _name: 'Deep Gnome '
   _creature: 9
   _movement:
   - Type: 0
@@ -39,9 +40,9 @@ MonoBehaviour:
   _languages: Gnomish, Terran, Undercommon
   _challenge: 0.5
   _actions:
-  - {fileID: 2368767614096419134}
-  - {fileID: 866087548119642178}
---- !u!114 &866087548119642178
+  - {fileID: 4635446312961315321}
+  - {fileID: 4733299496392590502}
+--- !u!114 &4635446312961315321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,12 +51,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: War Pick
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 2
+  _damageType: 128
+--- !u!114 &4733299496392590502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
   m_Name: Poisoned Dart
   m_EditorClassIdentifier: 
-  _note: 'Ranged Weapon Attack: +4 to hit, range 30/120 ft., one creature. Hit: 4
-    (1d4 + 2) piercing damage, and the target must succeed on a saving throw or be
-    poisoned.'
+  _note: Saving throw or be poisoned.
+  _attackType: 1
+  _attackMod: 4
+  _advantageType: 0
+  _range: 30
+  _minRange: 5
+  _maxRange: 120
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 2
+  _damageType: 128
   _dc: 12
   _isGrapple: 0
   _savingThrow: 4
@@ -78,17 +114,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &2368767614096419134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: War Pick
-  m_EditorClassIdentifier: 
-  _note: 'Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 +
-    2) piercing damage.'

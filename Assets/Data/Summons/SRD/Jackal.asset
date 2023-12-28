@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Jackal
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Jackal
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0
   _actions:
-  - {fileID: 6284850408377985668}
---- !u!114 &6284850408377985668
+  - {fileID: 5158759571697719172}
+--- !u!114 &5158759571697719172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

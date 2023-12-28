@@ -1,61 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5762622470972393078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Darkness Aura
-  m_EditorClassIdentifier: 
-  _note: "A 15-\xAD-foot radius of magical darkness extends out from the darkmantle,
-    moves with it, and spreads around corners. The darkness lasts as long as the
-    darkmantle maintains concentration, up to 10 minutes (as if concentrating on
-    a spell). Darkvision can't penetrate this darkness, and no natural light can
-    illuminate it. If any of the darkness overlaps with an area of light created
-    by a spell of 2nd level or lower, the spell creating the light is dispelled."
---- !u!114 &-3893499068730101217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Crush
-  m_EditorClassIdentifier: 
-  _note: '6 (1d6 + 3) bludgeoning damage, and the darkmantle attaches to the target.
-    If the target is Medium or smaller and the darkmantle has advantage on the attack
-    roll, it attaches by engulfing the target''s head, and the target is also blinded
-    and unable to breathe while the darkmantle is attached in this way.
-
-    While
-    attached to the target, the darkmantle can attack no other creature except the
-    target but has advantage on its attack rolls. The darkmantle''s speed also becomes
-    0, it can''t benefit from any bonus to its speed, and it moves with the target.
-
-    A
-    creature can detach the darkmantle by making a successful DC 13 Strength check
-    as an action. On its turn, the darkmantle can detach itself from the target by
-    using 5 feet of movement.'
-  _attackType: 0
-  _attackMod: 5
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 6
-    _modifiers: 3
-  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Darkmantle
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Darkmantle
   _creature: 10
   _movement:
@@ -97,5 +42,48 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: -3893499068730101217}
-  - {fileID: -5762622470972393078}
+  - {fileID: 3310751543327339628}
+  - {fileID: 8949921805153511193}
+--- !u!114 &3310751543327339628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Crush
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 6
+    _modifiers: 3
+  _damageType: 2
+--- !u!114 &8949921805153511193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Darkness Aura
+  m_EditorClassIdentifier: 
+  _note: "A 15-\xAD-foot radius of magical darkness extends out from the darkmantle,
+    moves with it, and spreads around corners. The darkness lasts as long as the
+    darkmantle maintains concentration, up to 10 minutes (as if concentrating on
+    a spell). Darkvision can't penetrate this darkness, and no natural light can
+    illuminate it. If any of the darkness overlaps with an area of light created
+    by a spell of 2nd level or lower, the spell creating the light is dispelled."

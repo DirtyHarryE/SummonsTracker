@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3897278604002320274
+--- !u!114 &-6734801995881912439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15,7 +15,7 @@ MonoBehaviour:
   _note: Until the end of its next turn, the golem magically gains a +2 bonus to
     its AC, has advantage on Dexterity saving throws, and can use its slam attack
     as a bonus action.
---- !u!114 &-3036472510220435564
+--- !u!114 &-6596537122315829243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24,13 +24,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Slam
   m_EditorClassIdentifier: 
-  _note: Saving throw or have its hit point maximum reduced by an amount equal to
-    the damage taken. The target dies if this attack reduces its hit point maximum
-    to 0. The reduction lasts until removed by the greater restoration spell or other
-    magic.
+  _note: 
   _attackType: 0
   _attackMod: 8
   _advantageType: 0
@@ -43,28 +40,22 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 5
   _damageType: 2
-  _dc: 15
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 4
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: Have its hit point maximum reduced by an amount equal to the damage
-      taken
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
+--- !u!114 &-3948785684012831430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The golem makes two slam attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Clay Golem
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Clay Golem
   _creature: 3
   _movement:
@@ -104,22 +96,6 @@ MonoBehaviour:
   _languages: Understands the languages of its creator but can't speak
   _challenge: 9
   _actions:
-  - {fileID: 3637466711855304300}
-  - {fileID: -3036472510220435564}
-  - {fileID: -3897278604002320274}
---- !u!114 &3637466711855304300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The golem makes two slam attacks.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
+  - {fileID: -3948785684012831430}
+  - {fileID: -6596537122315829243}
+  - {fileID: -6734801995881912439}

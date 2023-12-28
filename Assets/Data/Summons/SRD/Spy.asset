@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8507788789013309719
+--- !u!114 &-4938246444981708370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,37 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Hand Crossbow
+  m_Name: Shortsword
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 1
+  _attackType: 0
   _attackMod: 4
   _advantageType: 0
-  _range: 30
+  _range: 5
   _minRange: 5
-  _maxRange: 120
+  _maxRange: 0
   _target: one target
   _damage:
     _number: 1
     _faces: 6
     _modifiers: 2
   _damageType: 128
---- !u!114 &-5917814233719778123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The spy makes two melee attacks.
-  _attacks:
-  - _attackIndex: -1
-    _attackNumber: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Spy
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Spy
   _creature: 9
   _movement:
@@ -80,10 +65,10 @@ MonoBehaviour:
   _languages: Any two languages
   _challenge: 1
   _actions:
-  - {fileID: -5917814233719778123}
-  - {fileID: 8831550206447131031}
-  - {fileID: -8507788789013309719}
---- !u!114 &8831550206447131031
+  - {fileID: 1531447905520875935}
+  - {fileID: -4938246444981708370}
+  - {fileID: 1243813937870437232}
+--- !u!114 &1243813937870437232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,18 +78,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Shortsword
+  m_Name: Hand Crossbow
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 0
+  _attackType: 1
   _attackMod: 4
   _advantageType: 0
-  _range: 5
+  _range: 30
   _minRange: 5
-  _maxRange: 0
+  _maxRange: 120
   _target: one target
   _damage:
     _number: 1
     _faces: 6
     _modifiers: 2
   _damageType: 128
+--- !u!114 &1531447905520875935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The spy makes two melee attacks.
+  _attacks:
+  - _attackIndex: -1
+    _attackNumber: 2

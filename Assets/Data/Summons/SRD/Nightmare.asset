@@ -1,20 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8059213301879037568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Ethereal Stride
-  m_EditorClassIdentifier: 
-  _note: The nightmare and up to three willing creatures within 5 feet of it magically
-    enter the Ethereal Plane from the Material Plane, or vice versa.
---- !u!114 &-4620737339357749713
+--- !u!114 &-5275143252560999606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +30,20 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 8
+--- !u!114 &-258584830506422609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Ethereal Stride
+  m_EditorClassIdentifier: 
+  _note: The nightmare and up to three willing creatures within 5 feet of it magically
+    enter the Ethereal Plane from the Material Plane, or vice versa.
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Nightmare
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Nightmare
   _creature: 7
   _movement:
@@ -85,5 +86,5 @@ MonoBehaviour:
   _languages: Common  and Infernal but can't speak
   _challenge: 3
   _actions:
-  - {fileID: -4620737339357749713}
-  - {fileID: -8059213301879037568}
+  - {fileID: -5275143252560999606}
+  - {fileID: -258584830506422609}

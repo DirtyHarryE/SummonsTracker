@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6691231739100793882
+--- !u!114 &-5988923421921024029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Breath Weapons
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Sleep Breath
   m_EditorClassIdentifier: 
-  _note: The dragon uses one of the following breath weapons.
---- !u!114 &-6238678976900720529
+  _note: The dragon exhales sleep gas in a 60-foot cone. Each creature in that area
+    must succeed on a saving throw or fall unconscious.
+  _dc: 18
+  _isGrapple: 0
+  _savingThrow: 4
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 16384
+    _outcomeNote: For 10 minutes. This effect ends for a creature if the creature
+      takes damage or someone uses an action to wake it.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-5799681209457125507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,74 +45,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 11
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 6
-  _damageType: 2048
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Adult Brass Dragon
-  m_EditorClassIdentifier: 
-  _name: Adult Brass Dragon
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 1
-    Distance: 30
-  - Type: 3
-    Distance: 80
-  _maxHP:
-    _number: 15
-    _faces: 12
-    _modifiers: 75
-  _ac: 18
-  _proficiency: 5
-  _strength: 23
-  _dexterity: 10
-  _constitution: 21
-  _intelligence: 14
-  _wisdom: 13
-  _charisma: 17
-  _skills: 135208
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 8
-  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 21
-  _languages: Common, Draconic
-  _challenge: 13
-  _actions:
-  - {fileID: 3143883793533227467}
-  - {fileID: 9043390904335312923}
-  - {fileID: -6238678976900720529}
-  - {fileID: 2858764540255171401}
-  - {fileID: 2063009841407010012}
-  - {fileID: -6691231739100793882}
-  - {fileID: 6715029203718709668}
-  - {fileID: 5063296953630718102}
---- !u!114 &2063009841407010012
+  _note: 'The dragon can use its Frightful Presence. It then makes three attacks:
+    one with its bite and two with its claws.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 2
+  - _attackIndex: 4
+    _attackNumber: 1
+--- !u!114 &-5119503202077339912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +95,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &2858764540255171401
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,23 +104,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Adult Brass Dragon
   m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 11
-  _advantageType: 0
-  _range: 15
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 6
-  _damageType: 2
---- !u!114 &3143883793533227467
+  _license: 0
+  _name: Adult Brass Dragon
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 1
+    Distance: 30
+  - Type: 3
+    Distance: 80
+  _maxHP:
+    _number: 15
+    _faces: 12
+    _modifiers: 75
+  _ac: 18
+  _proficiency: 5
+  _strength: 23
+  _dexterity: 10
+  _constitution: 21
+  _intelligence: 14
+  _wisdom: 13
+  _charisma: 17
+  _skills: 135208
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 8
+  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 21
+  _languages: Common, Draconic
+  _challenge: 13
+  _actions:
+  - {fileID: -5799681209457125507}
+  - {fileID: 5950718118729576569}
+  - {fileID: 6049702549450052880}
+  - {fileID: 8116166628070900309}
+  - {fileID: -5119503202077339912}
+  - {fileID: 1117190934295074782}
+  - {fileID: 5090636905123132037}
+  - {fileID: -5988923421921024029}
+--- !u!114 &1117190934295074782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,55 +156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Breath Weapons
   m_EditorClassIdentifier: 
-  _note: 'The dragon can use its Frightful Presence. It then makes three attacks:
-    one with its bite and two with its claws.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 2
-  - _attackIndex: 4
-    _attackNumber: 1
---- !u!114 &5063296953630718102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Sleep Breath
-  m_EditorClassIdentifier: 
-  _note: The dragon exhales sleep gas in a 60-foot cone. Each creature in that area
-    must succeed on a saving throw or fall unconscious.
-  _dc: 18
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 16384
-    _outcomeNote: For 10 minutes. This effect ends for a creature if the creature
-      takes damage or someone uses an action to wake it.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &6715029203718709668
+  _note: The dragon uses one of the following breath weapons.
+--- !u!114 &5090636905123132037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -244,7 +195,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &9043390904335312923
+--- !u!114 &5950718118729576569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,3 +220,53 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 6
   _damageType: 128
+--- !u!114 &6049702549450052880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 11
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 6
+  _damageType: 2048
+--- !u!114 &8116166628070900309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 11
+  _advantageType: 0
+  _range: 15
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 6
+  _damageType: 2

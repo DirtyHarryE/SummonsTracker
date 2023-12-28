@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7466435374064972970
+--- !u!114 &-3840315465213247541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,31 +25,6 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 7
   _damageType: 128
---- !u!114 &-3165405396152706666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Stomp
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 10
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one prone creature
-  _damage:
-    _number: 4
-    _faces: 10
-    _modifiers: 7
-  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Mammoth
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Mammoth
   _creature: 1
   _movement:
@@ -89,5 +65,30 @@ MonoBehaviour:
   _languages: --
   _challenge: 6
   _actions:
-  - {fileID: -7466435374064972970}
-  - {fileID: -3165405396152706666}
+  - {fileID: -3840315465213247541}
+  - {fileID: 667515188858862485}
+--- !u!114 &667515188858862485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Stomp
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one prone creature
+  _damage:
+    _number: 4
+    _faces: 10
+    _modifiers: 7
+  _damageType: 2

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3529959210552278008
+--- !u!114 &-8926729635930707654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,27 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Greatsword
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Healing Touch
   m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 12
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 4
-    _faces: 6
-    _modifiers: 7
-  _damageType: 2048
-  _secondaryDamage:
-    _number: 5
-    _faces: 8
-    _modifiers: 0
-  _secondaryDamageType: 1024
+  _note: (4/Day). The planetar touches another creature. The target magically regains
+    30 (6d8 + 3) hit points and is freed from any curse, disease, poison, blindness,
+    or deafness.
+--- !u!114 &-2664618508393874907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The planetar makes two melee attacks.
+  _attacks:
+  - _attackIndex: -1
+    _attackNumber: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Planetar
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Planetar
   _creature: 2
   _movement:
@@ -71,10 +73,10 @@ MonoBehaviour:
   _languages: All, Telepathy 120 ft.
   _challenge: 16
   _actions:
-  - {fileID: 7384261997353826100}
-  - {fileID: -3529959210552278008}
-  - {fileID: 782777597888849790}
---- !u!114 &782777597888849790
+  - {fileID: -2664618508393874907}
+  - {fileID: 6435878345338997979}
+  - {fileID: -8926729635930707654}
+--- !u!114 &6435878345338997979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,25 +85,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Healing Touch
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Greatsword
   m_EditorClassIdentifier: 
-  _note: (4/Day). The planetar touches another creature. The target magically regains
-    30 (6d8 + 3) hit points and is freed from any curse, disease, poison, blindness,
-    or deafness.
---- !u!114 &7384261997353826100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The planetar makes two melee attacks.
-  _attacks:
-  - _attackIndex: -1
-    _attackNumber: 2
+  _note: 
+  _attackType: 0
+  _attackMod: 12
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 6
+    _modifiers: 7
+  _damageType: 2048
+  _secondaryDamage:
+    _number: 5
+    _faces: 8
+    _modifiers: 0
+  _secondaryDamageType: 1024

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Rhinoceros
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Rhinoceros
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 2
   _actions:
-  - {fileID: 811523742180783037}
---- !u!114 &811523742180783037
+  - {fileID: 1770996648571976006}
+--- !u!114 &1770996648571976006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

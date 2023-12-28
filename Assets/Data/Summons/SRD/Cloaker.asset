@@ -1,6 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7366650449603237616
+--- !u!114 &-8537037111135232660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Phantasms
+  m_EditorClassIdentifier: 
+  _note: 'The cloaker magically creates three illusory duplicates of itself if it
+    isn''t in bright light. The duplicates move with it and mimic its actions, shifting
+    position so as to make it impossible to track which cloaker is the real one.
+    If the cloaker is ever in an area of bright light, the duplicates disappear.
+
+    Whenever
+    any creature targets the cloaker with an attack or a harmful spell while a duplicate
+    remains, that creature rolls randomly to determine whether it targets the cloaker
+    or one of the duplicates. A creature is unaffected by this magical effect if
+    it can''t see or if it relies on senses other than sight.
+
+    A duplicate has
+    the cloaker''s AC and uses its saving throws. If an attack hits a duplicate,
+    or if a duplicate fails a saving throw against an effect that deals damage, the
+    duplicate disappears.'
+--- !u!114 &-8394647294890738422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,7 +64,32 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-4717963149418333621
+--- !u!114 &-6933542194170984950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 3
+  _damageType: 2048
+--- !u!114 &-5251576248062436737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,14 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Bite
   m_EditorClassIdentifier: 
-  _note: 10 (2d6 + 3) piercing damage, and if the target is Large or smaller, the
-    cloaker attaches to it. If the cloaker has advantage against the target, the
-    cloaker attaches to the target's head, and the target is blinded and unable to
-    breathe while the cloaker is attached. While attached, the cloaker can make this
-    attack only against the target and has advantage on the attack roll. The cloaker
-    can detach itself by spending 5 feet of its movement. A creature, including the
-    target, can take its action to detach the cloaker by succeeding on a DC 16 Strength
-    check.
+  _note: 
   _attackType: 0
   _attackMod: 6
   _advantageType: 0
@@ -69,7 +114,7 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 3
   _damageType: 128
---- !u!114 &-4490874914321155359
+--- !u!114 &-4451916855290868579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,24 +123,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Phantasms
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: 'The cloaker magically creates three illusory duplicates of itself if it
-    isn''t in bright light. The duplicates move with it and mimic its actions, shifting
-    position so as to make it impossible to track which cloaker is the real one.
-    If the cloaker is ever in an area of bright light, the duplicates disappear.
-
-    Whenever
-    any creature targets the cloaker with an attack or a harmful spell while a duplicate
-    remains, that creature rolls randomly to determine whether it targets the cloaker
-    or one of the duplicates. A creature is unaffected by this magical effect if
-    it can''t see or if it relies on senses other than sight.
-
-    A duplicate has
-    the cloaker''s AC and uses its saving throws. If an attack hits a duplicate,
-    or if a duplicate fails a saving throw against an effect that deals damage, the
-    duplicate disappears.'
+  _note: 'The cloaker makes two attacks: one with its bite and one with its tail.'
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Cloaker
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Cloaker
   _creature: 0
   _movement:
@@ -137,51 +174,8 @@ MonoBehaviour:
   _languages: Deep Speech, Undercommon
   _challenge: 8
   _actions:
-  - {fileID: 3314729515014226404}
-  - {fileID: -4717963149418333621}
-  - {fileID: 4841532157549325535}
-  - {fileID: -7366650449603237616}
-  - {fileID: -4490874914321155359}
---- !u!114 &3314729515014226404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: 'The cloaker makes two attacks: one with its bite and one with its tail.'
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &4841532157549325535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 6
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 3
-  _damageType: 2048
+  - {fileID: -4451916855290868579}
+  - {fileID: -5251576248062436737}
+  - {fileID: -6933542194170984950}
+  - {fileID: -8394647294890738422}
+  - {fileID: -8537037111135232660}

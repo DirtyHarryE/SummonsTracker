@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4395833228293866604
+--- !u!114 &-2813806031082033493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Grimlock
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Grimlock
   _creature: 9
   _movement:
@@ -69,4 +70,4 @@ MonoBehaviour:
   _languages: Undercommon
   _challenge: 0.25
   _actions:
-  - {fileID: -4395833228293866604}
+  - {fileID: -2813806031082033493}

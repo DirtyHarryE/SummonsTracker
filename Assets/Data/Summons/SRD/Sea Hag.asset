@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5040233345301439034
+--- !u!114 &-6838006773545139329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,6 +22,31 @@ MonoBehaviour:
     the claws. Otherwise, a creature must take an action to visually inspect the
     illusion and succeed on a DC 16 Intelligence (Investigation) check to discern
     that the hag is disguised.'
+--- !u!114 &-5438621213489815060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 5
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 3
+  _damageType: 2048
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Sea Hag
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Sea Hag
   _creature: 6
   _movement:
@@ -63,10 +89,10 @@ MonoBehaviour:
   _languages: Aquan, Common, Giant
   _challenge: 2
   _actions:
-  - {fileID: 6406864964886372259}
-  - {fileID: 3837659178939507119}
-  - {fileID: -5040233345301439034}
---- !u!114 &3837659178939507119
+  - {fileID: -5438621213489815060}
+  - {fileID: 3381565036241979072}
+  - {fileID: -6838006773545139329}
+--- !u!114 &3381565036241979072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,28 +128,3 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &6406864964886372259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claws
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 5
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 3
-  _damageType: 2048

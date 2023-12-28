@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-672742316467126501
+--- !u!114 &-3620234239963128946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Bite
   m_EditorClassIdentifier: 
-  _note: 10 (4d4) piercing damage, or 5 (2d4) piercing damage if the swarm has half
-    of its hit points or fewer.
+  _note: 
   _attackType: 0
   _attackMod: 3
   _advantageType: 0
@@ -38,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Swarm of Insects
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Swarm of Insects
   _creature: 1
   _movement:
@@ -67,4 +67,4 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.5
   _actions:
-  - {fileID: -672742316467126501}
+  - {fileID: -3620234239963128946}

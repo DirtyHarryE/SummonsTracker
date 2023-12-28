@@ -1,68 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5758817624816171950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The yeti can use its Chilling Gaze and makes two claw attacks.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Yeti
-  m_EditorClassIdentifier: 
-  _name: Yeti
-  _creature: 10
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 2
-    Distance: 40
-  _maxHP:
-    _number: 6
-    _faces: 10
-    _modifiers: 18
-  _ac: 12
-  _proficiency: 2
-  _strength: 18
-  _dexterity: 13
-  _constitution: 16
-  _intelligence: 8
-  _wisdom: 12
-  _charisma: 7
-  _skills: 4104
-  _savingThrows: 0
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 4
-  _senses: Darkvision 60 ft.,  Passive Perception 13
-  _languages: Yeti
-  _challenge: 3
-  _actions:
-  - {fileID: -5758817624816171950}
-  - {fileID: 6419536881770371255}
-  - {fileID: 3183501362189761192}
---- !u!114 &3183501362189761192
+--- !u!114 &-7933972091486575555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +40,70 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &6419536881770371255
+--- !u!114 &-254509012255562883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The yeti can use its Chilling Gaze and makes two claw attacks.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Yeti
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Yeti
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 2
+    Distance: 40
+  _maxHP:
+    _number: 6
+    _faces: 10
+    _modifiers: 18
+  _ac: 12
+  _proficiency: 2
+  _strength: 18
+  _dexterity: 13
+  _constitution: 16
+  _intelligence: 8
+  _wisdom: 12
+  _charisma: 7
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 4
+  _senses: Darkvision 60 ft.,  Passive Perception 13
+  _languages: Yeti
+  _challenge: 3
+  _actions:
+  - {fileID: -254509012255562883}
+  - {fileID: 8090236797661614445}
+  - {fileID: -7933972091486575555}
+--- !u!114 &8090236797661614445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

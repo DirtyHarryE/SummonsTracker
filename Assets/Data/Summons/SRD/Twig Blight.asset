@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Twig Blight
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Twig Blight
   _creature: 12
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: "Common understands but can\xE2\x80\x99t speak"
   _challenge: 0.125
   _actions:
-  - {fileID: 2293334129542350670}
---- !u!114 &2293334129542350670
+  - {fileID: 1626914017118737170}
+--- !u!114 &1626914017118737170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

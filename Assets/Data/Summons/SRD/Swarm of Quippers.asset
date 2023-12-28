@@ -1,20 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9106347083256681738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: '. Melee Weapon Attack: +5 to hit, reach 0 ft., one creature in the swarm''s
-    space. Hit: 14 (4d6) piercing damage, or 7 (2d6) piercing damage if the swarm
-    has half of its hit points or fewer.'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Swarm of Quippers
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Swarm of Quippers
   _creature: 1
   _movement:
@@ -56,4 +42,19 @@ MonoBehaviour:
   _languages: --
   _challenge: 1
   _actions:
-  - {fileID: -9106347083256681738}
+  - {fileID: 4011637141389425191}
+--- !u!114 &4011637141389425191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: '. Melee Weapon Attack: +5 to hit, reach 0 ft., one creature in the swarm''s
+    space. Hit: 14 (4d6) piercing damage, or 7 (2d6) piercing damage if the swarm
+    has half of its hit points or fewer.'

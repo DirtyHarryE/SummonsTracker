@@ -1,6 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7711882336324418747
+--- !u!114 &-8230996316399189834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Invisibility
+  m_EditorClassIdentifier: 
+  _note: The quasit magically turns invisible until it attacks or uses Scare, or
+    until its concentration ends (as if concentrating on a spell). Any equipment
+    the quasit wears or carries is invisible with it.
+--- !u!114 &-7354913170860421054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,53 +52,6 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-1399478609774714637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Claws
-  m_EditorClassIdentifier: 
-  _note: Saving throw or.
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 4
-    _modifiers: 3
-  _damageType: 128
-  _dc: 10
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 3
-    _damage:
-      _number: 2
-      _faces: 4
-      _modifiers: 0
-    _damageType: 256
-    _condition: 1024
-    _outcomeNote: For 1 minute. The target can repeat the saving throw at the end
-      of each of its turns, ending the effect on itself on a success.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Quasit
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Quasit
   _creature: 7
   _movement:
@@ -123,10 +92,10 @@ MonoBehaviour:
   _languages: Abyssal, Common
   _challenge: 1
   _actions:
-  - {fileID: -1399478609774714637}
-  - {fileID: -7711882336324418747}
-  - {fileID: 2142447179996767330}
---- !u!114 &2142447179996767330
+  - {fileID: 776356516294041283}
+  - {fileID: -7354913170860421054}
+  - {fileID: -8230996316399189834}
+--- !u!114 &776356516294041283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,9 +104,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Invisibility
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claws
   m_EditorClassIdentifier: 
-  _note: The quasit magically turns invisible until it attacks or uses Scare, or
-    until its concentration ends (as if concentrating on a spell). Any equipment
-    the quasit wears or carries is invisible with it.
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 3
+  _damageType: 128

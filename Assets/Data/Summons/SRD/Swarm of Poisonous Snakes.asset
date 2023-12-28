@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2933127886066652780
+--- !u!114 &-1167668217624879225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Swarm of Poisonous Snakes
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Swarm of Poisonous Snakes
   _creature: 1
   _movement:
@@ -77,4 +78,4 @@ MonoBehaviour:
   _languages: --
   _challenge: 2
   _actions:
-  - {fileID: -2933127886066652780}
+  - {fileID: -1167668217624879225}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5838210936354524439
+--- !u!114 &-8428891378655235836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21,195 +21,7 @@ MonoBehaviour:
     _attackNumber: 2
   - _attackIndex: 4
     _attackNumber: 1
---- !u!114 &-4618349715899807054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 15
-  _advantageType: 0
-  _range: 20
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 8
-  _damageType: 2
---- !u!114 &-3394598552525551152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Breath Weapons
-  m_EditorClassIdentifier: 
-  _note: The dragon uses one of the following breath weapons.
---- !u!114 &-2480784802110128825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Claw
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 15
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 8
-  _damageType: 2048
---- !u!114 &-1011695436682723904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Acid Breath
-  m_EditorClassIdentifier: 
-  _note: The dragon exhales acid in an 90-foot line that is 10 feet wide. Each creature
-    in that line must make a saving throw.
-  _dc: 22
-  _isGrapple: 0
-  _savingThrow: 2
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 14
-      _faces: 8
-      _modifiers: 0
-    _damageType: 1
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-643548316849230837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Frightful Presence
-  m_EditorClassIdentifier: 
-  _note: Each creature of the dragon's choice that is within 120 feet of the dragon
-    and aware of it must succeed on a saving throw or become frightened.
-  _dc: 19
-  _isGrapple: 0
-  _savingThrow: 16
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 16
-    _outcomeNote: For 1 minute. A creature can repeat the saving throw at the end
-      of each of its turns, ending the effect on itself on a success. If a creature's
-      saving throw is successful or the effect ends for it, the creature is immune
-      to the dragon's Frightful Presence for the next 24 hours.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Ancient Copper Dragon
-  m_EditorClassIdentifier: 
-  _name: Ancient Copper Dragon
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 40
-  - Type: 2
-    Distance: 40
-  - Type: 3
-    Distance: 80
-  _maxHP:
-    _number: 20
-    _faces: 20
-    _modifiers: 140
-  _ac: 21
-  _proficiency: 7
-  _strength: 27
-  _dexterity: 12
-  _constitution: 25
-  _intelligence: 20
-  _wisdom: 17
-  _charisma: 19
-  _skills: 20488
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 1
-  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 27
-  _languages: Common, Draconic
-  _challenge: 21
-  _actions:
-  - {fileID: -5838210936354524439}
-  - {fileID: 2241330117222916364}
-  - {fileID: -2480784802110128825}
-  - {fileID: -4618349715899807054}
-  - {fileID: -643548316849230837}
-  - {fileID: -3394598552525551152}
-  - {fileID: -1011695436682723904}
-  - {fileID: 2717071921364532152}
-  - {fileID: 7922247292424776814}
---- !u!114 &2241330117222916364
+--- !u!114 &-8164620087025113317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,7 +46,7 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 8
   _damageType: 128
---- !u!114 &2717071921364532152
+--- !u!114 &-7206215377669308665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,7 +86,85 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &7922247292424776814
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Ancient Copper Dragon
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Ancient Copper Dragon
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 40
+  - Type: 2
+    Distance: 40
+  - Type: 3
+    Distance: 80
+  _maxHP:
+    _number: 20
+    _faces: 20
+    _modifiers: 140
+  _ac: 21
+  _proficiency: 7
+  _strength: 27
+  _dexterity: 12
+  _constitution: 25
+  _intelligence: 20
+  _wisdom: 17
+  _charisma: 19
+  _skills: 20488
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 1
+  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 27
+  _languages: Common, Draconic
+  _challenge: 21
+  _actions:
+  - {fileID: -8428891378655235836}
+  - {fileID: -8164620087025113317}
+  - {fileID: 48907993785397919}
+  - {fileID: 5413466119758987426}
+  - {fileID: 8302320391208936263}
+  - {fileID: 5179389733716373301}
+  - {fileID: 8992921068395125167}
+  - {fileID: -7206215377669308665}
+  - {fileID: 3108742973659636114}
+--- !u!114 &48907993785397919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Claw
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 15
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 8
+  _damageType: 2048
+--- !u!114 &3108742973659636114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,3 +184,114 @@ MonoBehaviour:
     Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well
     as this action. Its statistics and capabilities are otherwise replaced by those
     of the new form, except any class features or legendary actions of that form."
+--- !u!114 &5179389733716373301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Breath Weapons
+  m_EditorClassIdentifier: 
+  _note: The dragon uses one of the following breath weapons.
+--- !u!114 &5413466119758987426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 15
+  _advantageType: 0
+  _range: 20
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 8
+  _damageType: 2
+--- !u!114 &8302320391208936263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Frightful Presence
+  m_EditorClassIdentifier: 
+  _note: Each creature of the dragon's choice that is within 120 feet of the dragon
+    and aware of it must succeed on a saving throw or become frightened.
+  _dc: 19
+  _isGrapple: 0
+  _savingThrow: 16
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 16
+    _outcomeNote: For 1 minute. A creature can repeat the saving throw at the end
+      of each of its turns, ending the effect on itself on a success. If a creature's
+      saving throw is successful or the effect ends for it, the creature is immune
+      to the dragon's Frightful Presence for the next 24 hours.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &8992921068395125167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Acid Breath
+  m_EditorClassIdentifier: 
+  _note: The dragon exhales acid in an 90-foot line that is 10 feet wide. Each creature
+    in that line must make a saving throw.
+  _dc: 22
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 14
+      _faces: 8
+      _modifiers: 0
+    _damageType: 1
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 

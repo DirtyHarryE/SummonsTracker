@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3691534370872771183
+--- !u!114 &-6071937343561898556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,33 +25,6 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 2
   _damageType: 128
---- !u!114 &-3444637743121946180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Constrict
-  m_EditorClassIdentifier: 
-  _note: 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 14).
-    Until this grapple ends, the creature is restrained, and the snake can't constrict
-    another target.
-  _attackType: 0
-  _attackMod: 4
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 2
-  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Constrictor Snake
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Constrictor Snake
   _creature: 1
   _movement:
@@ -93,5 +67,30 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.25
   _actions:
-  - {fileID: -3691534370872771183}
-  - {fileID: -3444637743121946180}
+  - {fileID: -6071937343561898556}
+  - {fileID: 8456438408220259363}
+--- !u!114 &8456438408220259363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Constrict
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 4
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 2
+  _damageType: 2

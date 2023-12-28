@@ -1,128 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8495589881267789590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 6
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 4
-    _modifiers: 0
-  _damageType: 128
-  _secondaryDamage:
-    _number: 2
-    _faces: 8
-    _modifiers: 0
-  _secondaryDamageType: 256
---- !u!114 &-6838390082445173851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The drider makes three attacks, either with its longsword or its longbow.
-    It can replace one of those attacks with a bite attack.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 1
-  - _attackIndex: 2
-    _attackNumber: 3
-  - _attackIndex: 3
-    _attackNumber: 1
---- !u!114 &-3118056004650530621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Longsword
-  m_EditorClassIdentifier: 
-  _note: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with
-    two hands.
-  _attackType: 0
-  _attackMod: 6
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 3
-  _damageType: 2048
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Drider
-  m_EditorClassIdentifier: 
-  _name: Drider
-  _creature: 10
-  _movement:
-  - Type: 0
-    Distance: 30
-  - Type: 2
-    Distance: 30
-  _maxHP:
-    _number: 13
-    _faces: 10
-    _modifiers: 52
-  _ac: 19
-  _proficiency: 2
-  _strength: 16
-  _dexterity: 16
-  _constitution: 18
-  _intelligence: 13
-  _wisdom: 14
-  _charisma: 12
-  _skills: 4104
-  _savingThrows: 0
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 0
-  _senses: Darkvision 120 ft.,  Passive Perception 15
-  _languages: Elvish, Undercommon
-  _challenge: 6
-  _actions:
-  - {fileID: -6838390082445173851}
-  - {fileID: -8495589881267789590}
-  - {fileID: -3118056004650530621}
-  - {fileID: 5383073860927289135}
---- !u!114 &5383073860927289135
+--- !u!114 &-8402650381255147150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,3 +30,125 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 0
   _secondaryDamageType: 256
+--- !u!114 &-6911679855208719038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Bite
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 4
+    _modifiers: 0
+  _damageType: 128
+  _secondaryDamage:
+    _number: 2
+    _faces: 8
+    _modifiers: 0
+  _secondaryDamageType: 256
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Drider
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Drider
+  _creature: 10
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 2
+    Distance: 30
+  _maxHP:
+    _number: 13
+    _faces: 10
+    _modifiers: 52
+  _ac: 19
+  _proficiency: 2
+  _strength: 16
+  _dexterity: 16
+  _constitution: 18
+  _intelligence: 13
+  _wisdom: 14
+  _charisma: 12
+  _skills: 4104
+  _savingThrows: 0
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 15
+  _languages: Elvish, Undercommon
+  _challenge: 6
+  _actions:
+  - {fileID: 7585181428287580403}
+  - {fileID: -6911679855208719038}
+  - {fileID: 7299565780450112720}
+  - {fileID: -8402650381255147150}
+--- !u!114 &7299565780450112720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Longsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 3
+  _damageType: 2048
+--- !u!114 &7585181428287580403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The drider makes three attacks, either with its longsword or its longbow.
+    It can replace one of those attacks with a bite attack.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 1
+  - _attackIndex: 2
+    _attackNumber: 3
+  - _attackIndex: 3
+    _attackNumber: 1

@@ -1,110 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8168735392022915710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Unarmed Strike
-  m_EditorClassIdentifier: 
-  _note: Instead of dealing damage, the vampire can grapple the target (escape DC
-    18).
-  _attackType: 0
-  _attackMod: 9
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 1
-    _faces: 8
-    _modifiers: 4
-  _damageType: 2
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Vampire
-  m_EditorClassIdentifier: 
-  _name: Vampire
-  _creature: 13
-  _movement:
-  - Type: 0
-    Distance: 30
-  _maxHP:
-    _number: 17
-    _faces: 8
-    _modifiers: 68
-  _ac: 16
-  _proficiency: 5
-  _strength: 18
-  _dexterity: 18
-  _constitution: 18
-  _intelligence: 17
-  _wisdom: 15
-  _charisma: 18
-  _skills: 4104
-  _savingThrows: 50
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 128
-  _damageImmunities: 0
-  _senses: Darkvision 120 ft.,  Passive Perception 17
-  _languages: the languages it knew in life
-  _challenge: 13
-  _actions:
-  - {fileID: 3858961219769051005}
-  - {fileID: -8168735392022915710}
-  - {fileID: 8451306578011189243}
-  - {fileID: 3927173138509667490}
-  - {fileID: 322609789381488859}
---- !u!114 &322609789381488859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Children of the Night
-  m_EditorClassIdentifier: 
-  _note: The vampire magically calls 2d4 swarms of bats or rats (swarm of bats, swarm
-    of rats), provided that the sun isn't up. While outdoors, the vampire can call
-    3d6 wolves (wolf) instead. The called creatures arrive in 1d4 rounds, acting
-    as allies of the vampire and obeying its spoken commands. The beasts remain for
-    1 hour, until the vampire dies, or until the vampire dismisses them as a bonus
-    action.
---- !u!114 &3858961219769051005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The vampire makes two attacks, only one of which can be a bite attack.
-  _attacks:
-  - _attackIndex: 2
-    _attackNumber: 1
---- !u!114 &3927173138509667490
+--- !u!114 &-4566907892247106567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +45,86 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &8451306578011189243
+--- !u!114 &-1407242800574018191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Children of the Night
+  m_EditorClassIdentifier: 
+  _note: The vampire magically calls 2d4 swarms of bats or rats (swarm of bats, swarm
+    of rats), provided that the sun isn't up. While outdoors, the vampire can call
+    3d6 wolves (wolf) instead. The called creatures arrive in 1d4 rounds, acting
+    as allies of the vampire and obeying its spoken commands. The beasts remain for
+    1 hour, until the vampire dies, or until the vampire dismisses them as a bonus
+    action.
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Vampire
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Vampire
+  _creature: 13
+  _movement:
+  - Type: 0
+    Distance: 30
+  _maxHP:
+    _number: 17
+    _faces: 8
+    _modifiers: 68
+  _ac: 16
+  _proficiency: 5
+  _strength: 18
+  _dexterity: 18
+  _constitution: 18
+  _intelligence: 17
+  _wisdom: 15
+  _charisma: 18
+  _skills: 4104
+  _savingThrows: 50
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 128
+  _damageImmunities: 0
+  _senses: Darkvision 120 ft.,  Passive Perception 17
+  _languages: the languages it knew in life
+  _challenge: 13
+  _actions:
+  - {fileID: 3568740809536900478}
+  - {fileID: 4885590241515486310}
+  - {fileID: 4068231735723789933}
+  - {fileID: -4566907892247106567}
+  - {fileID: -1407242800574018191}
+--- !u!114 &3568740809536900478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The vampire makes two attacks, only one of which can be a bite attack.
+  _attacks:
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &4068231735723789933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,11 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
   m_Name: Bite
   m_EditorClassIdentifier: 
-  _note: The target's hit point maximum is reduced by an amount equal to the necrotic
-    damage taken, and the vampire regains hit points equal to that amount. The reduction
-    lasts until the target finishes a long rest. The target dies if this effect reduces
-    its hit point maximum to 0. A humanoid slain in this way and then buried in the
-    ground rises the following night as a vampire spawn under the vampire's control.
+  _note: 
   _attackType: 0
   _attackMod: 9
   _advantageType: 0
@@ -183,3 +154,28 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 64
+--- !u!114 &4885590241515486310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Unarmed Strike
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 1
+    _faces: 8
+    _modifiers: 4
+  _damageType: 2

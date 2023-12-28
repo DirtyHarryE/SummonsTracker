@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8310240043844643678
+--- !u!114 &-7512167932919706019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,55 +37,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-1747587257950617875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Shortbow
-  m_EditorClassIdentifier: 
-  _note: Saving throw or become poisoned for 1 minute. If its saving throw result
-    is 5 or lower, the poisoned target falls unconscious for the same duration, or.
-  _attackType: 1
-  _attackMod: 6
-  _advantageType: 0
-  _range: 40
-  _minRange: 5
-  _maxRange: 160
-  _target: one target
-  _damage:
-    _number: 0
-    _faces: 0
-    _modifiers: 1
-  _damageType: 128
-  _dc: 10
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 1024
-    _outcomeNote: Until it takes damage or another creature takes an action to shake
-      it awake.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-1180568292803005148
+--- !u!114 &-6167275321910138168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,6 +52,31 @@ MonoBehaviour:
   _note: The sprite magically turns invisible until it attacks or casts a spell,
     or until its concentration ends (as if concentrating on a spell). Any equipment
     the sprite wears or carries is invisible with it.
+--- !u!114 &-4169242692757692592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Longsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 2
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 0
+    _faces: 0
+    _modifiers: 1
+  _damageType: 2048
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Sprite
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Sprite
   _creature: 6
   _movement:
@@ -141,11 +119,11 @@ MonoBehaviour:
   _languages: Common, Elvish, Sylvan
   _challenge: 0.25
   _actions:
-  - {fileID: 6784660982496467924}
-  - {fileID: -1747587257950617875}
-  - {fileID: -8310240043844643678}
-  - {fileID: -1180568292803005148}
---- !u!114 &6784660982496467924
+  - {fileID: -4169242692757692592}
+  - {fileID: 7732817038939512395}
+  - {fileID: -7512167932919706019}
+  - {fileID: -6167275321910138168}
+--- !u!114 &7732817038939512395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,18 +133,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Longsword
+  m_Name: Shortbow
   m_EditorClassIdentifier: 
   _note: 
-  _attackType: 0
-  _attackMod: 2
+  _attackType: 1
+  _attackMod: 6
   _advantageType: 0
-  _range: 5
+  _range: 40
   _minRange: 5
-  _maxRange: 0
+  _maxRange: 160
   _target: one target
   _damage:
     _number: 0
     _faces: 0
     _modifiers: 1
-  _damageType: 2048
+  _damageType: 128

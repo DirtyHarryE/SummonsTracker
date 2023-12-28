@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Stone Giant
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Stone Giant
   _creature: 8
   _movement:
@@ -39,55 +40,9 @@ MonoBehaviour:
   _languages: Giant
   _challenge: 7
   _actions:
-  - {fileID: 6744241689344077393}
-  - {fileID: 2640428556427409419}
---- !u!114 &2640428556427409419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Rock
-  m_EditorClassIdentifier: 
-  _note: Saving throw or be knocked prone.
-  _attackType: 1
-  _attackMod: 9
-  _advantageType: 0
-  _range: 60
-  _minRange: 5
-  _maxRange: 240
-  _target: one target
-  _damage:
-    _number: 4
-    _faces: 10
-    _modifiers: 6
-  _damageType: 2
-  _dc: 17
-  _isGrapple: 0
-  _savingThrow: 1
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 2048
-    _outcomeNote: 
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &6744241689344077393
+  - {fileID: 485387684830588703}
+  - {fileID: 1440628870949574894}
+--- !u!114 &485387684830588703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,3 +59,28 @@ MonoBehaviour:
   _attacks:
   - _attackIndex: -1
     _attackNumber: 2
+--- !u!114 &1440628870949574894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 9
+  _advantageType: 0
+  _range: 60
+  _minRange: 5
+  _maxRange: 240
+  _target: one target
+  _damage:
+    _number: 4
+    _faces: 10
+    _modifiers: 6
+  _damageType: 2

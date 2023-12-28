@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Magmin
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Magmin
   _creature: 5
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: Ignan
   _challenge: 0.5
   _actions:
-  - {fileID: 2437352018676467147}
---- !u!114 &2437352018676467147
+  - {fileID: 3721185651377055399}
+--- !u!114 &3721185651377055399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,9 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Touch
   m_EditorClassIdentifier: 
-  _note: If the target is a creature or a flammable object, it ignites. Until a creature
-    takes an action to douse the fire, the target takes 3 (1d6) fire damage at the
-    end of each of its turns.
+  _note: 
   _attackType: 0
   _attackMod: 4
   _advantageType: 0

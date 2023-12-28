@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6792204454356513259
+--- !u!114 &-6952395242379124156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,45 +9,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
-  m_Name: Pincer
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
   m_EditorClassIdentifier: 
-  _note: The target is grappled if it is a Large or smaller creature and the chuul
-    doesn't have two other creatures grappled.
-  _attackType: 0
-  _attackMod: 6
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 4
-  _damageType: 2
-  _dc: 14
-  _isGrapple: 1
-  _savingThrow: 0
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 32
-    _outcomeNote: 
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-459204858559836971
+  _note: The chuul makes two pincer attacks. If the chuul is grappling a creature,
+    the chuul can also use its tentacles once.
+  _attacks:
+  - _attackIndex: 1
+    _attackNumber: 2
+  - _attackIndex: 2
+    _attackNumber: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Chuul
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Chuul
+  _creature: 0
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 4
+    Distance: 30
+  _maxHP:
+    _number: 11
+    _faces: 10
+    _modifiers: 33
+  _ac: 16
+  _proficiency: 2
+  _strength: 19
+  _dexterity: 10
+  _constitution: 16
+  _intelligence: 5
+  _wisdom: 11
+  _charisma: 5
+  _skills: 4096
+  _savingThrows: 0
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 256
+  _senses: Darkvision 60 ft.,  Passive Perception 14
+  _languages: Understands Deep Speech but can't speak
+  _challenge: 4
+  _actions:
+  - {fileID: -6952395242379124156}
+  - {fileID: 6043610873255266586}
+  - {fileID: 1854638672850065847}
+--- !u!114 &1854638672850065847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,7 +101,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
+--- !u!114 &6043610873255266586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,57 +110,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Chuul
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Pincer
   m_EditorClassIdentifier: 
-  _name: Chuul
-  _creature: 0
-  _movement:
-  - Type: 0
-    Distance: 30
-  - Type: 4
-    Distance: 30
-  _maxHP:
-    _number: 11
-    _faces: 10
-    _modifiers: 33
-  _ac: 16
-  _proficiency: 2
-  _strength: 19
-  _dexterity: 10
-  _constitution: 16
-  _intelligence: 5
-  _wisdom: 11
-  _charisma: 5
-  _skills: 4096
-  _savingThrows: 0
-  _conditionImmunities: 1024
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 256
-  _senses: Darkvision 60 ft.,  Passive Perception 14
-  _languages: Understands Deep Speech but can't speak
-  _challenge: 4
-  _actions:
-  - {fileID: 501529798912906065}
-  - {fileID: -6792204454356513259}
-  - {fileID: -459204858559836971}
---- !u!114 &501529798912906065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The chuul makes two pincer attacks. If the chuul is grappling a creature,
-    the chuul can also use its tentacles once.
-  _attacks:
-  - _attackIndex: 1
-    _attackNumber: 2
-  - _attackIndex: 2
-    _attackNumber: 1
+  _note: 
+  _attackType: 0
+  _attackMod: 6
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 6
+    _modifiers: 4
+  _damageType: 2

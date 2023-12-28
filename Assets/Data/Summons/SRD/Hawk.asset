@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Hawk
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Hawk
   _creature: 1
   _movement:
@@ -41,8 +42,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0
   _actions:
-  - {fileID: 2786874701681397408}
---- !u!114 &2786874701681397408
+  - {fileID: 5217207617186697607}
+--- !u!114 &5217207617186697607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

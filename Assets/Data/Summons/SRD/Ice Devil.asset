@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3806364908524636609
+--- !u!114 &-7012712164054400595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Claws
+  m_Name: Tail
   m_EditorClassIdentifier: 
   _note: 
   _attackType: 0
   _attackMod: 10
   _advantageType: 0
-  _range: 5
+  _range: 10
   _minRange: 5
   _maxRange: 0
   _target: one target
   _damage:
     _number: 2
-    _faces: 4
+    _faces: 6
     _modifiers: 5
-  _damageType: 2048
+  _damageType: 2
   _secondaryDamage:
     _number: 3
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 4
---- !u!114 &-3423205303641360338
+--- !u!114 &-4195577544747818864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,81 +79,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &-2325406970028902728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 10
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 6
-    _modifiers: 5
-  _damageType: 2
-  _secondaryDamage:
-    _number: 3
-    _faces: 6
-    _modifiers: 0
-  _secondaryDamageType: 4
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Ice Devil
-  m_EditorClassIdentifier: 
-  _name: Ice Devil
-  _creature: 7
-  _movement:
-  - Type: 0
-    Distance: 40
-  _maxHP:
-    _number: 19
-    _faces: 10
-    _modifiers: 76
-  _ac: 18
-  _proficiency: 5
-  _strength: 21
-  _dexterity: 14
-  _constitution: 18
-  _intelligence: 18
-  _wisdom: 15
-  _charisma: 18
-  _skills: 0
-  _savingThrows: 54
-  _conditionImmunities: 1024
-  _damageVulnerabilities: 0
-  _damageResistances: 130
-  _damageImmunities: 268
-  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 12
-  _languages: Infernal, Telepathy 120 ft.
-  _challenge: 14
-  _actions:
-  - {fileID: 8308739816851094958}
-  - {fileID: 2328371721731750876}
-  - {fileID: -3806364908524636609}
-  - {fileID: -2325406970028902728}
-  - {fileID: -3423205303641360338}
---- !u!114 &2328371721731750876
+--- !u!114 &-3988920111254760411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,7 +109,52 @@ MonoBehaviour:
     _faces: 6
     _modifiers: 0
   _secondaryDamageType: 4
---- !u!114 &8308739816851094958
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Ice Devil
+  m_EditorClassIdentifier: 
+  _license: 0
+  _name: Ice Devil
+  _creature: 7
+  _movement:
+  - Type: 0
+    Distance: 40
+  _maxHP:
+    _number: 19
+    _faces: 10
+    _modifiers: 76
+  _ac: 18
+  _proficiency: 5
+  _strength: 21
+  _dexterity: 14
+  _constitution: 18
+  _intelligence: 18
+  _wisdom: 15
+  _charisma: 18
+  _skills: 0
+  _savingThrows: 54
+  _conditionImmunities: 1024
+  _damageVulnerabilities: 0
+  _damageResistances: 130
+  _damageImmunities: 268
+  _senses: Blindsight 60 ft., Darkvision 120 ft.,  Passive Perception 12
+  _languages: Infernal, Telepathy 120 ft.
+  _challenge: 14
+  _actions:
+  - {fileID: 2511534137285369943}
+  - {fileID: -3988920111254760411}
+  - {fileID: 6311882136353774597}
+  - {fileID: -7012712164054400595}
+  - {fileID: -4195577544747818864}
+--- !u!114 &2511534137285369943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,3 +175,33 @@ MonoBehaviour:
     _attackNumber: 1
   - _attackIndex: 3
     _attackNumber: 1
+--- !u!114 &6311882136353774597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
+  m_Name: Claws
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 10
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 4
+    _modifiers: 5
+  _damageType: 2048
+  _secondaryDamage:
+    _number: 3
+    _faces: 6
+    _modifiers: 0
+  _secondaryDamageType: 4

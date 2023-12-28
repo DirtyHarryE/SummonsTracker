@@ -1,6 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7153125800220298895
+--- !u!114 &-7404889181133751322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Lightning Breath
+  m_EditorClassIdentifier: 
+  _note: The dragon exhales lightning in a 40-foot line that is 5 feet wide. Each
+    creature in that line must make a saving throw.
+  _dc: 12
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 1
+    _damage:
+      _number: 3
+      _faces: 10
+      _modifiers: 0
+    _damageType: 32
+    _condition: 0
+    _outcomeNote: Half as much damage on a successful one.
+  _successOutcome:
+    _successSaveType: 1
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-5733291747434995281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,7 +60,7 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 3
   _damageType: 128
---- !u!114 &-6777895106021672182
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,11 +69,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Breath Weapons
+  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
+  m_Name: Bronze Dragon Wyrmling
   m_EditorClassIdentifier: 
-  _note: The dragon uses one of the following breath weapons.
---- !u!114 &-1736139331293446250
+  _license: 0
+  _name: Bronze Dragon Wyrmling
+  _creature: 4
+  _movement:
+  - Type: 0
+    Distance: 30
+  - Type: 3
+    Distance: 60
+  - Type: 4
+    Distance: 30
+  _maxHP:
+    _number: 5
+    _faces: 8
+    _modifiers: 10
+  _ac: 17
+  _proficiency: 2
+  _strength: 17
+  _dexterity: 10
+  _constitution: 15
+  _intelligence: 12
+  _wisdom: 11
+  _charisma: 15
+  _skills: 4104
+  _savingThrows: 54
+  _conditionImmunities: 0
+  _damageVulnerabilities: 0
+  _damageResistances: 0
+  _damageImmunities: 32
+  _senses: Blindsight 10 ft., Darkvision 60 ft.,  Passive Perception 14
+  _languages: Draconic
+  _challenge: 2
+  _actions:
+  - {fileID: -5733291747434995281}
+  - {fileID: 3845527659849507077}
+  - {fileID: -7404889181133751322}
+  - {fileID: 1942446278376558624}
+--- !u!114 &1942446278376558624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +144,7 @@ MonoBehaviour:
     _damageType: 0
     _condition: 0
     _outcomeNote: 
---- !u!114 &11400000
+--- !u!114 &3845527659849507077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,76 +153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
-  m_Name: Bronze Dragon Wyrmling
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Breath Weapons
   m_EditorClassIdentifier: 
-  _name: Bronze Dragon Wyrmling
-  _creature: 4
-  _movement:
-  - Type: 0
-    Distance: 30
-  - Type: 3
-    Distance: 60
-  - Type: 4
-    Distance: 30
-  _maxHP:
-    _number: 5
-    _faces: 8
-    _modifiers: 10
-  _ac: 17
-  _proficiency: 2
-  _strength: 17
-  _dexterity: 10
-  _constitution: 15
-  _intelligence: 12
-  _wisdom: 11
-  _charisma: 15
-  _skills: 4104
-  _savingThrows: 54
-  _conditionImmunities: 0
-  _damageVulnerabilities: 0
-  _damageResistances: 0
-  _damageImmunities: 32
-  _senses: Blindsight 10 ft., Darkvision 60 ft.,  Passive Perception 14
-  _languages: Draconic
-  _challenge: 2
-  _actions:
-  - {fileID: -7153125800220298895}
-  - {fileID: -6777895106021672182}
-  - {fileID: 1508478348279633100}
-  - {fileID: -1736139331293446250}
---- !u!114 &1508478348279633100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Lightning Breath
-  m_EditorClassIdentifier: 
-  _note: The dragon exhales lightning in a 40-foot line that is 5 feet wide. Each
-    creature in that line must make a saving throw.
-  _dc: 12
-  _isGrapple: 0
-  _savingThrow: 2
-  _failOutcome:
-    _failSaveType: 1
-    _damage:
-      _number: 3
-      _faces: 10
-      _modifiers: 0
-    _damageType: 32
-    _condition: 0
-    _outcomeNote: Half as much damage on a successful one.
-  _successOutcome:
-    _successSaveType: 1
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
+  _note: The dragon uses one of the following breath weapons.

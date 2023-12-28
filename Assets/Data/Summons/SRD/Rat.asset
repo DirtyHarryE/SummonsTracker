@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Rat
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Rat
   _creature: 1
   _movement:
@@ -39,8 +40,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0
   _actions:
-  - {fileID: 5427400674726634355}
---- !u!114 &5427400674726634355
+  - {fileID: 2079858174793272370}
+--- !u!114 &2079858174793272370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3815709132251112426
+--- !u!114 &-4779967758256378438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177c57fc7416351459a20f94601d3874, type: 3}
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
   m_Name: Tail
   m_EditorClassIdentifier: 
-  _note: Saving throw or lose 10 (3d6) hit points at the start of each of its turns
-    due to an infernal wound. Each time the devil hits the wounded target with this
-    attack, the damage dealt by the wound increases by 10 (3d6). Any creature can
-    take an action to stanch the wound with a successful DC 12 Wisdom (Medicine)
-    check. The wound also closes if the target receives magical healing.
+  _note: 
   _attackType: 0
   _attackMod: 10
   _advantageType: 0
@@ -29,43 +25,6 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 6
   _damageType: 128
-  _dc: 17
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 4
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: Lose 10 (3d6) hit points at the start of each of its turns due
-      to an infernal wound
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
---- !u!114 &-1202475953990960287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Hurl Flame
-  m_EditorClassIdentifier: 
-  _note: 'Ranged Spell Attack: +7 to hit, range 150 ft., one target. Hit: 14 (4d6)
-    fire damage. If the target is a flammable object that isn''t being worn or carried,
-    it also catches fire.'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +37,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Horned Devil
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Horned Devil
   _creature: 7
   _movement:
@@ -107,11 +67,11 @@ MonoBehaviour:
   _languages: Infernal, Telepathy 120 ft.
   _challenge: 11
   _actions:
-  - {fileID: 9061201308203508340}
-  - {fileID: 1823395061800282870}
-  - {fileID: -3815709132251112426}
-  - {fileID: -1202475953990960287}
---- !u!114 &1823395061800282870
+  - {fileID: 4367433078623793113}
+  - {fileID: 2671309629093345745}
+  - {fileID: -4779967758256378438}
+  - {fileID: 5443294852859918329}
+--- !u!114 &2671309629093345745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +96,7 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 6
   _damageType: 128
---- !u!114 &9061201308203508340
+--- !u!114 &4367433078623793113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,3 +117,18 @@ MonoBehaviour:
     _attackNumber: 1
   - _attackIndex: 3
     _attackNumber: 1
+--- !u!114 &5443294852859918329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Hurl Flame
+  m_EditorClassIdentifier: 
+  _note: 'Ranged Spell Attack: +7 to hit, range 150 ft., one target. Hit: 14 (4d6)
+    fire damage. If the target is a flammable object that isn''t being worn or carried,
+    it also catches fire.'

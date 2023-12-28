@@ -1,6 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6021309085465229826
+--- !u!114 &-3378036027990247437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
+  m_Name: Blinding Breath
+  m_EditorClassIdentifier: 
+  _note: The mephit exhales a 15- foot cone of blinding dust. Each creature in that
+    area must succeed on a saving throw or be blinded.
+  _dc: 10
+  _isGrapple: 0
+  _savingThrow: 2
+  _failOutcome:
+    _failSaveType: 2
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 1
+    _outcomeNote: For 1 minute. A creature can repeat the saving throw at the end
+      of each of its turns, ending the effect on itself on a success.
+  _successOutcome:
+    _successSaveType: 0
+    _damage:
+      _number: 0
+      _faces: 0
+      _modifiers: 0
+    _damageType: 0
+    _condition: 0
+    _outcomeNote: 
+--- !u!114 &-2350379521106657219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Dust Mephit
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Dust Mephit
   _creature: 5
   _movement:
@@ -66,41 +103,5 @@ MonoBehaviour:
   _languages: Auran, Terran
   _challenge: 0.5
   _actions:
-  - {fileID: -6021309085465229826}
-  - {fileID: 4052049445498747608}
---- !u!114 &4052049445498747608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82bfdabc76e93646a23ebc32ff1c5fe, type: 3}
-  m_Name: Blinding Breath
-  m_EditorClassIdentifier: 
-  _note: The mephit exhales a 15- foot cone of blinding dust. Each creature in that
-    area must succeed on a saving throw or be blinded.
-  _dc: 10
-  _isGrapple: 0
-  _savingThrow: 2
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 1
-    _outcomeNote: For 1 minute. A creature can repeat the saving throw at the end
-      of each of its turns, ending the effect on itself on a success.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 
+  - {fileID: -2350379521106657219}
+  - {fileID: -3378036027990247437}

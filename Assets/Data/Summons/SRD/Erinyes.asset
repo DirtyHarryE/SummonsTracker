@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4345969939376439660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
+  m_Name: Multiattack
+  m_EditorClassIdentifier: 
+  _note: The erinyes makes three attacks.
+  _attacks:
+  - _attackIndex: -1
+    _attackNumber: 3
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,6 +28,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Erinyes
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Erinyes
   _creature: 7
   _movement:
@@ -41,10 +58,10 @@ MonoBehaviour:
   _languages: Infernal, Telepathy 120 ft.
   _challenge: 12
   _actions:
-  - {fileID: 5181255424847452382}
-  - {fileID: 4017652723901550383}
-  - {fileID: 6381556212292226747}
---- !u!114 &4017652723901550383
+  - {fileID: -4345969939376439660}
+  - {fileID: 3905295148980064102}
+  - {fileID: 7922820317772238696}
+--- !u!114 &3905295148980064102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +91,7 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 0
   _secondaryDamageType: 256
---- !u!114 &5181255424847452382
+--- !u!114 &7922820317772238696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,26 +100,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d3ce149637cd4fbcb5547f4860b53, type: 3}
-  m_Name: Multiattack
-  m_EditorClassIdentifier: 
-  _note: The erinyes makes three attacks.
-  _attacks:
-  - _attackIndex: -1
-    _attackNumber: 3
---- !u!114 &6381556212292226747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8487373ab36b94694ef00ab5c7b726, type: 3}
+  m_Script: {fileID: 11500000, guid: 86711bb9a6cd62340b57de265f439d06, type: 3}
   m_Name: Longbow
   m_EditorClassIdentifier: 
-  _note: Saving throw or be poisoned. The poison lasts.
+  _note: 
   _attackType: 1
   _attackMod: 7
   _advantageType: 0
@@ -120,25 +121,3 @@ MonoBehaviour:
     _faces: 8
     _modifiers: 0
   _secondaryDamageType: 256
-  _dc: 14
-  _isGrapple: 0
-  _savingThrow: 4
-  _failOutcome:
-    _failSaveType: 2
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 1024
-    _outcomeNote: Until it is removed by the lesser restoration spell or similar
-      magic.
-  _successOutcome:
-    _successSaveType: 0
-    _damage:
-      _number: 0
-      _faces: 0
-      _modifiers: 0
-    _damageType: 0
-    _condition: 0
-    _outcomeNote: 

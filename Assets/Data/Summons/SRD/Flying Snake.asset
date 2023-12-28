@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Flying Snake
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Flying Snake
   _creature: 1
   _movement:
@@ -43,8 +44,8 @@ MonoBehaviour:
   _languages: --
   _challenge: 0.125
   _actions:
-  - {fileID: 4283382065494004445}
---- !u!114 &4283382065494004445
+  - {fileID: 2179615167960493658}
+--- !u!114 &2179615167960493658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

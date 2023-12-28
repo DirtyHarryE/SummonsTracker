@@ -1,55 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8245378081033604819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Rock
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 1
-  _attackMod: 8
-  _advantageType: 0
-  _range: 60
-  _minRange: 5
-  _maxRange: 240
-  _target: one target
-  _damage:
-    _number: 3
-    _faces: 10
-    _modifiers: 5
-  _damageType: 2
---- !u!114 &-7676131859133556088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Greatclub
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 8
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 3
-    _faces: 8
-    _modifiers: 5
-  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Hill Giant
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Hill Giant
   _creature: 8
   _movement:
@@ -89,10 +40,35 @@ MonoBehaviour:
   _languages: Giant
   _challenge: 5
   _actions:
-  - {fileID: 8712066793742583752}
-  - {fileID: -7676131859133556088}
-  - {fileID: -8245378081033604819}
---- !u!114 &8712066793742583752
+  - {fileID: 1143227103539074594}
+  - {fileID: 57444757299311025}
+  - {fileID: 7602255638607920474}
+--- !u!114 &57444757299311025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Greatclub
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 8
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 8
+    _modifiers: 5
+  _damageType: 2
+--- !u!114 &1143227103539074594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,3 +84,28 @@ MonoBehaviour:
   _attacks:
   - _attackIndex: 1
     _attackNumber: 2
+--- !u!114 &7602255638607920474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Rock
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 1
+  _attackMod: 8
+  _advantageType: 0
+  _range: 60
+  _minRange: 5
+  _maxRange: 240
+  _target: one target
+  _damage:
+    _number: 3
+    _faces: 10
+    _modifiers: 5
+  _damageType: 2

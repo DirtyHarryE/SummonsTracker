@@ -1,6 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7281420241405347399
+--- !u!114 &-7595710228045567726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
+  m_Name: Teleport
+  m_EditorClassIdentifier: 
+  _note: The marilith magically teleports, along with any equipment it is wearing
+    or carrying, up to 120 feet to an unoccupied space it can see.
+--- !u!114 &-4855465264505054023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Longsword
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 5
+  _minRange: 5
+  _maxRange: 0
+  _target: one target
+  _damage:
+    _number: 2
+    _faces: 8
+    _modifiers: 4
+  _damageType: 2048
+--- !u!114 &-2276727749265803572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
+  m_Name: Tail
+  m_EditorClassIdentifier: 
+  _note: 
+  _attackType: 0
+  _attackMod: 9
+  _advantageType: 0
+  _range: 10
+  _minRange: 5
+  _maxRange: 0
+  _target: one creature
+  _damage:
+    _number: 2
+    _faces: 10
+    _modifiers: 4
+  _damageType: 2
+--- !u!114 &-1552314162193327133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19,34 +83,6 @@ MonoBehaviour:
     _attackNumber: 6
   - _attackIndex: 2
     _attackNumber: 1
---- !u!114 &-5499829181304296263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Tail
-  m_EditorClassIdentifier: 
-  _note: If the target is Medium or smaller, it is grappled (escape DC 19). Until
-    this grapple ends, the target is restrained, the marilith can automatically hit
-    the target with its tail, and the marilith can't make tail attacks against other
-    targets.
-  _attackType: 0
-  _attackMod: 9
-  _advantageType: 0
-  _range: 10
-  _minRange: 5
-  _maxRange: 0
-  _target: one creature
-  _damage:
-    _number: 2
-    _faces: 10
-    _modifiers: 4
-  _damageType: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Marilith
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Marilith
   _creature: 7
   _movement:
@@ -86,46 +123,7 @@ MonoBehaviour:
   _languages: Abyssal, Telepathy 120 ft.
   _challenge: 16
   _actions:
-  - {fileID: -7281420241405347399}
-  - {fileID: 6475254712172592768}
-  - {fileID: -5499829181304296263}
-  - {fileID: 1546019968327875440}
---- !u!114 &1546019968327875440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66ced14e47bc04c8037dda22fc19a4, type: 3}
-  m_Name: Teleport
-  m_EditorClassIdentifier: 
-  _note: The marilith magically teleports, along with any equipment it is wearing
-    or carrying, up to 120 feet to an unoccupied space it can see.
---- !u!114 &6475254712172592768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 182a21f610906d049b88dc903c405eb5, type: 3}
-  m_Name: Longsword
-  m_EditorClassIdentifier: 
-  _note: 
-  _attackType: 0
-  _attackMod: 9
-  _advantageType: 0
-  _range: 5
-  _minRange: 5
-  _maxRange: 0
-  _target: one target
-  _damage:
-    _number: 2
-    _faces: 8
-    _modifiers: 4
-  _damageType: 2048
+  - {fileID: -1552314162193327133}
+  - {fileID: -4855465264505054023}
+  - {fileID: -2276727749265803572}
+  - {fileID: -7595710228045567726}

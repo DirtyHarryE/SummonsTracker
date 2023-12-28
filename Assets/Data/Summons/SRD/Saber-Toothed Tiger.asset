@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d443d6e112b84fa4599aef831cea4a73, type: 3}
   m_Name: Saber-Toothed Tiger
   m_EditorClassIdentifier: 
+  _license: 0
   _name: Saber-Toothed Tiger
   _creature: 1
   _movement:
@@ -39,9 +40,9 @@ MonoBehaviour:
   _languages: --
   _challenge: 2
   _actions:
-  - {fileID: 173569138011806156}
-  - {fileID: 3897935819654833156}
---- !u!114 &173569138011806156
+  - {fileID: 245633738767392182}
+  - {fileID: 3005261873849881601}
+--- !u!114 &245633738767392182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,7 +67,7 @@ MonoBehaviour:
     _faces: 10
     _modifiers: 5
   _damageType: 128
---- !u!114 &3897935819654833156
+--- !u!114 &3005261873849881601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

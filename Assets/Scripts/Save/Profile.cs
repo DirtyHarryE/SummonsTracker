@@ -5,6 +5,8 @@ namespace SummonsTracker.Save
     [System.Serializable]
     public class Profile
     {
+        private static SaveTarget[] DefaultTargets => new SaveTarget[] { "Target One", "Target Two" };
+
         public string Name;
 
         public int WizardLevel = 12;
@@ -22,10 +24,27 @@ namespace SummonsTracker.Save
 
         public SaveCharacter[] SaveCharacters;
 
-        public Profile(string name, params SaveCharacter[] saveCharacters)
+        public SaveTarget[] SavedTargets = DefaultTargets;
+
+        public Profile(string name)
+        {
+            Name = name;
+            SavedTargets = DefaultTargets;
+            SaveCharacters = Array.Empty<SaveCharacter>();
+        }
+
+        public Profile(string name, SaveCharacter[] saveCharacters)
+        {
+            Name = name;
+            SavedTargets = DefaultTargets;
+            SaveCharacters = saveCharacters;
+        }
+
+        public Profile(string name, SaveCharacter[] saveCharacters, SaveTarget[] targets)
         {
             Name = name;
             SaveCharacters = saveCharacters;
+            SavedTargets = targets;
         }
 
         public void Validate()

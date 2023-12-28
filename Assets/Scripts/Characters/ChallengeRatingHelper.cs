@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,26 +6,30 @@ namespace SummonsTracker.Characters
 {
     public static class ChallengeRatingHelper
     {
-        public const char SLASH = '\u2044';
+        public const char SLASH = '/';//'\u2044';
         public const string HALF = "\u00BD";
         public const string QUARTER = "\u00BC";
         public const string EIGHTH = "\u215B";
         public const string UNKNOWN = "Unknown";
 
         public static string[] Ratings { get; private set; }
+        public static string[] LongRatings { get; private set; }
         public static float[] RatingValues { get; private set; }
 
         static ChallengeRatingHelper()
         {
-            Ratings = GetChallengeRatings().ToArray();
+            Ratings = GetChallengeRatings(false).ToArray();
+            LongRatings = GetChallengeRatings(true).ToArray();
             RatingValues = Ratings.Select(CRToFloat).ToArray();
 
             FloatToCRDict = new Dictionary<float, string>();
+            FloatToLongCRDict = new Dictionary<float, string>();
             CRToFloatDict = new Dictionary<string, float>();
 
             for (int i = 0; i < Ratings.Length; i++)
             {
                 FloatToCRDict.Add(RatingValues[i], Ratings[i]);
+                FloatToLongCRDict.Add(RatingValues[i], LongRatings[i]);
                 CRToFloatDict.Add(Ratings[i], RatingValues[i]);
             }
         }
@@ -34,7 +37,7 @@ namespace SummonsTracker.Characters
         public static float CRToFloat(string cr)
         {
             var result = -1f;
-            if (CRToFloatDict!= null && CRToFloatDict.TryGetValue(cr, out result))
+            if (CRToFloatDict != null && CRToFloatDict.TryGetValue(cr, out result))
             {
                 return result;
             }
@@ -52,7 +55,7 @@ namespace SummonsTracker.Characters
                     return result;
                 }
             }
-            if (bOpenInd != -1 )
+            if (bOpenInd != -1)
             {
                 if (InternalCRToFloat(cr.Substring(0, bOpenInd).Trim(), out result))
                 {
@@ -70,11 +73,21 @@ namespace SummonsTracker.Characters
             return -1;
         }
 
-        public static string FloatToCR(float f)
+        public static string FloatToCR(float f, bool slash = false)
         {
-            if (FloatToCRDict != null && FloatToCRDict.TryGetValue(f, out var cr))
+            if (slash)
             {
-                return cr;
+                if (FloatToLongCRDict != null && FloatToLongCRDict.TryGetValue(f, out var cr))
+                {
+                    return cr;
+                }
+            }
+            else
+            {
+                if (FloatToCRDict != null && FloatToCRDict.TryGetValue(f, out var cr))
+                {
+                    return cr;
+                }
             }
             if (f < 0)
             {
@@ -131,12 +144,12 @@ namespace SummonsTracker.Characters
             }
         }
 
-        public static IEnumerable<string> GetChallengeRatings()
+        public static IEnumerable<string> GetChallengeRatings(bool slash = false)
         {
             yield return "0";
-            yield return EIGHTH; // "$"1{SLASH}8";
-            yield return QUARTER; // $"1{SLASH}4";
-            yield return HALF; // $"1{SLASH}2";
+            yield return slash ? $"1{SLASH}8" : EIGHTH;
+            yield return slash ? $"1{SLASH}4" : QUARTER;
+            yield return slash ? $"1{SLASH}2" : HALF;
             for (int i = 1; i <= 30; i++)
             {
                 yield return i.ToString();
@@ -145,6 +158,7 @@ namespace SummonsTracker.Characters
         }
 
         private static Dictionary<float, string> FloatToCRDict;
+        private static Dictionary<float, string> FloatToLongCRDict;
         private static Dictionary<string, float> CRToFloatDict;
     }
 }

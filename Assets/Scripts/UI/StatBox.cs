@@ -54,7 +54,7 @@ namespace SummonsTracker.UI
             if (_modText != null)
             {
                 _modText.text = _statBoxType == StatBoxType.ScoreAndMod
-                    ? TextUtils.AddPlus(CharacterData.GetMod(_score))
+                    ? TextUtils.AddPlus(CharacterHelper.GetMod(_score))
                     : string.Empty;
             }
         }

@@ -98,9 +98,10 @@ public class EditorCoroutine
             }
             catch (Exception e)
             {
-                Debug.LogError($"An error occured! Halting coroutine!\n\n{e}");
+                Debug.LogError($"An error occured! Halting coroutine!\n{e}");
                 EditorApplication.update -= Update;
                 onFail?.Invoke(e);
+                throw;
             }
         }
 

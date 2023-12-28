@@ -12,20 +12,17 @@ namespace SummonsTracker.Importer
     {
         public static bool TryMakeAttack(SerializedProperty actionsSerializedProperty, int index, string title, string body, out AttackData attackData)
         {
-            var split = body.Split(new[] { "<em>", "</em>" }, StringSplitOptions.RemoveEmptyEntries);
-
-            if (split.Length < 4)
+            if (!GetParts(body, out var attackTypeStr, out var attackParameters, out var damage, out var remainder))
             {
                 attackData = null;
                 return false;
             }
-
-            if (!GetAttackType(split[0], out var attackType))
+            if (!GetAttackType(attackTypeStr, out var attackType))
             {
                 attackData = null;
                 return false;
             }
-            if (!GetHitInfo(split[1], out var attackMod, out var range, out var maxRange, out var target))
+            if (!GetHitInfo(attackParameters, out var attackMod, out var range, out var maxRange, out var target))
             {
                 attackData = null;
                 return false;
@@ -43,10 +40,10 @@ namespace SummonsTracker.Importer
             var hasDoubleDamage = false;
 
             const string plus = "plus";
-            var plusIndex = split[3].ToLower().IndexOf(plus);
+            var plusIndex = damage.ToLower().IndexOf(plus);
             if (plusIndex == -1)
             {
-                if (!GetDamage(split[3], out normalNumber, out normalFaces, out normalModifier, out normalDamage))
+                if (!GetDamage(damage, out normalNumber, out normalFaces, out normalModifier, out normalDamage))
                 {
                     attackData = null;
                     return false;
@@ -54,27 +51,34 @@ namespace SummonsTracker.Importer
             }
             else
             {
-                var pre = split[3].Substring(0, plusIndex);
+                var pre = damage.Substring(0, plusIndex);
                 if (!GetDamage(pre, out normalNumber, out normalFaces, out normalModifier, out normalDamage))
                 {
                     attackData = null;
                     return false;
                 }
-                var pst = split[3].Substring(plusIndex + plus.Length);
+                var pst = damage.Substring(plusIndex + plus.Length);
                 if (GetDamage(pst, out plusNumber, out plusFaces, out plusModifier, out plusDamage))
                 {
                     hasDoubleDamage = true;
                 }
 
             }
-            var remaining = string.Join("\n", split.Skip(4).Select(s => s.Trim()).ToArray());
+            var remaining = string.Join("\n", remainder.Select(s => s.Trim()).ToArray());
             if (string.IsNullOrEmpty(remaining))
             {
-                remaining = split.Last();
-                var dotText = remaining.IndexOf('.');
-                if (dotText != -1 && remaining.Substring(0, dotText).Trim().ToLower().EndsWith("damage"))
+                if (remainder.Any())
                 {
-                    remaining = remaining.Substring(dotText + 1).Trim();
+                    remaining = remainder.Last();
+                    var dotText = remaining.IndexOf('.');
+                    if (dotText != -1 && remaining.Substring(0, dotText).Trim().ToLower().EndsWith("damage"))
+                    {
+                        remaining = remaining.Substring(dotText + 1).Trim();
+                    }
+                }
+                else
+                {
+                    remaining = string.Empty;
                 }
             }
 
@@ -164,6 +168,60 @@ namespace SummonsTracker.Importer
                 serializedObject.ApplyModifiedProperties();
             }
             return true;
+        }
+
+        private static bool GetParts(string body, out string attackType, out string attackParameters, out string damage, out string[] remainder)
+        {
+            var split = body.Split(new[] { "<em>", "</em>" }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (split.Length >= 4)
+            {
+                attackType = split[0];
+                attackParameters = split[1];
+                damage = split[3];
+                remainder = split.Skip(4).ToArray();
+                return true;
+            }
+            if (split.Length == 2)
+            {
+                const string hitPrefix = "Hit:";
+                var hitIndex = split[1].IndexOf(hitPrefix);
+                if (hitIndex != -1)
+                {
+                    attackType = split[0];
+                    attackParameters = split[1].Substring(0, hitIndex).Trim();
+
+                    var savingThrow = string.Empty;
+                    var remaining = split[1].Substring(hitIndex + hitPrefix.Length);
+                    var savingThrowIndex = split[1].ToLower().IndexOf("saving throw");
+                    if (savingThrowIndex != -1)
+                    {
+                        remaining = split[1].Substring(0, savingThrowIndex);
+                        savingThrow = split[1].Substring(savingThrowIndex);
+                    }
+                    const string damageSuffix = "damage";
+                    var damageIndex = remaining.LastIndexOf(damageSuffix);
+                    if (damageIndex != -1)
+                    {
+                        damage = remaining.Substring(0, damageIndex + damageSuffix.Length).Trim();
+                        remaining = string.IsNullOrEmpty(savingThrow)
+                            ? remaining.Substring(damageIndex + damageSuffix.Length)
+                            : $"{remaining.Substring(damageIndex + damageSuffix.Length)}{savingThrow}";
+                        if (remaining.Trim() == ".")
+                        {
+                            remaining = string.Empty;
+                            damage = $"{damage}.";
+                        }
+                        remainder = new[] { remaining };
+                        return true;
+                    }
+                }
+            }
+            attackType = string.Empty;
+            attackParameters = string.Empty;
+            damage = string.Empty;
+            remainder = Array.Empty<string>();
+            return false;
         }
 
         private static bool GetAttackType(string text, out AttackType type)

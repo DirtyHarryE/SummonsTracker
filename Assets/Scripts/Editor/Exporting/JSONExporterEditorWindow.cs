@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -204,13 +205,18 @@ namespace SummonsTracker.Exporter
                 var subIndent = pathSplit.Count(p => p != "Array");
                 var subIndentStr = new string(' ', subIndent * 4);
 
-                if (property.name.ToLower() == "m_script"
-                    || property.propertyType == SerializedPropertyType.String && string.IsNullOrEmpty(property.stringValue))
+                if (ShouldSkipProperty(property, ref enterChildren))
                 {
                     continue;
                 }
 
-                if (property.isArray)
+                if (IsMovementArray(property))
+                {
+                    builder.AppendLine().Append(indentStr).Append(subIndentStr).Append(property.displayName).Append(": ");
+                    builder.Append(GetMovementArray(property));
+                    enterChildren = false;
+                }
+                else if (property.isArray && property.propertyType != SerializedPropertyType.String)
                 {
                     builder.AppendLine().Append(indentStr).Append(subIndentStr).Append(property.displayName).Append(": ");
                     enterChildren = true;
@@ -221,13 +227,25 @@ namespace SummonsTracker.Exporter
                 }
                 else
                 {
-                    builder.AppendLine().Append(indentStr).Append(subIndentStr).Append(property.displayName).Append(": ");
+                    if (ParentIsArray(property))
+                    {
+                        if (property.propertyType != SerializedPropertyType.Generic)
+                        {
+
+                            builder.AppendLine().Append(indentStr).Append(subIndentStr);
+                        }
+                    }
+                    else
+                    {
+                        builder.AppendLine().Append(indentStr).Append(subIndentStr);
+                        builder.Append(property.displayName).Append(": ");
+                    }
                     enterChildren = false;
                     switch (property.name)
                     {
                         case "_challenge":
                         {
-                            builder.Append(ChallengeRatingHelper.FloatToCR(property.floatValue));
+                            builder.Append(ChallengeRatingHelper.FloatToCR(property.floatValue, true));
                             break;
                         }
                         case "_concentration":
@@ -243,7 +261,8 @@ namespace SummonsTracker.Exporter
                         case "_wisdom":
                         case "_charisma":
                         {
-                            builder.Append(TextUtils.AddPlus(property.intValue));
+                            builder.Append(property.intValue).Append(" ");
+                            builder.Append("(").Append(TextUtils.AddPlus(CharacterHelper.GetMod(property.intValue))).Append(")");
                             break;
                         }
                         default:
@@ -257,6 +276,10 @@ namespace SummonsTracker.Exporter
                                     else if (property.objectReferenceValue is MultiattackData multiattackData)
                                     {
                                         builder.Append(GetMultiattackString(multiattackData, serializedObject));
+                                    }
+                                    else if (property.objectReferenceValue is ActionData actionData)
+                                    {
+                                        builder.Append(GetActionString(actionData));
                                     }
                                     else
                                     {
@@ -340,37 +363,166 @@ namespace SummonsTracker.Exporter
             } while (iterator.NextVisible(enterChildren));
         }
 
-        private string GetMultiattackString(MultiattackData multiattackData, SerializedObject serializedObject, string indent)
+        private string GetMovementArray(SerializedProperty property)
         {
+            var builder = new StringBuilder();
+            for (int i = 0; i < property.arraySize; i++)
+            {
+                if (i != 0)
+                {
+                    builder.Append(", ");
+                }
+                using var element = property.GetArrayElementAtIndex(i);
+                using var m = element.FindPropertyRelative("Type");
+                using var d = element.FindPropertyRelative("Distance");
+                if (m.enumNames[m.enumValueIndex] != "Walk")
+                {
+                    builder.Append(m.enumDisplayNames[m.enumValueIndex]).Append(" ");
+                }
+                builder.Append(d.intValue).Append(" ft.");
+            }
+            return builder.ToString();
+        }
+
+        private bool IsMovementArray(SerializedProperty property)
+        {
+            if (!property.isArray)
+            {
+                return false;
+            }
+            var arrayType = GetPropertyTypeName(property.arrayElementType);
+            if (arrayType == "Movement")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool ParentIsArray(SerializedProperty property)
+        {
+            var split = property.propertyPath.Split('.');
+
+            var b = new StringBuilder();
+            b.Append(split[0]);
+            for (int i = 1; i < split.Length - 1; i++)
+            {
+                b.Append(".").Append(split[i]);
+            }
+
+            using var parent = property.serializedObject.FindProperty(b.ToString());
+            if (parent != null && parent.isArray)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ShouldSkipProperty(SerializedProperty property, ref bool enterChildren)
+        {
+            if (property.name.ToLower() == "m_script")
+            {
+                enterChildren = false;
+                return true;
+            }
+            if (property.propertyType == SerializedPropertyType.String && string.IsNullOrWhiteSpace(property.stringValue))
+            {
+                enterChildren = false;
+                return true;
+            }
+            if (property.propertyType == SerializedPropertyType.Enum)
+            {
+                var enums = property.enumNames;
+                if (0 <= property.intValue && property.intValue < enums.Length)
+                {
+                    var enumVal = enums[property.intValue];
+                    if (enumVal.ToLower().Trim() == "none")
+                    {
+                        enterChildren = false;
+                        return true;
+                    }
+                }
+                if (0 <= property.enumValueIndex && property.enumValueIndex < enums.Length)
+                {
+                    var enumVal = enums[property.enumValueIndex];
+                    if (enumVal.ToLower().Trim() == "none")
+                    {
+                        enterChildren = false;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private string GetActionString(ActionData actionData)
+        {
+            var b = new StringBuilder();
+            var action = actionData.Instantiate();
+            var str = action.ToString();
+
+
+            return Regex.Replace(str.Trim(), "<.*?>", string.Empty);
+        }
+
+        private string GetMultiattackString(MultiattackData multiattackData, SerializedObject serializedObject)
+        {
+            using var nameSerializedProperty = serializedObject.FindProperty("_name");
             using var multiattackSerializedObject = new SerializedObject(multiattackData);
             using var actionsProperty = serializedObject.FindProperty("_actions");
 
             using var multiAttacksProperty = multiattackSerializedObject.FindProperty("_attacks");
 
             var b = new StringBuilder();
+            var count = 0;
+            var nonAnyCount = 0;
             for (int i = 0; i < multiAttacksProperty.arraySize; i++)
             {
                 using var attackElement = multiAttacksProperty.GetArrayElementAtIndex(i);
-
-                using var attackIndex = attackElement.FindPropertyRelative("_attackIndex");
                 using var attackNumber = attackElement.FindPropertyRelative("_attackNumber");
-
-                if (attackIndex.intValue  != -1)
+                count += attackNumber.intValue;
+                using var attackIndex = attackElement.FindPropertyRelative("_attackIndex");
+                if (attackIndex.intValue != -1)
                 {
-
-                    using var attackProperty = actionsProperty.GetArrayElementAtIndex(attackIndex.intValue);
-                    b.Append(attackNumber.intValue).Append(" ").Append(attackProperty.objectReferenceValue.name);
-                }
-                else
-                {
-                    b.Append("Any attack x").Append(attackNumber.intValue);
-                }
-                if (i <= multiAttacksProperty.arraySize - 1)
-                {
-                    b.Append(", ");
+                    nonAnyCount += attackNumber.intValue;
                 }
             }
-            return b.ToString();
+            b.Append("The ").Append(nameSerializedProperty.stringValue).Append(" makes ").Append(count).Append(" attacks");
+            if (nonAnyCount <= 0)
+            {
+                b.Append(".");
+            }
+            else
+            {
+                b.Append(": ");
+                for (int i = 0; i < multiAttacksProperty.arraySize; i++)
+                {
+                    using var attackElement = multiAttacksProperty.GetArrayElementAtIndex(i);
+
+                    using var attackIndex = attackElement.FindPropertyRelative("_attackIndex");
+                    using var attackNumber = attackElement.FindPropertyRelative("_attackNumber");
+
+                    if (attackIndex.intValue == -1)
+                    {
+                        continue;
+                    }
+                    using var attackProperty = actionsProperty.GetArrayElementAtIndex(attackIndex.intValue);
+                    b.Append(attackNumber.intValue).Append(" ").Append(attackProperty.objectReferenceValue.name);
+                    if (i <= multiAttacksProperty.arraySize - 3)
+                    {
+                        b.Append(", ");
+                    }
+                    else if (i == multiAttacksProperty.arraySize - 2)
+                    {
+                        b.Append(" and ");
+                    }
+                    else if (i == multiAttacksProperty.arraySize - 1)
+                    {
+                        b.Append(".");
+                    }
+                }
+            }
+            return b.ToString().Trim();
         }
 
         private string GetDice(SerializedProperty property)

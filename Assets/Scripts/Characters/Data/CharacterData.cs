@@ -42,12 +42,12 @@ namespace SummonsTracker.Characters
 
         public ActionData[] Actions => _actions;
 
-        public int StrengthMod => GetMod(Strength);
-        public int DexterityMod => GetMod(Dexterity);
-        public int ConstitutionMod => GetMod(Constitution);
-        public int IntelligenceMod => GetMod(Intelligence);
-        public int WisdomMod => GetMod(Wisdom);
-        public int CharismaMod => GetMod(Charisma);
+        public int StrengthMod => CharacterHelper.GetMod(Strength);
+        public int DexterityMod => CharacterHelper.GetMod(Dexterity);
+        public int ConstitutionMod => CharacterHelper.GetMod(Constitution);
+        public int IntelligenceMod => CharacterHelper.GetMod(Intelligence);
+        public int WisdomMod => CharacterHelper.GetMod(Wisdom);
+        public int CharismaMod => CharacterHelper.GetMod(Charisma);
 
         public int GetStat(StatType stat)
         {
@@ -109,7 +109,6 @@ namespace SummonsTracker.Characters
             return total;
         }
 
-        public static int GetMod(int score) => Mathf.FloorToInt((score - 10) * 0.5f);
 
         [SerializeField]
         private string _name;

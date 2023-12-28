@@ -36,21 +36,23 @@ namespace SummonsTracker.Save
 
         public static SaveDamage Convert(Attack.Damage damage)
         {
-            return new SaveDamage(damage.DamageDice.Number, damage.DamageDice.Faces, damage.DamageDice.Modifiers, damage.DamageType);
+            return damage == null ? null : new SaveDamage(damage.DamageDice.Number, damage.DamageDice.Faces, damage.DamageDice.Modifiers, damage.DamageType);
         }
 
         public static SaveDamage Convert(DiceBase dice, DamageTypes damageType)
         {
-            return new SaveDamage(dice.Number, dice.Faces, dice.Modifiers, damageType);
+            return dice == null ? null : new SaveDamage(dice.Number, dice.Faces, dice.Modifiers, damageType);
         }
 
         public static SaveSavingThrow Convert(ISavingThrow savingThrow)
         {
-            return new SaveSavingThrow(savingThrow.IsGrapple,
-                savingThrow.SavingThrow,
-                savingThrow.DC,
-                Convert(savingThrow.FailureSavingThrowOutcome),
-                Convert(savingThrow.SuccessSavingThrowOutcome));
+            return savingThrow == null 
+                ? null 
+                : new SaveSavingThrow(savingThrow.IsGrapple,
+                    savingThrow.SavingThrow,
+                    savingThrow.DC,
+                    Convert(savingThrow.FailureSavingThrowOutcome),
+                    Convert(savingThrow.SuccessSavingThrowOutcome));
         }
 
         public static SaveThrowOutcome Convert(SuccessSaveOutcome success)
@@ -65,7 +67,7 @@ namespace SummonsTracker.Save
 
         public static SaveMultiAttack Convert(Multiattack.MultiattackInfo multiattack)
         {
-            return new SaveMultiAttack(multiattack.AnyAttack ? -1 : multiattack.AttackIndex, multiattack.AttackNumber);
+            return multiattack == null ? null : new SaveMultiAttack(multiattack.AnyAttack ? -1 : multiattack.AttackIndex, multiattack.AttackNumber);
         }
 
         public static Action Convert(SaveAction saveAction) => saveAction.ActionType switch
@@ -79,14 +81,26 @@ namespace SummonsTracker.Save
 
         public static Attack.Damage Convert(SaveDamage damage)
         {
-            return new Attack.Damage(new Dice(damage.Number, damage.Faces, damage.Modifiers), damage.DamageType);
+            return damage == null 
+                ? null 
+                : new Attack.Damage(new Dice(damage.Number, damage.Faces, damage.Modifiers), damage.DamageType);
         }
 
         public static SavingThrow Convert(SaveSavingThrow savingThrow)
         {
-            return savingThrow.IsGrapple
-                ? new SavingThrow("", true, savingThrow.DC, ConvertFailure(savingThrow.FailureSavingThrowOutcome), ConvertSuccess(savingThrow.SuccessSavingThrowOutcome))
-                : new SavingThrow("", savingThrow.SavingThrow, savingThrow.DC, ConvertFailure(savingThrow.FailureSavingThrowOutcome), ConvertSuccess(savingThrow.SuccessSavingThrowOutcome));
+            return savingThrow == null
+                ? null
+                : savingThrow.IsGrapple
+                    ? new SavingThrow("",
+                                      true,
+                                      savingThrow.DC,
+                                      ConvertFailure(savingThrow.FailureSavingThrowOutcome),
+                                      ConvertSuccess(savingThrow.SuccessSavingThrowOutcome))
+                    : new SavingThrow("",
+                                      savingThrow.SavingThrow,
+                                      savingThrow.DC,
+                                      ConvertFailure(savingThrow.FailureSavingThrowOutcome),
+                                      ConvertSuccess(savingThrow.SuccessSavingThrowOutcome));
         }
 
         public static FailSaveOutcome ConvertFailure(SaveThrowOutcome outcome)

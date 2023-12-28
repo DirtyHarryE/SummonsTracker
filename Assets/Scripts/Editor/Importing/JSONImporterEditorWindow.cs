@@ -237,7 +237,7 @@ namespace SummonsTracker.Importer
 
             if (bOpenInd != -1 && bCloseInd != -1)
             {
-                monsterName = $"{monsterName.Substring(0, bOpenInd)}{monsterName.Substring(bCloseInd)}";
+                monsterName = $"{monsterName.Substring(0, bOpenInd)}{monsterName.Substring(bCloseInd + 1)}";
             }
 
 
@@ -494,7 +494,7 @@ namespace SummonsTracker.Importer
                         StatType.Charisma => charisma,
                         _ => 2,
                     };
-                    list.Add(mod - CharacterData.GetMod(orig));
+                    list.Add(mod - CharacterHelper.GetMod(orig));
                 }
             }
             savingThrowSerializedProperty.intValue = curVal;
@@ -756,7 +756,7 @@ namespace SummonsTracker.Importer
             var body = string.Join("\n", text.Trim().Split(new[] { "<p>", "</p>" }, StringSplitOptions.RemoveEmptyEntries));
             if (removeHTMLTags)
             {
-                body = Regex.Replace(body.Trim(), "<.*?>", string.Empty); ;
+                body = Regex.Replace(body.Trim(), "<.*?>", string.Empty);
             }
             return body;
         }

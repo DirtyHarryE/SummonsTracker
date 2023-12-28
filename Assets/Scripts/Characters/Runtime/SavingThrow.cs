@@ -45,48 +45,7 @@ namespace SummonsTracker.Characters
         SuccessSaveOutcome ISavingThrow.SuccessSavingThrowOutcome => SuccessSavingThrowOutcome;
         bool ISavingThrow.IsGrapple => IsGrapple;
 
-        public override string ToString()
-        {
-            var builder = new StringBuilder();
-            builder.Append("DC ").Append(DC).Append(" ").Append(SavingThrowType).Append(" Saving Throw.");
-
-            if (FailSavingThrowOutcome.FailSaveType != FailSavingThrowOutcomes.Nothing)
-            {
-                builder.Append(" The target");
-                if (FailSavingThrowOutcome.Damage != Dice.None)
-                {
-                    builder.Append(" takes ").Append(FailSavingThrowOutcome.Damage).Append(" ").Append(FailSavingThrowOutcome.DamageType);
-                    if (FailSavingThrowOutcome.FailSaveType == FailSavingThrowOutcomes.DamageAndCondition)
-                    {
-                        builder.Append(" and ");
-                    }
-                }
-                if (FailSavingThrowOutcome.Condition != ConditionTypes.none)
-                {
-                    builder.Append(" becomes ").Append(FailSavingThrowOutcome.Condition);
-                }
-                builder.Append(" on a failed save");
-
-                if (SuccessSavingThrowOutcome.SuccessSaveType != SuccessSavingThrowOutcomes.Nothing)
-                {
-                    builder.Append(", or ");
-
-                    if ((FailSavingThrowOutcome.FailSaveType == FailSavingThrowOutcomes.Damage ||
-                         FailSavingThrowOutcome.FailSaveType == FailSavingThrowOutcomes.DamageAndCondition) &&
-                         SuccessSavingThrowOutcome.SuccessSaveType == SuccessSavingThrowOutcomes.Half)
-                    {
-                        builder.Append(" or half as much damage ");
-                    }
-                    builder.Append("on a successful one.");
-                }
-                builder.Append(".");
-            }
-            if (!string.IsNullOrEmpty(FailSavingThrowOutcome.OutcomeNote))
-            {
-                builder.Append(" ").Append(FailSavingThrowOutcome.OutcomeNote);
-            }
-            return builder.ToString();
-        }
+        public override string ToString() => SavingThrowHelper.SavingThrowToString(this);
 
         public static SavingThrow Copy(SavingThrow savingThrow, int newDC)
         {

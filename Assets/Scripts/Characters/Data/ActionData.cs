@@ -15,5 +15,10 @@ namespace SummonsTracker.Characters
         {
             return new Action(this);
         }
+
+        public override string ToString()
+        {
+            return $"{name}: {_note}";
+        }
     }
 }

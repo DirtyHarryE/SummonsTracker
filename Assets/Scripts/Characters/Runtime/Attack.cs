@@ -1,6 +1,7 @@
 using SummonsTracker.Rolling;
 using SummonsTracker.Text;
 using System.Linq;
+using System.Text;
 
 namespace SummonsTracker.Characters
 {
@@ -62,13 +63,29 @@ namespace SummonsTracker.Characters
 
         public override string ToString()
         {
-            var atk = $"<b>{Name}</b>. <i>{TextUtils.DeCamelCase(AttackType.ToString())}:</i> {TextUtils.AddPlus(AttackMod)} to hit, {Target}. <i>Hit:</i> {string.Join(", ", Damages.Select(d => d.ToString()))}.";
+            var b = new StringBuilder();
+
+            b.Append("<b>").Append(Name).Append("</b>. ");
+            b.Append("<i>").Append(TextUtils.DeCamelCase(AttackType.ToString())).Append(":</i> ");
+            b.Append(TextUtils.AddPlus(AttackMod)).Append(" to hit, ").Append(Target).Append(". ");
+            b.Append("<i>Hit:</i> ").Append(string.Join(", ", Damages.Select(d => d.ToString())));
+            b.Append(". ");
             if (SavingThrow != null)
             {
-                atk = $"{atk} {SavingThrow}";
+                var savingThrowStr = SavingThrowHelper.SavingThrowToString(SavingThrow).Trim();
+                b.Append(savingThrowStr);
+                if (!savingThrowStr.EndsWith("."))
+                {
+                    b.Append(". ");
+                }
             }
-            atk = $"{atk} {Note}";
-            return atk;
+            var note = Note.Trim();
+            b.Append(note);
+            if (!note.EndsWith("."))
+            {
+                b.Append(".");
+            }
+            return b.ToString().Trim();
         }
     }
 }

@@ -16,7 +16,6 @@ public class EditorCoroutine
         var seconds = -1f;
         var dateTime = DateTime.Now;
         IEnumerator r = null;
-        int counter = 0;
 
 
         EditorApplication.update += Update;

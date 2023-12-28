@@ -1,6 +1,4 @@
 using SummonsTracker.Spell;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -26,7 +24,6 @@ namespace SummonsTracker.UI
                 var instGO = GameObject.Instantiate(_spellEntryPrefab, _parent);
                 var entry = instGO.GetComponent<SpellEntry>();
                 entry.Initialise(_spells[i], this, i);
-                instGO.transform.SetSiblingIndex(_parent.childCount - 2);
             }
         }
 

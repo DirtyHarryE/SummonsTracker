@@ -48,7 +48,6 @@ namespace SummonsTracker.Characters
 
         public Character(SaveCharacter saveCharacter, ICharacterData characterData)
         {
-            Debug.Log(saveCharacter);
             CharacterData = characterData;
 
             Name = saveCharacter.Name;
@@ -184,6 +183,7 @@ namespace SummonsTracker.Characters
         {
             Hitpoints = Mathf.Min(Hitpoints + healAmount, MaxHP);
         }
+
         public void AddTemporaryHitPoints(int temporaryHitpoints)
         {
             TemporaryHitPoints = Mathf.Max(temporaryHitpoints, TemporaryHitPoints);

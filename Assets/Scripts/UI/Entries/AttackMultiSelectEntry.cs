@@ -19,9 +19,10 @@ namespace SummonsTracker.UI
                 AttackNumber = attackNumber;
             }
         }
-        public override void Initialise(Character character, string title)
+
+        public override void Initialise(Character character, string title, OnNewTargetMadeDelegate onNewTargetMade)
         {
-            base.Initialise(character, title);
+            base.Initialise(character, title, onNewTargetMade);
             var buttonIndex = 0;
 
             for (int i = 0; i < character.Actions.Length; i++)
@@ -71,11 +72,6 @@ namespace SummonsTracker.UI
             return button;
         }
 
-        public override object GetValue()
-        {
-            return _multiAttackButtons.OfType<IMultiattack>().ToArray();
-        }
-
         public override void SetValue(object obj, bool update = true)
         {
             if (update)
@@ -110,6 +106,9 @@ namespace SummonsTracker.UI
                 }
             }
         }
+
+        #region Private
+
         private void ProcessMultiAttackButton(SelectMultiAttackButton button, int number)
         {
             foreach (var mButton in _multiAttackButtons)
@@ -221,5 +220,7 @@ namespace SummonsTracker.UI
 
         private List<SelectMultiAttackButton> _multiAttackButtons = new List<SelectMultiAttackButton>();
         private List<Multiattack> _multiattacks = new List<Multiattack>();
+
+        #endregion
     }
 }

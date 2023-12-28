@@ -1,4 +1,5 @@
 using SummonsTracker.Characters;
+using SummonsTracker.Rolling;
 using SummonsTracker.Save;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,18 @@ namespace SummonsTracker.UI
 {
     public abstract class AttackEntry : MonoBehaviour
     {
+        public delegate void OnNewTargetMadeDelegate(System.Action<string, bool> onTargetMade);
+
         public Character Character => _character;
         public System.Action<object> OnValueChanged;
         public System.Action<int> OnTargetChanged;
-        public System.Action<Rolling.AdvantageType> OnAdvantageChanged;
-
-        public abstract object GetValue();
+        public System.Action<AdvantageType> OnAdvantageChanged;
 
         public abstract void SetValue(object obj, bool update = true);
 
         public abstract IEnumerable<Action> GetActions();
 
-        public virtual void Initialise(Character character, string title)
+        public virtual void Initialise(Character character, string title, OnNewTargetMadeDelegate onNewTargetMade)
         {
             _character = character;
             _title.text = title;
@@ -30,8 +31,12 @@ namespace SummonsTracker.UI
             _targetsDropdown.onValueChanged.AddListener(OnTargetDropdownChanged);
             PopulateTargetsDropdown();
 
-            _targetsDropdown.onValueChanged.AddListener(OnAdvantageDropdownChanged);
+            _rollTypeDropdown.onValueChanged.AddListener(OnAdvantageDropdownChanged);
+            PopulateRollTypeDropdown();
+
+            _onNewTarget = onNewTargetMade;
         }
+
         public void ShowExpandButton(bool enabled)
         {
             _expandCollapseButton.gameObject.SetActive(enabled);
@@ -42,25 +47,7 @@ namespace SummonsTracker.UI
             _expandCollapseButton.onClick.AddListener(onExpand);
         }
 
-        public Rolling.AdvantageType GetAdvantage()
-        {
-            var text = _rollTypeDropdown.options[_rollTypeDropdown.value].text.Trim().ToLower();
-            if (text.Contains("disadvantage") || text.Contains("dis"))
-            {
-                return Rolling.AdvantageType.Disadvantage;
-            }
-            if (text.Contains("advantage") || text.Contains("adv"))
-            {
-                return Rolling.AdvantageType.Advantage;
-            }
-            return _rollTypeDropdown.value switch
-            {
-                0 => Rolling.AdvantageType.Advantage,
-                1 => Rolling.AdvantageType.None,
-                2 => Rolling.AdvantageType.Disadvantage,
-                _ => Rolling.AdvantageType.None
-            };
-        }
+        public AdvantageType GetAdvantage() => InternalGetAdvantage(_targetsDropdown.value);
 
         public SaveTarget GetTarget()
         {
@@ -80,67 +67,18 @@ namespace SummonsTracker.UI
             return null;
         }
 
-        public void SetAdvantage(Rolling.AdvantageType advantageType)
+        public void SetAdvantage(AdvantageType advantageType)
         {
-            for (int i = 0; i < _rollTypeDropdown.options.Count; i++)
+            var names = System.Enum.GetNames(typeof(AdvantageType));
+            for (int i = 0; i < names.Length; i++)
             {
-                var text = _rollTypeDropdown.options[i].text.Trim().ToLower();
-                switch (advantageType)
+                if (names[i] == advantageType.ToString())
                 {
-                    case Rolling.AdvantageType.Advantage:
-                    {
-
-                        if (text.Contains("advantage") || text.Contains("adv"))
-                        {
-                            _rollTypeDropdown.SetValueWithoutNotify(i);
-                            return;
-                        }
-                        break;
-                    }
-                    case Rolling.AdvantageType.None:
-                    {
-                        if (text.Contains("straight") || text.Contains("none"))
-                        {
-                            _rollTypeDropdown.SetValueWithoutNotify(i);
-                            return;
-                        }
-                        return;
-                    }
-                    case Rolling.AdvantageType.Disadvantage:
-                    {
-                        if (text.Contains("disadvantage") || text.Contains("dis"))
-                        {
-                            _rollTypeDropdown.SetValueWithoutNotify(i);
-                            return;
-                        }
-                        break;
-                    }
-                }
-            }
-
-            switch (advantageType)
-            {
-                case Rolling.AdvantageType.Advantage:
-                {
-                    _rollTypeDropdown.SetValueWithoutNotify(0);
-                    return;
-                }
-                case Rolling.AdvantageType.None:
-                {
-                    _rollTypeDropdown.SetValueWithoutNotify(1);
-                    return;
-                }
-                case Rolling.AdvantageType.Disadvantage:
-                {
-                    _rollTypeDropdown.SetValueWithoutNotify(2);
-                    return;
-                }
-                default:
-                {
-                    _rollTypeDropdown.SetValueWithoutNotify(1);
+                    _rollTypeDropdown.SetValueWithoutNotify(i);
                     return;
                 }
             }
+            _rollTypeDropdown.SetValueWithoutNotify((int)advantageType);
         }
 
         public void ChangeTarget(int target)
@@ -150,11 +88,50 @@ namespace SummonsTracker.UI
 
         public void EnableBackground(bool enabled) => _background.enabled = enabled;
 
+        #region Unity Messages
+
+        private void Awake()
+        {
+            _repopulateTargets += OnRepopulateTargets;
+        }
+
+        private void OnDestroy()
+        {
+            _repopulateTargets -= OnRepopulateTargets;
+        }
+
+        #endregion
+
+        #region Private
+
+        private static event System.Action<AttackEntry> _repopulateTargets;
+
         private void PopulateTargetsDropdown()
         {
             _targetsDropdown.ClearOptions();
             _targetsDropdown.AddOptions(GetOptions().ToList());
 
+        }
+
+        private void PopulateRollTypeDropdown()
+        {
+            _rollTypeDropdown.ClearOptions();
+            var list = new List<TMP_Dropdown.OptionData>();
+            foreach (var adv in System.Enum.GetNames(typeof(Rolling.AdvantageType)))
+            {
+                list.Add(new TMP_Dropdown.OptionData(adv));
+            }
+            _rollTypeDropdown.AddOptions(list);
+            SetAdvantage(AdvantageType.None);
+        }
+
+        private AdvantageType InternalGetAdvantage(int index)
+        {
+            if (System.Enum.TryParse<AdvantageType>(_targetsDropdown.options[index].text, out var adv))
+            {
+                return adv;
+            }
+            return AdvantageType.None;
         }
 
         private IEnumerable<string> GetOptions()
@@ -182,11 +159,7 @@ namespace SummonsTracker.UI
                 {
                     if (SaveManager.Instance.CurrentProfile.SavedTargets != null)
                     {
-                        var list = new List<SaveTarget>(SaveManager.Instance.CurrentProfile.SavedTargets)
-                        {
-                            "New Target"
-                        };
-                        SaveManager.Instance.CurrentProfile.SavedTargets = list.ToArray();
+                        _onNewTarget?.Invoke(OnNewTargetMade);
                     }
                     else
                     {
@@ -205,54 +178,43 @@ namespace SummonsTracker.UI
             }
         }
 
+        private void OnNewTargetMade(string newName, bool added)
+        {
+            if (added)
+            {
+                var list = new List<SaveTarget>(SaveManager.Instance.CurrentProfile.SavedTargets)
+                {
+                    newName
+                };
+                SaveManager.Instance.CurrentProfile.SavedTargets = list.ToArray();
+
+                SaveManager.Instance.Save();
+                PopulateTargetsDropdown();
+                var t = _targetsDropdown.options.Count - 2;
+                _targetsDropdown.SetValueWithoutNotify(t);
+                OnTargetChanged?.Invoke(t);
+
+                _repopulateTargets?.Invoke(this);
+            }
+        }
+
         private void OnAdvantageDropdownChanged(int advantageIndex)
         {
-            var text = _rollTypeDropdown.options[advantageIndex].text.Trim().ToLower();
-            if (text.Contains("disadvantage") || text.Contains("dis"))
-            {
-                InternalSetAdvantage(Rolling.AdvantageType.Disadvantage);
-                return;
-            }
-            if (text.Contains("advantage") || text.Contains("adv"))
-            {
-                InternalSetAdvantage(Rolling.AdvantageType.Advantage);
-                return;
-            }
-            switch (advantageIndex)
-            {
-                case 0:
-                {
-                    InternalSetAdvantage(Rolling.AdvantageType.Advantage);
-                    return;
-                }
-                case 1:
-                {
-                    InternalSetAdvantage(Rolling.AdvantageType.None);
-                    return;
-                }
-                case 2:
-                {
-                    InternalSetAdvantage(Rolling.AdvantageType.Disadvantage);
-                    return;
-                }
-                default:
-                {
-                    InternalSetAdvantage(Rolling.AdvantageType.None);
-                    return;
-                }
-            }
+            var adv = GetAdvantage();
+            OnAdvantageChanged?.Invoke(adv);
         }
 
-        private void InternalSetAdvantage(Rolling.AdvantageType advantageType)
+        private void OnRepopulateTargets(AttackEntry caller)
         {
-            OnAdvantageChanged?.Invoke(advantageType);
+            if (this != caller)
+            {
+                var index = _targetsDropdown.value;
+                PopulateTargetsDropdown();
+                _targetsDropdown.SetValueWithoutNotify(index);
+            }
         }
 
-        private void AdvantageButton(ToggleableButton button, bool selected) => SetAdvantage(Rolling.AdvantageType.Advantage);
-
-        private void StraightRollButton(ToggleableButton button, bool selected) => SetAdvantage(Rolling.AdvantageType.None);
-
-        private void DisadvantageButton(ToggleableButton button, bool selected) => SetAdvantage(Rolling.AdvantageType.Disadvantage);
+        private OnNewTargetMadeDelegate _onNewTarget;
 
         private Character _character;
 
@@ -268,5 +230,6 @@ namespace SummonsTracker.UI
         [Space]
         [SerializeField]
         private TMP_Dropdown _rollTypeDropdown;
+        #endregion
     }
 }

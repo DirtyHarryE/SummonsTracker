@@ -196,12 +196,9 @@ namespace SummonsTracker.Characters
                 drawer = CreateDrawer(index, () => new ActionDataDrawer(actionData));
                 return true;
             }
-            else
-            {
-                drawer = null;
-                return false;
-            }
-            return true;
+
+            drawer = null;
+            return false;
         }
 
         private ActionDrawer CreateDrawer(int index, Func<ActionDrawer> func)

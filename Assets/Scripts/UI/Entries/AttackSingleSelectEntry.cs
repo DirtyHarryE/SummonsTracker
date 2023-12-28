@@ -11,9 +11,9 @@ namespace SummonsTracker.UI
 {
     public class AttackSingleSelectEntry : AttackEntry
     {
-        public override void Initialise(Character character, string title)
+        public override void Initialise(Character character, string title, OnNewTargetMadeDelegate onNewTargetMade)
         {
-            base.Initialise(character, title);
+            base.Initialise(character, title, onNewTargetMade);
             var buttonIndex = 0;
 
             for (int i = 0; i < character.Actions.Length; i++)
@@ -35,18 +35,6 @@ namespace SummonsTracker.UI
             button.Initialise(ProcessSingleAttackButton, text, attackIndex, buttonIndex);
 
             return button;
-        }
-
-        public override object GetValue()
-        {
-            foreach (var b in _singleAttackButtons)
-            {
-                if (b.Selected)
-                {
-                    return b.AttackIndex;
-                }
-            }
-            return -1;
         }
 
         public override void SetValue(object obj, bool update = true)
@@ -77,6 +65,7 @@ namespace SummonsTracker.UI
             }
         }
 
+        #region Private
 
         private void ProcessSingleAttackButton(SelectSingleAttackButton button)
         {
@@ -102,5 +91,7 @@ namespace SummonsTracker.UI
         private RectTransform _row;
 
         private List<SelectSingleAttackButton> _singleAttackButtons = new List<SelectSingleAttackButton>();
+
+        #endregion
     }
 }

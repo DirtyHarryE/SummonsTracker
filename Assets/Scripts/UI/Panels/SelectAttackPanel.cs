@@ -147,7 +147,11 @@ namespace SummonsTracker.UI
             }
 
             entry.name = title;
-            entry.Initialise(character, title);
+            entry.Initialise(character, title, onNewTarget =>
+            {
+                _createTargetPanel.Init(onNewTarget);
+                _createTargetPanel.Open();
+            });
             return entry;
         }
 
@@ -165,5 +169,8 @@ namespace SummonsTracker.UI
         private GameObject _preAttackTextPrefab;
         [SerializeField]
         private Transform _content;
+        [Space]
+        [SerializeField]
+        private CreateTargetPanel _createTargetPanel;
     }
 }

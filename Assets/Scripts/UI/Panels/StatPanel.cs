@@ -1,4 +1,7 @@
 using SummonsTracker.Save;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 namespace SummonsTracker.UI
@@ -19,6 +22,16 @@ namespace SummonsTracker.UI
             _intelligence.Score = SaveManager.Instance.CurrentProfile.Intelligence;
             _wisdom.Score = SaveManager.Instance.CurrentProfile.Wisdom;
             _charisma.Score = SaveManager.Instance.CurrentProfile.Charisma;
+
+            for (int i = 0; i < SaveManager.Instance.CurrentProfile.SavedTargets.Length; i++)
+            {
+                SaveTarget target = SaveManager.Instance.CurrentProfile.SavedTargets[i];
+                var instGO = GameObject.Instantiate(_tagetPrefab, _targetHeader.parent);
+                instGO.transform.SetSiblingIndex(_targetHeader.GetSiblingIndex() + i + 1);
+                var entry = instGO.GetComponent<SaveTargetEntry>();
+                entry.Initialise(target);
+                _targetEntries.Add(entry);
+            }
 
             base.Open();
         }
@@ -43,6 +56,8 @@ namespace SummonsTracker.UI
             SaveManager.Instance.CurrentProfile.Wisdom = _wisdom.Score;
             SaveManager.Instance.CurrentProfile.Charisma = _charisma.Score;
 
+            SaveManager.Instance.CurrentProfile.SavedTargets =_targetEntries.Where(t => t.TargetEnabled).Select(t => t.Target).ToArray();
+
             SaveManager.Instance.Save();
         }
 
@@ -55,6 +70,19 @@ namespace SummonsTracker.UI
             _hasChanged = false;
             Close();
         }
+
+        protected override void OnClose()
+        {
+            for (int i = 0; i < _targetEntries.Count; i++)
+            {
+                Object.Destroy(_targetEntries[i].gameObject);
+            }
+            _targetEntries.Clear();
+            base.OnClose();
+        }
+
+        private List<SaveTargetEntry> _targetEntries = new List<SaveTargetEntry>();
+        private bool _hasChanged;
 
         [Header("Stats")]
         [SerializeField]
@@ -81,7 +109,12 @@ namespace SummonsTracker.UI
         private StatBox _wisdom;
         [SerializeField]
         private StatBox _charisma;
+        [Space]
+        [SerializeField]
+        private Transform _targetHeader;
 
-        private bool _hasChanged;
+        [Header("Prefabs")]
+        [SerializeField]
+        private GameObject _tagetPrefab;
     }
 }

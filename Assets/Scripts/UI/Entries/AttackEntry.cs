@@ -209,8 +209,22 @@ namespace SummonsTracker.UI
             if (this != caller)
             {
                 var index = _targetsDropdown.value;
+                var text = _targetsDropdown.options[index].text;
                 PopulateTargetsDropdown();
-                _targetsDropdown.SetValueWithoutNotify(index);
+                var found = false;
+                for (int i = 0; i < _rollTypeDropdown.options.Count; i++)
+                {
+                    if (_rollTypeDropdown.options[i].text == text)
+                    {
+                        _rollTypeDropdown.SetValueWithoutNotify(i);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    _targetsDropdown.SetValueWithoutNotify(index);
+                }
             }
         }
 

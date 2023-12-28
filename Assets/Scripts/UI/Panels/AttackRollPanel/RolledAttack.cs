@@ -1,5 +1,7 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Rolling;
+using SummonsTracker.Save;
+using UnityEngine;
 
 namespace SummonsTracker.UI
 {
@@ -11,6 +13,7 @@ namespace SummonsTracker.UI
 
         public int D20Roll;
         public AdvantageType Advantage;
+        public SaveTarget SaveTarget;
         public Attack Attack;
         public Character Character;
 
@@ -18,11 +21,12 @@ namespace SummonsTracker.UI
 
         public int AttackIndex;
 
-        public RolledAttack(int d20Roll, AdvantageType advantage, Attack attack, Character character, int[] damageRollResults, int attackIndex)
+        public RolledAttack(int d20Roll, AdvantageType advantage, SaveTarget saveTarget, Attack attack, Character character, int[] damageRollResults, int attackIndex)
         {
             AttackInstanceGUID = System.Guid.NewGuid().ToString();
             D20Roll = d20Roll;
             Advantage = advantage;
+            SaveTarget = saveTarget;
             Attack = attack;
             Character = character;
             DamageRollResults = damageRollResults;

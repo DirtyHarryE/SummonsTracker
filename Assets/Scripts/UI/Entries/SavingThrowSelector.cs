@@ -1,4 +1,5 @@
 using SummonsTracker.Characters;
+using SummonsTracker.Save;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,13 +19,16 @@ namespace SummonsTracker.UI
 
         public ISavingThrow SavingThrow { get; private set; }
 
-        public void Initialise(string guid, ISavingThrow savingThrow, OnSavingThrowSelectedDelegate onClick)
+        public SaveTarget[] Targets { get; private set; }
+
+        public void Initialise(string guid, ISavingThrow savingThrow, SaveTarget[] targets, OnSavingThrowSelectedDelegate onClick)
         {
             AttackInstanceGUID = guid;
             SavingThrow = savingThrow;
             _dc = savingThrow.DC;
             _onClick = onClick;
             _text.text = savingThrow.DC.ToString();
+            Targets = targets;
         }
 
         public void OnClick()

@@ -60,13 +60,13 @@ namespace SummonsTracker.UI
                 {
                     firstEntry.OnValueChanged = v => subEntries.ForEach(e => e.SetValue(v));
                     firstEntry.OnAdvantageChanged = a => subEntries.ForEach(e => e.SetAdvantage(a));
+                    firstEntry.OnTargetChanged = t => subEntries.ForEach(e => e.ChangeTarget(t));
                     _subEntries.Add(firstEntry, subEntries.ToArray());
                 }
                 GameObject.Instantiate(_linePrefab, _content);
             }
             this.Open();
             UpdateBackgrounds();
-            //StartCoroutine(DoUpdateAfterPause());
         }
 
         public void DoAttack()
@@ -92,7 +92,7 @@ namespace SummonsTracker.UI
         {
             foreach (var a in entry.GetActions())
             {
-                yield return new CharacterActionInfo.CharacterAttackInfo(entry.GetAdvantage(), a);
+                yield return new CharacterActionInfo.CharacterAttackInfo(entry.GetTarget(), entry.GetAdvantage(), a);
             }
         }
 

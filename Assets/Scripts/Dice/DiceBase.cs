@@ -29,6 +29,17 @@ namespace SummonsTracker.Rolling
         }
         public static bool operator ==(DiceBase dice1, DiceBase dice2)
         {
+            var d1null = dice1 is null;
+            var d2null = dice2 is null;
+            if (d1null && d2null)
+            {
+                return true;
+            }
+            if (d1null != d2null)
+            {
+                return false;
+            }
+
             return dice1.IsActive == dice2.IsActive
                 && dice1.Faces == dice2.Faces
                 && dice1.Number == dice2.Number

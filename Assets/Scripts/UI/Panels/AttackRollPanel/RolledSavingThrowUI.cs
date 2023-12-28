@@ -1,4 +1,5 @@
 using SummonsTracker.Characters;
+using SummonsTracker.Save;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,15 +17,15 @@ namespace SummonsTracker.UI
             _getStatParent = getStatParent;
         }
 
-        public SavingThrowSelector OnInitialiseSavingThrow(ISavingThrow savingThrow, string name, Character character, int actionIndex, string note)
+        public SavingThrowSelector OnInitialiseSavingThrow(ISavingThrow savingThrow, string name, SaveTarget target, Character character, int actionIndex, string note)
         {
             if (savingThrow.SavingThrow == StatType.none && !savingThrow.IsGrapple)
             {
                 return null;
             }
             var guid = System.Guid.NewGuid().ToString();
-            var selector = CreateSavingThrowSelector(guid, savingThrow);
-            var readout = CreateSavingThrowReadout(savingThrow, name, note, actionIndex);
+            var selector = CreateSavingThrowSelector(guid, savingThrow, target);
+            var readout = CreateSavingThrowReadout(savingThrow, name, note, actionIndex, target);
             _savingThrowReadouts.Add(guid, readout);
             _savingThrowSelectors.Add(guid, selector);
 
@@ -44,19 +45,19 @@ namespace SummonsTracker.UI
                 succResult = Mathf.FloorToInt(failResult * 0.5f);
             }
 
-            var rolledSavingThrow = new RolledSavingThrow(guid, savingThrow, character, failResult, succResult, actionIndex);
+            var rolledSavingThrow = new RolledSavingThrow(guid, savingThrow, character, failResult, succResult, actionIndex, target);
             _rolledSavingThrows.Add(guid, rolledSavingThrow);
 
             UpdateSavingThrowReadout(rolledSavingThrow, selector, readout);
             return selector;
         }
 
-        public bool OnInitialiseAttackSavingThrow(Attack attack, string instanceID, Character character, int actionIndex)
+        public bool OnInitialiseAttackSavingThrow(Attack attack, string instanceID, Character character, int actionIndex, SaveTarget target)
         {
             var savingThrow = attack.SavingThrow;
             if (!_savingThrowReadouts.ContainsKey(instanceID))
             {
-                var selector = OnInitialiseSavingThrow(savingThrow, attack.Name, character, actionIndex, attack.Note);
+                var selector = OnInitialiseSavingThrow(savingThrow, attack.Name, target, character, actionIndex, attack.Note);
                 //var selector = CreateSavingThrowSelector(rolledAttack.AttackInstanceGUID, savingThrow);
                 if (selector != null)
                 {
@@ -154,12 +155,16 @@ namespace SummonsTracker.UI
             savingThrowReadout.SetDamageAndCondition(amount, damageType, condition, note);
         }
 
-        public bool UpdateUI(Action<DamageTypes, int> addDamage, Action<ConditionAndOutcome> addCondition)
+        public bool UpdateUI(Action<DamageTypes, int> addDamage, Action<ConditionAndOutcome> addCondition, SaveTarget currentTarget)
         {
             var someDamage = false;
             foreach (var pair in _rolledSavingThrows)
             {
                 var rolledThrows = pair.Value;
+                if (rolledThrows.Target != currentTarget)
+                {
+                    continue;
+                }
                 var savingThrow = rolledThrows.SavingThrow;
                 var failOutcome = savingThrow.FailureSavingThrowOutcome;
                 var succOutcome = savingThrow.SuccessSavingThrowOutcome;
@@ -185,7 +190,10 @@ namespace SummonsTracker.UI
                             }
                             if (failOutcome.IsCondition)
                             {
-                                addCondition(new ConditionAndOutcome(failOutcome.Condition, failOutcome.OutcomeNote));
+                                foreach (var t in selector.Targets)
+                                {
+                                    addCondition(new ConditionAndOutcome(t, failOutcome.Condition, failOutcome.OutcomeNote));
+                                }
                                 someDamage = true;
                             }
                         }
@@ -203,7 +211,10 @@ namespace SummonsTracker.UI
                             }
                             if (succOutcome.IsCondition)
                             {
-                                addCondition(new ConditionAndOutcome(succOutcome.Condition, succOutcome.OutcomeNote));
+                                foreach (var t in selector.Targets)
+                                {
+                                    addCondition(new ConditionAndOutcome(t, succOutcome.Condition, succOutcome.OutcomeNote));
+                                }
                                 someDamage = true;
                             }
                         }
@@ -229,7 +240,7 @@ namespace SummonsTracker.UI
             return someDamage;
         }
 
-        public SavingThrowSelector CreateSavingThrowSelector(string attackGUID, ISavingThrow savingThrow)
+        public SavingThrowSelector CreateSavingThrowSelector(string attackGUID, ISavingThrow savingThrow, SaveTarget target)
         {
             var parent = _getStatParent(savingThrow.SavingThrow, savingThrow.IsGrapple);
             if (parent == null)
@@ -239,18 +250,19 @@ namespace SummonsTracker.UI
             parent.gameObject.SetActive(true);
             var instGO = GameObject.Instantiate(_selectorPrefab, parent);
             var selector = instGO.GetComponent<SavingThrowSelector>();
-            selector.Initialise(attackGUID, savingThrow, OnSelectSavingThrow);
+            selector.Initialise(attackGUID, savingThrow, new[] { target }, OnSelectSavingThrow);
             selector.CrossOut(false);
             return selector;
         }
 
-        public SavingThrowReadout CreateSavingThrowReadout(ISavingThrow savingThrow, string name, string note, int attackIndex)
+        public SavingThrowReadout CreateSavingThrowReadout(ISavingThrow savingThrow, string name, string note, int attackIndex, SaveTarget target)
         {
             var instGO = GameObject.Instantiate(_readoutPrefab, _readoutParent);
             var savingThrowReadout = instGO.GetComponent<SavingThrowReadout>();
             savingThrowReadout.Initialise(savingThrow, name, note);
             savingThrowReadout.AttackIndex = attackIndex;
             savingThrowReadout.IsReadoutActive = true;
+            savingThrowReadout.Target = target;
             return savingThrowReadout;
         }
 
@@ -309,11 +321,11 @@ namespace SummonsTracker.UI
                 var savingThrow = pair.Value;
                 if (savingThrow.SavingThrow.FailureSavingThrowOutcome.IsCondition)
                 {
-                    yield return new ConditionAndOutcome(savingThrow.SavingThrow.FailureSavingThrowOutcome.Condition, savingThrow.SavingThrow.FailureSavingThrowOutcome.OutcomeNote);
+                    yield return new ConditionAndOutcome(savingThrow.Target, savingThrow.SavingThrow.FailureSavingThrowOutcome.Condition, savingThrow.SavingThrow.FailureSavingThrowOutcome.OutcomeNote);
                 }
                 if (savingThrow.SavingThrow.SuccessSavingThrowOutcome.IsCondition)
                 {
-                    yield return new ConditionAndOutcome(savingThrow.SavingThrow.SuccessSavingThrowOutcome.Condition, savingThrow.SavingThrow.FailureSavingThrowOutcome.OutcomeNote);
+                    yield return new ConditionAndOutcome(savingThrow.Target, savingThrow.SavingThrow.SuccessSavingThrowOutcome.Condition, savingThrow.SavingThrow.FailureSavingThrowOutcome.OutcomeNote);
                 }
             }
         }
@@ -328,6 +340,7 @@ namespace SummonsTracker.UI
 
         public void Clear()
         {
+            _rolledSavingThrows.Clear();
             _savingThrowReadouts.Clear();
             _savingThrowSelectors.Clear();
         }

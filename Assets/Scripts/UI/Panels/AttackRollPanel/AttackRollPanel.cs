@@ -1,7 +1,10 @@
+using BoilerPlate;
 using SummonsTracker.Characters;
 using SummonsTracker.Rolling;
+using SummonsTracker.Save;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,6 +16,21 @@ namespace SummonsTracker.UI
 
         public void Initialise(IEnumerable<CharacterActionInfo> selectedAttacks)
         {
+            _targets = selectedAttacks.SelectMany(a => a.Actions).Select(a => a.Target).Distinct().ToArray();
+            _targetACs = new int[_targets.Length];
+            foreach (var target in SaveManager.Instance.CurrentProfile.SavedTargets)
+            {
+                for (int j = 0; j < _targets.Length; j++)
+                {
+                    if (target.GUID == _targets[j].GUID)
+                    {
+                        _targetACs[j] = target.ExpectedAC;
+                        break;
+                    }
+                }
+            }
+            
+            _currentTargetIndex = Mathf.Clamp(_currentTargetIndex, 0, _targets.Length - 1);
             if (_savingThrowUI == null)
             {
                 _savingThrowUI = new RolledSavingThrowUI(UpdateUI, _savingThrowReadoutPrefab, _savingThrowSelectorPrefab, _readoutParent, GetStatParent);
@@ -44,12 +62,12 @@ namespace SummonsTracker.UI
                             }
                             damageRollResults[i] = dmgRoll;
                         }
-                        var rolledAttack = new RolledAttack(atkRoll, advantage, attack, selectedAttack.Character, damageRollResults, actionIndex);
+                        var rolledAttack = new RolledAttack(atkRoll, advantage, characterAction.Target, attack, selectedAttack.Character, damageRollResults, actionIndex);
                         _rolledAttacks.Add(rolledAttack);
                         AttackReadout readout = null;
                         if (attack.SavingThrow != null)
                         {
-                            if (_savingThrowUI.OnInitialiseAttackSavingThrow(attack, rolledAttack.AttackInstanceGUID, rolledAttack.Character, actionIndex))
+                            if (_savingThrowUI.OnInitialiseAttackSavingThrow(attack, rolledAttack.AttackInstanceGUID, rolledAttack.Character, actionIndex, characterAction.Target))
                             {
                                 readout = CreateAttackReadout(rolledAttack, string.Empty);
                             }
@@ -65,7 +83,7 @@ namespace SummonsTracker.UI
                     }
                     else if (action is SavingThrowAction savingThrowAction)
                     {
-                        _savingThrowUI.OnInitialiseSavingThrow(savingThrowAction, savingThrowAction.Name, selectedAttack.Character, actionIndex, savingThrowAction.Note);
+                        _savingThrowUI.OnInitialiseSavingThrow(savingThrowAction, savingThrowAction.Name, characterAction.Target, selectedAttack.Character, actionIndex, savingThrowAction.Note);
                     }
                     else
                     {
@@ -76,24 +94,30 @@ namespace SummonsTracker.UI
             }
 
             var addedDict = new Dictionary<int, bool>();
-            foreach (var attack in _rolledAttacks.OrderBy(r => r.Result))
+
+            foreach (var groupedAttacks in _rolledAttacks.GroupBy(r => r.Result).OrderBy(g => g.Key))
             {
-                var result = attack.Result;
-                var r = Mathf.Abs(result);
-                if (attack.IsCrit)
+                var result = groupedAttacks.Key;
+                var targets = groupedAttacks.Select(a => a.SaveTarget).Distinct().ToArray();
+
+                foreach (var attack in groupedAttacks)
                 {
-                    r = -r;
+                    var r = Mathf.Abs(result);
+                    if (attack.IsCrit)
+                    {
+                        r = -r;
+                    }
+                    if (addedDict.ContainsKey(r))
+                    {
+                        continue;
+                    }
+                    var instGO = GameObject.Instantiate(_attackRollSelectorPrefab, _attackRollParent);
+                    var selector = instGO.GetComponent<AttackRollSelector>();
+                    selector.Initialise(attack.AttackInstanceGUID, result, attack.IsCrit, OnSelectRoll, targets);
+                    selector.CrossOut(false);
+                    _rollSelectors.Add(selector);
+                    addedDict.Add(r, attack.IsCrit);
                 }
-                if (addedDict.TryGetValue(r, out var crit))
-                {
-                    continue;
-                }
-                var instGO = GameObject.Instantiate(_attackRollSelectorPrefab, _attackRollParent);
-                var selector = instGO.GetComponent<AttackRollSelector>();
-                selector.Initialise(attack.AttackInstanceGUID, result, attack.IsCrit, OnSelectRoll);
-                selector.CrossOut(false);
-                _rollSelectors.Add(selector);
-                addedDict.Add(r, attack.IsCrit);
             }
             var damageTypes = _rolledAttacks.SelectMany(r => r.Attack.Damages)
                                             .Select(d => d.DamageType)
@@ -120,13 +144,43 @@ namespace SummonsTracker.UI
                 var instGO = GameObject.Instantiate(_conditionReadoutPrefab, _readoutParent);
                 instGO.transform.SetSiblingIndex(index++);
                 var readout = instGO.GetComponent<ConditionReadout>();
-                readout.Condition = conditionAndOutcome.Condition ;
+                readout.Condition = conditionAndOutcome.Condition;
                 readout.OutcomeNote = conditionAndOutcome.Outcome;
                 _conditionDict.Add(conditionAndOutcome, readout);
             }
             UpdateUI();
             base.Open();
         }
+
+        public void TargetLeftButton() => ChangeTarget(-1);
+
+        public void TargetRightButton() => ChangeTarget(1);
+
+        #region Protected
+
+        protected override void OnClose()
+        {
+            for (int i = 0; i < SaveManager.Instance.CurrentProfile.SavedTargets.Length; i++)
+            {
+                for (int j = 0; j < _targets.Length; j++)
+                {
+                    if (SaveManager.Instance.CurrentProfile.SavedTargets[i].GUID == _targets[j].GUID)
+                    {
+                        SaveManager.Instance.CurrentProfile.SavedTargets[i] = new SaveTarget()
+                        {
+                            GUID = _targets[j].GUID,
+                            TargetName = _targets[j].TargetName,
+                            ExpectedAC = _targetACs[j],
+                            Fixed = false
+                        };
+                        break;
+                    }
+                }
+            }
+            SaveManager.Instance.Save();
+        }
+
+        #endregion
 
         #region Private
 
@@ -149,9 +203,20 @@ namespace SummonsTracker.UI
 
         private void UpdateUI()
         {
+            var currentTarget = _targets[_currentTargetIndex];
+            _targetReadout.text = currentTarget.TargetName;
+
             foreach (var otherselector in _rollSelectors)
             {
-                otherselector.CrossOut(_targetAC > otherselector.Result);
+                if (otherselector.Targets.Contains(currentTarget))
+                {
+                    otherselector.gameObject.SetActive(true);
+                    otherselector.CrossOut(_targetACs[_currentTargetIndex] > otherselector.Result);
+                }
+                else
+                {
+                    otherselector.gameObject.SetActive(false);
+                }
             }
             foreach (var pair in _damageTypeDict)
             {
@@ -165,7 +230,11 @@ namespace SummonsTracker.UI
             var someDamage = false;
             foreach (var rolledAttack in _rolledAttacks)
             {
-                var attackHits = rolledAttack.Result >= _targetAC;
+                if (rolledAttack.SaveTarget != currentTarget)
+                {
+                    continue;
+                }
+                var attackHits = rolledAttack.Result >= _targetACs[_currentTargetIndex];
                 if (attackHits)
                 {
                     for (int i = 0; i < rolledAttack.Attack.Damages.Length; i++)
@@ -213,7 +282,7 @@ namespace SummonsTracker.UI
                     readout.gameObject.SetActive(true);
                     someDamage = true;
                 }
-            });
+            }, currentTarget);
 
             foreach (var damagePair in _damageTypeDict)
             {
@@ -226,17 +295,25 @@ namespace SummonsTracker.UI
             var someInactive = false;
             foreach (var readout in GetReadouts().OrderBy(r => r.AttackIndex))
             {
-                if (readout.IsReadoutActive)
+                if (readout.Target != currentTarget)
                 {
-                    readout.transform.SetSiblingIndex(_activeHeader.GetSiblingIndex() + 1 + (activeReadoutIndex++));
-                    readout.OnSetActive();
-                    someActive = true;
+                    readout.gameObject.SetActive(false);
                 }
                 else
                 {
-                    readout.transform.SetSiblingIndex(_inactiveHeader.GetSiblingIndex() + 1 + (inactiveReadoutIndex++));
-                    readout.OnSetInactive();
-                    someInactive = true;
+                    readout.gameObject.SetActive(true);
+                    if (readout.IsReadoutActive)
+                    {
+                        readout.transform.SetSiblingIndex(_activeHeader.GetSiblingIndex() + 1 + (activeReadoutIndex++));
+                        readout.OnSetActive();
+                        someActive = true;
+                    }
+                    else
+                    {
+                        readout.transform.SetSiblingIndex(_inactiveHeader.GetSiblingIndex() + 1 + (inactiveReadoutIndex++));
+                        readout.OnSetInactive();
+                        someInactive = true;
+                    }
                 }
             }
             _activeHeader.gameObject.SetActive(someActive);
@@ -250,19 +327,12 @@ namespace SummonsTracker.UI
             var instGO = GameObject.Instantiate(_attackReadoutPrefab, _readoutParent);
             instGO.transform.SetSiblingIndex(_activeHeader.GetSiblingIndex() + 1);
             var attackReadout = instGO.GetComponent<AttackReadout>();
-            attackReadout.Initialise(rolledAttack.Attack, rolledAttack.Advantage, rolledAttack.Result, rolledAttack.DamageRollResults, note);
+            attackReadout.Initialise(rolledAttack.Attack, rolledAttack.Advantage, rolledAttack.SaveTarget, rolledAttack.Result, rolledAttack.DamageRollResults, note);
             attackReadout.AttackIndex = rolledAttack.AttackIndex;
             return attackReadout;
         }
 
-        //private SavingThrowReadout CreateSavingThrowReadout(ISavingThrow savingThrow, string name, string note, int attackIndex)
-        //{
-        //    var readout = _savingThrowUI.CreateSavingThrowReadout(_savingThrowReadoutPrefab, _readoutParent, savingThrow, name, note, attackIndex);
-        //    readout.transform.SetSiblingIndex(_activeHeader.GetSiblingIndex() + 1);
-        //    return readout;
-        //}
-
-        private ActionReadout CreateActionReadout(Characters.Action action, int attackIndex)
+        private ActionReadout CreateActionReadout(Action action, int attackIndex)
         {
             var instGO = GameObject.Instantiate(_actionReadoutPrefab, _readoutParent);
             instGO.transform.SetSiblingIndex(_activeHeader.GetSiblingIndex() + 1);
@@ -275,13 +345,14 @@ namespace SummonsTracker.UI
 
         private void OnSelectRoll(AttackRollSelector selector)
         {
+            var currentTarget = _targets[_currentTargetIndex];
             if (selector.IsCrossedOut)
             {
-                _targetAC = selector.Result;
+                _targetACs[_currentTargetIndex] = selector.Result;
             }
             else
             {
-                _targetAC = selector.Result + 1;
+                _targetACs[_currentTargetIndex] = selector.Result + 1;
             }
             UpdateUI();
         }
@@ -325,7 +396,6 @@ namespace SummonsTracker.UI
             _charismaSavingThrows.gameObject.SetActive(false);
             _grappleSavingThrows.gameObject.SetActive(false);
 
-            _targetAC = 0;
             _rollSelectors.Clear();
             _rolledAttacks.Clear();
             _damageTypeDict.Clear();
@@ -345,9 +415,17 @@ namespace SummonsTracker.UI
             _ => null
         };
 
+        private void ChangeTarget(int increment)
+        {
+            _currentTargetIndex = Mathbp.Wrap(_currentTargetIndex + increment, _targets.Length);
+            UpdateUI();
+        }
+
         private RolledSavingThrowUI _savingThrowUI;
 
-        private int _targetAC;
+        private int _currentTargetIndex;
+        private SaveTarget[] _targets;
+        private int[] _targetACs;
         private List<AttackRollSelector> _rollSelectors = new List<AttackRollSelector>();
         private List<RolledAttack> _rolledAttacks = new List<RolledAttack>();
         private Dictionary<DamageTypes, DamageRollReadout> _damageTypeDict = new Dictionary<DamageTypes, DamageRollReadout>();
@@ -355,12 +433,15 @@ namespace SummonsTracker.UI
         private Dictionary<RolledAttack, AttackReadout> _attackReadoutDict = new Dictionary<RolledAttack, AttackReadout>();
         private Dictionary<Action, ActionReadout> _actionReadoutDict = new Dictionary<Action, ActionReadout>();
 
+        [Header("Info")]
+        [SerializeField]
+        private TextMeshProUGUI _targetReadout;
         [Header("Selectors")]
         [SerializeField]
         private RectTransform _attackRollParent;
-        [SerializeField,FormerlySerializedAs("_attackRollPrefab")]
+        [SerializeField, FormerlySerializedAs("_attackRollPrefab")]
         private GameObject _attackRollSelectorPrefab;
-        [SerializeField,FormerlySerializedAs("_savingThrowPrefab")]
+        [SerializeField, FormerlySerializedAs("_savingThrowPrefab")]
         private GameObject _savingThrowSelectorPrefab;
         [Header("Saving Throws")]
         [SerializeField]

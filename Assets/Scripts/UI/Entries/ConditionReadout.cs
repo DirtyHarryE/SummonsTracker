@@ -1,4 +1,5 @@
 using SummonsTracker.Characters;
+using SummonsTracker.Save;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace SummonsTracker.UI
 {
     public class ConditionReadout : MonoBehaviour
     {
+        public SaveTarget Target;
+
         public ConditionTypes Condition
         {
             get => _condition;

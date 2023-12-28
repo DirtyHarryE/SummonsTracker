@@ -1,3 +1,4 @@
+using SummonsTracker.Save;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,13 +14,16 @@ namespace SummonsTracker.UI
         public int Result => _result;
         public bool IsCrossedOut => _checkMark.activeInHierarchy;
 
-        public void Initialise(string attackInstanceGUID, int result, bool isCrit, OnAttackRollSelectedDelegate onClick)
+        public SaveTarget[] Targets { get; private set; }
+
+        public void Initialise(string attackInstanceGUID, int result, bool isCrit, OnAttackRollSelectedDelegate onClick, SaveTarget[] targets)
         {
             AttackInstanceGUID = attackInstanceGUID;
             _result = result;
             _isCrit = isCrit;
             _onClick = onClick;
             _text.text = isCrit ? $"{result}!" : result.ToString();
+            Targets = targets;
         }
 
         public void OnClick()

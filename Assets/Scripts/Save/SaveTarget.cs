@@ -66,7 +66,7 @@ namespace SummonsTracker.Save
             return hc;
         }
 
-        public override string ToString() => $"{TargetName}:{ExpectedAC}:{Fixed}";
+        public override string ToString() => Fixed ? TargetName : $"{TargetName}({ExpectedAC})";
 
         public static bool operator ==(SaveTarget a, SaveTarget b) => a.GUID == b.GUID;
         

@@ -1,4 +1,5 @@
 ﻿using SummonsTracker.Characters;
+using SummonsTracker.Save;
 
 namespace SummonsTracker.UI
 {
@@ -14,7 +15,9 @@ namespace SummonsTracker.UI
 
         public int AttackIndex;
 
-        public RolledSavingThrow(string guid, ISavingThrow savingThrow, Character character, int failDamageResult, int successDamageResult, int attackIndex)
+        public SaveTarget Target;
+
+        public RolledSavingThrow(string guid, ISavingThrow savingThrow, Character character, int failDamageResult, int successDamageResult, int attackIndex, SaveTarget target)
         {
             SavingThrowInstanceGUID = guid;
             SavingThrow = savingThrow;
@@ -22,6 +25,7 @@ namespace SummonsTracker.UI
             FailDamageResult = failDamageResult;
             SuccessDamageResult = successDamageResult;
             AttackIndex = attackIndex;
+            Target = target;
         }
     }
 }

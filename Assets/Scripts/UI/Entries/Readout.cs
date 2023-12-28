@@ -1,3 +1,4 @@
+using SummonsTracker.Save;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ namespace SummonsTracker.UI
 {
     public class Readout : MonoBehaviour
     {
+        public SaveTarget Target;
+
         public bool IsReadoutActive;
         public int AttackIndex;
         public TextMeshProUGUI TitleText => _titleText;

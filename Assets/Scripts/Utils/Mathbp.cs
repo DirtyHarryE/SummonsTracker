@@ -1,4 +1,4 @@
-namespace BoilerPlater
+namespace BoilerPlate
 {
     public static class Mathbp
     {

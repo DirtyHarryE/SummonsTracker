@@ -1,5 +1,6 @@
 using SummonsTracker.Characters;
 using SummonsTracker.Rolling;
+using SummonsTracker.Save;
 using SummonsTracker.Text;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace SummonsTracker.UI
     {
         public Attack Attack => _attack;
 
-        public void Initialise(Attack attack, AdvantageType advantage, int attackRoll, int[] damageRolls, string note)
+        public void Initialise(Attack attack, AdvantageType advantage, SaveTarget target, int attackRoll, int[] damageRolls, string note)
         {
             _attack = attack;
             for (int i = 0; i < attack.Damages.Length; i++)
@@ -30,6 +31,7 @@ namespace SummonsTracker.UI
             _attackRollText.text = attackRoll.ToString();
             _advantage.SetActive(advantage == AdvantageType.Advantage);
             _disadvantage.SetActive(advantage == AdvantageType.Disadvantage);
+            Target = target;
         }
         private Attack _attack;
 
